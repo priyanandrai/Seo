@@ -1,0 +1,1559 @@
+.maindiv {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #f7f7f7;
+  }
+  .Card {
+    width: 96%;
+  }
+  
+  .height {
+    width: 60% !important;
+  }
+  .togglebuttn {
+    float: right;
+    height: 1px;
+  }
+  #togglebuttn {
+    float: right;
+    height: 41px;
+    width: 49vh;
+    margin-right: -22vh;
+    border-radius: 26px;
+  }
+  
+  .fabheight {
+    height: 25px !important;
+    margin-right: 1% !important;
+  }
+  
+  .CardName {
+    padding-top: 2%;
+  }
+  .cardseeed11{
+    height: 60vh;
+  }
+  .account1212{
+    font-size: 13px;
+    margin-top: 8.5%;
+    font-weight: bold;
+  }
+  
+  .MuiFab-root {
+    box-shadow: none !important;
+  }
+  .flexview {
+    display: flex;
+    padding-bottom: 4%;
+  }
+  
+  .labelMargin {
+    margin-left: 1%;
+  }
+  
+  .leftbutton {
+    display: block;
+    float: right;
+  }
+  
+  .divclass {
+    width: 100%;
+  }
+  
+  .MuiFormControl-marginNormal {
+    width: 100%;
+  }
+  
+  .padding {
+    padding: 10px;
+    background-color: #f9f9f8;
+  }
+  
+  .headerQuest {
+    font-weight: 900;
+    padding: 6px;
+    text-align: center;
+    color: #18758d !important;
+    border-bottom: 1px solid #dddada;
+  }
+  
+  .MuiFormControl-root {
+    font-size: 12px;
+    border: 0;
+    margin: 0;
+    display: inline-flex;
+    padding-bottom: 3rem !important;
+    position: relative;
+    min-width: 0;
+    flex-direction: column;
+    vertical-align: top;
+    width: 100%;
+  }
+  .bdiv {
+    margin-top: 3rem !important;
+    display: flex;
+  }
+  .cp {
+    padding-bottom: -2rem;
+  }
+  
+  .margintop{
+    margin-top: 5% !important;
+  }
+  
+  .total {
+    border-bottom: 1.5px solid #e0e0df;
+    /* border-bottom:  #F9F9F8; */
+    font-size: 12px;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    color: #4fafbc !important;
+  }
+  
+  button {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    padding: 10px 25px;
+    margin:5px;
+    border: 0px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: 0px;
+    font-weight: bold;
+    font-family: Raleway;
+  }
+  .bluebackground {
+    background-color: #50AFBC !important;
+    font-size: 8px !important;
+  }
+  .whitebackground {
+    background-color: #ffffff !important;
+    color: #4fafbc !important;
+  }
+  
+  .boxhead {
+    color: #50AFBC !important;
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: bold;
+  }
+  .sendspanright {
+    float: right;
+  }
+  
+  .cardp {
+    font-size: 10px;
+    color: #005D78;
+  }
+  .cardp11 {
+    font-size: 9px;
+    color: #005D78;
+    font-family: Regular;
+  }
+  .sub340{
+    font-size: 10px !important;
+    font-family: Regular;
+  }
+  .acti890{
+    font-size: 9px !important;
+    font-family: Regular;
+    color: #292929 !important;
+  }
+  .belowbuttondiv {
+    padding: 1rem;
+  }
+  /* .middle {
+       font-size: 20px !important;
+       box-sizing: border-box;
+       padding-left: 25rem;
+       padding-right: 25rem;
+       
+    } */
+  
+  .middle {
+    font-size: 20px !important;
+    box-sizing: border-box;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .mycolin {
+    border: 1px solid grey;
+  }
+  li {
+    list-style: none;
+  }
+  /* Create two equal columns that floats next to each other */
+  .column {
+    text-align: left;
+    float: left;
+    /* min-width: 33%;
+    max-width: 33%; */
+    padding: 10px 10px 10px 10px;
+    margin: 20px;
+  }
+  .columnMainPage {
+    text-align: left;
+    float: left;
+    padding: 10px 10px 10px 10px;
+    margin: 20px;
+    width: 50%;
+  }
+  
+  .tabonetwoone {
+    width: 50%;
+  }
+  
+  .incardone {
+    border-bottom: 0.5px solid grey !important;
+  }
+  t
+  /* .paddingforselectwizards{
+    padding-bottom: 2%;
+  } */
+  
+  
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+  
+  .paddingtop {
+    padding-top: 5%;
+  }
+  
+  .paddingtopbt2px {
+    padding-top: 10px;
+  }
+  
+  .bodyquesttwo {
+    padding: 4% 8% 8%;
+    background-color: #f9f9f8;
+    text-align: left;
+  }
+  
+  .questtwoheadingp {
+    color: #005D78;
+    font-weight: bold;
+    font-family: "Helvetica";
+    font-size: 13px;
+  }
+  .float-left {
+    font-family: "Helvetica";
+    font-size: 13px;
+    font-weight: bold;
+    color: #BCBCBC !important;
+  }
+  .pick678{
+    color: #005D78 !important;
+    font-size: 14px;
+    font-family: Regular;
+    
+  }
+  .inspan {
+    color: #005D78;
+    font-size: 14px !important;
+    margin-top: 2px;
+  }
+  .float-right {
+    float: right;
+  }
+  #pencil{
+    color:#50AFBC;
+  }
+  .float-middle {
+    margin-left: 30% !important;
+  }
+  .float-middlee {
+    margin-left: 20% !important;
+  }
+  .carddiv {
+    margin-top: 15px;
+    border: 1px solid #dddada;;
+  }
+  .detailtwomiddle {
+    margin-top: 55px;
+  }
+  
+  .detailtwobottom {
+    margin-top: 55px;
+  }
+  .leftpaddingg {
+    margin-left: 10px;
+  }
+  
+  .addquest {
+    color: #005d78 !important;
+    font-weight: bolder;
+    margin-left: 70rem;
+    font-family: "Raleway";
+    font-size: 13px;
+  }
+  
+  .craouselcolor {
+    color: grey;
+  }
+  
+  .addquestt {
+    color: #005d78 !important;
+    font-weight: bolder;
+    margin-left: 87.95rem;
+  }
+  
+  .detailthreeobottom {
+    margin-top: 55px;
+  }
+  
+  .margright {
+    margin-right: 5px;
+  }
+  
+  .margtop {
+    margin-top: 5px !important;
+  }
+  .chippadding {
+    padding: 15px !important;
+  }
+  
+  .margleft {
+    margin-left: 5px;
+  }
+  .inspanre {
+    color: #9c9c9c !important;
+  }
+  .inspanrer {
+    margin-left: 64%;
+    color: #005d78 !important;
+  }
+  
+  .questedit {
+    background-color: #f7f7f7;
+    padding: 3%;
+  }
+  
+  .plusicon {
+    display: flex;
+    padding: 2%;
+    color: #005d78 !important;
+    margin-top: 40%;
+  }
+  .questeditcarddi {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+  
+  .questeditcarddiCard {
+    min-width: 88%;
+    max-width: 88%;
+  }
+  
+  .queseditbuton {
+    text-align: center;
+  }
+  .pencil {
+    position: relative;
+    float: right;
+    margin-left: 2%;
+    top: 4px;
+    color: #005d78;
+  }
+  .delete {
+    position: relative;
+    float: right;
+    top: 4px;
+    right: 8%;
+    color: #005d78;
+  }
+  
+  .questadd {
+    background-color: #f7f7f7;
+    padding: 6% 13% 13%;
+  }
+  
+  .borderbot {
+    border-bottom: 1.5px solid #e0e0df;
+    padding-top: 2px;
+  }
+  
+  .fullborder {
+    border: 1.5px solid #e0e0df;
+    color: #e0e0df;
+    height: fit-content;
+  }
+  
+  .cardinquestdeatilstwoadd {
+    padding: 2%;
+  }
+  
+  .fonticon {
+    font-size: 36px;
+  }
+  .line {
+    display: flex;
+  }
+  .textf {
+    margin-left: 20px;
+    width: 70%;
+  }
+  
+  .chipp {
+    margin-right: 5px;
+  }
+  .musiciconright {
+    margin-left: 7%;
+  }
+  
+  .textfieldwizard {
+    color: #e0e0df !important;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  .setmiddle {
+    text-align: center;
+    margin-top: 4%;
+    padding-bottom: 10px;
+  }
+  .MuiFormControl-root {
+    padding-bottom: 0.5rem !important;
+  }
+  
+  .maininner {
+    background-color: #f7f7f7;
+  }
+  
+  .darkblueback {
+    background-color: #005d78 !important ;
+    color: #f7f7f7;
+  }
+  
+  .whiteback {
+    background-color: #f7f7f7;
+    color: #f9f9f8;
+  }
+  
+  /* ankur */
+  .dialogboxes1 {
+    width: 55vh;
+    /* height: 70vh; */
+    background-color: #005d78;
+    border: 1px solid white;
+    padding: 3vh;
+  }
+  
+  
+  .dialogheading11 {
+    color: white;
+    padding-left: 3vh;
+    font-size: 16px;
+  }
+  .dialogheading111 {
+    color: white;
+    padding-left: 3vh;
+    margin-block-end: 0em;
+    font-size: 16px;
+  }
+  .dialogheading12 {
+    color: white;
+    padding-left: 8vh;
+    padding-top: -20vh;
+    font-size: 16px;
+    margin-block-start: -0.67em;
+  }
+  .ratingmerge1 {
+    padding-left: 4vh;
+    margin-block-start: -0.67em;
+    font-size: 16px;
+  }
+  .modelcarddiv {
+    margin-top: 15px;
+  }
+  
+  .texttt {
+    color: #000;
+  }
+  /* monu */
+  
+  .text-block {
+    position: absolute;
+    bottom: 58vh;
+    float: left !important;
+    color: white;
+    padding-left: 20px;
+    font-size: 48px;
+    padding-right: 20px;
+    font-family: Regular;
+    font-weight: bold;
+  }
+  .text-blockKK {
+    position: absolute;
+    bottom: 50vh;
+    float: left !important;
+    color: #13708c;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 48px;
+  }
+  
+  .text-blocker {
+    position: absolute;
+    bottom: 33vh;
+    float: left !important;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    opacity: 0.8;
+    font-family: Helvetica, "Regular";
+  }
+  .text-img {
+    position: absolute;
+    margin-top: -52vh;
+    margin-left: 39vh;
+    color: #13708c;
+    font-weight: 500;
+  }
+  
+  .text-imggg {
+    position: absolute;
+    margin-top: -48vh;
+    margin-left: 39vh;
+    font-weight: 300;
+  }
+  .text-imggger {
+    position: absolute;
+    margin-top: -43vh;
+    margin-left: 39vh;
+    font-weight: 300;
+  }
+  #center-text {
+    position: absolute;
+    bottom: -13%;
+    right: -82vh;
+    float: left !important;
+    margin-right: 83%;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 100;
+    font-weight: 700;
+  }
+  
+  .harizontal {
+    position: absolute;
+    bottom: -26%;
+    right: 29px;
+    width: 2%;
+    float: left !important;
+    margin-right: 45%;
+    color: #13708c;
+    background-color: #13708c;
+    padding-left: 20px;
+    font-weight: 300;
+    padding-right: 20px;
+  }
+  
+  .text-imgggerrr {
+    position: absolute;
+    margin-top: -41vh;
+    margin-left: 39vh;
+    font-weight: 300;
+  }
+  .text-imgggur {
+    position: absolute;
+    margin-top: -45vh;
+    margin-left: 39vh;
+    font-weight: 300;
+  }
+  
+  .text-we {
+    position: absolute;
+    margin-top: -12%;
+    margin-left: 19%;
+    color: #13708c;
+    font-weight: 500;
+  }
+  
+  .text-swers {
+    margin-top: -14%;
+    position: absolute;
+    margin-left: 20%;
+  }
+  
+  .teextt-wer {
+    text-align: center;
+    float: right;
+    margin-left: 73%;
+    position: absolute;
+    /* margin-bottom: -11%; */
+    margin-top: -28%;
+    color: #13708c;
+  }
+  
+  .textt-ser {
+    position: absolute;
+    margin-left: 73%;
+    font-weight: 200;
+    margin-top: -26%;
+  }
+  
+  #texer-sr {
+    color: #13708c;
+    bottom: 9%;
+    margin-bottom: -17.5%;
+    position: absolute;
+    margin-left: 73%;
+  }
+  
+  .test-wes {
+    float: right;
+    margin-top: -13%;
+    margin-left: 73% !important;
+    position: absolute;
+  }
+  
+  /* ankur */
+  
+  .dialogheading1 {
+    color: #9bd1db;
+  }
+  .rightbuttonset {
+    margin-left: 60vh;
+  
+    background-color: #005d78;
+  }
+  .starseted1 {
+    color: white;
+  }
+  .buttonsettings11 {
+    background-color: #9bd1db;
+    width: 20vh;
+    text-align: center;
+    margin-left: 22vh;
+    margin-top: 4vh;
+  }
+  .starslineone {
+    text-align: center;
+    margin-right: 10px !important;
+    padding-top: 10vh;
+  }
+  .starseted11 {
+    color: white;
+    margin-right: 10vh;
+  }
+  .starseted12 {
+    color: white;
+    margin-right: 10vh;
+  }
+  .starseted13 {
+    color: white;
+    margin-right: 10vh;
+  }
+  .parsettings2 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 6vh;
+  }
+  
+  .fabheightt {
+    height: 45px !important;
+    margin-right: 0.5% !important;
+  color: #232323 !important;
+    width: 10% !important;
+    font-size: 15px !important;
+    font-family: Regular;
+    background-color: #EDEDED !important;
+  }
+  
+  .MuiInputBase-input {
+    background: white !important;
+    font-size: 12px !important;
+  }
+  .fabheightt-3{
+    height: 45px !important;
+    margin-right: 0.5% !important;
+  color: #232323 !important;
+    width: 10% !important;
+    font-size: 15px !important;
+    font-family: Regular;
+    background-color: #50AFBC!important;
+  }
+  
+  .questmainpageheading {
+    font-weight: 900;
+    color: #18758d;
+    padding-bottom: 1%;
+    margin-left: 1%;
+  }
+  .bluecolor {
+    cursor: pointer;
+    color: #18758d !important;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  
+  .toggle1 {
+    background: #13708c !important;
+    border-radius: 20px !important;
+    color: black !important;
+    width: 20vh !important;
+  }
+  
+  .toggle2 {
+    background: white !important;
+    color: black !important;
+    border-radius: 20px !important;
+    width: 20vh !important;
+  }
+  
+  .circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background-color: wheat;
+    border-radius: 50%;
+  }
+  
+  .circular--landscape img {
+    width: 200px;
+    height: 200px;
+  }
+  .displayNone {
+    display: none;
+  }
+  .selectvizard {
+    padding-top: 5vh;
+    padding-bottom: 17%;
+    background-color: #f7f7f7 !important;
+  }
+  .queseditbutonn {
+    text-align: center;
+    margin-top: 2%;
+  }
+  
+  .marginbleft {
+    margin-left: 2% !important;
+    background-color: #fff;
+  }
+  
+  .questdetailcard {
+    position: relative;
+  }
+  
+  .topr {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #fff !important;
+    background-color: #94cddf !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    height: 10%;
+    width: 10%;
+  }
+  
+  .MuiAccordion-root.Mui-expanded {
+    margin: 0 !important;
+  }
+  .MuiAccordionSummary-content {
+    margin: 0px !important;
+  }
+  .MuiAccordionDetails-root {
+    display: flow-root !important;
+  }
+  
+  .backred {
+    color: red;
+  }
+  /* 7 july */
+  .MuiPaper-elevation1 {
+    box-shadow: none !important;
+  }
+  .MuiAccordion-root:before {
+    background-color: #ffffff !important;
+  }
+  .MuiAccordionSummary-root.Mui-expanded {
+    min-height: 0px !important;
+  }
+  .MuiAccordionSummary-root {
+    min-height: 0px !important;
+  }
+  
+  .workexperince110 {
+    width: 35% !important;
+  
+    padding-left: 3vh !important;
+  }
+  .MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: none !important;
+    font-size: 12px !important;
+  }
+  .workexperince111 {
+    width: 35% !important;
+  }
+  .MuiInputLabel-formControl1 {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: none !important;
+  
+    margin-left: 20vh !important;
+    padding-left: -2vh !important;
+  }
+  
+  .reviews201 {
+    width: 50vh;
+    height: 43vh;
+    background-color: #005d78;
+  }
+  .reviews202 {
+    color: #9bd1db;
+    text-align: center;
+    margin-top: 5vh;
+  }
+  .reviews203 {
+    text-align: center;
+    margin-top: 13vh;
+    font-size: 7vh;
+    color: white;
+  }
+  .reivews204 {
+    margin-right: 8vh;
+  }
+  
+  .reivews206 {
+    margin-top: 5vh;
+    background-color: #50Afbc !important;
+  }
+  .reivews2066 {
+    margin-left: 40%;
+    margin-top: 5vh;
+    background-color: #50Afbc !important;
+  }
+  .reviews208 {
+    width: 43vh;
+    margin-left: 3vh;
+    height: 4vh;
+    margin-top: 2vh;
+  }
+  .cancleClass {
+    background-color: #e1e4e4 !important;
+    border: 2px solid #90b9c4 !important;
+  }
+  
+  /* 9th july */
+  .rec-slider-container :focus {
+    outline: none !important;
+  }
+  .gEIJqc {
+    font-size: 20px !important;
+    color: #fff !important;
+    border: none !important;
+    width: 20px !important;
+    min-width: 50px !important;
+    border-radius: 0px !important;
+    line-height: 0px !important;
+    box-shadow: none !important;
+    background-color: #90b9c4 !important ;
+  }
+  .fptlcG {
+    font-size: 20px !important;
+    color: #fff !important;
+    border: none !important;
+    width: 20px !important;
+    min-width: 50px !important;
+    border-radius: 0px !important;
+    line-height: 0px !important;
+    box-shadow: none !important;
+    background-color: #90b9c4 !important ;
+  }
+  .QmVdP {
+    box-shadow: none !important;
+    border-radius: 50px !important;
+    outline: none !important;
+    background-color: #90b9c4 !important;
+  }
+  .dautGI {
+    border-radius: 50px !important;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5) !important;
+  }
+  .editboard {
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
+  
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26) !important;
+  }
+  
+  .maker {
+    margin-left: 15%;
+  }
+  
+  .widsize {
+    width: 100%;
+  }
+  
+  .questdetailcards {
+    margin-right: 1%;
+    border: grey 1px solid;
+  }
+  
+  
+  .maindivpickschedule {
+    padding-bottom: 3% !important;
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #f7f7f7;
+  }
+  
+  /* 10th july */
+  .rating {
+    padding-top: 3%;
+    width: 100%;
+    text-align: right;
+  }
+  .ratingtitle {
+    margin: 10px;
+    width: 100%;
+    padding: 1%;
+  }
+  .ratingbar {
+    margin: 8px 0 8px 0;
+  }
+  .submitbutton {
+    text-align: center;
+  }
+  
+  .inputfeedback {
+    margin-top: 10px;
+  }
+  
+  .inputfeedback .MuiOutlinedInput-input {
+    padding: 12px 10px;
+  }
+  
+  .card-border {
+    border: 1px solid #dddada;
+  }
+  
+  .closebutton {
+    padding: 5px;
+  
+    cursor: pointer;
+  
+    color: #ffffff;
+  }
+  .dnone {
+    display: none;
+  }
+  
+  .fptlcG {
+    background-color: #f7f7f7 !important;
+    color: grey !important;
+  }
+  .gEIJqc {
+    background-color: #f7f7f7 !important;
+    color: grey !important;
+  }
+  
+  .textChange {
+    padding: 4%;
+    color: white;
+  }
+  
+  .green {
+    color: lightblue;
+  }
+  
+  .fade {
+    background-color: #f9f9f8;
+    color: white;
+  }
+  
+  .headerQuestt {
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Raleway";
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0px 0px 20px -15px #000;
+    color: #005D78 !important;
+  }
+  .dtaa11 {
+    margin-right: 7%;
+    margin-top: 1%;
+  }
+  .boder111 button {
+    padding: 0% !important;
+  }
+  
+  .inspann {
+    color: #005D78;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Raleway";
+    text-align: center;
+    background-color: #f9f9f8;
+   
+  }
+ 
+
+  .mainphoto .photo:hover {
+    display: show;
+    background: url("/plus.png") !important;
+    cursor: pointer;
+    /* background-image: url("../plus.png") ; */
+  }
+  .icons1111 {
+    color: #13708c;
+    padding-left: 3%;
+  }
+  
+  .buttonClass {
+    width: 84px !important;
+    height: 26px !important;
+    color: #000;
+  }
+  
+  .mybox {
+    display: flex;
+    width: 20%;
+    height: 30%;
+  }
+  
+  .textset {
+    text-align: left;
+    font-size: 16px !important;
+  }
+  .logopng111 {
+    padding-top: 2% !important;
+    position: absolute;
+    cursor: pointer;
+  }
+  .cursorpointer {
+    cursor: pointer;
+  }
+  .imgegs11{
+    height: 100vh;
+    width: 100%;
+  }
+  .top-left {
+    position: absolute;
+    margin-left: 10%;
+    
+    left: -4px;
+    top: 13%;
+   
+  }
+  .myimg {
+    padding-top: 50%;
+    margin-right: 17px;
+  }
+  .MuiCheckbox-colorSecondary.Mui-checked{
+    color: gray !important;
+  }
+  
+  .myspanhead {
+    color: #005d78;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .container1 {
+    padding-top: 5%;
+    padding-bottom: 10%;
+    position: relative;
+    text-align: center;
+    background-color: #f7f7f7;
+  }
+  
+  .bottom-left {
+    position: absolute;
+    margin-left: 10%;
+    left: -4px;
+    bottom: 22%;
+  }
+  .top-right {
+    position: absolute;
+    right: -4px;
+    top: 13%;
+    margin-right: 10%;
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 26%;
+    right: -4px;
+    margin-right: 10%;
+  }
+  .centered {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+    color: #005d78;
+    font-weight: bolder;
+  }
+  .topscheulerating {
+    font-size: 10px !important;
+  }
+  .datasetting {
+    font-size: 12px;
+  }
+  .datasettin123 {
+    font-size: 15px;
+    font-weight: Regular;
+    font-family: Helvetica;
+    opacity: 0.8;
+  }
+  .imges1111 {
+    font-size: 5vh;
+    padding-top: -2%;
+  }
+  .detailtwomiddlereq {
+    margin-top: 55px;
+    padding-bottom: 5%;
+  }
+  .diaolog11111 {
+    display: flex;
+  }
+  .dialog2222 {
+    width: 31px;
+    height: 51px;
+  }
+  
+  .cardinquestdeatilstwocan {
+    background-color: #4d4c4c !important;
+  }
+  .makebold {
+    font-weight: bold !important;
+  }
+  
+  .blank {
+    height: 87px;
+    background-color: #4d4c4c!important;
+  }
+  
+  .makecenter {
+    text-align: center !important;
+  }
+  
+  .profileCard {
+    margin-top: 4%;
+   
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .innerCard {
+    border-radius: 9px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    padding: 3%;
+  }
+  .innerCard .row {
+    margin-bottom: 10px;
+  }
+  .innerCard .MuiInput-underline:after {
+    border-bottom: 1px solid #e0e0e0 !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .innerCard .MuiInput-underline::before {
+    border-bottom: 1px solid #e0e0e0 !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .innerCard h3 {
+    color: #13708c;
+    margin: 0px;
+    padding: 0px;
+  }
+  .paraaaa111{
+    color: #005D78;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Raleway";
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .porofile11111{
+    font-size: 10px;
+    font-family: Helvetica;
+  }
+  .parddddd111{
+    font-size: 12px;
+    color: #005D78;
+    font-weight: bold;
+    font-family: "Raleway";
+  }
+  .profilepic {
+    padding-top: 5%;
+  }
+  
+  .cardContext h4 {
+    color: #13708c;
+  }
+  .pColor {
+    color: #13708c;
+  }
+  .ratingBorder {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .titleColor {
+    color: #005D78;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .parasort111{
+    font-size: 10px !important;
+    font-family: Helvetica;
+  }
+  .reviewCard {
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+  .reviewCard p {
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0.3px;
+    line-height: 20px;
+  }
+  .quoteRight {
+    opacity: 0.2;
+    font-size: 35px;
+    color: #94cddf;
+  }
+  .reviewText {
+    color: #005D78;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .bg-brown {
+    background-color: #f0f0eb;
+  }
+  .ratingNumber{
+    padding-right: 50px;
+  }
+  .ratingpage {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .maininnerrating {
+    padding: 10%;
+    background-color: whitesmoke;
+  }
+  .makewhite {
+    background-color: #ffffff !important;
+  }
+  .border {
+    border-bottom: whitesmoke 1px solid;
+  }
+  .ratdiheight {
+    height: 51px;
+    padding-top: 1% !important;
+  }
+  
+  .ratb {
+    border: 1px solid #5db5c1;
+    margin-left: 10px;
+  }
+  
+  .CompleteSh101 {
+    width: 70vh;
+    height: 100vh;
+    background-color: #005d78;
+    
+    border: 1px solid white;
+  }
+  .Complete102 {
+    color: rgb(0, 159, 198);
+    
+    margin-left: 3vh;
+  }
+  .complete103 {
+    /* margin-left: 58vh; */
+    background-color: #005d78;
+    color: white; 
+  }
+  .complete104 {
+    margin-left: 3vh;
+    color: white;
+    font-size: 2.3vh;
+  }
+  .complete105 {
+    width: 64vh;
+    height: 7vh;
+    border-radius: 5px;
+    margin-left: 3vh;
+    background-color: #2b788f;
+    margin-top: 2vh;
+  }
+  /* #complete106{
+    margin-top: 1vh;
+  } */
+  .complete107 {
+    color: #86afbc;
+    padding-left: 1vh;
+    padding-top: 1.5vh;
+    font-size: 2vh;
+  }
+  .complete108 {
+    width: 60vh;
+    height: 9vh;
+    margin-left: 4vh;
+    margin-top: 3vh;
+    background-color: #005d78;
+    border: 1px solid #86afbc;
+    color: #86afbc;
+    outline: none;
+    border-radius: 5px;
+  }
+  .complete109 {
+    margin-left: 25vh;
+    margin-top: 2vh;
+    background-color: #86afbc;
+  }
+  .complete110 {
+    padding-left: 13vh;
+    color: white;
+    font-size: 2vh;
+  }
+  .complete111 {
+    padding-left: 15.5vh;
+    color: white;
+    font-size: 2vh;
+  }
+  .complete112 {
+    padding-left: 20vh;
+    color: white;
+    font-size: 2vh;
+  }
+  ::-webkit-input-placeholder {
+    color: #86afbc;
+  }
+  .inspanb{
+    position: relative;
+      margin-top: -17px;
+      padding-top: 10px;
+      bottom: -20px;
+  }
+  
+  .capitalword{
+    text-transform: uppercase;
+  }
+  
+  .disabled{
+    background-color: transparent !important; 
+   pointer-events: none;
+   /* opacity: 0.4; */
+  }
+  input:disabled{
+    background-color: transparent !important;
+  }
+  .quoteRight11 {
+    width: 24.5%;
+    margin-right: 1%;
+    color: white;
+    
+  }
+  
+  .margiinleft{
+    margin-left: 40% !important;
+  }
+  .ckedhi111{
+    color: white;
+    margin-top: -7%;
+    margin-right: 2%;
+    
+  }
+  
+  .noresult{
+    font-size: 12px !important;
+  }
+  .raleway{
+    font-family:Raleway !important;
+  }
+  
+  
+  .makeborder{
+    border-bottom: lightgrey 1px !important;
+  }
+  
+  
+  .MuiInput-underline.Mui-disabled:before {
+    /* border-bottom-style: dotted; */
+    border-bottom-style: groove !important;
+    border-bottom-color: lightgrey !important;
+    border-bottom-width: 1px;
+  }
+  .MuiRating-root {
+    color: #50AFBC !important;}
+  
+    
+    .topschedurating{
+      color: rgba(0, 0, 0, 0.38);
+     
+      margin-block-end: 0em;
+      font-size: 10px;
+    }
+   .buttons111{
+     background-color: #13708C !important;
+   }
+   .buttons22222{
+    background-color: #ffffff !important;
+    color: #13708C !important;
+   }
+  
+   #serbtn {
+    padding-left: 1% !important;
+    padding-top: .6% !important;
+    position: absolute;
+    font-size: 7px !important;
+    font-weight: bold !important;
+    font-family: "Raleway" !important;
+  }
+  
+  .fontcolorsize input
+  {
+   color: #4B4B4B !important;
+  }
+  .divclass button{
+    height:1.6875rem;
+    width: 5.125rem;
+    font-size: 7px;
+    font-weight: bold;
+  }
+  
+  .disheading{
+    color:#005D78;
+    font-size:13;
+    font-weight:bold;
+    font-family: "Raleway" !important;
+  }
+  .hover1122{
+    outline: none !important;
+  }
+  .butt222{
+    width: 4.875rem;
+    height: 1.875rem;
+    color: #13708c;
+    font-size: 8px !important;
+    font-family: "Raleway";
+    font-weight: bold !important;
+    border-radius: 5px !important;
+    border-color: #707070;
+  }
+  .search1212{
+    width: 80% !important;
+    
+  }
+  
+  .qcard{
+    height:18.0625rem;
+    width:16.375rem;
+  }
+  .qbtn{
+    margin-top: -4.5% !important;
+  }
+  .wcard{
+    height:16.375rem !important;
+      width:15.4375rem !important;
+  }
+  .leftmargin{
+    margin-left:5px;
+  }
+  .buttons333{
+    background-color: #A5A5A5 !important;
+    color: #13708C !important;
+    font-size: 8px !important;
+    font-weight: bold !important;
+    font-family: "Raleway";
+    border-color: #D2D2D2 !important;
+  }
+  .deltes11{
+    margin-right: -11% !important;
+  }
+  .forfont {
+    font-family: Helvetica !important;
+  }
+  .newforfont{
+    font-family: Helvetica !important;
+    border-radius: 3%;
+  }
+  .dialogboxes1s {
+    width: 20.5rem !important;
+    height: 16.375rem !important;
+    background-color: #005D78;
+    padding:5%;
+  }
+  .dialogheading12s {
+    color: white;
+    padding-left: 3vh;
+    padding-top: -20vh;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  #makeborwhite{
+    border: 1px white solid;
+    border-radius: 5%;
+  }
+  .MuiDialog-paperWidthSm {
+    border-radius: 2% !important;
+  }
+  .dialogheading1 {
+    color: #9bd1db;
+      font-size: 22px;
+      font-family: none;
+      font-weight: bold;
+  }
+  #createed1212{
+    font-size: 9px !important;
+    font-weight: bold !important;
+    font-family: "Raleway" !important;
+    color: #FFF2F2 !important;
+  }
+  .button555{
+    background-color: #50AFBC !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #FFF2F2 !important;
+    border-color: #13708C !important;
+  }
