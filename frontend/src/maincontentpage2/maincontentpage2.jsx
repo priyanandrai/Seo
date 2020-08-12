@@ -28,29 +28,33 @@ export class Maincontentpage2 extends Component {
     window.localStorage.setItem("email", email);
     window.localStorage.setItem("url", url);
     // alert("Locally stored data");
-  };
-  handlesubmit() {
-  
 
-    if (this.state.name== "") {
-      alert("please enter the name");
+    if (this.state.name.trim().length < 4) {
+      alert("please enter the name minimum 4 characture");
       return;
-       }
-       if(this.state.email == ""){
-        alert("please enter the email");
-       }
-       if(this.state.url== ""){
-         alert("please enter the url")
-       }
-  }
+    }
+    const regexex = "[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}";
+    if (!this.state.email.match(regexex)) {
+      alert("please enter the  email");
+      return;
+    } 
+    // else {
+    //   alert("please enter valid email");
+    // }
+    if (this.state.url.trim()=="") {
+      alert("please enter the url");
+      return;
+    }
+  };
+
   render() {
     return (
       <div>
-        <div style={{ marginTop: "5%" }}>
+        <div style={{marginTop: "-6%"}}>
           <Container className="animate__animated animate__backInLeft">
             <h1 className="hidingfirst">Choose services</h1>
             <Row>
-              <Col sm={7}>
+              <Col sm={6}>
                 <div>
                   <Checkbox
                     style={{}}
