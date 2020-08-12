@@ -24,8 +24,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from "@material-ui/core/Checkbox";
 import { register } from "react-scroll/modules/mixins/scroller";
- 
-import Maincontentpage  from '../maincontentpage/maincontentpage'
+
+import Maincontentpage from "../maincontentpage/maincontentpage";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -154,7 +154,6 @@ class Header extends Component {
       button_status,
     } = this.state;
 
-    
     const navigation_links = [
       {
         title: "Login",
@@ -173,19 +172,19 @@ class Header extends Component {
       },
     ];
 
-    const navigation_links_list =  navigation_links.map((data, index) => {
-        console.log("My endpoint name is", data, index);
-        return (
-          <button
-            id={data.title}
-            className="button"
-            type="button"
-            onClick={() => this.openModal(data.endpoint)}
-          >
-            {data.title}
-          </button>
-        );
-      });
+    const navigation_links_list = navigation_links.map((data, index) => {
+      console.log("My endpoint name is", data, index);
+      return (
+        <button
+          id={data.title}
+          className="button"
+          type="button"
+          onClick={() => this.openModal(data.endpoint)}
+        >
+          {data.title}
+        </button>
+      );
+    });
 
     return (
       <div className="header">
@@ -441,7 +440,6 @@ class Header extends Component {
           </div>
         </Dialog>
         {/* </header> */}
-       <Maincontentpage></Maincontentpage>
       </div>
     );
   }

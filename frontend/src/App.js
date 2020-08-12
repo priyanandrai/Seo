@@ -25,7 +25,8 @@ function App() {
     <Router history={BrowserRouter} >
       <div>
         {/* <IndexRoute component={Nav} /> */}
-          <Nav></Nav>
+          {/* <Nav></Nav> */}
+          <Header></Header>
           <Route exact path="/logout" component={Logout} />
           {/* <Redriect from="/SubmitRequest/" to="/submitRequest/" /> */}
           <Route exact path="/submitRequet" component={SubmitRequest}/>

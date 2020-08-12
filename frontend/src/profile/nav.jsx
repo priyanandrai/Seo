@@ -50,7 +50,7 @@ class Nav extends Component {
                 Change Password
               </a>
 
-              <a class="dropdown-item"  href="/submitRequest">
+              <a class="dropdown-item" href="/submitRequest">
                 Submit Request
               </a>
 
