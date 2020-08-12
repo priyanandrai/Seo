@@ -17,7 +17,7 @@
 
 .animate__animated animate__backInLeft {
   display: inline-block;
-  margin: 0 0.5rem;
+  /* margin: 0 0.5rem; */
   animation: bounce; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 10s;
 }
@@ -27,11 +27,6 @@
   font-family: Century !important;
   color: cadetblue;
 }
-
-/* .headingsss {
-  font-size: 18px;
-  font-family: saturated !important;
-} */
 
 #headingcards {
   font-size: 22px;
@@ -79,6 +74,7 @@
 }
 
 .main-title-text > p {
+  text-align: justify;
   margin-top: .8em;
   line-height: 1.82459;
   font-weight: 400;
@@ -90,5 +86,21 @@
   line-height: 1.16667;
   font-weight: 600;
   letter-spacing: 0.009em;
-  columns: #111111;
+  color: #111111;
+}
+.left-main-section{
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 25px;
+}
+.right-main-section{
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 25px;
+}
+.mainpage-alignment{
+  margin-top: 50px;
+}
+.submenu-alignment{
+  margin-top: 20px;
 }
