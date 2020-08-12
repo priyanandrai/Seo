@@ -1557,3 +1557,10 @@
     color: #FFF2F2 !important;
     border-color: #13708C !important;
   }
+
+  .signup-icon{
+    font-size: large;
+    color: #13708c;
+    margin-left: 10px;
+    vertical-align: middle!important;
+  }

@@ -96,12 +96,14 @@ class Header extends Component {
       confirm_password,
       checkbox,
     } = this.state;
-   
+
     if (modal_type === "signup") {
-      const nameString = "^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$"
+      const nameString = "^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$";
       if (this.state.full_name.trim().length < 4) {
         alert("Full name must be more than 4 characters.");
         return;
+      } else if (this.state.full_name.trim().length > 20) {
+        alert("Full name must not exceed 20 characters.");
       } else if (!this.state.full_name.trim().match(nameString)) {
         alert("Please enter characters only.");
         return;
@@ -111,7 +113,7 @@ class Header extends Component {
         alert("Please enter a valid email.");
         return;
       }
-      if (this.state.password.length <8) {
+      if (this.state.password.length < 8) {
         alert("Password must be 8 characters long");
         return;
       }
@@ -306,7 +308,11 @@ class Header extends Component {
               <form onSubmit={this.handleOnSubmit}>
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faUser} className="icons1111" />
+                    <FontAwesomeIcon
+                      icon={faUser}
+                      className="signup-icon"
+                    />
+                    {/* fa-lg m-2 align-middle text-danger */}
                     <Input
                       className="bodernull111"
                       type="text"
@@ -320,7 +326,7 @@ class Header extends Component {
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faEnvelope} className="icons1111" />
+                    <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
                     <Input
                       className="bodernull111"
                       type="text"
@@ -334,7 +340,7 @@ class Header extends Component {
                 )}
                 {modal_type === "signin" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faEnvelope} className="icons1111" />
+                    <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
                     <Input
                       className="bodernull111"
                       type="text"
@@ -348,7 +354,7 @@ class Header extends Component {
                 )}
                 {modal_type !== "forgotpassword" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faKey} className="icons1111" />
+                    <FontAwesomeIcon icon={faKey} className="signup-icon" />
                     <Input
                       className="bodernull111"
                       type="password"
@@ -373,7 +379,7 @@ class Header extends Component {
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faKey} className="icons1111" />
+                    <FontAwesomeIcon icon={faKey} className="signup-icon" />
                     <Input
                       className="bodernull111"
                       type="password"
