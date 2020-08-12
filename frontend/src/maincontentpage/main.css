@@ -1,41 +1,82 @@
-.buttont{
-    margin-left: 5%;
+.buttont {
+  margin-left: 5%;
 }
 
-.cardfss{
-    width: 100px;
-    height: 100px;
-    /* background: red; */
-    position: relative;
-    animation: mymove 1s;
-    animation-fill-mode: forwards;
-  }
+.cardsms {
+  margin-top: 5%;
+}
+
+.longcards {
+  margin-left: -26%;
+  margin-top: 5%;
+}
+
+#buttont {
+  margin-right: -53%;
+}
+
+.animate__animated animate__backInLeft {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 10s;
+}
+
+#headinfg {
+  font-size: 22px;
+  font-family: Century  !important;
+  color: cadetblue;
+}
+
+/* .headingsss {
+  font-size: 18px;
+  font-family: saturated !important;
+} */
+
+#headingcards {
+  font-size: 22px;
+  font-family: Century  !important;
   
-  @keyframes mymove {
-    from {left: 0px;}
-    to {left: 300px; }
-  }
+  color: cadetblue;
+}
+.input-width > label {
+  font-size: 18px;
+  font-family: Century  !important;
+  color: cadetblue;
 
-.cardsm{
-    width: 100px;
-  height: 100px;
-  /* background: red; */
-  position: relative;
-  animation: move 1s;
-  animation-fill-mode: forwards;
 }
 
-@keyframes move {
-  from {right: 0px;}
-  to {right: 300px; }
-}
-   .cardmfrt{
-    margin-left: 100%;
-    margin-top: 12%;   
-}
-.cardsright{
-    margin-top:  20%;
-    margin-left: 252%;
-    position: absolute;
+.hidemie{
+  font-size: 22px;
+  font-family: Century  !important;
+  color: cadetblue;
+  margin-left: 7%;
+  margin-top: -32px;
 }
 
+.hidingtext{
+
+}
+
+#buttonn{
+  background-color: black !important;
+  float: right;
+}
+
+.hidingfirst{
+  margin-top: 10%;
+  font-size: 25px;
+  font-family: Century  !important;
+  color: cadetblue;
+
+}
+
+#dropdown-buttonn{
+  margin-left: 3%;
+  background-color: white;
+}
+
+.viedoplayerr{
+  height: 30%;
+  width: 40%;
+}

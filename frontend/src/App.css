@@ -35,7 +35,7 @@ body {
 .homehed{
   float: right;
   padding-left: 2%;
-  margin-top: -6%;
+  margin-top: -2%;
 }
 #homeheding{
   margin-top: 1%;
@@ -43,7 +43,7 @@ body {
 .imageheader{
   float: right;
   margin-top: -5%;
-  margin-left: 74% !important;
+  margin-left: 45% !important;
   padding-left: -11% !important;
   position: absolute;
 } 
@@ -55,7 +55,7 @@ body {
   height: 87px;
   margin: 0 auto;
   padding: 0px;
-  background-color: #13708C;
+  background-color: white;
   font-family:  Helvetica;
 }
 
@@ -65,10 +65,11 @@ body {
   height: 100%;
   padding: 0px;
   margin: 0 auto;
+  display: flex;
 }
 
 .header .headerin .logo {
-  width: 200px;
+  width: 216px;
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -106,50 +107,48 @@ span{
 p{
   font-family: Arial, Helvetica, sans-serif;
 }
-header .headerin .navigation {
+
+
+.navigation{
+  float: left;
+  margin-left: 49%;
+}
+
+.button{
+  margin-left: 10px;
+  margin-top: 4%;
+  background-color: black;
+  border-radius: 9px;
+  height: 42px;
+}
+/* header .headerin .navigation {
   width: auto;
   height: 100%;
   margin: 0px;
   padding: 0px;
   float: right;
-}
+} */
 
-header .headerin .navigation ul {
-  list-style: none;
+/* header .headerin .navigation ul {
+  list-style: inherit;
   margin: 0px;
   padding: 0px;
-}
+} */
 
-header .headerin .navigation ul li {
+/* header .headerin .navigation ul li {
   display: inline;
   padding: 0px;
   margin: 0px;
-}
+} */
 
-header .headerin .navigation ul li a {
-  font-size: 13px;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 35px;
-  margin: 0px;
-  text-decoration: none;
-  line-height: 90px;
-  cursor: pointer;
-}
+
 
 header .headerin .navigation ul li a:hover,
 header .headerin .navigation ul li a.active {
   background-color: #3495a2;
 }
 
-header .headerin .account {
-  color: #ffffff;
-  list-style: none !important ;
-  padding: 16px;
-  float: right;
-  cursor: pointer;
-  margin-top: 4px;
-}
+
 
 /**************/
 /*** FOOTER ***/

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import '../style/quest.css';
-import '../App.css'
-import '../style/header.css'
+import "../style/quest.css";
+import "../App.css";
+import "../style/header.css";
 import { NavLink } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
@@ -15,8 +15,17 @@ import Button from "./Button";
 import { getAuthData } from "../utils";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose ,faKey,faEnvelope,faUser, faTimes} from "@fortawesome/free-solid-svg-icons";
-import Checkbox from '@material-ui/core/Checkbox';
+import {
+  faWindowClose,
+  faKey,
+  faEnvelope,
+  faUser,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import Checkbox from "@material-ui/core/Checkbox";
+import { register } from "react-scroll/modules/mixins/scroller";
+ 
+import Maincontentpage  from '../maincontentpage/maincontentpage'
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +39,9 @@ class Header extends Component {
       confirm_password: "",
       checkbox: false,
       button_status: "disabled",
+      login: false,
+      register: false,
+      getintouch: false,
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -40,6 +52,11 @@ class Header extends Component {
   }
 
   openModal(type) {
+    if (type == "contactus") {
+      window.location = "/contactus";
+      return;
+    }
+
     this.closeModal();
     this.setState({
       modal_open: true,
@@ -62,11 +79,9 @@ class Header extends Component {
 
   handelOnChange(event) {
     event.preventDefault();
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      },
-    );
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   handleOnSubmit(event) {
@@ -83,7 +98,7 @@ class Header extends Component {
     } = this.state;
     if (modal_type === "signup") {
       const { doSignUp } = this.props.authActions;
-     let temp =  doSignUp({
+      let temp = doSignUp({
         full_name,
         email,
         password,
@@ -92,12 +107,12 @@ class Header extends Component {
     }
     if (modal_type === "signin") {
       const { doSignIn } = this.props.authActions;
-      let temp =   doSignIn({
+      let temp = doSignIn({
         email,
         password,
       });
 
-      console.log("ca  ", temp)
+      console.log("ca  ", temp);
     }
     if (modal_type === "forgotpassword") {
       const { doForgotPassword } = this.props.authActions;
@@ -138,99 +153,141 @@ class Header extends Component {
       checkbox,
       button_status,
     } = this.state;
+
+    
     const navigation_links = [
       {
-        title: "Home",
+        title: "Login",
         to: "/quests",
+        endpoint: "signin",
       },
       {
-        title: "Why UpCaliber",
-        to: "why-caliber",
+        title: "Register",
+        to: "/quests",
+        endpoint: "signup",
       },
-
+      {
+        title: "Contact us",
+        to: "/quests",
+        endpoint: "contactus",
+      },
     ];
 
-    const navigation_links_list =
-      navigation_links &&
-      navigation_links.map(({ title, to }, index) => {
+    const navigation_links_list =  navigation_links.map((data, index) => {
+        console.log("My endpoint name is", data, index);
         return (
-          <li >
-      { ! isLoggedIn &&
-            <Link className="homehed"  to={to}  title={title}>
-              {title}
-             </Link>}
-      {  isLoggedIn &&
-            <NavLink className="homeheding" to={to}  title={title}>
-              {title}
-            </NavLink>}
-          </li>
+          <button
+            id={data.title}
+            className="button"
+            type="button"
+            onClick={() => this.openModal(data.endpoint)}
+          >
+            {data.title}
+          </button>
         );
       });
 
     return (
-      <div className="header">  
-       
-             {/* <header> */}
+      <div className="header">
+        {/* <header> */}
         <div className="headerin">
-          <Logo/>
+          <Logo />
           <div className="account">
             {isLoggedIn && (
               <Fragment>
                 <Account
-                account_name="Amit rai"
+                  account_name="Amit rai"
                   isLoggedIn={isLoggedIn}
                   show_account_dropdown={show_account_dropdown}
                   onClick={this.handelOnClickDropDown}
                   logout={this.handelOnClickLogout}
-                  profile_links ={ [
-                    { title:"Profile Information", to:"/profile/basic-information", permissions:"No matter now" },
-                    { title:"My Quests", to:"/questdetails", permissions:"No matter now" },
-                    { title:"My Ratings & Reviews", to:"/ratings", permissions:"No matter now" },
-                    { title:"My Team", to:"/teams", permissions:"No matter now" },
-                    { title:"Sign Out ", to:"/logout", permissions:"No matter now" }
-                   ] }                
+                  profile_links={[
+                    {
+                      title: "Profile Information",
+                      to: "/profile/basic-information",
+                      permissions: "No matter now",
+                    },
+                    {
+                      title: "My Quests",
+                      to: "/questdetails",
+                      permissions: "No matter now",
+                    },
+                    {
+                      title: "My Ratings & Reviews",
+                      to: "/ratings",
+                      permissions: "No matter now",
+                    },
+                    {
+                      title: "My Team",
+                      to: "/teams",
+                      permissions: "No matter now",
+                    },
+                    {
+                      title: "Sign Out ",
+                      to: "/logout",
+                      permissions: "No matter now",
+                    },
+                  ]}
                 />
               </Fragment>
             )}
-         </div>
-          <div className="navigation">
-            <ul>{navigation_links_list}
-            {!isLoggedIn && (
-                <li key="signUo" onClick={() => this.openModal("signin")}>
-                  {/* <a>SignIn</a> */}
-                 <div className="imageheader"><img src="login.png" className="logopng111"/></div>
-                  </li>
-            )}
-            </ul>
           </div>
+          <div className="navigation">{navigation_links_list}</div>
         </div>
-         <Dialog
-         onClose={() => {
-           this.setState({
-            modal_open:false
-           })
-         }}
-         aria-labelledby="simple-dialog-title"
-         open={this.state.modal_open}
-       >
+
+        <Dialog
+          onClose={() => {
+            this.setState({
+              modal_open: false,
+            });
+          }}
+          aria-labelledby="simple-dialog-title"
+          open={this.state.modal_open}
+        >
           <div id="auth-modal">
+            Login
             <div className="auth-modal-in">
-              {modal_type === "signup" && <div><h1>Si<label className="underscore">gn U</label>p <span  className="floatright" onClick={() => {
-           this.setState({
-            modal_open:false
-           })
-         }}><FontAwesomeIcon icon={faTimes}/> </span></h1></div>}
-              {modal_type === "signin" && <div className="divsign"><h1>Si<label  className="underscore">gn I</label>n<span className="floatright" onClick={() => {
-           this.setState({
-            modal_open:false
-           })
-         }}><FontAwesomeIcon icon={faTimes} /> </span></h1></div>}
+              {modal_type === "signup" && (
+                <div>
+                  <h1>
+                    Si<label className="underscore">gn U</label>p{" "}
+                    <span
+                      className="floatright"
+                      onClick={() => {
+                        this.setState({
+                          modal_open: false,
+                        });
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTimes} />{" "}
+                    </span>
+                  </h1>
+                </div>
+              )}
+              {modal_type === "signin" && (
+                <div className="divsign">
+                  <h1>
+                    Lo<label className="underscore">g I</label>n
+                    <span
+                      className="floatright"
+                      onClick={() => {
+                        this.setState({
+                          modal_open: false,
+                        });
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTimes} />{" "}
+                    </span>
+                  </h1>
+                </div>
+              )}
               {modal_type === "forgotpassword" && <h1>Forgot Password ?</h1>}
               <form onSubmit={this.handleOnSubmit}>
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
                     <FontAwesomeIcon icon={faUser} className="icons1111" />
-                    <Input className="bodernull111"
+                    <Input
+                      className="bodernull111"
                       type="text"
                       name="full_name"
                       placeholder="Full Name"
@@ -240,10 +297,11 @@ class Header extends Component {
                     />
                   </fieldset>
                 )}
-                 {modal_type === "signup" && (
+                {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faEnvelope} className="icons1111"/>
-                    <Input className="bodernull111"
+                    <FontAwesomeIcon icon={faEnvelope} className="icons1111" />
+                    <Input
+                      className="bodernull111"
                       type="text"
                       name="email"
                       placeholder="Email ID"
@@ -253,27 +311,25 @@ class Header extends Component {
                     />
                   </fieldset>
                 )}
-                 {modal_type === "signin" && (
-                <fieldset className="inputHome">
-                   <FontAwesomeIcon icon={faEnvelope} className="icons1111" />
-                  <Input className="bodernull111"
-                    type="text"
-                    name="email"
-                    placeholder="User Name"
-                    autocomplete="off"
-                    value={email}
-                    onChange={this.handelOnChange}
-
-
-                    
-                  />
-                 
-                </fieldset>
-                 )}
+                {modal_type === "signin" && (
+                  <fieldset className="inputHome">
+                    <FontAwesomeIcon icon={faEnvelope} className="icons1111" />
+                    <Input
+                      className="bodernull111"
+                      type="text"
+                      name="email"
+                      placeholder="User Name"
+                      autocomplete="off"
+                      value={email}
+                      onChange={this.handelOnChange}
+                    />
+                  </fieldset>
+                )}
                 {modal_type !== "forgotpassword" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faKey} className="icons1111"/>
-                    <Input className="bodernull111"
+                    <FontAwesomeIcon icon={faKey} className="icons1111" />
+                    <Input
+                      className="bodernull111"
                       type="password"
                       name="password"
                       placeholder="password"
@@ -297,7 +353,8 @@ class Header extends Component {
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
                     <FontAwesomeIcon icon={faKey} className="icons1111" />
-                    <Input className="bodernull111"
+                    <Input
+                      className="bodernull111"
                       type="password"
                       name="confirm_password"
                       placeholder="Confirm Password"
@@ -307,27 +364,35 @@ class Header extends Component {
                     />
                   </fieldset>
                 )}
-<div>
-    <Checkbox
-        defaultChecked
-        color="primary"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      /><p className="terms3">I accept terms & condition </p>
-      </div>
+                <div>
+                  <Checkbox
+                    defaultChecked
+                    color="primary"
+                    inputProps={{ "aria-label": "secondary checkbox" }}
+                  />
+                  <p className="terms3">I accept terms & condition </p>
+                </div>
                 <fieldset>
                   {modal_type === "signup" && (
                     <Button
-                    className="questtwoheadingpspan"
+                      className="questtwoheadingpspan"
                       type="submit"
                       value="Sign Up"
-                      disabled={this.state.email == "" || this.state.password =="" ||this.state.full_name == "" || this.state.confirm_password ==""}
+                      disabled={
+                        this.state.email == "" ||
+                        this.state.password == "" ||
+                        this.state.full_name == "" ||
+                        this.state.confirm_password == ""
+                      }
                     />
                   )}
                   {modal_type === "signin" && (
                     <Button
                       type="submit"
                       value="Sign In"
-                      disabled={this.state.email == "" || this.state.password ==""}
+                      disabled={
+                        this.state.email == "" || this.state.password == ""
+                      }
                     />
                   )}
                   {modal_type === "forgotpassword" && (
@@ -355,7 +420,8 @@ class Header extends Component {
                   Don't have an account yet ?{" "}
                   <span
                     onClick={() => this.openModal("signup")}
-                    title="Sign Up" className="signupcolor"
+                    title="Sign Up"
+                    className="signupcolor"
                   >
                     Sign Up
                   </span>
@@ -373,16 +439,15 @@ class Header extends Component {
               )}
             </div>
           </div>
-       </Dialog>
-       {/* </header> */}
+        </Dialog>
+        {/* </header> */}
+       <Maincontentpage></Maincontentpage>
       </div>
-
     );
   }
 }
 
 // const mapStateToProps = (store) => {
-
 
 //   return {
 //     auth: store.auth,
