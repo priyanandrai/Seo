@@ -24,7 +24,7 @@
 
 #headinfg {
   font-size: 22px;
-  font-family: Century  !important;
+  font-family: Century !important;
   color: cadetblue;
 }
 
@@ -35,48 +35,60 @@
 
 #headingcards {
   font-size: 22px;
-  font-family: Century  !important;
-  
+  font-family: Century !important;
+
   color: cadetblue;
 }
 .input-width > label {
   font-size: 18px;
-  font-family: Century  !important;
+  font-family: Century !important;
   color: cadetblue;
-
 }
 
-.hidemie{
+.hidemie {
   font-size: 22px;
-  font-family: Century  !important;
+  font-family: Century !important;
   color: cadetblue;
   margin-left: 7%;
   margin-top: -32px;
 }
 
-.hidingtext{
-
+.hidingtext {
 }
 
-#buttonn{
+#buttonn {
   background-color: black !important;
   float: right;
 }
 
-.hidingfirst{
+.hidingfirst {
   margin-top: 10%;
   font-size: 25px;
-  font-family: Century  !important;
+  font-family: Century !important;
   color: cadetblue;
-
 }
 
-#dropdown-buttonn{
+#dropdown-buttonn {
   margin-left: 3%;
   background-color: white;
 }
 
-.viedoplayerr{
+.viedoplayerr {
   height: 30%;
   width: 40%;
+}
+
+.main-title-text > p {
+  margin-top: .8em;
+  line-height: 1.82459;
+  font-weight: 400;
+  letter-spacing: 0.016rem;
+  font-size: 16px;
+}
+.main-title-heading {
+  font-size: 24px;
+  line-height: 1.16667;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+  columns: #111111;
 }

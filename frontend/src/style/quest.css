@@ -1564,3 +1564,15 @@
     margin-left: 10px;
     vertical-align: middle!important;
   }
+
+  .auth-button{
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #111111;
+    padding: 6px 15px;
+    letter-spacing: 0.5px;
+
+  }
+  .navLinks{
+    margin-left: auto;
+  }

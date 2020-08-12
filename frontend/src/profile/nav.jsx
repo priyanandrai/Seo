@@ -8,7 +8,6 @@ import logo from "../images/logo.png";
 import login from "../images/login.png";
 import "../style/quest.css";
 import "../App.css";
-import "../style/header.css";
 import { NavLink } from "react-router-dom";
 import {  animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
@@ -200,7 +199,7 @@ class Nav extends Component {
       return (
         <button
           id={data.title}
-          className="button"
+          className="auth-button"
           type="button"
           onClick={() => this.openModal(data.endpoint)}
         >
@@ -267,7 +266,7 @@ class Nav extends Component {
               </div>
             </div>
           ) : (
-            <div className="navigation">{navigation_links_list}</div>
+            <div className="navLinks">{navigation_links_list}</div>
           )}
         </Toolbar>
         <Dialog
