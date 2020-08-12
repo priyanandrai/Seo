@@ -12,7 +12,7 @@ import Account from "./Account";
 import Input from "./Input";
 import Label from "./Label";
 import Button from "./Button";
-import { getAuthData } from "../utils";
+import { getAuthData, isLoggedIn } from "../utils";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -51,6 +51,15 @@ class Header extends Component {
     this.handelOnClickLogout = this.handelOnClickLogout.bind(this);
   }
 
+  componentWillMount(){
+    let temp = window.localStorage.getItem("isLoggedIn");
+    if(temp == true || temp == "true"){
+      this.setState({
+        login :true
+      })
+    }
+  }
+
   openModal(type) {
     if (type == "contactus") {
       window.location = "/contactus";
@@ -78,6 +87,7 @@ class Header extends Component {
   }
 
   handelOnChange(event) {
+   
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
@@ -85,6 +95,10 @@ class Header extends Component {
   }
 
   handleOnSubmit(event) {
+    window.localStorage.setItem("isLoggedIn",true)
+    window.localStorage.setItem("user",this.state.email);
+    window.location = "/dashboard";
+    return;
     event.preventDefault();
     const {
       how_account_dropdown,
@@ -216,50 +230,14 @@ class Header extends Component {
         <div className="headerin">
           <Logo />
           <div className="account">
-            {isLoggedIn && (
-              <Fragment>
-                <Account
-                  account_name="Amit rai"
-                  isLoggedIn={isLoggedIn}
-                  show_account_dropdown={show_account_dropdown}
-                  onClick={this.handelOnClickDropDown}
-                  logout={this.handelOnClickLogout}
-                  profile_links={[
-                    {
-                      title: "Profile Information",
-                      to: "/profile/basic-information",
-                      permissions: "No matter now",
-                    },
-                    {
-                      title: "My Quests",
-                      to: "/questdetails",
-                      permissions: "No matter now",
-                    },
-                    {
-                      title: "My Ratings & Reviews",
-                      to: "/ratings",
-                      permissions: "No matter now",
-                    },
-                    {
-                      title: "My Team",
-                      to: "/teams",
-                      permissions: "No matter now",
-                    },
-                    {
-                      title: "Sign Out ",
-                      to: "/logout",
-                      permissions: "No matter now",
-                    },
-                  ]}
-                />
-              </Fragment>
-            )}
           </div>
-          <div className="navigation">{navigation_links_list}</div>
+         { this.state.login != true ? 
+         (<div className="navigation">{navigation_links_list}</div>):
+         ("Please add me ")}
         </div>
 
         <Dialog
-          onClick={() => {
+          onClose={() => {
             this.setState({
               modal_open: false,
             });

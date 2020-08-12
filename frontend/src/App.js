@@ -23,13 +23,13 @@ function App() {
   return (
     <Router history={BrowserRouter}>
       <div>
-        <Header></Header>
+        <Nav></Nav>
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/submit" component={SubmitRequest} />
         <Route exact path="/changepassword" component={Changepassword} />
-        <Route exact path="/maincontentPage" component={Maincontentpage} />
-        <Route exact path="/maincontentpage2" component={Maincontentpage2} />
+        <Route exact path="/home" component={Maincontentpage} />
+        <Route exact path="/dashboard" component={Maincontentpage2} />
       </div>
     </Router>
   );
