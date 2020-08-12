@@ -257,7 +257,7 @@ class Header extends Component {
         </div>
 
         <Dialog
-          onClose={() => {
+          onClick={() => {
             this.setState({
               modal_open: false,
             });
