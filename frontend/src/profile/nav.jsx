@@ -77,7 +77,7 @@ class Nav extends Component {
 
   openModal(type) {
     if (type == "contactus") {
-      window.location = "/contactus";
+      window.open("http://srcservicesltd.com/contactus");
       return;
     }
 
