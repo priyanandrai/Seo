@@ -29,6 +29,7 @@ class Nav extends Component {
         <Toolbar variant="dense">
           <img className="logos" src={logo} />
 
+<<<<<<< HEAD
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
@@ -57,6 +58,11 @@ class Nav extends Component {
                   <a class="dropdown-item" href="/changepassword">
                     Change Password
                   </a>
+=======
+              <a class="dropdown-item" href="/submitRequest">
+                Submit Request
+              </a>
+>>>>>>> 3fafb91398faaa29afddcb63cdcd47b5eb221d8b
 
                   <a class="dropdown-item" href="/submitRequest">
                     Submit Request

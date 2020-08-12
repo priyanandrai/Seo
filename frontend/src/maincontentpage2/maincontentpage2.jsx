@@ -20,15 +20,29 @@ export class Maincontentpage2 extends Component {
       url: "",
     };
   }
+
   handlesubmit = (e) => {
     const { name, email, url } = this.state;
     e.preventDefault();
     window.localStorage.setItem("name", name);
     window.localStorage.setItem("email", email);
     window.localStorage.setItem("url", url);
-    alert("Locally stored data")
+    // alert("Locally stored data");
   };
+  handlesubmit() {
+  
 
+    if (this.state.name== "") {
+      alert("please enter the name");
+      return;
+       }
+       if(this.state.email == ""){
+        alert("please enter the email");
+       }
+       if(this.state.url== ""){
+         alert("please enter the url")
+       }
+  }
   render() {
     return (
       <div>
@@ -55,6 +69,7 @@ export class Maincontentpage2 extends Component {
                       <Form.Control
                         type="name"
                         placeholder="Enter name"
+                        id="Name"
                         className="w-75"
                         onChange={(e) =>
                           this.setState({ name: e.target.value })
@@ -65,6 +80,7 @@ export class Maincontentpage2 extends Component {
                         type="email"
                         placeholder="Enter email"
                         className="w-75"
+                        id="Email"
                         value={this.state.email}
                         onChange={(e) =>
                           this.setState({
@@ -74,7 +90,8 @@ export class Maincontentpage2 extends Component {
                       />
                       <Form.Label>Enter Url</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="Url"
+                        id="Url"
                         placeholder="Enter url"
                         className="w-75"
                         onChange={(e) => this.setState({ url: e.target.value })}
