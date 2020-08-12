@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./profile.css";
 import logo from "../images/logo.png";
 import login from "../images/login.png";
@@ -14,12 +14,11 @@ class Nav extends Component {
     this.log = this.log.bind(this);
   }
 
-  log(){
-    console.log("hi nitin")
+  log() {
+    console.log("hi nitin");
     alert("hello everyone");
     window.localStorage.clear();
     window.location = "/home";
-
   }
   render() {
     return (
@@ -50,9 +49,11 @@ class Nav extends Component {
               <a class="dropdown-item" href="/changepassword">
                 Change Password
               </a>
-              <a class="dropdown-item" to="/submitRequest" href="submitRequest">
+
+              <a class="dropdown-item"  href="/submitRequest">
                 Submit Request
               </a>
+
               <Logout logout={this.log} />
               {/* <a  class="dropdown-item" onClick={()=> this.logout()}> */}
               {/* Logout

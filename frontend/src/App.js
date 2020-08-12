@@ -14,23 +14,26 @@ import {
   Route,
   Redirect,
   Switch,
+  BrowserRouter,IndexRoute
 } from "react-router-dom";
-import Maincontentpage2 from "./maincontentpage2/maincontentpage2";
+import {Maincontentpage2} from "./maincontentpage2/maincontentpage2";
 // import Header from './components/Header';
-import SubmitRequest from "./submitRequest/submitRequest";
-import Changepassword from "./changepassword/changepassword"
+import {SubmitRequest} from "./submitRequest/submitRequest";
+import {Changepassword} from "./changepassword/changepassword"
 function App() {
   return (
-    <Router>
+    <Router history={BrowserRouter} >
       <div>
-        <Switch>
+        {/* <IndexRoute component={Nav} /> */}
           <Nav></Nav>
-          <Route path="/logout" component={Logout} />
+          <Route exact path="/logout" component={Logout} />
           {/* <Redriect from="/SubmitRequest/" to="/submitRequest/" /> */}
-        <Route path="/submitRequet" component={SubmitRequest} /> 
-        <Route path="/changepassword" component={Changepassword} /> 
-        </Switch>
-        <Maincontentpage2/>
+          <Route exact path="/submitRequet" component={SubmitRequest}/>
+          <Route exact path="/changepassword" component={Changepassword}/>
+          <Route exact path="/maincontentPage" component={Maincontentpage}/>
+
+      <Route exact path="/maincontentPage2" component={Maincontentpage2}/>
+        {/* <Maincontentpage2/> */}
 
       </div>
     </Router>

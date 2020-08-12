@@ -4,13 +4,14 @@ import { Button, Container, Row, Col, Card, Form } from "react-bootstrap";
 import Checkbox from "@material-ui/core/Checkbox";
 // import "node_modules/video-react/dist/video-react.css"; // import css
 import { Player } from "video-react";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      name: "",
       show: false,
       showme: false,
       showto: false,
@@ -20,8 +21,12 @@ export class Maincontentpage2 extends Component {
     };
   }
   handlesubmit = (e) => {
+    const { name, email, url } = this.state;
     e.preventDefault();
-    const newss = {};
+    window.localStorage.setItem("name", name);
+    window.localStorage.setItem("email", email);
+    window.localStorage.setItem("url", url);
+    alert("Locally stored data")
   };
 
   render() {
@@ -51,6 +56,9 @@ export class Maincontentpage2 extends Component {
                         type="name"
                         placeholder="Enter name"
                         className="w-75"
+                        onChange={(e) =>
+                          this.setState({ name: e.target.value })
+                        }
                       />
                       <Form.Label>Email address</Form.Label>
                       <Form.Control
@@ -69,6 +77,7 @@ export class Maincontentpage2 extends Component {
                         type="email"
                         placeholder="Enter url"
                         className="w-75"
+                        onChange={(e) => this.setState({ url: e.target.value })}
                       />
                       <Container>
                         <Button
@@ -229,11 +238,12 @@ export class Maincontentpage2 extends Component {
                         height: "20rem",
                       }}
                     >
-                     
-                      <ReactPlayer width="100%" height="100%" url='https://www.youtube.com/watch?v=-b4WeJ7ujwU' />
-                     
-                       
-                      
+                      <ReactPlayer
+                        width="100%"
+                        height="100%"
+                        url="https://www.youtube.com/watch?v=-b4WeJ7ujwU"
+                      />
+
                       {/* <Card.Img variant="top" src="" />
                       <Card.Body>
                         <Card.Title className="text-info">
