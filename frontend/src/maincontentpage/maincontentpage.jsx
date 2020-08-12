@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import "../maincontentpage/main.css";
 import Grid from "@material-ui/core/Grid";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 
 class Maincontentpage extends React.Component {
   render() {
@@ -35,19 +38,25 @@ class Maincontentpage extends React.Component {
           </Grid>
           <Grid item xs={4}>
             <div className="animate__animated animate__backInRight right-main-section">
-              <h3 className="main-title-heading">Video online</h3>
-              <div className="main-title-text">
-                <p>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content. Some quick example text to
-                  build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <p>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+              <Card>
+                <CardActionArea>
+                  <CardContent>
+                    <h3 className="main-title-heading">Video online</h3>
+                    <div className="main-title-text">
+                      <p>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content. Some quick
+                        example text to build on the card title and make up the
+                        bulk of the card's content.
+                      </p>
+                      <p>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </div>
           </Grid>
         </Grid>
@@ -80,7 +89,6 @@ class Maincontentpage extends React.Component {
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
                       </Card.Text>
-                      {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                   </Card>
                 </div>
