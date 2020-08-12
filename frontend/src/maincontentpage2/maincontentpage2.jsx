@@ -9,7 +9,6 @@ import ReactPlayer from "react-player";
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: "",
       show: false,
@@ -29,32 +28,54 @@ export class Maincontentpage2 extends Component {
     window.localStorage.setItem("url", url);
     // alert("Locally stored data");
 
-    if (this.state.name.trim().length < 4) {
-      alert("please enter the name minimum 4 characture");
+    if (this.state.name.trim().length < 5) {
+      alert("please enter the name minimum 5 characture");
       return;
     }
     const regexex = "[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}";
     if (!this.state.email.match(regexex)) {
       alert("please enter the  email");
       return;
-    } 
-    // else {
-    //   alert("please enter valid email");
-    // }
+     }
+    // else(regexex=="email"){
+    //   alert("enter the valid")
+    //   } 
+   
     if (this.state.url.trim()=="") {
       alert("please enter the url");
       return;
     }
   };
 
+  handlesubmission =(e) =>{
+   const {url ,title ,description, keywords, } = this.state
+ 
+  if(this.state.url==""){
+    alert("please enter the url")
+    return; 
+  }
+  if(this.state.title==""){
+      alert("please enter the title")
+  return;
+    }
+  if(this.state.description ==""){
+  alert("please enter the descruption")
+  return;
+  }
+  if(this.state.keywords==""){
+    alert("please enter the keywords")
+   return;
+  }
+  }
+
   render() {
     return (
       <div>
-        <div style={{marginTop: "-6%"}}>
+        <div style={{marginTop: "8%"}}>
           <Container className="animate__animated animate__backInLeft">
             <h1 className="hidingfirst">Choose services</h1>
             <Row>
-              <Col sm={6}>
+              <Col sm={8}>
                 <div>
                   <Checkbox
                     style={{}}
@@ -95,6 +116,7 @@ export class Maincontentpage2 extends Component {
                       <Form.Label>Enter Url</Form.Label>
                       <Form.Control
                         type="Url"
+
                         id="Url"
                         placeholder="Enter url"
                         className="w-75"
@@ -143,33 +165,44 @@ export class Maincontentpage2 extends Component {
                       >
                         <Form.Label>URL</Form.Label>
                         <Form.Control
-                          type="name"
+                          type="url"
                           placeholder="Enter url"
                           className="w-75"
+                           value={this.state.url}
+                           onChange={(e) => this.setState({url: e.target.value})}
                         />
                         <Form.Label>title</Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="Enter title"
                           className="w-75"
+                          value={this.state.title}
+                          onChange={(e) => this.setState({title: e.target.value})}
                         />
                         <Form.Label>Description</Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="Enter Description"
                           className="w-75"
+                          value={this.state.description}
+                          onChange={(e) => this.setState({description: e.target.value
+                          })}
                         />
                         <Form.Label>Keywords</Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="Enter Keywords"
                           className="w-75"
+                          value={this.state.keywords}
+                          onChange={(e) => this.setState({keywords: e.target.value})}
                         />
                         <Button
                           style={{ marginRight: "24%", marginTop: "4%" }}
                           id="buttonn"
                           variant="contained"
                           color="secondary "
+
+                          onClick={this.handlesubmission}
                         >
                           Start
                         </Button>
@@ -248,7 +281,7 @@ export class Maincontentpage2 extends Component {
                   ) : null}
                 </div>
               </Col>
-              <Col sm={5}>
+              <Col sm={4}>
                 <div className="cardsms">
                   <div className="animate__animated animate__backInRight ">
                     <Card
@@ -262,7 +295,7 @@ export class Maincontentpage2 extends Component {
                       <ReactPlayer
                         width="100%"
                         height="100%"
-                        url="https://www.youtube.com/watch?v=H1uLU9h0k0k"
+                        url="https://www.youtube.com/watch?v=-b4WeJ7ujwU"
                       />
 
                       {/* <Card.Img variant="top" src="" />

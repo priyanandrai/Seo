@@ -59,7 +59,7 @@ class Nav extends Component {
 
   componentWillMount(){
     let temp = window.localStorage.getItem("isLoggedIn");
-    alert(temp)
+    // alert(temp)
     if(temp == true || temp == "true"){
       this.setState({
         isLogged :true,
