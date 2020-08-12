@@ -24,8 +24,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from "@material-ui/core/Checkbox";
 import { register } from "react-scroll/modules/mixins/scroller";
- 
-import Maincontentpage  from '../maincontentpage/maincontentpage'
+
+import Maincontentpage from "../maincontentpage/maincontentpage";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -96,7 +96,29 @@ class Header extends Component {
       confirm_password,
       checkbox,
     } = this.state;
+   
     if (modal_type === "signup") {
+      const nameString = "^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$"
+      if (this.state.full_name.trim().length < 4) {
+        alert("Full name must be more than 4 characters.");
+        return;
+      } else if (!this.state.full_name.trim().match(nameString)) {
+        alert("Please enter characters only.");
+        return;
+      }
+      const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!this.state.email.match(emailReg)) {
+        alert("Please enter a valid email.");
+        return;
+      }
+      if (this.state.password.length <8) {
+        alert("Password must be 8 characters long");
+        return;
+      }
+      if (this.state.confirm_password !== this.state.password) {
+        alert("Password must match.");
+        return;
+      }
       const { doSignUp } = this.props.authActions;
       let temp = doSignUp({
         full_name,
@@ -154,7 +176,6 @@ class Header extends Component {
       button_status,
     } = this.state;
 
-    
     const navigation_links = [
       {
         title: "Login",
@@ -173,19 +194,19 @@ class Header extends Component {
       },
     ];
 
-    const navigation_links_list =  navigation_links.map((data, index) => {
-        console.log("My endpoint name is", data, index);
-        return (
-          <button
-            id={data.title}
-            className="button"
-            type="button"
-            onClick={() => this.openModal(data.endpoint)}
-          >
-            {data.title}
-          </button>
-        );
-      });
+    const navigation_links_list = navigation_links.map((data, index) => {
+      console.log("My endpoint name is", data, index);
+      return (
+        <button
+          id={data.title}
+          className="button"
+          type="button"
+          onClick={() => this.openModal(data.endpoint)}
+        >
+          {data.title}
+        </button>
+      );
+    });
 
     return (
       <div className="header">
@@ -441,7 +462,7 @@ class Header extends Component {
           </div>
         </Dialog>
         {/* </header> */}
-       <Maincontentpage></Maincontentpage>
+        <Maincontentpage></Maincontentpage>
       </div>
     );
   }
