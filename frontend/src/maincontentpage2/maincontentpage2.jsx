@@ -295,7 +295,7 @@ export class Maincontentpage2 extends Component {
                       <ReactPlayer
                         width="100%"
                         height="100%"
-                        url="https://www.youtube.com/watch?v=-b4WeJ7ujwU"
+                        url=" https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s   "
                       />
 
                       {/* <Card.Img variant="top" src="" />
