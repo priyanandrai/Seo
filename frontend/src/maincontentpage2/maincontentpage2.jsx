@@ -14,13 +14,18 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import TextField from '@material-ui/core/TextField';
-// import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
+
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      snackbar: false,
+      message: "",
       name: "",
       show: false,
       showme: false,
@@ -31,71 +36,96 @@ export class Maincontentpage2 extends Component {
       sbmUrl: "",
       csUrl: "",
       title: "",
-      description:"",
+      description: "",
       keywords: "",
-      emaill:""
+      emaill: "",
+      error: null,
     };
   }
+
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
 
   handlesubmit = (e) => {
     e.preventDefault();
     const { name, email, sbsUrl } = this.state;
 
-    window.localStorage.setItem("name", name);
-    window.localStorage.setItem("email", email);
-    window.localStorage.setItem("url", sbsUrl);
+    if (name.trim() == "") {
+      this.setState({ snackbar: true, error: "Please enter  name." });
+      return;
+    }
 
     if (name.length < 5) {
-      alert("please enter the name minimum 5 characture");
+      this.setState({
+        snackbar: true,
+        error: "Name must be 5 charchters long.",
+      });
       return;
     }
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email.trim() == "") {
-      alert("Please enter email.");
+      this.setState({
+        snackbar: true,
+        error: "Please enter email Id.",
+      });
       return;
     } else if (!email.match(regexex)) {
-      alert("please enter a valid email");
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid email Id.",
+      });
       return;
     }
 
-   const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
-     if (this.state.sbsUrl=="") {
-      alert("please enter the url");
-       return;
-       } else if(!sbsUrl.match(regesxm)){
-         alert("please enter the valid ")
-         return;
-       }
-      };
+    const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    if (sbsUrl == "") {
+      this.setState({
+        snackbar: true,
+        error: "please enter the URL.",
+      });
+      return;
+    } else if (!sbsUrl.match(regesxm)) {
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid  URL.",
+      });
+      return;
+    }
+    if (this.state.error === null) {
+      this.setState({ snackbar: true, message: "Success Updated" });
+    }
+    window.localStorage.setItem("name", name);
+    window.localStorage.setItem("email", email);
+    window.localStorage.setItem("url", sbsUrl);
+  };
 
   handlesubmission = (e) => {
     const { sbmUrl, title, description, keywords } = this.state;
-   
- const  regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
- 
-    if (sbmUrl =="") {
+
+    const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+    if (sbmUrl == "") {
       alert("please enter the url");
-     return;
-    } else if(!sbmUrl.match(regesxemssm)){
-        alert("enter the valid url") 
-        return;
+      return;
+    } else if (!sbmUrl.match(regesxemssm)) {
+      alert("enter the valid url");
+      return;
     }
-    if (title=="") {
+    if (title == "") {
       alert("please enter the title");
       return;
     }
-    if (description=="") {
+    if (description == "") {
       alert("please enter the descruption");
       return;
     }
-    if (keywords =="") {
+    if (keywords == "") {
       alert("please enter the keywords");
       return;
     }
   };
-  handleclick = (e) =>{
-
-  }
+  handleclick = (e) => {};
 
   render() {
     return (
@@ -209,7 +239,7 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Description</Form.Label>
-                          <Form.Control 
+                          <Form.Control
                             type="text"
                             placeholder="Enter Description"
                             className="w-75"
@@ -263,19 +293,21 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          
-             
-                          <TextField id="standard-uncontrolled" label="Uncontrolled" defaultValue="" />
+                          <TextField
+                            id="standard-uncontrolled"
+                            label="Uncontrolled"
+                            defaultValue=""
+                          />
 
-
-                      {/* <TextField id="outlined-bas" label="Email" variant="outlined" /> */}
-                              <Form.Control
+                          {/* <TextField id="outlined-bas" label="Email" variant="outlined" /> */}
+                          <Form.Control
                             type="email"
                             placeholder="Enter Email"
                             className="w-75"
-                            value ={this.state.emaill}
-                            onChange={(e) => this.setState({emaill: e.target.value })}
-
+                            value={this.state.emaill}
+                            onChange={(e) =>
+                              this.setState({ emaill: e.target.value })
+                            }
                           />
                           <Form.Label>Password</Form.Label>
                           <Form.Control
@@ -382,300 +414,33 @@ export class Maincontentpage2 extends Component {
             </Grid>
           </Grid>
         </div>
+
+        <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
       </div>
-
-     
-
-
-
-
-
-
-//   <div>
-      //     <Container>
-      //       <h1 className="hidingfirst animate__animated animate__backInLeft">
-      //         Choose services
-      //       </h1>
-      //       <div>
-      //         <Row>
-      //             <Col sm={8}>
-      //               <div className="animate__animated animate__backInLeft">
-      //                 <div>
-      //                   <Checkbox
-      //                     style={{}}
-      //                     onChange={() =>
-      //                       this.setState({ show: !this.state.show })
-      //                     }
-      //                     color="primary"
-      //                     inputProps={{ "aria-label": "secondary checkbox" }}
-      //                   />
-      //                   <h3 style={{ marginRight: "10%" }} className="hidemie">
-      //                     Search Engine Submission
-      //                   </h3>
-      //                 </div>
-      //                 <h1>
-      //                   {this.state.show ? (
-      //                     <div
-      //                       style={{ marginLeft: "10%" }}
-      //                       className="input-width"
-      //                     >
-      //                       <Form.Label>Name</Form.Label>
-      //                       <Form.Control
-      //                         type="name"
-      //                         placeholder="Enter name"
-      //                         id="Name"
-      //                         className="w-75"
-      //                         onChange={(e) =>
-      //                           this.setState({ name: e.target.value })
-      //                         }
-      //                       />
-      //                       <Form.Label>Email address</Form.Label>
-      //                       <Form.Control
-      //                         type="email"
-      //                         placeholder="Enter email"
-      //                         className="w-75"
-      //                         id="Email"
-      //                         value={this.state.email}
-      //                         onChange={(e) =>
-      //                           this.setState({
-      //                             email: e.target.value,
-      //                           })
-      //                         }
-      //                       />
-      //                       <Form.Label>Enter Url</Form.Label>
-      //                       <Form.Control
-      //                         type="Url"
-      //                         id="Url"
-      //                         placeholder="Enter url"
-      //                         className="w-75"
-      //                         onChange={(e) =>
-      //                           this.setState({ sbsUrl: e.target.value })
-      //                         }
-      //                       />
-      //                       <Container>
-      //                         <Button
-      //                           style={{ marginRight: "24%", marginTop: "4%" }}
-      //                           id="buttonn"
-      //                           variant="contained"
-      //                           color="secondary "
-      //                           onClick={this.handlesubmit}
-      //                         >
-      //                           Start
-      //                         </Button>
-      //                       </Container>
-      //                     </div>
-      //                   ) : null}
-      //                 </h1>
-
-      //                 <div>
-
-      //                   <Checkbox
-      //                     style={{ marginTop: "5%" }}
-      //                     onChange={() =>
-      //                       this.setState({ showme: !this.state.showme })
-      //                     }
-      //                     color="primary"
-      //                     inputProps={{ "aria-label": "secondary checkbox" }}
-      //                   />
-      //                   <h3 className="hidemie">Social book marketing</h3>
-      //                 </div>
-      //                 <div>
-      //                   {this.state.showme ? (
-      //                     <h1>
-      //                       <div
-      //                         style={{ marginLeft: "10%" }}
-      //                         className="input-width"
-      //                       >
-      //                         <Form.Label>URL</Form.Label>
-      //                         <Form.Control
-      //                           type="url"
-      //                           placeholder="Enter url"
-      //                           className="w-75"
-      //                           value={this.state.url}
-      //                           onChange={(e) =>
-      //                             this.setState({ sbmUrl: e.target.value })
-      //                           }
-      //                         />
-      //                         <Form.Label>title</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter title"
-      //                           className="w-75"
-      //                           value={this.state.title}
-      //                           onChange={(e) =>
-      //                             this.setState({ title: e.target.value })
-      //                           }
-      //                         />
-      //                         <Form.Label>Description</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Description"
-      //                           className="w-75"
-      //                           value={this.state.description}
-      //                           onChange={(e) =>
-      //                             this.setState({ description: e.target.value })
-      //                           }
-      //                         />
-      //                         <Form.Label>Keywords</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Keywords"
-      //                           className="w-75"
-      //                           value={this.state.keywords}
-      //                           onChange={(e) =>
-      //                             this.setState({ keywords: e.target.value })
-      //                           }
-      //                         />
-      //                         <Button
-      //                           style={{ marginRight: "24%", marginTop: "4%" }}
-      //                           id="buttonn"
-      //                           variant="contained"
-      //                           color="secondary "
-      //                           onClick={this.handlesubmission}
-      //                         >
-      //                           Start
-      //                         </Button>
-      //                       </div>
-      //                     </h1>
-      //                   ) : null}
-      //                 </div>
-      //                 <div style={{ marginTop: "2%" }}>
-      //                   <Checkbox
-      //                     style={{ marginTop: "4%" }}
-      //                     onChange={() =>
-      //                       this.setState({ showto: !this.state.showto })
-      //                     }
-      //                     color="primary"
-      //                     inputProps={{ "aria-label": "secondary checkbox" }}
-      //                   />
-      //                   <h1></h1>
-      //                   <h3 style={{ marginTop: "-5.5%" }} className="hidemie">
-      //                     Classified Submission
-      //                   </h3>
-      //                 </div>
-
-      //                 <div>
-      //                   {this.state.showto ? (
-      //                     <h1>
-      //                       <div
-      //                         style={{ marginLeft: "10%" }}
-      //                         className="input-width"
-      //                       >
-      //                         <Form.Label>Email</Form.Label>
-      //                         <Form.Control
-      //                           type="name"
-      //                           placeholder="Enter Email"
-      //                           className="w-75"
-      //                         />
-      //                         <Form.Label>Password</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Password"
-      //                           className="w-75"
-      //                         />
-      //                         <Form.Label>Title</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter title"
-      //                           className="w-75"
-      //                         />
-      //                         <Form.Label>Description</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Description"
-      //                           className="w-75"
-      //                         />
-      //                         <Form.Label>URL</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Url"
-      //                           className="w-75"
-      //                         />
-      //                         <Form.Label>Keywords</Form.Label>
-      //                         <Form.Control
-      //                           type="text"
-      //                           placeholder="Enter Keywords"
-      //                           className="w-75"
-      //                         />
-      //                         <Button
-      //                           style={{ marginRight: "24%", marginTop: "4%" }}
-      //                           id="buttonn"
-      //                           variant="contained"
-      //                           color="secondary "
-      //                         >
-      //                           Start
-      //                         </Button>
-      //                       </div>
-      //                     </h1>
-      //                   ) : null}
-      //                 </div>
-      //               </div>
-      //             </Col>
-
-      //           <Col sm={4}>
-      //             <div className="cardsms">
-      //               <div className="animate__animated animate__backInRight ">
-      //                 <Card
-      //                   style={{
-      //                     marginLeft: "-10%",
-      //                     marginTop: "-8%",
-      //                     width: "25rem",
-      //                     height: "20rem",
-      //                   }}
-      //                 >
-      //                   <ReactPlayer
-      //                     width="100%"
-      //                     height="100%"
-      //                     url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
-      //                   />
-
-      //                 </Card>
-      //               </div>
-      //             </div>
-      //           </Col>
-      //         </Row>
-      //       </div>
-      //     </Container>
-
-      //     <div className="text-center">
-      //       <Container>
-      //         <Row>
-      //           <Col></Col>
-      //           <Col sm={8}>
-      //             <div className="animate__animated animate__backInUp longcards">
-      //               <Card
-      //                 style={{
-      //                   width: "72.5rem",
-      //                   height: "10rem",
-      //                   marginLeft: "-4%",
-      //                 }}
-      //               >
-      //                 <Card.Img variant="top" src="" />
-      //                 <Card.Body>
-      //                   <Card.Title id="headingcards" className="text-info">
-      //                     Get off-page optimization service free of cost{" "}
-      //                   </Card.Title>
-      //                   <Card.Text className="headingsss">
-      //                     We at srcserviceltd providing the off page SEO service
-      //                     without asking any extra amount, so don't miss the
-      //                     chance to grab the services to boost the engagement of
-      //                     your website. Just call us now, and get the best
-      //                     services from our experts.
-      //                   </Card.Text>
-      //                   <Card.Text className="headingsss">
-      //                     Some quick example text to build on the card title and
-      //                     make up the bulk of the card's content.
-      //                   </Card.Text>
-      //                 </Card.Body>
-      //               </Card>
-      //             </div>
-      //           </Col>
-      //           <Col></Col>
-      //         </Row>
-      //       </Container>
-      //     </div>
-      //   </div>
-      // </div>
     );
   }
 }
