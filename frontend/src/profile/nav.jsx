@@ -130,9 +130,9 @@ class Nav extends Component {
       if (this.state.full_name.trim().length < 4) {
         alert("Full name must be more than 4 characters.");
         return;
-      } else if (this.state.full_name.trim().length > 20) {
+      } else if (full_name.trim().length > 20) {
         alert("Full name must not exceed 20 characters.");
-      } else if (!this.state.full_name.trim().match(nameString)) {
+      } else if (!full_name.trim().match(nameString)) {
         alert("Please enter characters only.");
         return;
       }
@@ -222,7 +222,7 @@ class Nav extends Component {
 
     return (
       <AppBar position="fixed">
-        <Toolbar variant="dense">
+        <Toolbar classname="navigationbar" variant="dense">
           <a href="/home">
           <img className="logos" src={logo} />
             </a>
@@ -446,6 +446,7 @@ class Nav extends Component {
                 <p>
                   Already have an account ?{" "}
                   <span
+                   className="signintext"
                     onClick={() => this.openModal("signin")}
                     title="Sign In"
                   >

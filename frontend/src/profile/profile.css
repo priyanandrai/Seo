@@ -3,13 +3,18 @@
 }
 
 .logos{
-    height: 56px;
+    height: 36px;
 }
-
+.signintext{
+    color: #3495a2 !important;
+}
 .logoimage{
     margin-left: 68%;
 }
 
+.navigationbar{
+    height: ;
+}
 /* .dropdownsss{
     background-color: black !important;
     margin-left: 2%;
@@ -21,6 +26,3 @@
     color: black;
 } */
 
-#dropdownss{
-
-}

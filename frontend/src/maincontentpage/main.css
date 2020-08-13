@@ -35,21 +35,19 @@
   color: cadetblue;
 }
 .input-width > label {
-  font-size: 18px;
+  font-size: 16px;
   font-family: Century !important;
   color: cadetblue;
 }
 
 .hidemie {
-  font-size: 22px;
+  font-size: 19px;
   font-family: Century !important;
   color: cadetblue;
   margin-left: 7%;
   margin-top: -32px;
 }
 
-.hidingtext {
-}
 
 #buttonn {
   background-color: black !important;
@@ -98,6 +96,7 @@
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 28px;
+  margin-right: 35px;
 }
 .mainpage-alignment{
   margin-top: 50px;
