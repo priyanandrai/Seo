@@ -14,6 +14,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -28,6 +30,10 @@ export class Maincontentpage2 extends Component {
       sbsUrl: "",
       sbmUrl: "",
       csUrl: "",
+      title: "",
+      description:"",
+      keywords: "",
+      emaill:""
     };
   }
 
@@ -43,7 +49,7 @@ export class Maincontentpage2 extends Component {
       alert("please enter the name minimum 5 characture");
       return;
     }
-    const regexex = "[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}";
+    const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email.trim() == "") {
       alert("Please enter email.");
       return;
@@ -51,36 +57,45 @@ export class Maincontentpage2 extends Component {
       alert("please enter a valid email");
       return;
     }
-    // else(regexex=="email"){
-    //   alert("enter the valid")
-    //   }
 
-    if (sbsUrl == "") {
+   const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
+     if (this.state.sbsUrl=="") {
       alert("please enter the url");
-      return;
-    }
-  };
+       return;
+       } else if(!sbsUrl.match(regesxm)){
+         alert("please enter the valid ")
+         return;
+       }
+      };
 
   handlesubmission = (e) => {
     const { sbmUrl, title, description, keywords } = this.state;
-
-    if (sbmUrl == "") {
+   
+ const  regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
+ 
+    if (sbmUrl =="") {
       alert("please enter the url");
-      return;
+     return;
+    } else if(!sbmUrl.match(regesxemssm)){
+        alert("enter the valid url") 
+        return;
     }
-    if (title == "") {
+    if (title=="") {
       alert("please enter the title");
       return;
     }
-    if (description == "") {
+    if (description=="") {
       alert("please enter the descruption");
       return;
     }
-    if (keywords == "") {
+    if (keywords =="") {
       alert("please enter the keywords");
       return;
     }
   };
+  handleclick = (e) =>{
+
+  }
 
   render() {
     return (
@@ -178,7 +193,7 @@ export class Maincontentpage2 extends Component {
                             type="url"
                             placeholder="Enter url"
                             className="w-75"
-                            value={this.state.url}
+                            value={this.state.sbmUrl}
                             onChange={(e) =>
                               this.setState({ sbmUrl: e.target.value })
                             }
@@ -194,7 +209,7 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Description</Form.Label>
-                          <Form.Control
+                          <Form.Control 
                             type="text"
                             placeholder="Enter Description"
                             className="w-75"
@@ -248,11 +263,19 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <Form.Label>Email</Form.Label>
-                          <Form.Control
-                            type="name"
+                          
+             
+                          <TextField id="standard-uncontrolled" label="Uncontrolled" defaultValue="" />
+
+
+                      {/* <TextField id="outlined-bas" label="Email" variant="outlined" /> */}
+                              <Form.Control
+                            type="email"
                             placeholder="Enter Email"
                             className="w-75"
+                            value ={this.state.emaill}
+                            onChange={(e) => this.setState({emaill: e.target.value })}
+
                           />
                           <Form.Label>Password</Form.Label>
                           <Form.Control
@@ -289,6 +312,7 @@ export class Maincontentpage2 extends Component {
                             id="buttonn"
                             variant="contained"
                             color="secondary "
+                            onClick={this.handleclick}
                           >
                             Start
                           </Button>
@@ -335,7 +359,7 @@ export class Maincontentpage2 extends Component {
                   <Card variant="outlined">
                     <CardContent>
                       <Typography color="textSecondary" gutterBottom>
-                      Get off-page optimization service free of cost
+                        Get off-page optimization service free of cost
                       </Typography>
                       <Typography variant="h5" component="h2"></Typography>
                       <Typography color="textSecondary">adjective</Typography>
@@ -360,16 +384,14 @@ export class Maincontentpage2 extends Component {
         </div>
       </div>
 
+     
 
 
 
 
 
 
-
-
-
-      //   <div>
+//   <div>
       //     <Container>
       //       <h1 className="hidingfirst animate__animated animate__backInLeft">
       //         Choose services

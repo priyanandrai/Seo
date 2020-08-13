@@ -48,7 +48,6 @@
   margin-top: -32px;
 }
 
-
 #buttonn {
   background-color: black !important;
   float: right;
@@ -73,7 +72,7 @@
 
 .main-title-text > p {
   text-align: justify;
-  margin-top: .8em;
+  margin-top: 0.8em;
   line-height: 1.82459;
   font-weight: 400;
   letter-spacing: 0.016rem;
@@ -87,20 +86,26 @@
   letter-spacing: 0.009em;
   color: #111111;
 }
-.left-main-section{
+.left-main-section {
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 25px;
 }
-.right-main-section{
+.right-main-section {
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 28px;
   margin-right: 35px;
 }
-.mainpage-alignment{
+.mainpage-alignment {
   margin-top: 50px;
 }
-.submenu-alignment{
+.submenu-alignment {
   margin-top: 20px;
+}
+
+::placeholder {
+  font-family: century;
+  font-size: 16px;
+  color: cadetblue;
 }
