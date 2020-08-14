@@ -100,6 +100,8 @@ class Nav extends Component {
     });
   }
 
+
+
   handelOnChange(event) {
    
     event.preventDefault();
@@ -382,11 +384,13 @@ class Nav extends Component {
                     <span
                       onClick={() => this.openModal("forgotpassword")}
                       title="Forgot Password ?"
-                      className="link"
+                      className="link forgottext"
                     >
                       Forgot Password ?
                     </span>
                   </fieldset>
+
+
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
@@ -402,7 +406,18 @@ class Nav extends Component {
                     />
                   </fieldset>
                 )}
+               
+               
+               
                 <div>
+                {/* <Input
+                      className=""
+                      type="password"
+                      name="confirm_password"
+                      placeholder="mobile password"
+                      autocomplete="off"
+                    
+                    /> */}
                   <Checkbox
                     defaultChecked
                     color="primary"
@@ -428,16 +443,18 @@ class Nav extends Component {
                     <Button
                       type="submit"
                       value="Sign In"
-                      disabled={
-                        this.state.email == "" || this.state.password == ""
-                      }
+                      disabled={this.state.email == "" || this.state.password == ""}
                     />
                   )}
-                  {modal_type === "forgotpassword" && (
+                  {
+                  
+                 
+                
+                  modal_type === "forgotpassword" && (
                     <Button
                       type="submit"
                       value="Send Reset Instructions"
-                      disabled={this.state.email == ""}
+                      unable={this.state.email == ""}
                     />
                   )}
                 </fieldset>

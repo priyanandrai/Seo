@@ -11,7 +11,7 @@ class Maincontentpage extends React.Component {
     return (
       <div className="mainpage-alignment">
         <Grid container className="submenu-alignment">
-          <Grid item xs={8}>
+          <Grid item xs={7}>
             <div className="animate__animated animate__backInLeft animate__delay-10s left-main-section">
               <h2 className="main-title-heading">
                 {" "}
@@ -36,7 +36,7 @@ class Maincontentpage extends React.Component {
               </div>
             </div>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <div className="animate__animated animate__backInRight right-main-section">
               <Card>
                 <CardActionArea>
@@ -60,7 +60,7 @@ class Maincontentpage extends React.Component {
             </div>
           </Grid>
         </Grid>
-        <div className="text-center">
+        <div >
           <Container>
             <Row>
               <Col></Col>
@@ -69,13 +69,13 @@ class Maincontentpage extends React.Component {
                   <Card
                     style={{
                       width: "72.5rem",
-                      height: "10rem",
+                      height: "auto",
                       marginLeft: "-4%",
                     }}
                   >
                     <Card.Img variant="top" src="" />
                     <Card.Body>
-                      <Card.Title id="headingcards" className="text-info">
+                      <Card.Title id="headingcards" className="texth">
                         Get off-page optimization service free of cost{" "}
                       </Card.Title>
                       <Card.Text className="headingsss">

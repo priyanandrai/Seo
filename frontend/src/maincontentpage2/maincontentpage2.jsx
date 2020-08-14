@@ -19,6 +19,7 @@ import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { makeStyles } from "@material-ui/core/styles";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -38,8 +39,13 @@ export class Maincontentpage2 extends Component {
       title: "",
       description: "",
       keywords: "",
-      emaill: "",
+      
       error: null,
+      emaill: "",
+      Passwordd: "",
+      descriptionss: "",
+      urls: "",
+      keywordsss: ""
     };
   }
 
@@ -125,7 +131,24 @@ export class Maincontentpage2 extends Component {
       return;
     }
   };
-  handleclick = (e) => {};
+  handleclick = (e) => {
+    // const reg =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // if(this.state.emaill.trim()){
+    //   alert("please enter the email")
+    //   return;
+    // }
+    // else if (this.state.match(reg)){
+    //   alert("please enter the valid email")
+    // return;
+    // }
+     
+    // const regpassword =
+    // if(this.state.Passwordd.trim()==""){
+    //   alert("please enter the passwords")
+
+    // }else if(this.state.Passwordd.match())
+
+  };
 
   render() {
     return (
@@ -134,6 +157,7 @@ export class Maincontentpage2 extends Component {
           <Grid item xs={8}>
             <Paper>
               <div className="animate__animated animate__backInLeft">
+               <h2 className="headeing-text">Choose Service</h2>
                 <div style={{ marginLeft: "20%" }}>
                   <div>
                     <Checkbox
@@ -211,6 +235,7 @@ export class Maincontentpage2 extends Component {
                     />
                     <h3 className="hidemie">Social book marketing</h3>
                   </div>
+
                   <div>
                     {this.state.showme ? (
                       <h1>
@@ -293,13 +318,10 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <TextField
-                            id="standard-uncontrolled"
-                            label="Uncontrolled"
-                            defaultValue=""
-                          />
+                          {/* <form  noValidate autoComplete="on">
+      <TextField style={{width:'75%'}} id="standard-basic" label="email" />
+      </form> */}
 
-                          {/* <TextField id="outlined-bas" label="Email" variant="outlined" /> */}
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
@@ -314,30 +336,48 @@ export class Maincontentpage2 extends Component {
                             type="text"
                             placeholder="Enter Password"
                             className="w-75"
+                            value={this.state.Passwordd}
+                            onChange={(e) =>
+                              this.setState({ Passwordd: e.target.value })
+                            }
                           />
                           <Form.Label>Title</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
                             className="w-75"
+                            value={this.state.titles}
+                            onChange={(e) =>
+                              this.setState({ titles: e.target.value })
+                            }
                           />
                           <Form.Label>Description</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
                             className="w-75"
+                            value={this.state.descriptionss}
+                            onChange={(e) =>
+                              this.setState({ descriptionss: e.target.value })
+                            }
                           />
                           <Form.Label>URL</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Url"
                             className="w-75"
+                            value={this.state.urls}
+                            onChange={(e) =>
+                              this.setState({ urls: e.target.value })
+                            }
                           />
                           <Form.Label>Keywords</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
                             className="w-75"
+                            value={this.state.keywordsss}
+                            onChange={(e) => this.setState({keywordsss: e.target.value})}
                           />
                           <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
