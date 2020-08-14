@@ -112,22 +112,42 @@ export class Maincontentpage2 extends Component {
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
     if (sbmUrl == "") {
-      alert("please enter the url");
+      // alert("please enter the url");
+      this.setState({
+        snackbar: true,
+        error: "please enter the url",
+      });
       return;
     } else if (!sbmUrl.match(regesxemssm)) {
-      alert("enter the valid url");
+      this.setState({
+        snackbar: true,
+        error: "enter the valid url",
+      });
+      // alert("enter the valid url");
       return;
     }
     if (title == "") {
-      alert("please enter the title");
+      this.setState({
+        snackbar: true,
+        error: "please enter the title",
+      });
+      // alert("please enter the title");
       return;
     }
     if (description == "") {
-      alert("please enter the descruption");
+      this.setState({
+        snackbar: true,
+        error: "please enter the descruption",
+      });
+      // alert("please enter the descruption");
       return;
     }
     if (keywords == "") {
-      alert("please enter the keywords");
+      this.setState({
+        snackbar: true,
+        error: "please enter the keywords",
+      });
+      // alert("please enter the keywords");
       return;
     }
   };
