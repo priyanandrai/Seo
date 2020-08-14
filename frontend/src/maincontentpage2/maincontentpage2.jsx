@@ -112,7 +112,7 @@ export class Maincontentpage2 extends Component {
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
     if (sbmUrl == "") {
-      // alert("please enter the url");
+      
       this.setState({
         snackbar: true,
         error: "please enter the url",
@@ -123,7 +123,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "enter the valid url",
       });
-      // alert("enter the valid url");
+      
       return;
     }
     if (title == "") {
@@ -131,7 +131,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the title",
       });
-      // alert("please enter the title");
+    
       return;
     }
     if (description == "") {
@@ -139,7 +139,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the descruption",
       });
-      // alert("please enter the descruption");
+     
       return;
     }
     if (keywords == "") {
@@ -147,11 +147,12 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the keywords",
       });
-      // alert("please enter the keywords");
+     
       return;
     }
   };
   handleclick = (e) => {
+    const { name, emaill, sbsUrl, } = this.state;
     // const reg =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     // if(this.state.emaill.trim()){
     //   alert("please enter the email")
@@ -168,8 +169,55 @@ export class Maincontentpage2 extends Component {
 
     // }else if(this.state.Passwordd.match())
 
-  };
 
+  
+   const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (emaill == "") {
+      this.setState({
+        snackbar: true, 
+        error: "Please enter email Id.",
+      });
+      return;
+    } else if (!emaill.match(regexex)) {
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid email Id.",
+      });
+      return;
+    }
+
+    if(this.state.Passwordd ==""){
+    this.setState({
+      snackbar: true,
+      error: "Please enter the password",
+
+    });
+    return;
+    }
+    if(this.state.descriptionss== ""){
+      this.setState({
+        snackbar: true,
+        error: "Please enter the description",
+  
+      });
+      return;
+    }
+    if(this.state.urls== ""){
+      this.setState({
+        snackbar: true,
+        error: "Please enter the url",
+  
+      }); 
+      return;
+    }
+      if(this.state.keywordsss== ""){
+        this.setState({
+          snackbar: true,
+          error: "Please enter the keywords",
+          }); 
+        return;
+  }
+  };
   render() {
     return (
       <div>
