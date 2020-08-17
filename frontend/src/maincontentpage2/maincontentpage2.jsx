@@ -112,7 +112,6 @@ export class Maincontentpage2 extends Component {
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
     if (sbmUrl == "") {
-      
       this.setState({
         snackbar: true,
         error: "please enter the url",
@@ -152,7 +151,7 @@ export class Maincontentpage2 extends Component {
     }
   };
   handleclick = (e) => {
-    const { name, emaill, sbsUrl, } = this.state;
+    const { name, emaill, sbmUrl, } = this.state;
     // const reg =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     // if(this.state.emaill.trim()){
     //   alert("please enter the email")
@@ -202,14 +201,21 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if(this.state.urls== ""){
+    if(this.state.sbmUrl== ""){
       this.setState({
         snackbar: true,
         error: "Please enter the url",
   
       }); 
       return;
+    }else if (!sbmUrl.match(regexex)) {
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid URL.",
+      });
+      return;
     }
+    
       if(this.state.keywordsss== ""){
         this.setState({
           snackbar: true,
@@ -401,7 +407,7 @@ export class Maincontentpage2 extends Component {
                           />
                           <Form.Label>Password</Form.Label>
                           <Form.Control
-                            type="text"
+                            type="password"
                             placeholder="Enter Password"
                             className="w-75"
                             value={this.state.Passwordd}
@@ -429,14 +435,14 @@ export class Maincontentpage2 extends Component {
                               this.setState({ descriptionss: e.target.value })
                             }
                           />
-                          <Form.Label>URL</Form.Label>
+                           <Form.Label>URL</Form.Label>
                           <Form.Control
-                            type="text"
-                            placeholder="Enter Url"
+                            type="url"
+                            placeholder="Enter url"
                             className="w-75"
-                            value={this.state.urls}
+                            value={this.state.sbmUrl}
                             onChange={(e) =>
-                              this.setState({ urls: e.target.value })
+                              this.setState({ sbmUrl: e.target.value })
                             }
                           />
                           <Form.Label>Keywords</Form.Label>
