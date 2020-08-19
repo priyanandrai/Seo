@@ -27,6 +27,7 @@ import {
   faEnvelope,
   faUser,
   faTimes,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Logout from "../logout/logout";
@@ -35,6 +36,7 @@ class Nav extends Component {
     super(props);
     this.state = {
       isLogged: false,
+      phone:"",
       user: "Francis",
       show_account_dropdown: false,
       modal_open: false,
@@ -113,21 +115,35 @@ class Nav extends Component {
   handleOnSubmit(event) {
     window.localStorage.setItem("isLoggedIn",true)
     window.localStorage.setItem("user",this.state.email);
-    window.location = "/dashboard";
+   
     
     event.preventDefault();
     const {
       how_account_dropdown,
       modal_open,
       modal_type,
+      phone,
       full_name,
       email,
       password,
       confirm_password,
       checkbox,
     } = this.state;
+    
+
+
 
     if (modal_type === "signup") {
+     
+   if (this.state.phone == undefined || this.state.phone.length < 10) {
+     alert("Phone number must be 10 digit");
+    return false;
+   }
+   if (this.state.phone.length > 10) {
+   alert("Phone number must be 10 digit");
+    return false;
+   }
+
       const nameString = "^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$";
       if (this.state.full_name.trim().length < 4) {
         alert("Full name must be more than 4 characters.");
@@ -154,6 +170,7 @@ class Nav extends Component {
       const { doSignUp } = this.props.authActions;
       let temp = doSignUp({
         full_name,
+        phone,
         email,
         password,
         confirm_password,
@@ -174,6 +191,8 @@ class Nav extends Component {
         email,
       });
     }
+
+    window.location = "/dashboard";
   }
 
   render() {
@@ -186,7 +205,7 @@ class Nav extends Component {
       },
       {
         title: "Register",
-        to: "/quests",
+       
         endpoint: "signup",
       },
       {
@@ -319,6 +338,36 @@ class Nav extends Component {
               )}
               {modal_type === "forgotpassword" && <h1>Forgot Password ?</h1>}
               <form onSubmit={this.handleOnSubmit}>
+              {modal_type === "signup" && (
+                  <fieldset className="inputHome">
+                    <FontAwesomeIcon
+                      icon={faPhone}
+                      className="signup-icon"
+                    />
+                    {/* fa-lg m-2 align-middle text-danger */}
+                    <Input
+                      className="bodernull111"
+                      type="tel"
+                      
+                      maxLength="10"
+                      name="mobile"
+                      placeholder="Moblie No."
+                      autocomplete="off"
+                      value={this.state.phone}
+                      //  onChange={this.handelOnChange}
+                      tabindex="1"
+                      value={this.state.phone}
+                      onChange={(e) => {
+                        if (isNaN(e.target.value)) {
+                          return;
+                        }
+                        this.setState({
+                          phone: e.target.value,
+                        });
+                      }}
+                    />
+                  </fieldset>
+                )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
                     <FontAwesomeIcon
@@ -432,6 +481,7 @@ class Nav extends Component {
                       type="submit"
                       value="Sign Up"
                       disabled={
+                        this.state.phone == "" ||
                         this.state.email == "" ||
                         this.state.password == "" ||
                         this.state.full_name == "" ||
