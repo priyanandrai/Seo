@@ -4,6 +4,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./profile.css";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/semantic-ui.css';
 import logo from "../images/logo.png";
 import login from "../images/login.png";
 import "../style/quest.css";
@@ -13,6 +15,7 @@ import {  animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as authActions from "../actions/auth";
+import Confirmotp from "../confirmotp/confirmotp";
 
 import Input from "../components/Input";
 import Label from "../components/Label";
@@ -339,33 +342,26 @@ class Nav extends Component {
               {modal_type === "forgotpassword" && <h1>Forgot Password ?</h1>}
               <form onSubmit={this.handleOnSubmit}>
               {modal_type === "signup" && (
-                  <fieldset className="inputHome">
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      className="signup-icon"
-                    />
-                    {/* fa-lg m-2 align-middle text-danger */}
-                    <Input
-                      className="bodernull111"
-                      type="tel"
-                      
-                      maxLength="10"
-                      name="mobile"
-                      placeholder="Moblie No."
-                      autocomplete="off"
-                      value={this.state.phone}
-                      //  onChange={this.handelOnChange}
-                      tabindex="1"
-                      value={this.state.phone}
-                      onChange={(e) => {
-                        if (isNaN(e.target.value)) {
-                          return;
-                        }
-                        this.setState({
-                          phone: e.target.value,
-                        });
-                      }}
-                    />
+                  <fieldset className="padii222" >
+                    
+                    <PhoneInput
+                      className="inputHome bodernull111"
+                      placeholder={'Mobile no. *'}
+                      country={'us'}
+                    // value={this.state.fields.number}
+                    tabindex="1"
+                    value={this.state.phone}
+                    onChange={(e) => {
+                      console.log(e)
+                      if (isNaN(e)) {
+                        return;
+                      }
+                      this.setState({
+                        phone: e,
+                      });
+                    }}
+                      />
+                    
                   </fieldset>
                 )}
                 {modal_type === "signup" && (
@@ -546,6 +542,23 @@ class Nav extends Component {
             </div>
           </div>
         </Dialog>
+
+
+        <div className="dialogconfirm">
+        <Dialog
+               open={1}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+      >
+           
+                <div className="confirmdialog">
+                  <h3 className="confirmdialog11">CONFIRM OTP</h3> 
+                  <Input className="confirmdialog111" type="tel"/>
+                  <p>Resend OTP</p> 
+                </div>
+            
+            </Dialog>
+            </div>
       </AppBar>
     );
   }

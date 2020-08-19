@@ -1576,3 +1576,26 @@
   .navLinks{
     margin-left: auto;
   }
+  .padii222 input{
+    width: 100% !important;
+   
+    height: 10% !important;
+    
+
+  }
+  .confirmdialog{
+    width: 50vh;
+    height: 50vh;
+  }
+  .confirmdialog11{
+    margin-top: 10% !important ;
+    margin-left: 10%;
+    font-weight: bold;
+    color: gray;
+  }
+  .confirmdialog111{
+    margin-left: 10%;
+    width: 80%;
+    height: 6vh;
+    margin-top: 2%;
+  }

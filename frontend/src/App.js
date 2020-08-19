@@ -19,6 +19,7 @@ import {
 import { Maincontentpage2 } from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
+import { Confirmotp } from "./confirmotp/confirmotp";
 function App() {
   return (
     <Router history={BrowserRouter}>
@@ -26,6 +27,7 @@ function App() {
         <Nav></Nav>
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
+        <Route exact path="/confirmotp" component={Confirmotp} />
         <Route exact path="/submit" component={SubmitRequest} />
         <Route exact path="/changepassword" component={Changepassword} />
         <Route exact path="/home" component={Maincontentpage} />
