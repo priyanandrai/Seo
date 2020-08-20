@@ -11,7 +11,7 @@ class Maincontentpage extends React.Component {
     return (
       <div className="mainpage-alignment">
         <Grid container className="submenu-alignment">
-          <Grid item xs={7}>
+          <Grid item md={7}>
             <div className="animate__animated animate__backInLeft animate__delay-10s left-main-section">
               <h2 className="main-title-heading">
                 {" "}
@@ -36,7 +36,7 @@ class Maincontentpage extends React.Component {
               </div>
             </div>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item md={5}>
             <div className="animate__animated animate__backInRight right-main-section">
               <Card>
                 <CardActionArea>
@@ -60,8 +60,36 @@ class Maincontentpage extends React.Component {
             </div>
           </Grid>
         </Grid>
-        <div >
-          <Container>
+        <div>
+          <Grid container className="submenu-alignment">
+            <Grid item md={12}>
+              <div className="container">
+                <Card>
+                  <CardActionArea>
+                    <CardContent>
+                      <h3 className="main-title-heading text-center headingcards">
+                        Get off-page optimization service free of cost{" "}
+                      </h3>
+                      <div className="main-title-text p-3">
+                        <p className="text-justify">
+                          We at srcserviceltd providing the off page SEO service
+                          without asking any extra amount, so don't miss the
+                          chance to grab the services to boost the engagement of
+                          your website. Just call us now, and get the best
+                          services from our experts.
+                        </p>
+                        <p>
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </div>
+            </Grid>
+          </Grid><br/><br/>
+          {/* <Container>
             <Row>
               <Col></Col>
               <Col sm={8}>
@@ -95,7 +123,7 @@ class Maincontentpage extends React.Component {
               </Col>
               <Col></Col>
             </Row>
-          </Container>
+          </Container> */}
         </div>
       </div>
     );

@@ -120,5 +120,8 @@
   color: cadetblue;
 }
 
-.texth {
+.headingcards{
+  font-size: 22px !important;
+  font-family: Century !important;
+  color: cadetblue !important;
 }

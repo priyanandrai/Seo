@@ -4,14 +4,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./profile.css";
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/semantic-ui.css';
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/semantic-ui.css";
 import logo from "../images/logo.png";
 import login from "../images/login.png";
 import "../style/quest.css";
 import "../App.css";
 import { NavLink } from "react-router-dom";
-import {  animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as authActions from "../actions/auth";
@@ -30,6 +30,7 @@ import {
   faEnvelope,
   faUser,
   faTimes,
+  faBars,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,8 +41,8 @@ class Nav extends Component {
     this.state = {
       dialogBox: false,
       isLogged: false,
-      phone:"",
-      otp:"",
+      phone: "",
+      otp: "",
       user: "Francis",
       show_account_dropdown: false,
       modal_open: false,
@@ -65,28 +66,27 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
-  Confirmotp = () =>{
-    document.getElementById("otp").click();
-    window.location="/dashboard";
-  }
+  Confirmotp = () => {
+   
+    window.location = "/dashboard";
+  };
+ 
 
-  componentWillMount(){
+  componentWillMount() {
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
-    if(temp == true || temp == "true"){
+    if (temp == true || temp == "true") {
       this.setState({
-        isLogged :true,
-        user: window.localStorage.getItem("user")
-      })
+        isLogged: true,
+        user: window.localStorage.getItem("user"),
+      });
     }
   }
 
   logout = () => {
-
     window.localStorage.clear();
     window.location = "/home";
   };
-
 
   openModal(type) {
     if (type == "contactus") {
@@ -99,14 +99,13 @@ class Nav extends Component {
       modal_open: true,
       modal_type: type,
     });
-    
   }
 
   closeModal() {
     this.setState({
       modal_open: false,
       modal_type: "",
-      phone:"",
+      phone: "",
       full_name: "",
       email: "",
       password: "",
@@ -116,10 +115,7 @@ class Nav extends Component {
     });
   }
 
-
-
   handelOnChange(event) {
-   
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
@@ -127,10 +123,9 @@ class Nav extends Component {
   }
 
   handleOnSubmit(event) {
-    window.localStorage.setItem("isLoggedIn",true)
-    window.localStorage.setItem("user",this.state.email);
-   
-    
+    window.localStorage.setItem("isLoggedIn", true);
+    window.localStorage.setItem("user", this.state.email);
+
     event.preventDefault();
     const {
       how_account_dropdown,
@@ -143,20 +138,16 @@ class Nav extends Component {
       confirm_password,
       checkbox,
     } = this.state;
-    
-
-
 
     if (modal_type === "signup") {
-     
-  //  if (this.state.phone == undefined || this.state.phone.length < 10) {
-  //    alert("Phone number must be 10 digit");
-  //   return false;
-  //  }
-  //  if (this.state.phone.length > 10) {
-  //  alert("Phone number must be 10 digit");
-  //   return false;
-  //  }
+      //  if (this.state.phone == undefined || this.state.phone.length < 10) {
+      //    alert("Phone number must be 10 digit");
+      //   return false;
+      //  }
+      //  if (this.state.phone.length > 10) {
+      //  alert("Phone number must be 10 digit");
+      //   return false;
+      //  }
 
       const nameString = "^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$";
       if (this.state.full_name.trim().length < 4) {
@@ -181,7 +172,10 @@ class Nav extends Component {
         alert("Password must match.");
         return;
       }
-      
+      this.setState({
+        modal_open: false,
+      });
+      this.setState({ dialogBox: !this.state.dialogBox });
 
       // const { doSignUp } = this.props.authActions;
       // let temp = doSignUp({
@@ -191,31 +185,28 @@ class Nav extends Component {
       //   password,
       //   confirm_password,
       // });
-      
     }
-    if (modal_type === "signin") {
-      const { doSignIn } = this.props.authActions;
-      let temp = doSignIn({
-        email,
-        password,
-      });
+    // if (modal_type === "signin") {
+    //   const { doSignIn } = this.props.authActions;
+    //   let temp = doSignIn({
+    //     email,
+    //     password,
+    //   });
 
-      console.log("ca  ", temp);
-    }
-    
+    //   console.log("ca  ", temp);
+    // }
+
     if (modal_type === "forgotpassword") {
       const { doForgotPassword } = this.props.authActions;
       doForgotPassword({
         email,
       });
     }
-    this.setState({dialogBox: !this.state.dialogBox})
-    
-    // window.location = "/dashboard";
+
+    //  window.location = "/dashboard";
   }
 
   render() {
-
     const navigation_links = [
       {
         title: "Login",
@@ -224,7 +215,7 @@ class Nav extends Component {
       },
       {
         title: "Register",
-       
+
         endpoint: "signup",
       },
       {
@@ -259,13 +250,12 @@ class Nav extends Component {
       button_status,
     } = this.state;
 
-
     return (
       <AppBar position="fixed">
         <Toolbar classname="navigationbar" variant="dense">
           <a href="/home">
-          <img className="logos" src={logo} />
-            </a>
+            <img className="logos" src={logo} />
+          </a>
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
@@ -299,14 +289,15 @@ class Nav extends Component {
                     Submit Request
                   </a>
 
-                  <a class="dropdown-item"  onClick={this.logout}>
-          logout
-        </a>
+                  <a class="dropdown-item" onClick={this.logout}>
+                    logout
+                  </a>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="navLinks">{navigation_links_list}</div>
+            <div className="navLinks">{navigation_links_list}
+            <FontAwesomeIcon icon={faBars} className="fonticondiv"/></div>
           )}
         </Toolbar>
         <Dialog
@@ -357,35 +348,30 @@ class Nav extends Component {
               )}
               {modal_type === "forgotpassword" && <h1>Forgot Password ?</h1>}
               <form onSubmit={this.handleOnSubmit}>
-              {modal_type === "signup" && (
-                  <fieldset className="padii222" >
-                    
+                {modal_type === "signup" && (
+                  <fieldset className="padii222">
                     <PhoneInput
                       className="inputHome bodernull111"
-                      placeholder={'Mobile no. *'}
-                      country={'us'}
-                    // value={this.state.fields.number}
-                    tabindex="1"
-                    value={this.state.phone}
-                    onChange={(e) => {
-                      console.log(e)
-                      if (isNaN(e)) {
-                        return;
-                      }
-                      this.setState({
-                        phone: e,
-                      });
-                    }}
-                      />
-                    
+                      placeholder={"Mobile no. *"}
+                      country={"us"}
+                      // value={this.state.fields.number}
+                      tabindex="1"
+                      value={this.state.phone}
+                      onChange={(e) => {
+                        console.log(e);
+                        if (isNaN(e)) {
+                          return;
+                        }
+                        this.setState({
+                          phone: e,
+                        });
+                      }}
+                    />
                   </fieldset>
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      className="signup-icon"
-                    />
+                    <FontAwesomeIcon icon={faUser} className="signup-icon" />
                     {/* fa-lg m-2 align-middle text-danger */}
                     <Input
                       className="bodernull111"
@@ -400,7 +386,10 @@ class Nav extends Component {
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />
                     <Input
                       className="bodernull111"
                       type="text"
@@ -414,7 +403,10 @@ class Nav extends Component {
                 )}
                 {modal_type === "signin" && (
                   <fieldset className="inputHome">
-                    <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />
                     <Input
                       className="bodernull111"
                       type="text"
@@ -450,8 +442,6 @@ class Nav extends Component {
                       Forgot Password ?
                     </span>
                   </fieldset>
-
-
                 )}
                 {modal_type === "signup" && (
                   <fieldset className="inputHome">
@@ -467,11 +457,9 @@ class Nav extends Component {
                     />
                   </fieldset>
                 )}
-               
-               
-               
+
                 <div>
-                {/* <Input
+                  {/* <Input
                       className=""
                       type="password"
                       name="confirm_password"
@@ -506,14 +494,13 @@ class Nav extends Component {
                     <Button
                       type="submit"
                       value="Sign In"
-                      disabled={this.state.email == "" || this.state.password == ""}
+                      disabled={
+                        this.state.email == "" || this.state.password == ""
+                      }
+                      onClick={this.Confirmotp}
                     />
                   )}
-                  {
-                  
-                 
-                
-                  modal_type === "forgotpassword" && (
+                  {modal_type === "forgotpassword" && (
                     <Button
                       type="submit"
                       value="Send Reset Instructions"
@@ -526,7 +513,7 @@ class Nav extends Component {
                 <p>
                   Already have an account ?{" "}
                   <span
-                   className="signintext"
+                    className="signintext"
                     onClick={() => this.openModal("signin")}
                     title="Sign In"
                   >
@@ -560,41 +547,71 @@ class Nav extends Component {
           </div>
         </Dialog>
 
-
         <div className="dialogconfirm">
-        <Dialog
-        onClose={() => {
-          this.setState({
-            dialogBox: false,
-          });
-        }}
-               open={this.state.dialogBox}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-      >
-           
-                <div className="confirmdialog">
-                  <h3 className="confirmdialog11">Confirm OTP</h3> 
-                  <Input className="confirmdialog111" type="tel" maxLength="4" name="otp"
-                   value={this.state.otp}
-                   onChange={(e) => {
-                     if (isNaN(e.target.value)) {
-                       return;
-                     }
-                     this.setState({
-                      otp: e.target.value,
-                     });
-                   }}
-                   />
-                  <a href="" className=" d-flex justify-content-end mr-4 mt-2">Resend OTP</a>
-                  <button className="btn btn-secondary mx-auto d-block mt-2" onClick={this.Confirmotp} id="otp">Confirm</button>
-
-                 
-                </div>
-               
-            
-            </Dialog>
+          <Dialog
+            onClose={() => {
+              this.setState({
+                dialogBox: false,
+              });
+            }}
+            open={this.state.dialogBox}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <div className="confirmdialog">
+              <span
+                className="floatright crossbtncolor mt-2"
+                onClick={() => {
+                  this.setState({
+                    dialogBox: false,
+                  });
+                }}
+              >
+                <FontAwesomeIcon icon={faTimes} />{" "}
+              </span>
+              <div>
+                <h3 className="confirmdialog11">Confirm OTP</h3>{" "}
+              </div>
+              <Input
+                className="confirmdialog111"
+                type="tel"
+                maxLength="4"
+                name="otp"
+                value={this.state.otp}
+                onChange={(e) => {
+                  if (isNaN(e.target.value)) {
+                    return;
+                  }
+                  this.setState({
+                    otp: e.target.value,
+                  });
+                }}
+              />
+              <div className="d-flex">
+                <a
+                  href=""
+                  className="ml-5 mr-auto mt-2 resendotp"
+                >
+                  Try Another Number
+                </a>
+                <a
+                  href=""
+                  className="mr-5 mt-2 resendotp"
+                >
+                  Resend OTP
+                </a>
+              </div>
+              <button
+                className="btn btn-secondary mx-auto d-block mt-2"
+                onClick={this.Confirmotp}
+                id="otp"
+              >
+                Confirm
+              </button>
             </div>
+          </Dialog>
+        </div>
+        
       </AppBar>
     );
   }

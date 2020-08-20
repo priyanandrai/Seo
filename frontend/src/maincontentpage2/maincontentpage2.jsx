@@ -228,7 +228,7 @@ export class Maincontentpage2 extends Component {
     return (
       <div>
         <Grid container style={{ marginTop: "8%" }}>
-          <Grid item xs={8}>
+          <Grid item md={8}>
             <Paper>
               <div className="animate__animated animate__backInLeft">
                <h2 className="headeing-text">Choose Service</h2>
@@ -471,7 +471,7 @@ export class Maincontentpage2 extends Component {
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Paper>
               <div className="animate__animated animate__backInRight ">
                 <Card
