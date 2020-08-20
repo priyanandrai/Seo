@@ -38,8 +38,10 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      dialogBox: false,
       isLogged: false,
       phone:"",
+      otp:"",
       user: "Francis",
       show_account_dropdown: false,
       modal_open: false,
@@ -59,6 +61,13 @@ class Nav extends Component {
     this.handelOnChange = this.handelOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.logout = this.logout.bind(this);
+  }
+  // otpconfirm = () =>{
+  //   window.location
+  // }
+  Confirmotp = () =>{
+    document.getElementById("otp").click();
+    window.location="/dashboard";
   }
 
   componentWillMount(){
@@ -90,12 +99,14 @@ class Nav extends Component {
       modal_open: true,
       modal_type: type,
     });
+    
   }
 
   closeModal() {
     this.setState({
       modal_open: false,
       modal_type: "",
+      phone:"",
       full_name: "",
       email: "",
       password: "",
@@ -138,14 +149,14 @@ class Nav extends Component {
 
     if (modal_type === "signup") {
      
-   if (this.state.phone == undefined || this.state.phone.length < 10) {
-     alert("Phone number must be 10 digit");
-    return false;
-   }
-   if (this.state.phone.length > 10) {
-   alert("Phone number must be 10 digit");
-    return false;
-   }
+  //  if (this.state.phone == undefined || this.state.phone.length < 10) {
+  //    alert("Phone number must be 10 digit");
+  //   return false;
+  //  }
+  //  if (this.state.phone.length > 10) {
+  //  alert("Phone number must be 10 digit");
+  //   return false;
+  //  }
 
       const nameString = "^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$";
       if (this.state.full_name.trim().length < 4) {
@@ -170,14 +181,17 @@ class Nav extends Component {
         alert("Password must match.");
         return;
       }
-      const { doSignUp } = this.props.authActions;
-      let temp = doSignUp({
-        full_name,
-        phone,
-        email,
-        password,
-        confirm_password,
-      });
+      
+
+      // const { doSignUp } = this.props.authActions;
+      // let temp = doSignUp({
+      //   full_name,
+      //   phone,
+      //   email,
+      //   password,
+      //   confirm_password,
+      // });
+      
     }
     if (modal_type === "signin") {
       const { doSignIn } = this.props.authActions;
@@ -188,14 +202,16 @@ class Nav extends Component {
 
       console.log("ca  ", temp);
     }
+    
     if (modal_type === "forgotpassword") {
       const { doForgotPassword } = this.props.authActions;
       doForgotPassword({
         email,
       });
     }
-
-    window.location = "/dashboard";
+    this.setState({dialogBox: !this.state.dialogBox})
+    
+    // window.location = "/dashboard";
   }
 
   render() {
@@ -483,6 +499,7 @@ class Nav extends Component {
                         this.state.full_name == "" ||
                         this.state.confirm_password == ""
                       }
+                      o
                     />
                   )}
                   {modal_type === "signin" && (
@@ -546,16 +563,35 @@ class Nav extends Component {
 
         <div className="dialogconfirm">
         <Dialog
-               open={1}
+        onClose={() => {
+          this.setState({
+            dialogBox: false,
+          });
+        }}
+               open={this.state.dialogBox}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
       >
            
                 <div className="confirmdialog">
-                  <h3 className="confirmdialog11">CONFIRM OTP</h3> 
-                  <Input className="confirmdialog111" type="tel"/>
-                  <p>Resend OTP</p> 
+                  <h3 className="confirmdialog11">Confirm OTP</h3> 
+                  <Input className="confirmdialog111" type="tel" maxLength="4" name="otp"
+                   value={this.state.otp}
+                   onChange={(e) => {
+                     if (isNaN(e.target.value)) {
+                       return;
+                     }
+                     this.setState({
+                      otp: e.target.value,
+                     });
+                   }}
+                   />
+                  <a href="" className=" d-flex justify-content-end mr-4 mt-2">Resend OTP</a>
+                  <button className="btn btn-secondary mx-auto d-block mt-2" onClick={this.Confirmotp} id="otp">Confirm</button>
+
+                 
                 </div>
+               
             
             </Dialog>
             </div>
