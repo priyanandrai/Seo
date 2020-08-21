@@ -39,6 +39,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      checked: false,
       dialogBox: false,
       isLogged: false,
       phone: "",
@@ -51,7 +52,7 @@ class Nav extends Component {
       email: "",
       password: "",
       confirm_password: "",
-      checkbox: false,
+      // checkbox: false,
       button_status: "disabled",
       register: false,
       getintouch: false,
@@ -67,10 +68,8 @@ class Nav extends Component {
   //   window.location
   // }
   Confirmotp = () => {
-   
     window.location = "/dashboard";
   };
- 
 
   componentWillMount() {
     let temp = window.localStorage.getItem("isLoggedIn");
@@ -149,7 +148,7 @@ class Nav extends Component {
       //   return false;
       //  }
 
-      const nameString = "^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$";
+      const nameString = "[a-zA-Z]+\\.?";
       if (this.state.full_name.trim().length < 4) {
         alert("Full name must be more than 4 characters.");
         return;
@@ -172,6 +171,10 @@ class Nav extends Component {
         alert("Password must match.");
         return;
       }
+      if (this.state.checked === false) {
+        alert("Please indicate that you accept the Terms and Conditions");
+        return;
+      }
       this.setState({
         modal_open: false,
       });
@@ -186,15 +189,32 @@ class Nav extends Component {
       //   confirm_password,
       // });
     }
-    // if (modal_type === "signin") {
-    //   const { doSignIn } = this.props.authActions;
-    //   let temp = doSignIn({
-    //     email,
-    //     password,
-    //   });
+    if (modal_type === "signin") {
+      if (this.state.phone == undefined || this.state.phone.length < 10) {
+        alert("Phone number must be 10 digit");
+        return;
+      }
+      //  if (this.state.phone.length > 10) {
+      //  alert("Phone number must be 10 digitss");
+      //   return;
+      //  }
+      if (this.state.password.length < 8) {
+        alert("Password must be 8 characters long");
+        return;
+      }
+      if (this.state.checked === false) {
+        alert("Please indicate that you accept the Terms and Conditions");
+        return;
+      }
+      window.location = "/dashboard";
+      // const { doSignIn } = this.props.authActions;
+      // let temp = doSignIn({
+      //   email,
+      //   password,
+      // });
 
-    //   console.log("ca  ", temp);
-    // }
+      // console.log("ca  ", temp);
+    }
 
     if (modal_type === "forgotpassword") {
       const { doForgotPassword } = this.props.authActions;
@@ -202,8 +222,10 @@ class Nav extends Component {
         email,
       });
     }
-
-    //  window.location = "/dashboard";
+    if (this.state.checked === false) {
+      alert("Please indicate that you accept the Terms and Conditions");
+      return;
+    }
   }
 
   render() {
@@ -296,8 +318,10 @@ class Nav extends Component {
               </div>
             </div>
           ) : (
-            <div className="navLinks">{navigation_links_list}
-            <FontAwesomeIcon icon={faBars} className="fonticondiv"/></div>
+            <div className="navLinks">
+              {navigation_links_list}
+              <FontAwesomeIcon icon={faBars} className="fonticondiv" />
+            </div>
           )}
         </Toolbar>
         <Dialog
@@ -310,7 +334,6 @@ class Nav extends Component {
           open={this.state.modal_open}
         >
           <div id="auth-modal">
-            Login
             <div className="auth-modal-in">
               {modal_type === "signup" && (
                 <div>
@@ -346,7 +369,7 @@ class Nav extends Component {
                   </h1>
                 </div>
               )}
-              {modal_type === "forgotpassword" && <h1>Forgot Password ?</h1>}
+              {modal_type === "forgotpassword" && <h1>Forgot Password ? </h1>}
               <form onSubmit={this.handleOnSubmit}>
                 {modal_type === "signup" && (
                   <fieldset className="padii222">
@@ -402,19 +425,38 @@ class Nav extends Component {
                   </fieldset>
                 )}
                 {modal_type === "signin" && (
-                  <fieldset className="inputHome">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="signup-icon"
-                    />
-                    <Input
-                      className="bodernull111"
-                      type="text"
-                      name="email"
-                      placeholder="User Name"
-                      autocomplete="off"
-                      value={email}
-                      onChange={this.handelOnChange}
+                  // <fieldset className="inputHome">
+                  //   <FontAwesomeIcon
+                  //     icon={faEnvelope}
+                  //     className="signup-icon"
+                  //   />
+                  //   <Input
+                  //     className="bodernull111"
+                  //     type="text"
+                  //     name="email"
+                  //     placeholder="User Name"
+                  //     autocomplete="off"
+                  //     value={email}
+                  //     onChange={this.handelOnChange}
+                  //   />
+                  // </fieldset>
+                  <fieldset className="padii222">
+                    <PhoneInput
+                      className="inputHome bodernull111"
+                      placeholder={"Mobile no. *"}
+                      country={"us"}
+                      // value={this.state.fields.number}
+                      tabindex="1"
+                      value={this.state.phone}
+                      onChange={(e) => {
+                        console.log(e);
+                        if (isNaN(e)) {
+                          return;
+                        }
+                        this.setState({
+                          phone: e,
+                        });
+                      }}
                     />
                   </fieldset>
                 )}
@@ -467,8 +509,10 @@ class Nav extends Component {
                       autocomplete="off"
                     
                     /> */}
-                  <Checkbox
-                    defaultChecked
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.checked}
+                    onChange={() => this.setState({ checked: true })}
                     color="primary"
                     inputProps={{ "aria-label": "secondary checkbox" }}
                   />
@@ -495,17 +539,39 @@ class Nav extends Component {
                       type="submit"
                       value="Sign In"
                       disabled={
-                        this.state.email == "" || this.state.password == ""
+                        this.state.phone == "" || this.state.password == ""
                       }
-                      onClick={this.Confirmotp}
                     />
                   )}
                   {modal_type === "forgotpassword" && (
-                    <Button
-                      type="submit"
-                      value="Send Reset Instructions"
-                      unable={this.state.email == ""}
+                    <div>
+                      {/* <input type="text" /> */}
+                      <fieldset className="padii222">
+                    <PhoneInput
+                      className="inputHome bodernull111"
+                      placeholder={"Mobile no. *"}
+                      country={"us"}
+                      // value={this.state.fields.number}
+                      tabindex="1"
+                      value={this.state.phone}
+                      onChange={(e) => {
+                        console.log(e);
+                        if (isNaN(e)) {
+                          return;
+                        }
+                        this.setState({
+                          phone: e,
+                        });
+                      }}
                     />
+                  </fieldset>
+
+                      <Button
+                        type="submit"
+                        value="Send Reset Instructions"
+                        unable={this.state.email == ""}
+                      />
+                    </div>
                   )}
                 </fieldset>
               </form>
@@ -588,16 +654,10 @@ class Nav extends Component {
                 }}
               />
               <div className="d-flex">
-                <a
-                  href=""
-                  className="ml-5 mr-auto mt-2 resendotp"
-                >
+                <a href="" className="ml-5 mr-auto mt-2 resendotp">
                   Try Another Number
                 </a>
-                <a
-                  href=""
-                  className="mr-5 mt-2 resendotp"
-                >
+                <a href="" className="mr-5 mt-2 resendotp">
                   Resend OTP
                 </a>
               </div>
@@ -611,7 +671,6 @@ class Nav extends Component {
             </div>
           </Dialog>
         </div>
-        
       </AppBar>
     );
   }

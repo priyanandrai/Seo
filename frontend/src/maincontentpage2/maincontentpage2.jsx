@@ -380,7 +380,7 @@ export class Maincontentpage2 extends Component {
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
                     <h1></h1>
-                    <h3 style={{ marginTop: "-5.5%" }} className="hidemie">
+                    <h3  className="hidemie">
                       Classified Submission
                     </h3>
                   </div>
@@ -476,10 +476,10 @@ export class Maincontentpage2 extends Component {
               <div className="animate__animated animate__backInRight ">
                 <Card
                   style={{
-                    marginLeft: "-12%",
-                    marginTop: "",
-                    width: "25rem",
-                    height: "20rem",
+                    marginLeft:"-12%",
+                    marginTop: "5%",
+                    width: "100%",
+                    height: "40vh",
                   }}
                 >
                   <ReactPlayer

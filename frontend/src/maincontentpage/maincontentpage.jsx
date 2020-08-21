@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import ReactPlayer from "react-player";
 
 class Maincontentpage extends React.Component {
   render() {
@@ -41,7 +42,7 @@ class Maincontentpage extends React.Component {
               <Card>
                 <CardActionArea>
                   <CardContent>
-                    <h3 className="main-title-heading">Video online</h3>
+                    {/* <h3 className="main-title-heading">Video online</h3>
                     <div className="main-title-text">
                       <p>
                         Some quick example text to build on the card title and
@@ -53,7 +54,12 @@ class Maincontentpage extends React.Component {
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
                       </p>
-                    </div>
+                    </div> */}
+                     <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                  />
                   </CardContent>
                 </CardActionArea>
               </Card>

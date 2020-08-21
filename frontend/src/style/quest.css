@@ -1625,14 +1625,20 @@ input:disabled {
     /* width: 10% !important; */
     color: red !important;
   }
-  /* .navLinks{
-    margin-left: 50%;
-  }
-  .MuiToolbar-root {
-    display: inline-flex;
-    position: relative;
-    align-items: center;
-} */
+  .headeing-text {
+    margin-top: 22% !important;
+    margin-left: 17% !important;
+    font-size: 24px !important;
+    font-family: Century !important;
+    color: cadetblue !important;
+}
+.hidemie {
+  font-size: 19px;
+  font-family: Century !important;
+  color: cadetblue;
+  margin-left: 21% !important;
+  margin-top: -40px;
+}
 }
 
 
