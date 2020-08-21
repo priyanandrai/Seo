@@ -1,3 +1,9 @@
+body{
+  overflow-x: hidden;
+}
+
+
+
 .buttont {
   margin-left: 5%;
 }
@@ -114,7 +120,7 @@
 }
 
 .headeing-text {
-  margin-left: 17%;
+  margin-left: 7%;
   font-size: 24px;
   font-family: Century !important;
   color: cadetblue;
@@ -124,4 +130,18 @@
   font-size: 22px !important;
   font-family: Century !important;
   color: cadetblue !important;
+}
+.startbtn{
+  background-color: black !important;
+
+}
+.marginleftside{
+  margin-left: 12%;
+}
+.mrrginside22{
+  margin-right: 26%;
+  margin-top: 4%;
+}
+.thirdclick{
+  margin-top: 2%;
 }

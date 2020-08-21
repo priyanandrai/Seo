@@ -320,7 +320,18 @@ class Nav extends Component {
           ) : (
             <div className="navLinks">
               {navigation_links_list}
-              <FontAwesomeIcon icon={faBars} className="fonticondiv" />
+              <FontAwesomeIcon icon={faBars} className="bugermenu" />
+              {/* <button
+                className="navbar-toggler bugermenu"
+                type="button"
+                data-toggle="collapse"
+                data-target="#headerDropDown"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button> */}
             </div>
           )}
         </Toolbar>
@@ -547,24 +558,24 @@ class Nav extends Component {
                     <div>
                       {/* <input type="text" /> */}
                       <fieldset className="padii222">
-                    <PhoneInput
-                      className="inputHome bodernull111"
-                      placeholder={"Mobile no. *"}
-                      country={"us"}
-                      // value={this.state.fields.number}
-                      tabindex="1"
-                      value={this.state.phone}
-                      onChange={(e) => {
-                        console.log(e);
-                        if (isNaN(e)) {
-                          return;
-                        }
-                        this.setState({
-                          phone: e,
-                        });
-                      }}
-                    />
-                  </fieldset>
+                        <PhoneInput
+                          className="inputHome bodernull111"
+                          placeholder={"Mobile no. *"}
+                          country={"us"}
+                          // value={this.state.fields.number}
+                          tabindex="1"
+                          value={this.state.phone}
+                          onChange={(e) => {
+                            console.log(e);
+                            if (isNaN(e)) {
+                              return;
+                            }
+                            this.setState({
+                              phone: e,
+                            });
+                          }}
+                        />
+                      </fieldset>
 
                       <Button
                         type="submit"

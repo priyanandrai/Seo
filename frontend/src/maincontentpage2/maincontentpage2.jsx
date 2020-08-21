@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../maincontentpage/main.css";
+import "../style/quest.css";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Checkbox from "@material-ui/core/Checkbox";
 // import "node_modules/video-react/dist/video-react.css"; // import css
@@ -227,13 +228,13 @@ export class Maincontentpage2 extends Component {
   render() {
     return (
       <div>
-        <Grid container style={{ marginTop: "8%" }}>
-          <Grid item md={8}>
+        <Grid container spacing={3} style={{ marginTop: "8%"}}>
+          <Grid item md={7}>
             <Paper>
               <div className="animate__animated animate__backInLeft">
                <h2 className="headeing-text">Choose Service</h2>
-                <div style={{ marginLeft: "20%" }}>
-                  <div>
+                <div className="marginleftside">
+                  <div >
                     <Checkbox
                       style={{}}
                       onChange={() => this.setState({ show: !this.state.show })}
@@ -248,8 +249,7 @@ export class Maincontentpage2 extends Component {
                     {this.state.show ? (
                       <div
                         style={{ marginLeft: "10%" }}
-                        className="input-width"
-                      >
+                        className="input-width">
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                           type="name"
@@ -283,17 +283,18 @@ export class Maincontentpage2 extends Component {
                             this.setState({ sbsUrl: e.target.value })
                           }
                         />
-                        <Container>
-                          <Button
-                            style={{ marginRight: "24%", marginTop: "4%" }}
-                            id="buttonn"
-                            variant="contained"
-                            color="secondary "
-                            onClick={this.handlesubmit}
-                          >
-                            Start
-                          </Button>
-                        </Container>
+                        
+                        <div className="d-flex justify-content-end mrrginside22">
+                                <Button
+                                  
+                                  variant="contained"
+                                  className="startbtn"
+                                  onClick={this.handlesubmit}
+                                >
+                                  Start
+                                </Button>
+                                      </div>
+                        
                       </div>
                     ) : null}
                   </h1>
@@ -357,7 +358,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keywords: e.target.value })
                             }
                           />
-                          <Button
+                          {/* <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
                             id="buttonn"
                             variant="contained"
@@ -365,12 +366,24 @@ export class Maincontentpage2 extends Component {
                             onClick={this.handlesubmission}
                           >
                             Start
-                          </Button>
+                          </Button> */}
+                          <div className="d-flex justify-content-end mrrginside22">
+                                <Button
+                                  
+                                  variant="contained"
+                                  className="startbtn"
+                                  onClick={this.handlesubmission}
+                                >
+                                  Start
+                                </Button>
+                                      </div>
+                        
+                      
                         </div>
                       </h1>
                     ) : null}
                   </div>
-                  <div style={{ marginTop: "2%" }}>
+                  <div className="thirdclick">
                     <Checkbox
                       style={{ marginTop: "4%" }}
                       onChange={() =>
@@ -453,7 +466,7 @@ export class Maincontentpage2 extends Component {
                             value={this.state.keywordsss}
                             onChange={(e) => this.setState({keywordsss: e.target.value})}
                           />
-                          <Button
+                          {/* <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
                             id="buttonn"
                             variant="contained"
@@ -462,7 +475,19 @@ export class Maincontentpage2 extends Component {
                           >
                             Start
                           </Button>
-                        </div>
+                        </div> */}
+                        <div className="d-flex justify-content-end mrrginside22">
+                                <Button
+                                  
+                                  variant="contained"
+                                  className="startbtn"
+                                  onClick={this.handleclick}
+                                >
+                                  Start
+                                </Button>
+                                      </div>
+                        
+                      </div>
                       </h1>
                     ) : null}
                   </div>
@@ -471,12 +496,12 @@ export class Maincontentpage2 extends Component {
             </Paper>
           </Grid>
 
-          <Grid item md={4}>
+          <Grid item md={5}>
             <Paper>
-              <div className="animate__animated animate__backInRight ">
+              <div className="animate__animated animate__backInRight  mr-5 marginleftpannel">
                 <Card
                   style={{
-                    marginLeft:"-12%",
+                  
                     marginTop: "5%",
                     width: "100%",
                     height: "40vh",
@@ -526,7 +551,7 @@ export class Maincontentpage2 extends Component {
             <Grid item xs={2}>
               <Paper></Paper>
             </Grid>
-          </Grid>
+          </Grid><br/><br/>
         </div>
 
         <div>

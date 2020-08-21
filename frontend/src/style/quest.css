@@ -1603,11 +1603,12 @@ input:disabled {
 .h3center {
   text-align: center;
 }
-.fonticondiv {
+.bugermenu {
   width: 10%;
   color: red;
   display: none;
 }
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -1619,7 +1620,7 @@ input:disabled {
     letter-spacing: 0.5px;
     display: none;
   }
-  .fonticondiv {
+  .bugermenu {
     display: block;
 
     /* width: 10% !important; */
@@ -1639,6 +1640,14 @@ input:disabled {
   margin-left: 21% !important;
   margin-top: -40px;
 }
+.mrrginside22 {
+    margin-right: 25% !important;
+    margin-top: 4% !important;
+}
+.marginleftpannel{
+  margin-left: 10%;
+}
+
 }
 
 
