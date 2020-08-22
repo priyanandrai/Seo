@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./profile.css";
 import PhoneInput from "react-phone-input-2";
@@ -16,6 +15,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as authActions from "../actions/auth";
 import Confirmotp from "../confirmotp/confirmotp";
+import axios from 'axios';
 
 import Input from "../components/Input";
 import Label from "../components/Label";
@@ -139,15 +139,6 @@ class Nav extends Component {
     } = this.state;
 
     if (modal_type === "signup") {
-      //  if (this.state.phone == undefined || this.state.phone.length < 10) {
-      //    alert("Phone number must be 10 digit");
-      //   return false;
-      //  }
-      //  if (this.state.phone.length > 10) {
-      //  alert("Phone number must be 10 digit");
-      //   return false;
-      //  }
-
       const nameString = "[a-zA-Z]+\\.?";
       if (this.state.full_name.trim().length < 4) {
         alert("Full name must be more than 4 characters.");
@@ -180,24 +171,13 @@ class Nav extends Component {
       });
       this.setState({ dialogBox: !this.state.dialogBox });
 
-      // const { doSignUp } = this.props.authActions;
-      // let temp = doSignUp({
-      //   full_name,
-      //   phone,
-      //   email,
-      //   password,
-      //   confirm_password,
-      // });
+
     }
     if (modal_type === "signin") {
       if (this.state.phone == undefined || this.state.phone.length < 10) {
         alert("Phone number must be 10 digit");
         return;
       }
-      //  if (this.state.phone.length > 10) {
-      //  alert("Phone number must be 10 digitss");
-      //   return;
-      //  }
       if (this.state.password.length < 8) {
         alert("Password must be 8 characters long");
         return;
@@ -207,20 +187,17 @@ class Nav extends Component {
         return;
       }
       window.location = "/dashboard";
-      // const { doSignIn } = this.props.authActions;
-      // let temp = doSignIn({
-      //   email,
-      //   password,
-      // });
-
-      // console.log("ca  ", temp);
     }
 
     if (modal_type === "forgotpassword") {
-      const { doForgotPassword } = this.props.authActions;
-      doForgotPassword({
-        email,
-      });
+    let temp={"number":this.state.phone}
+    axios.post(url,temp).then((response)=>{
+
+    },(error) =>{
+
+    }).catch((e)=>{
+
+    });
     }
     if (this.state.checked === false) {
       alert("Please indicate that you accept the Terms and Conditions");

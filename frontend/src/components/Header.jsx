@@ -95,6 +95,7 @@ class Header extends Component {
   }
 
   handleOnSubmit(event) {
+    alert(modal_type);
     window.localStorage.setItem("isLoggedIn",true)
     window.localStorage.setItem("user",this.state.email);
     window.location = "/dashboard";
@@ -124,7 +125,7 @@ class Header extends Component {
       }
       const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (!this.state.email.match(emailReg)) {
-        alert("Please enter a valid email.");
+        alert("Please enter a validxcsdfsdfdf email.");
         return;
       }
       if (this.state.password.length < 8) {
