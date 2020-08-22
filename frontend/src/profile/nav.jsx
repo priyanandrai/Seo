@@ -24,6 +24,8 @@ import { getAuthData, isLoggedIn } from "../utils";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Checkbox from "@material-ui/core/Checkbox";
+import {getBaseUrl}  from "../utils"
+
 import {
   faWindowClose,
   faKey,
@@ -169,8 +171,22 @@ class Nav extends Component {
       this.setState({
         modal_open: false,
       });
-      this.setState({ dialogBox: !this.state.dialogBox });
+     // this.setState({ dialogBox: !this.state.dialogBox });
 
+     let temp ={
+      "name":this.state.full_name,
+      "email":this.state.email,
+      "phoneNumber":this.state.phone,
+      "password":this.state.password
+      }
+      let url = getBaseUrl() +"/signup";
+      axios.post(url,temp).then((response)=>{
+  alert(response.data.message);
+      },(error) =>{
+        alert(error.response.data.message);
+      }).catch((e)=>{
+  
+      });
 
     }
     if (modal_type === "signin") {
@@ -191,6 +207,7 @@ class Nav extends Component {
 
     if (modal_type === "forgotpassword") {
     let temp={"number":this.state.phone}
+    let url = getBaseUrl() +"/signup";
     axios.post(url,temp).then((response)=>{
 
     },(error) =>{

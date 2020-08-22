@@ -36,5 +36,5 @@ const isLoggedIn = () => {
     };
   };
   
-  export { isLoggedIn, getAuthData, getWindowSize };
+  export { isLoggedIn, getAuthData, getWindowSize,getBaseUrl };
   
