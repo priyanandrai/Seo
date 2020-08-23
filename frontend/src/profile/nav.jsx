@@ -202,7 +202,25 @@ class Nav extends Component {
         alert("Please indicate that you accept the Terms and Conditions");
         return;
       }
-      window.location = "/dashboard";
+
+      let temp ={
+        "mobileNumber":this.state.phone,
+        "password":this.state.password
+        }
+        let url = getBaseUrl() +"/login";
+        axios.post(url,temp).then((response)=>{
+          if(response.data.message != undefined){
+            alert(response.data.message);
+          }else{
+          window.location = "/dashboard";
+          }
+        },(error) =>{
+          alert(error.response.data.message);
+        }).catch((e)=>{
+    
+        });
+  
+     
     }
 
     if (modal_type === "forgotpassword") {

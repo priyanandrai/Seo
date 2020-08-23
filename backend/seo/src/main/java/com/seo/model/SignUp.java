@@ -1,4 +1,4 @@
-package com.erpo.model;
+package com.seo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,133 +9,74 @@ import javax.persistence.Table;
 @Entity
 @Table(name="singup")
 public class SignUp {
-  
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- private long id;
- private String firstname;
- private String lastname;
- private String dob;
- private String gender;
- private String email;
- private String password;
- private String Question;
- public String getRole() {
-	return role;
-}
 
-public void setRole(String role) {
-	this.role = role;
-}
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String name;
+	private String phoneNumber;
+	private String email;
+	private String password;
 
-public String getGender() {
-	return gender;
-}
+	public SignUp() {
 
-private String answer;
- private String role;
- public SignUp() {
-	 
- }
-  
- public SignUp(long id, String firstname, String lastname, String dob, String gender, String email, String password,
-		String question, String answer,String role) {
-	super();
-	this.id = id;
-	this.firstname = firstname;
-	this.lastname = lastname;
-	this.dob=dob;
-	this.gender = gender;
-	this.email = email;
-	this.password = password;
-	this.Question = question;
-	this.answer = answer;
-	this.role = role ;
-}
+	}
 
-@Override
-public String toString() {
-	return "{\"id\":" + id + ", \"firstname\":\"" + firstname + "\", \"lastname\":\"" + lastname + "\", \"dob\":\"" + dob + "\",\" gender\":\""
-			+ gender + "\", \"email\":\"" + email + "\",\"Question\":\"" + Question + "\", \"answer\":\"" + answer
-			+ "\",\"role\":\""+ role +  "\"}";
-}
+	public SignUp(long id, String name, String email, String password,String phonenumber) {
+		super();
+		this.id = id;
+		this.name= name;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phonenumber;
+	}
 
-public long getId() {
-	return id;
-}
+	@Override
+	public String toString() {
+		return "{\"id\":" + id + ", \"name\":\"" + name + "\", \"email\":\"" + email + "\", \"phoneNumber\":\"" + phoneNumber
+				+ "\",\"password\":\""+ password +  "\"}";
+	}
 
-public void setId(long id) {
-	this.id = id;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
-}
-
-public String getFirstname() {
-	return firstname;
-}
-
-public void setFirstname(String firstname) {
-	this.firstname = firstname;
-}
-
-public String getLastname() {
-	return lastname;
-}
-
-public void setLastname(String lastname) {
-	this.lastname = lastname ;
-}
-
-public String getDob() {
-	return dob;
-}
-
-public void setDob(String dob) {
-	this.dob = dob;
-}
-
-public String isGender() {
-	return gender;
-}
-
-public void setGender(String gender) {
-	this.gender = gender;
-}
-
-public String getEmail() {
-	return email;
-}
-
-public void setEmail(String email) {
-	this.email = email;
-}
-
-public String getPassword() {
-	return password;
-}
-
-public void setPassword(String password) {
-	this.password = password;
-}
-
-public String getQuestion() {
-	return Question;
-}
-
-public void setQuestion(String question) {
-	Question = question;
-}
-
-public String getAnswer() {
-	return answer;
-}
-
-public void setAnswer(String answer) {
-	this.answer = answer;
-}
- 
-
-
- 
- 
 	
+
 }

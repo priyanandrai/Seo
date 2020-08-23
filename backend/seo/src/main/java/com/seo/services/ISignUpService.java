@@ -1,10 +1,11 @@
-package com.erpo.services;
+package com.seo.services;
 
 import java.util.List;
 
-import com.erpo.model.Login;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ISignUpService {
-	List<Login> findAll();
-	
+import com.seo.model.SignUp;
+
+public interface ISignUpService extends CrudRepository<SignUp, Long> {
+
 }

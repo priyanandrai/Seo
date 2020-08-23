@@ -1,4 +1,4 @@
-package com.erpo.bean;
+package com.seo.bean;
 
 import java.util.ArrayList;
 import java.util.Properties;

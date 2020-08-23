@@ -1,11 +1,10 @@
-package com.erpo.repository;
+package com.seo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.erpo.model.SignUp;
+import com.seo.model.SignUp;
 
 public interface SignupRepository extends CrudRepository<SignUp, Long>{
 
-	
 
 }
