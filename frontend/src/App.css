@@ -329,8 +329,11 @@ footer .footerin p a:hover {
   padding: 0px;
 }
 .terms3{
-  margin-top: -25px !important;
-  margin-left: -100px!important;
+  /* margin-top: -25px !important;
+  margin-left: -100px!important; */
+  margin-top: -20px !important;
+    margin-left: -161px!important;
+
 }
 
 #auth-modal .auth-modal-in span {

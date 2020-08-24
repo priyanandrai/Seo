@@ -71,7 +71,7 @@ export class Changepassword extends Component {
   render() {
     return (
       <div>
-        <h1 style={{ marginTop: "20%" }}>hello</h1>
+        {/* <h1 style={{ marginTop: "20%" }}>hello</h1> */}
         <Dialog
           onClose={() => {
             this.setState({
@@ -142,7 +142,7 @@ export class Changepassword extends Component {
                   className="bodernull111"
                   type="text"
                   name="email"
-                  placeholder="retry password"
+                  placeholder="Confirm password"
                   autocomplete="off"
                   value={this.state.password}
                   onChange={(e) =>
@@ -152,6 +152,7 @@ export class Changepassword extends Component {
                   }
                 />
               </fieldset>
+              <button>Change Password</button>
             </div>
           </div>
         </Dialog>

@@ -16,6 +16,7 @@ import { bindActionCreators } from "redux";
 import * as authActions from "../actions/auth";
 import Confirmotp from "../confirmotp/confirmotp";
 import axios from 'axios';
+import TextField from "@material-ui/core/TextField";
 
 import Input from "../components/Input";
 import Label from "../components/Label";
@@ -42,7 +43,11 @@ class Nav extends Component {
     super(props);
     this.state = {
       checked: false,
+      
       dialogBox: false,
+      // dialogBox1:true,
+      dialogBox2:true,
+
       isLogged: false,
       phone: "",
       otp: "",
@@ -69,6 +74,9 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+  chnagepass = () => {
+    window.location = "/changepassword";
+  }
   Confirmotp = () => {
     window.location = "/dashboard";
   };
@@ -198,10 +206,10 @@ class Nav extends Component {
         alert("Password must be 8 characters long");
         return;
       }
-      if (this.state.checked === false) {
-        alert("Please indicate that you accept the Terms and Conditions");
-        return;
-      }
+      // if (this.state.checked === false) {
+      //   alert("Please indicate that you accept the Terms and Conditions");
+      //   return;
+      // }
 
       let temp ={
         "mobileNumber":this.state.phone,
@@ -212,6 +220,7 @@ class Nav extends Component {
           if(response.data.message != undefined){
             alert(response.data.message);
           }else{
+            window.localStorage.setItem("user",response.data.name)
           window.location = "/dashboard";
           }
         },(error) =>{
@@ -234,10 +243,10 @@ class Nav extends Component {
 
     });
     }
-    if (this.state.checked === false) {
-      alert("Please indicate that you accept the Terms and Conditions");
-      return;
-    }
+    // if (this.state.checked === false) {
+    //   alert("Please indicate that you accept the Terms and Conditions");
+    //   return;
+    // }
   }
 
   render() {
@@ -315,7 +324,7 @@ class Nav extends Component {
                   <a class="dropdown-item" href="#">
                     View Profile
                   </a>
-                  <a class="dropdown-item" href="/changepassword">
+                  <a class="dropdown-item" onClick ={this.chnagepass}>
                     Change Password
                   </a>
 
@@ -524,22 +533,17 @@ class Nav extends Component {
                 )}
 
                 <div>
-                  {/* <Input
-                      className=""
-                      type="password"
-                      name="confirm_password"
-                      placeholder="mobile password"
-                      autocomplete="off"
-                    
-                    /> */}
-                  <input
+           
+              
+               {modal_type != "signup"?null:   <p className="terms3"> 
+               <input
                     type="checkbox"
                     defaultChecked={this.state.checked}
                     onChange={() => this.setState({ checked: true })}
                     color="primary"
                     inputProps={{ "aria-label": "secondary checkbox" }}
                   />
-                  <p className="terms3">I accept terms & condition </p>
+                {" "}I accept terms & condition </p>}
                 </div>
                 <fieldset>
                   {modal_type === "signup" && (
@@ -693,7 +697,125 @@ class Nav extends Component {
               </button>
             </div>
           </Dialog>
+          
         </div>
+
+
+
+
+        {/* <Dialog
+            // onClose={() => {
+            //   this.setState({
+            //     dialogBox1: false,
+            //   });
+            // }}
+            open={this.state.dialogBox1}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            
+            <div className="changepasss">
+            <span
+                className="floatright crossbtncolor mt-2"
+                onClick={() => {
+                  this.setState({
+                    dialogBox1: false,
+                  });
+                }}
+              >
+                <FontAwesomeIcon icon={faTimes} />{" "}
+              </span>
+            
+                <div>
+                <Input
+                  className="change11 mt-5 ml-2"
+                  type="password"
+                  name="full_name"
+                  placeholder="Current Password"
+                  autocomplete="off"
+                  value={this.state.full_name}
+                  onChange={this.handelOnChange}
+                />
+              </div>
+              <div>
+              <Input
+                  className="change11 mt-4 ml-2"
+                  type="password"
+                  name="full_name"
+                  placeholder="New Password"
+                  autocomplete="off"
+                  value={this.state.full_name}
+                  onChange={this.handelOnChange}
+                />
+              </div>
+              <div>
+              <Input
+                  className="change11 mt-4 ml-2"
+                  type="password"
+                  name="full_name"
+                  placeholder="Confirm Password"
+                  autocomplete="off"
+                  value={this.state.full_name}
+                  onChange={this.handelOnChange}
+                />
+              </div>
+              <div>
+                <button className="mt-4 ml-5 btncolor11">Change Password</button>
+              </div>
+            </div>
+            </Dialog> */}
+
+
+
+               <Dialog
+            onClose={() => {
+              this.setState({
+                dialogBox2: false,
+              });
+            }}
+            open={this.state.dialogBox2}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <div className="requested">
+            <span
+                className="floatright crossbtncolor mt-2"
+                onClick={() => {
+                  this.setState({
+                    dialogBox2: false,
+                  });
+                }}
+              >
+                <FontAwesomeIcon icon={faTimes} />{" "}
+              </span>
+           
+                    <Input
+                      className="mt-3 ml-3 textareawidth"
+                      type="text"
+                      name="email"
+                      placeholder="Email ID"
+                      autocomplete="off"
+                      value={email}
+                      onChange={this.handelOnChange}
+                    />
+              
+                  <div>
+                  <textarea
+                  className="ml-3 mt-4 textareawidth"
+                      placeholder="Enter message here"
+                      multiline
+                      rows={4}
+                      rowsMax={4}
+                    />
+
+                  </div>
+                  <div>
+                    <button className="btncolorcenter mr-3 mt-3">SUBMIT</button>
+                  </div>
+
+            </div>
+            </Dialog>
+            
       </AppBar>
     );
   }
