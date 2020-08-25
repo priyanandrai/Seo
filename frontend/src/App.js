@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Nav from "./profile/nav";
+import Profile from "./profile/profile"
 import "./App.css";
 import HOC from "./components/HOC";
 import Maincontentpage from "./maincontentpage/maincontentpage";
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/changepassword" component={Changepassword} />
         <Route exact path="/home" component={Maincontentpage} />
         <Route exact path="/dashboard" component={Maincontentpage2} />
+        <Route exact path="/profile" component={Profile} />
       </div>
     </Router>
   );

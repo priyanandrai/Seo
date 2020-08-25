@@ -45,8 +45,8 @@ class Nav extends Component {
       checked: false,
       
       dialogBox: false,
-      // dialogBox1:true,
-      dialogBox2:true,
+       dialogBox1:false,
+      dialogBox2:false,
 
       isLogged: false,
       phone: "",
@@ -74,6 +74,14 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+
+
+  dialogBox2 = () => {
+    this.setState({dialogBox2: !this.state.dialogBox2})
+  }
+  dialogBox1 = () => {
+    this.setState({dialogBox1: !this.state.dialogBox})
+  }
   chnagepass = () => {
     window.location = "/changepassword";
   }
@@ -321,14 +329,14 @@ class Nav extends Component {
                   class="dropdown-menu dropdown-menu-right "
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="profile">
                     View Profile
                   </a>
-                  <a class="dropdown-item" onClick ={this.chnagepass}>
+                  <a class="dropdown-item" onClick = {this.dialogBox1}>
                     Change Password
                   </a>
 
-                  <a class="dropdown-item" href="/submitRequest">
+                  <a class="dropdown-item" onClick = { this.dialogBox2}>
                     Submit Request
                   </a>
 
@@ -703,12 +711,12 @@ class Nav extends Component {
 
 
 
-        {/* <Dialog
-            // onClose={() => {
-            //   this.setState({
-            //     dialogBox1: false,
-            //   });
-            // }}
+         <Dialog
+            onClose={() => {
+              this.setState({
+                dialogBox1: false,
+              });
+            }}
             open={this.state.dialogBox1}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
@@ -728,13 +736,13 @@ class Nav extends Component {
             
                 <div>
                 <Input
-                  className="change11 mt-5 ml-2"
+                  className="change11 mt-3 ml-2"
                   type="password"
                   name="full_name"
                   placeholder="Current Password"
                   autocomplete="off"
-                  value={this.state.full_name}
-                  onChange={this.handelOnChange}
+                  // value={this.state.full_name}
+                  // onChange={this.handelOnChange}
                 />
               </div>
               <div>
@@ -744,8 +752,8 @@ class Nav extends Component {
                   name="full_name"
                   placeholder="New Password"
                   autocomplete="off"
-                  value={this.state.full_name}
-                  onChange={this.handelOnChange}
+                  // value={this.state.full_name}
+                  // onChange={this.handelOnChange}
                 />
               </div>
               <div>
@@ -755,15 +763,15 @@ class Nav extends Component {
                   name="full_name"
                   placeholder="Confirm Password"
                   autocomplete="off"
-                  value={this.state.full_name}
-                  onChange={this.handelOnChange}
+                  // value={this.state.full_name}
+                  // onChange={this.handelOnChange}
                 />
               </div>
               <div>
                 <button className="mt-4 ml-5 btncolor11">Change Password</button>
               </div>
             </div>
-            </Dialog> */}
+            </Dialog> 
 
 
 
