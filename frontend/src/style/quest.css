@@ -1741,6 +1741,7 @@ input:disabled {
 }
 .change11{
   width: 90%;
+  outline: none;
 }
 .btncolor11{
   background-color: #18758d;
@@ -1753,6 +1754,7 @@ input:disabled {
 }
 .textareawidth{
   width: 44vh;
+  outline: none;
 }
 .btncolorcenter{
   /* margin-left: 4%; */
