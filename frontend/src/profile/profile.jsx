@@ -44,24 +44,24 @@ class Profile extends Component {
       ],
       columns: [
         {
-          name: "Date",
+          name: "DATE",
           selector: "Date",
           sortable: true,
         },
         {
-          name: "Task",
+          name: "TASK",
           selector: "task",
           sortable: true,
           center: true,
         },
         {
-          name: "Status",
+          name: "STATUS",
           selector: "status",
           sortable: true,
           right: true,
         },
         {
-          name: "Report",
+          name: "REPORT",
           selector: "report",
           sortable: true,
           right: true,
