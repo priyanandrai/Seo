@@ -3,7 +3,12 @@ import "./profile.css";
 import Grid from "@material-ui/core/Grid";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencilAlt,
+  faTimes,
+  faPlay,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import DataTable, { createTheme } from "react-data-table-component";
 import TextField from "@material-ui/core/TextField";
 
@@ -19,27 +24,59 @@ class Profile extends Component {
       username: "",
       email: "",
       usernameEnable: true,
+      drillDown: "DrillDown",
       data: [
         {
           id: 1,
           Date: "20/12/2000",
           task: "create a table",
-          status: "Pending",
-          report: "positive",
+          status: "Inprogress",
+          action: (
+            <span>
+              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+            </span>
+          ),
         },
         {
           id: 2,
           Date: "21/12/2000",
           task: "Assign login",
-          status: "Working",
-          report: "negative",
+          status: "Aborted",
+          action: (
+            <span>
+              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+            </span>
+          ),
         },
         {
           id: 3,
           Date: "22/12/2000",
           task: "Create a new page",
-          status: "Done",
-          report: "positive",
+          status: "Stopped",
+          action: (
+            <span>
+              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+            </span>
+          ),
+        },
+        {
+          id: 4,
+          Date: "23/12/2000",
+          task: "Create a some page",
+          status: "Complete",
+          action: (
+            <span>
+              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+            </span>
+          ),
         },
       ],
       columns: [
@@ -61,16 +98,32 @@ class Profile extends Component {
           right: true,
         },
         {
-          name: "REPORT",
-          selector: "report",
+          name: "ACTION",
+          selector: "action",
+
           sortable: true,
           right: true,
+          // cell: (row) => (
+          //   <div>
+          //     <div>report</div>
+          //   </div>
+          // ),
         },
       ],
       dialogBox: false,
     };
   }
 
+  updateState = (state) => {
+    this.setState({ selectedRows: state.selectedRows });
+  };
+  handle = () => {
+    alert("i am clicked");
+  };
+
+  selectTable = () => {
+    alert("selected");
+  };
 
   editForm = (para) => {
     // const { username} = this.state
@@ -120,7 +173,7 @@ class Profile extends Component {
                 onChange={(e) => {
                   this.setState({ username: e.target.value });
                 }}
-                value = {this.state.username}
+                value={this.state.username}
               />
               <div className="align-self-end p-2">
                 <FontAwesomeIcon
@@ -242,9 +295,11 @@ class Profile extends Component {
             title="Your History"
             columns={this.state.columns}
             data={this.state.data}
-      
+            pagination={true}
+            paginationDefaultPage
           />
-        </div><br/>
+        </div>
+        <br />
 
         <Dialog
           // onClose={() => {

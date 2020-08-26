@@ -21,6 +21,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
+import DataTable, { createTheme } from "react-data-table-component";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -46,7 +47,64 @@ export class Maincontentpage2 extends Component {
       Passwordd: "",
       descriptionss: "",
       urls: "",
-      keywordsss: ""
+      keywordsss: "",
+      data: [
+        {
+          id: 1,
+          sno: "1",
+          task: "create a table",
+          time: "12:30pm",
+          visual: "3123",
+          action: <a href="#">drilDown</a>,
+        },
+        {
+          id: 2,
+          sno: "2",
+          task: "Assign login",
+          time: "03:50pm",
+          visual: "3434",
+          action: <a href="#">drilDown 1</a>,
+        },
+        {
+          id: 3,
+          sno: "3",
+          task: "Create a new page",
+          time: "08:00pm",
+          visual: "2342",
+          action: <a href="#">drilDown 2</a>,
+        },
+      ],
+      columns: [
+        {
+          name: "S.No",
+          selector: "sno",
+          sortable: true,
+        },
+        {
+          name: "Task Type",
+          selector: "task",
+          sortable: true,
+          center: true,
+        },
+        {
+          name: "Start Time",
+          selector: "time",
+          sortable: true,
+          right: true,
+        },
+        {
+          name: "Visual ID",
+          selector: "visual",
+          sortable: true,
+          right: true,
+        },
+        {
+          name: "action",
+          selector: "action",
+          sortable: true,
+          right: true,
+        },
+      ],
     };
   }
 
@@ -518,7 +576,7 @@ export class Maincontentpage2 extends Component {
           </Grid>
         </Grid>
 
-        <div>
+        {/* <div>
           <Grid container style={{ marginTop: "%" }}>
             <Grid item xs={2}>
               <Paper></Paper>
@@ -552,6 +610,19 @@ export class Maincontentpage2 extends Component {
               <Paper></Paper>
             </Grid>
           </Grid><br/><br/>
+        </div> */}
+        <div className="container">
+        <div className="mt-5 border-top bodercolor"> </div>
+        <div>
+          <DataTable
+            title="Your History"
+            columns={this.state.columns}
+            data={this.state.data}
+            pagination ={true}
+            paginationDefaultPage
+      
+          />
+        </div><br/>
         </div>
 
         <div>

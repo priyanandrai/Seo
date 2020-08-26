@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as authActions from "../actions/auth";
 import Confirmotp from "../confirmotp/confirmotp";
-import axios from 'axios';
+import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 
 import Input from "../components/Input";
@@ -25,7 +25,7 @@ import { getAuthData, isLoggedIn } from "../utils";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Checkbox from "@material-ui/core/Checkbox";
-import {getBaseUrl}  from "../utils"
+import { getBaseUrl } from "../utils";
 
 import {
   faWindowClose,
@@ -43,10 +43,10 @@ class Nav extends Component {
     super(props);
     this.state = {
       checked: false,
-      
+
       dialogBox: false,
-       dialogBox1:false,
-      dialogBox2:false,
+      dialogBox1: false,
+      dialogBox2: false,
 
       isLogged: false,
       phone: "",
@@ -75,16 +75,15 @@ class Nav extends Component {
   //   window.location
   // }
 
-
   dialogBox2 = () => {
-    this.setState({dialogBox2: !this.state.dialogBox2})
-  }
+    this.setState({ dialogBox2: !this.state.dialogBox2 });
+  };
   dialogBox1 = () => {
-    this.setState({dialogBox1: !this.state.dialogBox})
-  }
+    this.setState({ dialogBox1: !this.state.dialogBox });
+  };
   chnagepass = () => {
     window.location = "/changepassword";
-  }
+  };
   Confirmotp = () => {
     window.location = "/dashboard";
   };
@@ -187,23 +186,26 @@ class Nav extends Component {
       this.setState({
         modal_open: false,
       });
-     // this.setState({ dialogBox: !this.state.dialogBox });
+      // this.setState({ dialogBox: !this.state.dialogBox });
 
-     let temp ={
-      "name":this.state.full_name,
-      "email":this.state.email,
-      "phoneNumber":this.state.phone,
-      "password":this.state.password
-      }
-      let url = getBaseUrl() +"/signup";
-      axios.post(url,temp).then((response)=>{
-  alert(response.data.message);
-      },(error) =>{
-        alert(error.response.data.message);
-      }).catch((e)=>{
-  
-      });
-
+      let temp = {
+        name: this.state.full_name,
+        email: this.state.email,
+        phoneNumber: this.state.phone,
+        password: this.state.password,
+      };
+      let url = getBaseUrl() + "/signup";
+      axios
+        .post(url, temp)
+        .then(
+          (response) => {
+            alert(response.data.message);
+          },
+          (error) => {
+            alert(error.response.data.message);
+          }
+        )
+        .catch((e) => {});
     }
     if (modal_type === "signin") {
       if (this.state.phone == undefined || this.state.phone.length < 10) {
@@ -219,37 +221,39 @@ class Nav extends Component {
       //   return;
       // }
 
-      let temp ={
-        "mobileNumber":this.state.phone,
-        "password":this.state.password
-        }
-        let url = getBaseUrl() +"/login";
-        axios.post(url,temp).then((response)=>{
-          if(response.data.message != undefined){
-            alert(response.data.message);
-          }else{
-            window.localStorage.setItem("user",response.data.name)
-          window.location = "/dashboard";
+      let temp = {
+        mobileNumber: this.state.phone,
+        password: this.state.password,
+      };
+      let url = getBaseUrl() + "/login";
+      axios
+        .post(url, temp)
+        .then(
+          (response) => {
+            if (response.data.message != undefined) {
+              alert(response.data.message);
+            } else {
+              window.localStorage.setItem("user", response.data.name);
+              window.location = "/dashboard";
+            }
+          },
+          (error) => {
+            alert(error.response.data.message);
           }
-        },(error) =>{
-          alert(error.response.data.message);
-        }).catch((e)=>{
-    
-        });
-  
-     
+        )
+        .catch((e) => {});
     }
 
     if (modal_type === "forgotpassword") {
-    let temp={"number":this.state.phone}
-    let url = getBaseUrl() +"/signup";
-    axios.post(url,temp).then((response)=>{
-
-    },(error) =>{
-
-    }).catch((e)=>{
-
-    });
+      let temp = { number: this.state.phone };
+      let url = getBaseUrl() + "/signup";
+      axios
+        .post(url, temp)
+        .then(
+          (response) => {},
+          (error) => {}
+        )
+        .catch((e) => {});
     }
     // if (this.state.checked === false) {
     //   alert("Please indicate that you accept the Terms and Conditions");
@@ -304,9 +308,16 @@ class Nav extends Component {
     return (
       <AppBar position="fixed">
         <Toolbar classname="navigationbar" variant="dense">
-          <a href="/home">
-            <img className="logos" src={logo} />
-          </a>
+          {this.state.isLogged == true ? (
+            <a href="/dashboard">
+              <img className="logos" src={logo} />
+            </a>
+          ) : (
+            <a href="/home">
+              <img className="logos" src={logo} />
+            </a>
+          )}
+
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
@@ -332,11 +343,11 @@ class Nav extends Component {
                   <a class="dropdown-item" href="profile">
                     View Profile
                   </a>
-                  <a class="dropdown-item" onClick = {this.dialogBox1}>
+                  <a class="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
 
-                  <a class="dropdown-item" onClick = { this.dialogBox2}>
+                  <a class="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
 
@@ -541,17 +552,18 @@ class Nav extends Component {
                 )}
 
                 <div>
-           
-              
-               {modal_type != "signup"?null:   <p className="terms3"> 
-               <input
-                    type="checkbox"
-                    defaultChecked={this.state.checked}
-                    onChange={() => this.setState({ checked: true })}
-                    color="primary"
-                    inputProps={{ "aria-label": "secondary checkbox" }}
-                  />
-                {" "}I accept terms & condition </p>}
+                  {modal_type != "signup" ? null : (
+                    <p className="terms3">
+                      <input
+                        type="checkbox"
+                        defaultChecked={this.state.checked}
+                        onChange={() => this.setState({ checked: true })}
+                        color="primary"
+                        inputProps={{ "aria-label": "secondary checkbox" }}
+                      />{" "}
+                      I accept terms & condition{" "}
+                    </p>
+                  )}
                 </div>
                 <fieldset>
                   {modal_type === "signup" && (
@@ -705,125 +717,115 @@ class Nav extends Component {
               </button>
             </div>
           </Dialog>
-          
         </div>
 
-
-
-
-         <Dialog
-            onClose={() => {
-              this.setState({
-                dialogBox1: false,
-              });
-            }}
-            open={this.state.dialogBox1}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            
-            <div className="changepasss">
+        <Dialog
+          onClose={() => {
+            this.setState({
+              dialogBox1: false,
+            });
+          }}
+          open={this.state.dialogBox1}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="changepasss">
             <span
-                className="floatright crossbtncolor mt-2"
-                onClick={() => {
-                  this.setState({
-                    dialogBox1: false,
-                  });
-                }}
-              >
-                <FontAwesomeIcon icon={faTimes} />{" "}
-              </span>
-            
-                <div>
-                <Input
-                  className="change11 mt-3 ml-2"
-                  type="password"
-                  name="full_name"
-                  placeholder="Current Password"
-                  autocomplete="off"
-                  // value={this.state.full_name}
-                  // onChange={this.handelOnChange}
-                />
-              </div>
-              <div>
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  dialogBox1: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+
+            <div>
               <Input
-                  className="change11 mt-4 ml-2"
-                  type="password"
-                  name="full_name"
-                  placeholder="New Password"
-                  autocomplete="off"
-                  // value={this.state.full_name}
-                  // onChange={this.handelOnChange}
-                />
-              </div>
-              <div>
-              <Input
-                  className="change11 mt-4 ml-2"
-                  type="password"
-                  name="full_name"
-                  placeholder="Confirm Password"
-                  autocomplete="off"
-                  // value={this.state.full_name}
-                  // onChange={this.handelOnChange}
-                />
-              </div>
-              <div>
-                <button className="mt-4 ml-5 btncolor11">Change Password</button>
-              </div>
+                className="change11 mt-3 ml-2"
+                type="password"
+                name="full_name"
+                placeholder="Current Password"
+                autocomplete="off"
+                // value={this.state.full_name}
+                // onChange={this.handelOnChange}
+              />
             </div>
-            </Dialog> 
+            <div>
+              <Input
+                className="change11 mt-4 ml-2"
+                type="password"
+                name="full_name"
+                placeholder="New Password"
+                autocomplete="off"
+                // value={this.state.full_name}
+                // onChange={this.handelOnChange}
+              />
+            </div>
+            <div>
+              <Input
+                className="change11 mt-4 ml-2"
+                type="password"
+                name="full_name"
+                placeholder="Confirm Password"
+                autocomplete="off"
+                // value={this.state.full_name}
+                // onChange={this.handelOnChange}
+              />
+            </div>
+            <div>
+              <button className="mt-4 ml-5 btncolor11">Change Password</button>
+            </div>
+          </div>
+        </Dialog>
 
-
-
-               <Dialog
-            onClose={() => {
-              this.setState({
-                dialogBox2: false,
-              });
-            }}
-            open={this.state.dialogBox2}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <div className="requested">
+        <Dialog
+          onClose={() => {
+            this.setState({
+              dialogBox2: false,
+            });
+          }}
+          open={this.state.dialogBox2}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="requested">
             <span
-                className="floatright crossbtncolor mt-2"
-                onClick={() => {
-                  this.setState({
-                    dialogBox2: false,
-                  });
-                }}
-              >
-                <FontAwesomeIcon icon={faTimes} />{" "}
-              </span>
-           
-                    <Input
-                      className="mt-3 ml-3 textareawidth"
-                      type="text"
-                      name="email"
-                      placeholder="Email ID"
-                      autocomplete="off"
-                      value={email}
-                      onChange={this.handelOnChange}
-                    />
-              
-                  <div>
-                  <textarea
-                  className="ml-3 mt-4 textareawidth"
-                      placeholder="Enter message here"
-                      multiline
-                      rows={4}
-                      rowsMax={4}
-                    />
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  dialogBox2: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
 
-                  </div>
-                  <div>
-                    <button className="btncolorcenter mr-3 mt-3">SUBMIT</button>
-                  </div>
+            <Input
+              className="mt-3 ml-3 textareawidth"
+              type="text"
+              name="email"
+              placeholder="Email ID"
+              autocomplete="off"
+              value={email}
+              onChange={this.handelOnChange}
+            />
 
+            <div>
+              <textarea
+                className="ml-3 mt-4 textareawidth"
+                placeholder="Enter message here"
+                multiline
+                rows={4}
+                rowsMax={4}
+              />
             </div>
-            </Dialog>
-            
+            <div>
+              <button className="btncolorcenter mr-3 mt-3">SUBMIT</button>
+            </div>
+          </div>
+        </Dialog>
       </AppBar>
     );
   }
