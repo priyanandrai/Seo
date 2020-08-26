@@ -741,7 +741,7 @@ class Nav extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
 
-            <div>
+            {/* <div>
               <Input
                 className="change11 mt-3 ml-2"
                 type="password"
@@ -751,9 +751,26 @@ class Nav extends Component {
                 // value={this.state.full_name}
                 // onChange={this.handelOnChange}
               />
+            </div> */}
+             <div>
+            <fieldset className="inputHome mt-5 ml-3 mr-3">
+                    {/* <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />{" "} */}
+                    <Input
+                      className="bodernull111 ml-2"
+                      type="password"
+                      
+                      placeholder="Current Password"
+                      autocomplete="off"
+                      // value={email}
+                      // onChange={this.handelOnChange}
+                    />
+                  </fieldset>
             </div>
             <div>
-              <Input
+              {/* <Input
                 className="change11 mt-4 ml-2"
                 type="password"
                 name="full_name"
@@ -761,10 +778,25 @@ class Nav extends Component {
                 autocomplete="off"
                 // value={this.state.full_name}
                 // onChange={this.handelOnChange}
-              />
+              /> */}
+              <fieldset className="inputHome mt-4 ml-3 mr-3">
+                    {/* <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />{" "} */}
+                    <Input
+                      className="bodernull111 ml-2"
+                      type="password"
+                      
+                      placeholder="New Password"
+                      autocomplete="off"
+                      // value={email}
+                      // onChange={this.handelOnChange}
+                    />
+                  </fieldset>
             </div>
             <div>
-              <Input
+              {/* <Input
                 className="change11 mt-4 ml-2"
                 type="password"
                 name="full_name"
@@ -772,10 +804,32 @@ class Nav extends Component {
                 autocomplete="off"
                 // value={this.state.full_name}
                 // onChange={this.handelOnChange}
-              />
+              /> */}
+              <fieldset className="inputHome mt-4 ml-3 mr-3">
+                    {/* <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />{" "} */}
+                    <Input
+                      className="bodernull111 ml-2"
+                      type="password"
+                      
+                      placeholder="Confirm Password"
+                      autocomplete="off"
+                      // value={email}
+                      // onChange={this.handelOnChange}
+                    />
+                  </fieldset>
             </div>
             <div>
-              <button className="mt-4 ml-5 btncolor11">Change Password</button>
+              {/* <button className="mt-4 ml-5 btncolor11">Change Password</button> */}
+              <Button
+                      className="questtwoheadingpspan btncolor11 mt-4 ml-5"
+                      type="submit"
+                      value="Change Password"
+                      
+                      
+                    />
             </div>
           </div>
         </Dialog>
@@ -802,7 +856,7 @@ class Nav extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
 
-            <Input
+            {/* <Input
               className="mt-3 ml-3 textareawidth"
               type="text"
               name="email"
@@ -810,11 +864,28 @@ class Nav extends Component {
               autocomplete="off"
               value={email}
               onChange={this.handelOnChange}
-            />
+            /> */}
+            <div>
+            <fieldset className="inputHome mt-5 ml-3 mr-3">
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="signup-icon"
+                    />{" "}
+                    <Input
+                      className="bodernull111 ml-2"
+                      type="text"
+                      name="email"
+                      placeholder="Email ID"
+                      autocomplete="off"
+                      // value={email}
+                      // onChange={this.handelOnChange}
+                    />
+                  </fieldset>
+            </div>
 
             <div>
               <textarea
-                className="ml-3 mt-4 textareawidth"
+                className="ml-3 mt-4 textareawidth inputHome"
                 placeholder="Enter message here"
                 multiline
                 rows={4}

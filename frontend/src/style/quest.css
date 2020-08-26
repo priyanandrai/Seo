@@ -1746,6 +1746,8 @@ input:disabled {
 .btncolor11{
   background-color: #18758d;
   outline: none;
+  bottom: 0;
+  font-size: 13px;
 }
 .requested{
   width: 50vh;
