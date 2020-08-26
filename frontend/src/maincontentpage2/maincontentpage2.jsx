@@ -615,7 +615,7 @@ export class Maincontentpage2 extends Component {
         <div className="mt-5 border-top bodercolor"> </div>
         <div>
           <DataTable
-            title="Your History"
+            title="Current Session"
             columns={this.state.columns}
             data={this.state.data}
             pagination ={true}

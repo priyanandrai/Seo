@@ -33,9 +33,9 @@ class Profile extends Component {
           status: "Inprogress",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
         },
@@ -46,9 +46,9 @@ class Profile extends Component {
           status: "Aborted",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
         },
@@ -59,9 +59,9 @@ class Profile extends Component {
           status: "Stopped",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
         },
@@ -72,9 +72,9 @@ class Profile extends Component {
           status: "Complete",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTimes} />{" "}
-              <FontAwesomeIcon className=" mr-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
         },
@@ -111,6 +111,7 @@ class Profile extends Component {
         },
       ],
       dialogBox: false,
+      Playsession:false,
     };
   }
 
@@ -146,6 +147,9 @@ class Profile extends Component {
   dialogBox = () => {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
+  Playsession = () => {
+    this.setState({ Playsession: !this.state.Playsession });
+  };
   render() {
     return (
       <div className="profile-main-div container">
@@ -168,7 +172,7 @@ class Profile extends Component {
               /> */}
               <TextField
                 id="standard-basic"
-                label="User Name"
+                label=""
                 disabled={this.state.usernameEnable}
                 onChange={(e) => {
                   this.setState({ username: e.target.value });
@@ -317,6 +321,25 @@ class Profile extends Component {
               onClick={() => {
                 this.setState({
                   dialogBox: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+          </div>
+        </Dialog>
+        <Dialog
+         
+          open={this.state.Playsession}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  Playsession: false,
                 });
               }}
             >
