@@ -186,7 +186,7 @@ class Nav extends Component {
       this.setState({
         modal_open: false,
       });
-      // this.setState({ dialogBox: !this.state.dialogBox });
+       this.setState({ dialogBox: !this.state.dialogBox });
 
       let temp = {
         name: this.state.full_name,
@@ -340,6 +340,12 @@ class Nav extends Component {
                   class="dropdown-menu dropdown-menu-right "
                   aria-labelledby="navbarDropdown"
                 >
+                  <a class="dropdown-item" href="#">
+                    Unique Id
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Add Balance
+                  </a>
                   <a class="dropdown-item" href="dashboard">
                     DashBoard
                   </a>
@@ -731,6 +737,7 @@ class Nav extends Component {
           open={this.state.dialogBox1}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+         
         >
           <div className="changepasss">
             <span
@@ -755,7 +762,7 @@ class Nav extends Component {
                 // onChange={this.handelOnChange}
               />
             </div> */}
-            <div>
+            <div >
               <fieldset className="inputHome mt-5 ml-3 mr-3">
                 {/* <FontAwesomeIcon
                       icon={faEnvelope}

@@ -33,7 +33,7 @@ export class Maincontentpage2 extends Component {
     this.state = {
       snackbar: false,
       drilldown: false,
-      drilldown1: false,
+      // drilldown1: false,
       message: "",
       name: "",
       show: false,
@@ -58,17 +58,27 @@ export class Maincontentpage2 extends Component {
         {
           id: 1,
           website: "abc",
-          status1: "done/complete",
+          status1: "Done",
         },
         {
           id: 2,
           website: "def",
-          status1: "inprogrss",
+          status1: "Inprogrss",
         },
         {
           id: 3,
           website: "ghe",
+          status1: "Failed",
+        },
+        {
+          id: 4,
+          website: "mhe",
           status1: "pending",
+        },
+        {
+          id: 5,
+          website: "jhe",
+          status1: "Failed",
         },
       ],
       columnsdialog: [
@@ -754,15 +764,21 @@ export class Maincontentpage2 extends Component {
                 </div>
               </Grid>
               <Grid item md={5}>
-                <div>
+                <div className="piewidth mt-2">
                   {/* <h2 className="mt-4 ml-2 progesssize">hello world</h2> */}
                   <PieChart
   data={[
     { title: 'One', value: 10, color: '#E38627' },
     { title: 'Two', value: 15, color: '#C13C37' },
     { title: 'Three', value: 20, color: '#6A2135' },
+    { title: 'four', value: 5, color: '#fc8256' },
+    { title: 'five', value: 30, color: 'red' },
+
     
   ]}
+  animate ={true}
+  
+  // reveal ={90}
 />
                 </div>
               </Grid>
