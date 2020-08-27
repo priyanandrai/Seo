@@ -364,7 +364,7 @@ class Nav extends Component {
                   </a>
 
                   <a class="dropdown-item" onClick={this.logout}>
-                    logout
+                    Logout
                   </a>
                 </div>
               </div>

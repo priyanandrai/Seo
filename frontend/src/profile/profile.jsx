@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilAlt,
   faTimes,
+  faDownload,
   faPlay,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +18,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       organization: "",
+      deleteoption:false,
       organizationEnable: true,
       profession: "",
       professionEnable: true,
@@ -34,8 +36,8 @@ class Profile extends Component {
           action: (
             <span>
               <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption}  icon={faTrash} />
             </span>
           ),
         },
@@ -47,8 +49,8 @@ class Profile extends Component {
           action: (
             <span>
               <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
             </span>
           ),
         },
@@ -60,8 +62,8 @@ class Profile extends Component {
           action: (
             <span>
               <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
             </span>
           ),
         },
@@ -73,8 +75,8 @@ class Profile extends Component {
           action: (
             <span>
               <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
             </span>
           ),
         },
@@ -143,6 +145,9 @@ class Profile extends Component {
     if (para == "organization") {
       this.setState({ organizationEnable: false });
     }
+  };
+  deleteoption = () => {
+    this.setState({ deleteoption: !this.state.deleteoption });
   };
   dialogBox = () => {
     this.setState({ dialogBox: !this.state.dialogBox });
@@ -345,6 +350,28 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
+          </div>
+        </Dialog>
+        <Dialog
+         
+          open={this.state.deleteoption}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged2">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  deleteoption: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+            <div className="mt-5">
+              <h2 className="ml-3 mr-3 headingfont">Are you Sure ? Do you want to Delete ? </h2>
+            </div>
           </div>
         </Dialog>
       </div>
