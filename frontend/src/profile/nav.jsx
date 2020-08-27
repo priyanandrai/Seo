@@ -243,12 +243,15 @@ class Nav extends Component {
     }
 
     if (modal_type === "forgotpassword") {
-      let temp = { number: this.state.phone };
-      let url = getBaseUrl() + "/signup";
+      let temp = { mobileNumber: this.state.phone };
+      let url = getBaseUrl() + "/forgetPassword";
       axios
         .post(url, temp)
         .then(
-          (response) => {},
+          (response) => {
+            console.log(response);
+            alert(response.data.message);
+          },
           (error) => {}
         )
         .catch((e) => {});
@@ -432,7 +435,22 @@ class Nav extends Component {
                   </h1>
                 </div>
               )}
-              {modal_type === "forgotpassword" && <h1>Forgot Password ? </h1>}
+              {modal_type === "forgotpassword" && (
+                <div className="d-inline">
+                  <span
+                    className="float-right p-2"
+                    onClick={() => {
+                      this.setState({
+                        modal_open: false,
+                      });
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faTimes} />{" "}
+                  </span>
+                  <h1>Forgot Password ? </h1>
+                </div>
+              )}
+
               <form onSubmit={this.handleOnSubmit}>
                 {modal_type === "signup" && (
                   <fieldset className="padii222">
