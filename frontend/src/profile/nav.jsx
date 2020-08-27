@@ -42,12 +42,11 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      balance: "30.00SR",
       checked: false,
-
       dialogBox: false,
       dialogBox1: false,
       dialogBox2: false,
-
       isLogged: false,
       phone: "",
       otp: "",
@@ -59,7 +58,6 @@ class Nav extends Component {
       email: "",
       password: "",
       confirm_password: "",
-      // checkbox: false,
       button_status: "disabled",
       register: false,
       getintouch: false,
@@ -186,7 +184,7 @@ class Nav extends Component {
       this.setState({
         modal_open: false,
       });
-       this.setState({ dialogBox: !this.state.dialogBox });
+      this.setState({ dialogBox: !this.state.dialogBox });
 
       let temp = {
         name: this.state.full_name,
@@ -321,6 +319,11 @@ class Nav extends Component {
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
+                <a class="nav-link text-dark">
+                  Balance:{" "}
+                  <span className="align-middle">{this.state.balance}</span>{" "}
+                </a>
+
                 <a class="navbar-brand mr-0" href="#">
                   <img width="30" height="30" src={login} />
                 </a>
@@ -737,7 +740,6 @@ class Nav extends Component {
           open={this.state.dialogBox1}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
-         
         >
           <div className="changepasss">
             <span
@@ -762,7 +764,7 @@ class Nav extends Component {
                 // onChange={this.handelOnChange}
               />
             </div> */}
-            <div >
+            <div>
               <fieldset className="inputHome mt-5 ml-3 mr-3">
                 {/* <FontAwesomeIcon
                       icon={faEnvelope}
