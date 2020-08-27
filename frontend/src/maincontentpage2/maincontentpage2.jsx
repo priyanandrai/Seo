@@ -18,21 +18,32 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleDown, faTimes, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDoubleDown,
+  faTimes,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 import DataTable, { createTheme } from "react-data-table-component";
-import { PieChart } from 'react-minimal-pie-chart';
+import { PieChart } from "react-minimal-pie-chart";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      pieChartData: [
+        { title: "One", value: 10, color: "#E38627" },
+        { title: "Two", value: 15, color: "#C13C37" },
+        { title: "Three", value: 20, color: "#6A2135" },
+        { title: "four", value: 5, color: "#fc8256" },
+        { title: "five", value: 30, color: "red" },
+      ],
       snackbar: false,
-      drilldown: false,
+      drilldown: true,
       // drilldown1: false,
       message: "",
       name: "",
@@ -358,7 +369,7 @@ export class Maincontentpage2 extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
         <Grid container spacing={3} style={{ marginTop: "8%" }}>
           <Grid item md={7}>
             <Paper>
@@ -727,7 +738,7 @@ export class Maincontentpage2 extends Component {
           aria-describedby="alert-dialog-description"
         >
           <div className="drill-main">
-          <span
+            <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
                 this.setState({
@@ -745,7 +756,9 @@ export class Maincontentpage2 extends Component {
               //   });
               // }}
             >
-              <a className="hrefcolor" href="profile"><FontAwesomeIcon icon={faEye} /></a>{" "}
+              <a className="hrefcolor" href="profile">
+                <FontAwesomeIcon icon={faEye} />
+              </a>{" "}
             </span>
             <Grid container>
               <Grid item md={7}>
@@ -767,19 +780,10 @@ export class Maincontentpage2 extends Component {
                 <div className="piewidth mt-2">
                   {/* <h2 className="mt-4 ml-2 progesssize">hello world</h2> */}
                   <PieChart
-  data={[
-    { title: 'One', value: 10, color: '#E38627' },
-    { title: 'Two', value: 15, color: '#C13C37' },
-    { title: 'Three', value: 20, color: '#6A2135' },
-    { title: 'four', value: 5, color: '#fc8256' },
-    { title: 'five', value: 30, color: 'red' },
-
-    
-  ]}
-  animate ={true}
-  
-  // reveal ={90}
-/>
+                    data={this.state.pieChartData}
+                    animate={true}
+                    // reveal ={90}
+                  />
                 </div>
               </Grid>
             </Grid>
