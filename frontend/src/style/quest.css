@@ -1737,7 +1737,7 @@ input:disabled {
 
 .changepasss{
   width: 50vh;
-  height: 50vh;
+  height: auto;
 }
 .change11{
   width: 90%;
@@ -1784,4 +1784,7 @@ input:disabled {
   font-size: 25px;
   color: #18758d;
   
+}
+.hrefcolor{
+  color:#18758d ;
 }

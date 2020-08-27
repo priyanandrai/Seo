@@ -735,7 +735,7 @@ export class Maincontentpage2 extends Component {
               //   });
               // }}
             >
-              <a href="profile"><FontAwesomeIcon icon={faEye} /></a>{" "}
+              <a className="hrefcolor" href="profile"><FontAwesomeIcon icon={faEye} /></a>{" "}
             </span>
             <Grid container>
               <Grid item md={7}>

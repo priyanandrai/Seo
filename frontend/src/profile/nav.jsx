@@ -340,6 +340,9 @@ class Nav extends Component {
                   class="dropdown-menu dropdown-menu-right "
                   aria-labelledby="navbarDropdown"
                 >
+                  <a class="dropdown-item" href="dashboard">
+                    DashBoard
+                  </a>
                   <a class="dropdown-item" href="profile">
                     View Profile
                   </a>
@@ -752,22 +755,21 @@ class Nav extends Component {
                 // onChange={this.handelOnChange}
               />
             </div> */}
-             <div>
-            <fieldset className="inputHome mt-5 ml-3 mr-3">
-                    {/* <FontAwesomeIcon
+            <div>
+              <fieldset className="inputHome mt-5 ml-3 mr-3">
+                {/* <FontAwesomeIcon
                       icon={faEnvelope}
                       className="signup-icon"
                     />{" "} */}
-                    <Input
-                      className="bodernull111 ml-2"
-                      type="password"
-                      
-                      placeholder="Current Password"
-                      autocomplete="off"
-                      // value={email}
-                      // onChange={this.handelOnChange}
-                    />
-                  </fieldset>
+                <Input
+                  className="bodernull111 ml-2"
+                  type="password"
+                  placeholder="Current Password"
+                  autocomplete="off"
+                  // value={email}
+                  // onChange={this.handelOnChange}
+                />
+              </fieldset>
             </div>
             <div>
               {/* <Input
@@ -780,20 +782,19 @@ class Nav extends Component {
                 // onChange={this.handelOnChange}
               /> */}
               <fieldset className="inputHome mt-4 ml-3 mr-3">
-                    {/* <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                       icon={faEnvelope}
                       className="signup-icon"
                     />{" "} */}
-                    <Input
-                      className="bodernull111 ml-2"
-                      type="password"
-                      
-                      placeholder="New Password"
-                      autocomplete="off"
-                      // value={email}
-                      // onChange={this.handelOnChange}
-                    />
-                  </fieldset>
+                <Input
+                  className="bodernull111 ml-2"
+                  type="password"
+                  placeholder="New Password"
+                  autocomplete="off"
+                  // value={email}
+                  // onChange={this.handelOnChange}
+                />
+              </fieldset>
             </div>
             <div>
               {/* <Input
@@ -806,30 +807,27 @@ class Nav extends Component {
                 // onChange={this.handelOnChange}
               /> */}
               <fieldset className="inputHome mt-4 ml-3 mr-3">
-                    {/* <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                       icon={faEnvelope}
                       className="signup-icon"
                     />{" "} */}
-                    <Input
-                      className="bodernull111 ml-2"
-                      type="password"
-                      
-                      placeholder="Confirm Password"
-                      autocomplete="off"
-                      // value={email}
-                      // onChange={this.handelOnChange}
-                    />
-                  </fieldset>
+                <Input
+                  className="bodernull111 ml-2"
+                  type="password"
+                  placeholder="Confirm Password"
+                  autocomplete="off"
+                  // value={email}
+                  // onChange={this.handelOnChange}
+                />
+              </fieldset>
             </div>
-            <div>
+            <div className="mb-2">
               {/* <button className="mt-4 ml-5 btncolor11">Change Password</button> */}
               <Button
-                      className="questtwoheadingpspan btncolor11 mt-4 ml-5"
-                      type="submit"
-                      value="Change Password"
-                      
-                      
-                    />
+                className="questtwoheadingpspan btncolor11 mt-4 ml-5"
+                type="submit"
+                value="Change Password"
+              />
             </div>
           </div>
         </Dialog>
@@ -866,21 +864,18 @@ class Nav extends Component {
               onChange={this.handelOnChange}
             /> */}
             <div>
-            <fieldset className="inputHome mt-5 ml-3 mr-3">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="signup-icon"
-                    />{" "}
-                    <Input
-                      className="bodernull111 ml-2"
-                      type="text"
-                      name="email"
-                      placeholder="Email ID"
-                      autocomplete="off"
-                      // value={email}
-                      // onChange={this.handelOnChange}
-                    />
-                  </fieldset>
+              <fieldset className="inputHome mt-5 ml-3 mr-3">
+                <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />{" "}
+                <Input
+                  className="bodernull111 ml-2"
+                  type="text"
+                  name="email"
+                  placeholder="Email ID"
+                  autocomplete="off"
+                  // value={email}
+                  // onChange={this.handelOnChange}
+                />
+              </fieldset>
             </div>
 
             <div>
@@ -895,12 +890,10 @@ class Nav extends Component {
             <div>
               {/* <button className="btncolorcenter mr-3 mt-3">SUBMIT</button> */}
               <Button
-                      className="questtwoheadingpspan btncolor11 mt-4 ml-5"
-                      type="submit"
-                      value="SUBMIT"
-                      
-                      
-                    />
+                className="questtwoheadingpspan btncolor11 mt-4 ml-5"
+                type="submit"
+                value="SUBMIT"
+              />
             </div>
           </div>
         </Dialog>

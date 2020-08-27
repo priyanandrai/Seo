@@ -33,8 +33,8 @@ class Profile extends Component {
           status: "Inprogress",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
@@ -46,8 +46,8 @@ class Profile extends Component {
           status: "Aborted",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
@@ -59,8 +59,8 @@ class Profile extends Component {
           status: "Stopped",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
@@ -72,8 +72,8 @@ class Profile extends Component {
           status: "Complete",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />{" "}
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />{" "}
+              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon className=" mr-2 ml-2" icon={faTimes} />|
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faTrash} />
             </span>
           ),
