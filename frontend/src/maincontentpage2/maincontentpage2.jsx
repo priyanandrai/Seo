@@ -16,6 +16,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleDoubleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -55,7 +59,8 @@ export class Maincontentpage2 extends Component {
           task: "create a table",
           time: "12:30pm",
           visual: "3123",
-          action: <a href="#">drilDown</a>,
+          //  action: <a href="#">drilDown</a>,
+          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
         },
         {
           id: 2,
@@ -63,7 +68,8 @@ export class Maincontentpage2 extends Component {
           task: "Assign login",
           time: "03:50pm",
           visual: "3434",
-          action: <a href="#">drilDown 1</a>,
+          // action: <a href="#">drilDown 1</a>,
+          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
         },
         {
           id: 3,
@@ -71,7 +77,8 @@ export class Maincontentpage2 extends Component {
           task: "Create a new page",
           time: "08:00pm",
           visual: "2342",
-          action: <a href="#">drilDown 2</a>,
+          // action: <a href="#">drilDown 2</a>,
+          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
         },
       ],
       columns: [

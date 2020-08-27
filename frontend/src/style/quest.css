@@ -1745,9 +1745,14 @@ input:disabled {
 }
 .btncolor11{
   background-color: #18758d;
-  outline: none;
-  bottom: 0;
-  font-size: 13px;
+    outline: none;
+    bottom: 0;
+    width: 71%;
+    border-radius: 7px;
+    font-size: 11px;
+  
+    padding: none;
+
 }
 .requested{
   width: 50vh;

@@ -893,7 +893,14 @@ class Nav extends Component {
               />
             </div>
             <div>
-              <button className="btncolorcenter mr-3 mt-3">SUBMIT</button>
+              {/* <button className="btncolorcenter mr-3 mt-3">SUBMIT</button> */}
+              <Button
+                      className="questtwoheadingpspan btncolor11 mt-4 ml-5"
+                      type="submit"
+                      value="SUBMIT"
+                      
+                      
+                    />
             </div>
           </div>
         </Dialog>
