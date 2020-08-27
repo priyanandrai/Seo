@@ -9,6 +9,7 @@ import ReactPlayer from "react-player";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
+import Dialog from "@material-ui/core/Dialog";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -17,9 +18,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDoubleDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -32,6 +31,7 @@ export class Maincontentpage2 extends Component {
     super(props);
     this.state = {
       snackbar: false,
+      drilldown: true,
       message: "",
       name: "",
       show: false,
@@ -45,13 +45,44 @@ export class Maincontentpage2 extends Component {
       title: "",
       description: "",
       keywords: "",
-      
+
       error: null,
       emaill: "",
       Passwordd: "",
       descriptionss: "",
       urls: "",
       keywordsss: "",
+      datadialog: [
+        {
+          id: 1,
+          website: "abc",
+          status1: "done/complete",
+        },
+        {
+          id: 2,
+          website: "def",
+          status1: "inprogrss",
+        },
+        {
+          id: 3,
+          website: "ghe",
+          status1: "pending",
+        },
+      ],
+      columnsdialog: [
+        {
+          name: "Website",
+          selector: "website",
+          sortable: true,
+        },
+        {
+          name: "Status",
+          selector: "status1",
+          sortable: true,
+          left: true,
+        },
+      ],
+
       data: [
         {
           id: 1,
@@ -60,7 +91,14 @@ export class Maincontentpage2 extends Component {
           time: "12:30pm",
           visual: "3123",
           //  action: <a href="#">drilDown</a>,
-          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
+          action: (
+            <FontAwesomeIcon
+              className=" mr-2 ml-2"
+              title="DrillDown"
+              icon={faAngleDoubleDown}
+              onClick={this.drilldown}
+            />
+          ),
         },
         {
           id: 2,
@@ -69,7 +107,14 @@ export class Maincontentpage2 extends Component {
           time: "03:50pm",
           visual: "3434",
           // action: <a href="#">drilDown 1</a>,
-          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
+          action: (
+            <FontAwesomeIcon
+              className=" mr-2 ml-2"
+              title="DrillDown"
+              icon={faAngleDoubleDown}
+              onClick={this.drilldown}
+            />
+          ),
         },
         {
           id: 3,
@@ -78,7 +123,14 @@ export class Maincontentpage2 extends Component {
           time: "08:00pm",
           visual: "2342",
           // action: <a href="#">drilDown 2</a>,
-          action: <FontAwesomeIcon className=" mr-2 ml-2" icon={faAngleDoubleDown} />
+          action: (
+            <FontAwesomeIcon
+              className=" mr-2 ml-2"
+              title="DrillDown"
+              icon={faAngleDoubleDown}
+              onClick={this.drilldown}
+            />
+          ),
         },
       ],
       columns: [
@@ -114,6 +166,9 @@ export class Maincontentpage2 extends Component {
       ],
     };
   }
+  drilldown = () => {
+    this.setState({ drilldown: !this.state.drilldown });
+  };
 
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -188,7 +243,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "enter the valid url",
       });
-      
+
       return;
     }
     if (title == "") {
@@ -196,7 +251,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the title",
       });
-    
+
       return;
     }
     if (description == "") {
@@ -204,7 +259,7 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the descruption",
       });
-     
+
       return;
     }
     if (keywords == "") {
@@ -212,12 +267,12 @@ export class Maincontentpage2 extends Component {
         snackbar: true,
         error: "please enter the keywords",
       });
-     
+
       return;
     }
   };
   handleclick = (e) => {
-    const { name, emaill, sbmUrl, } = this.state;
+    const { name, emaill, sbmUrl } = this.state;
     // const reg =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     // if(this.state.emaill.trim()){
     //   alert("please enter the email")
@@ -227,19 +282,17 @@ export class Maincontentpage2 extends Component {
     //   alert("please enter the valid email")
     // return;
     // }
-     
+
     // const regpassword =
     // if(this.state.Passwordd.trim()==""){
     //   alert("please enter the passwords")
 
     // }else if(this.state.Passwordd.match())
 
-
-  
-   const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emaill == "") {
       this.setState({
-        snackbar: true, 
+        snackbar: true,
         error: "Please enter email Id.",
       });
       return;
@@ -251,55 +304,52 @@ export class Maincontentpage2 extends Component {
       return;
     }
 
-    if(this.state.Passwordd ==""){
-    this.setState({
-      snackbar: true,
-      error: "Please enter the password",
-
-    });
-    return;
-    }
-    if(this.state.descriptionss== ""){
+    if (this.state.Passwordd == "") {
       this.setState({
         snackbar: true,
-        error: "Please enter the description",
-  
+        error: "Please enter the password",
       });
       return;
     }
-    if(this.state.sbmUrl== ""){
+    if (this.state.descriptionss == "") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter the description",
+      });
+      return;
+    }
+    if (this.state.sbmUrl == "") {
       this.setState({
         snackbar: true,
         error: "Please enter the url",
-  
-      }); 
+      });
       return;
-    }else if (!sbmUrl.match(regexex)) {
+    } else if (!sbmUrl.match(regexex)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid URL.",
       });
       return;
     }
-    
-      if(this.state.keywordsss== ""){
-        this.setState({
-          snackbar: true,
-          error: "Please enter the keywords",
-          }); 
-        return;
-  }
+
+    if (this.state.keywordsss == "") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter the keywords",
+      });
+      return;
+    }
   };
   render() {
     return (
       <div>
-        <Grid container spacing={3} style={{ marginTop: "8%"}}>
+        <Grid container spacing={3} style={{ marginTop: "8%" }}>
           <Grid item md={7}>
             <Paper>
               <div className="animate__animated animate__backInLeft">
-               <h2 className="headeing-text">Choose Service</h2>
+                <h2 className="headeing-text">Choose Service</h2>
                 <div className="marginleftside">
-                  <div >
+                  <div>
                     <Checkbox
                       style={{}}
                       onChange={() => this.setState({ show: !this.state.show })}
@@ -314,7 +364,8 @@ export class Maincontentpage2 extends Component {
                     {this.state.show ? (
                       <div
                         style={{ marginLeft: "10%" }}
-                        className="input-width">
+                        className="input-width"
+                      >
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                           type="name"
@@ -348,18 +399,16 @@ export class Maincontentpage2 extends Component {
                             this.setState({ sbsUrl: e.target.value })
                           }
                         />
-                        
+
                         <div className="d-flex justify-content-end mrrginside22">
-                                <Button
-                                  
-                                  variant="contained"
-                                  className="startbtn"
-                                  onClick={this.handlesubmit}
-                                >
-                                  Start
-                                </Button>
-                                      </div>
-                        
+                          <Button
+                            variant="contained"
+                            className="startbtn"
+                            onClick={this.handlesubmit}
+                          >
+                            Start
+                          </Button>
+                        </div>
                       </div>
                     ) : null}
                   </h1>
@@ -433,17 +482,14 @@ export class Maincontentpage2 extends Component {
                             Start
                           </Button> */}
                           <div className="d-flex justify-content-end mrrginside22">
-                                <Button
-                                  
-                                  variant="contained"
-                                  className="startbtn"
-                                  onClick={this.handlesubmission}
-                                >
-                                  Start
-                                </Button>
-                                      </div>
-                        
-                      
+                            <Button
+                              variant="contained"
+                              className="startbtn"
+                              onClick={this.handlesubmission}
+                            >
+                              Start
+                            </Button>
+                          </div>
                         </div>
                       </h1>
                     ) : null}
@@ -458,9 +504,7 @@ export class Maincontentpage2 extends Component {
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
                     <h1></h1>
-                    <h3  className="hidemie">
-                      Classified Submission
-                    </h3>
+                    <h3 className="hidemie">Classified Submission</h3>
                   </div>
 
                   <div>
@@ -513,7 +557,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ descriptionss: e.target.value })
                             }
                           />
-                           <Form.Label>URL</Form.Label>
+                          <Form.Label>URL</Form.Label>
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
@@ -529,7 +573,9 @@ export class Maincontentpage2 extends Component {
                             placeholder="Enter Keywords"
                             className="w-75"
                             value={this.state.keywordsss}
-                            onChange={(e) => this.setState({keywordsss: e.target.value})}
+                            onChange={(e) =>
+                              this.setState({ keywordsss: e.target.value })
+                            }
                           />
                           {/* <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
@@ -541,18 +587,16 @@ export class Maincontentpage2 extends Component {
                             Start
                           </Button>
                         </div> */}
-                        <div className="d-flex justify-content-end mrrginside22">
-                                <Button
-                                  
-                                  variant="contained"
-                                  className="startbtn"
-                                  onClick={this.handleclick}
-                                >
-                                  Start
-                                </Button>
-                                      </div>
-                        
-                      </div>
+                          <div className="d-flex justify-content-end mrrginside22">
+                            <Button
+                              variant="contained"
+                              className="startbtn"
+                              onClick={this.handleclick}
+                            >
+                              Start
+                            </Button>
+                          </div>
+                        </div>
                       </h1>
                     ) : null}
                   </div>
@@ -566,7 +610,6 @@ export class Maincontentpage2 extends Component {
               <div className="animate__animated animate__backInRight  mr-5 marginleftpannel">
                 <Card
                   style={{
-                  
                     marginTop: "5%",
                     width: "100%",
                     height: "40vh",
@@ -619,17 +662,17 @@ export class Maincontentpage2 extends Component {
           </Grid><br/><br/>
         </div> */}
         <div className="container">
-        <div className="mt-5 border-top bodercolor"> </div>
-        <div>
-          <DataTable
-            title="Current Session"
-            columns={this.state.columns}
-            data={this.state.data}
-            pagination ={true}
-            paginationDefaultPage
-      
-          />
-        </div><br/>
+          <div className="mt-5 border-top bodercolor"> </div>
+          <div>
+            <DataTable
+              title="Current Session"
+              columns={this.state.columns}
+              data={this.state.data}
+              pagination={true}
+              paginationDefaultPage
+            />
+          </div>
+          <br />
         </div>
 
         <div>
@@ -657,6 +700,53 @@ export class Maincontentpage2 extends Component {
             }
           />
         </div>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.drilldown}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="drill-main">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  drilldown: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+            <Grid container className="submenu-alignment">
+              <Grid item md={7}>
+                <div>
+                  <h2 className="mt-4 ml-2 progesssize">Progress Status</h2>
+                </div>
+                <div className="container">
+                  <DataTable
+                    title="Task Type Name"
+                    columns={this.state.columnsdialog}
+                    data={this.state.datadialog}
+                    // pagination={true}
+                    // paginationDefaultPage
+                  />
+                  <br />
+                </div>
+              </Grid>
+              <Grid item md={5}>
+                <div>
+                  <h2 className="mt-4 ml-2 progesssize">hello world</h2>
+                </div>
+              </Grid>
+            </Grid>
+
+            {/* <div ><h2 className="mt-4 ml-2 tasktype">Task Type Name</h2></div> */}
+          </div>
+        </Dialog>
       </div>
     );
   }

@@ -1769,3 +1769,19 @@ input:disabled {
   background-color: #18758d;
 
 }
+.drill-main{
+  width: 100%;
+  height: auto;
+}
+.progesssize{
+  font-weight: 600;
+ font-size: 16px;
+ color: #18758d;
+  text-transform: uppercase;
+}
+.tasktype{
+  font-weight: 600;
+  font-size: 25px;
+  color: #18758d;
+  
+}
