@@ -18,20 +18,22 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faTimes, faEye } from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 import DataTable, { createTheme } from "react-data-table-component";
+import { PieChart } from 'react-minimal-pie-chart';
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
       snackbar: false,
-      drilldown: true,
+      drilldown: false,
+      drilldown1: false,
       message: "",
       name: "",
       show: false,
@@ -169,6 +171,10 @@ export class Maincontentpage2 extends Component {
   drilldown = () => {
     this.setState({ drilldown: !this.state.drilldown });
   };
+  // drilldown1 = () => {
+  //   // this.setState({ drilldown1: !this.state.profile });
+  //   window.location= "/profile";
+  // };
 
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -711,7 +717,7 @@ export class Maincontentpage2 extends Component {
           aria-describedby="alert-dialog-description"
         >
           <div className="drill-main">
-            <span
+          <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
                 this.setState({
@@ -721,10 +727,20 @@ export class Maincontentpage2 extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-            <Grid container className="submenu-alignment">
+            <span
+              className="floatright crossbtncolor mt-2"
+              // onClick={() => {
+              //   this.setState({
+              //     drilldown1: false,
+              //   });
+              // }}
+            >
+              <a href="profile"><FontAwesomeIcon icon={faEye} /></a>{" "}
+            </span>
+            <Grid container>
               <Grid item md={7}>
                 <div>
-                  <h2 className="mt-4 ml-2 progesssize">Progress Status</h2>
+                  <h2 className="mt-4 ml-4 progesssize">Progress Status</h2>
                 </div>
                 <div className="container">
                   <DataTable
@@ -739,7 +755,15 @@ export class Maincontentpage2 extends Component {
               </Grid>
               <Grid item md={5}>
                 <div>
-                  <h2 className="mt-4 ml-2 progesssize">hello world</h2>
+                  {/* <h2 className="mt-4 ml-2 progesssize">hello world</h2> */}
+                  <PieChart
+  data={[
+    { title: 'One', value: 10, color: '#E38627' },
+    { title: 'Two', value: 15, color: '#C13C37' },
+    { title: 'Three', value: 20, color: '#6A2135' },
+    
+  ]}
+/>
                 </div>
               </Grid>
             </Grid>
