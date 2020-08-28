@@ -147,11 +147,7 @@ class Profile extends Component {
 
           sortable: true,
           right: true,
-          // cell: (row) => (
-          //   <div>
-          //     <div>report</div>
-          //   </div>
-          // ),
+         
         },
       ],
       dialogBox: false,
@@ -203,7 +199,7 @@ class Profile extends Component {
         <Grid container className="submenu-alignment">
           <Grid item md={4}>
             <div className="mt-5">
-              {/* <div className="profileimg">Profile picture</div> */}
+              
               <img
                 className="profilepicture1 mx-auto d-block"
                 src="https://i.pinimg.com/originals/11/fd/aa/11fdaae6f8e4deb13481103b4e9a0744.jpg"
@@ -211,12 +207,7 @@ class Profile extends Component {
             </div>
 
             <div className=" d-flex mt-4">
-              {/* <input
-                type="text"
-                class="form-control border-top-0 border-left-0 border-right-0 mx-auto"
-                placeholder="User Name"
-                required
-              /> */}
+              
               <TextField
                 id="standard-basic"
                 label=""
@@ -246,12 +237,7 @@ class Profile extends Component {
           <Grid item md={8}>
             <div className="profile-right">
               <div className="d-flex">
-                {/* <input
-                  type="email"
-                  class="form-control border-top-0 border-left-0 border-right-0"
-                  placeholder="Email"
-                  required
-                /> */}
+                
                 <TextField
                   id="standard-basic"
                   label="Email"
@@ -271,12 +257,7 @@ class Profile extends Component {
                 </div>
               </div>
               <div className="d-flex mr-4">
-                {/* <input
-                  type="phone"
-                  class="form-control border-top-0 border-left-0 border-right-0 mt-3"
-                  placeholder="Mobile No."
-                  required
-                /> */}
+               
                 <TextField
                   id="standard-basic"
                   className="mt-1"
@@ -285,12 +266,7 @@ class Profile extends Component {
                 />
               </div>
               <div className="d-flex">
-                {/* <input
-                  type="text"
-                  class="form-control border-top-0 border-left-0 border-right-0 mt-3"
-                  placeholder="Profession"
-                  required
-                /> */}
+                
                 <TextField
                   id="standard-basic"
                   className="mt-1"
@@ -311,12 +287,7 @@ class Profile extends Component {
                 </div>
               </div>
               <div className="d-flex">
-                {/* <input
-                  type="text"
-                  class="form-control border-top-0 border-left-0 border-right-0 mt-3"
-                  placeholder="Organisation"
-                  required
-                /> */}
+                
                 <TextField
                   id="standard-basic"
                   className="mt-1"

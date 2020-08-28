@@ -768,6 +768,7 @@ export class Maincontentpage2 extends Component {
                 <div className="container">
                   <DataTable
                     title="Task Type Name"
+                    // title={this.state.title}
                     columns={this.state.columnsdialog}
                     data={this.state.datadialog}
                     // pagination={true}
@@ -778,7 +779,7 @@ export class Maincontentpage2 extends Component {
               </Grid>
               <Grid item md={5}>
                 <div className="piewidth mt-2">
-                  {/* <h2 className="mt-4 ml-2 progesssize">hello world</h2> */}
+                 
                   <PieChart
                     data={this.state.pieChartData}
                     animate={true}
@@ -788,7 +789,7 @@ export class Maincontentpage2 extends Component {
               </Grid>
             </Grid>
 
-            {/* <div ><h2 className="mt-4 ml-2 tasktype">Task Type Name</h2></div> */}
+            
           </div>
         </Dialog>
       </div>

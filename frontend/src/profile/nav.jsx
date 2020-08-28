@@ -185,7 +185,7 @@ UniqueId = () => {
         return;
       }
       if (this.state.checked === false) {
-        alert("Please indicate that you accept the Terms and Conditions");
+        alert("Please accept the Terms and Conditions");
         return;
       }
       this.setState({
@@ -334,7 +334,7 @@ UniqueId = () => {
                   <span className="align-middle">{this.state.balance}</span>{" "}
                 </a>
 
-                <a class="navbar-brand mr-0" href="#">
+                <a class="navbar-brand mr-0" href="">
                   <img width="30" height="30" src={login} />
                 </a>
                 <a

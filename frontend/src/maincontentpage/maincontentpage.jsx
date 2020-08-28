@@ -10,7 +10,7 @@ import ReactPlayer from "react-player";
 class Maincontentpage extends React.Component {
   render() {
     return (
-      <div className="mainpage-alignment">
+      <div className="container mainpage-alignment">
         <Grid container className="submenu-alignment">
           <Grid item md={7}>
             <div className="animate__animated animate__backInLeft animate__delay-10s left-main-section">
@@ -67,7 +67,7 @@ class Maincontentpage extends React.Component {
           </Grid>
         </Grid>
         <div>
-          <Grid container className="submenu-alignment">
+          <Grid container className="submenu-alignment container">
             <Grid item md={12}>
               <div className="container">
                 <Card>
