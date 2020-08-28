@@ -818,8 +818,73 @@ class Nav extends Component {
             </div>
           </div>
         </Dialog>
-
         <Dialog
+          onClose={() => {
+            this.setState({
+              dialogBox2: false,
+            });
+          }}
+          open={this.state.dialogBox2}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="changepasss">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  dialogBox1: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+
+            <div id="auth-modal">
+              <div className="auth-modal-in">
+                <span
+                  className="float-right pr-2 pt-1"
+                  onClick={() => {
+                    this.setState({
+                      dialogBox1: false,
+                    });
+                  }}
+                >
+                  <FontAwesomeIcon icon={faTimes} />{" "}
+                </span>
+                <div className="forgotpwdModal">
+                  <h1>Submit Request</h1>
+                  <fieldset className="inputHome mt-2  ml-3 mr-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="email"
+                    />
+                  </fieldset>
+                  {/* <fieldset className="inputHome mt-3 ml-3 mr-3"> */}
+                  <textarea
+                className="ml-3 mt-4 mr-3 inputHome textareawidth"
+                placeholder="Enter message here"
+                multiline
+                rows={4}
+                rowsMax={4}
+              />
+                  {/* </fieldset> */}
+                 
+                  <div className="mt-4 ">
+                    <Button
+                      className="forgetpwdbtn mx-auto d-block"
+                      type="submit"
+                      value="SUBMIT"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Dialog>
+
+        {/* <Dialog
           onClose={() => {
             this.setState({
               dialogBox2: false,
@@ -871,7 +936,7 @@ class Nav extends Component {
               />
             </div>
           </div>
-        </Dialog>
+        </Dialog> */}
       </AppBar>
     );
   }
