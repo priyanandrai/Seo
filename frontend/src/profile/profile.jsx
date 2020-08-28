@@ -12,6 +12,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DataTable, { createTheme } from "react-data-table-component";
 import TextField from "@material-ui/core/TextField";
+import Button from '@material-ui/core/Button';
+
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 class Profile extends Component {
   constructor(props) {
@@ -369,9 +375,22 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <h2 className="ml-3 mr-3 headingfont">Are you Sure ? Do you want to Delete ? </h2>
-            </div>
+            </div> */}
+            <DialogContent>
+          <DialogContentText id="alert-dialog-description " className="headingfont">
+          Are you Sure  Do you want to Delete ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button className="cancelbtn">
+            Cancel
+          </Button>
+          <Button className="deletebtn">
+          Delete
+          </Button>
+        </DialogActions>
           </div>
         </Dialog>
       </div>

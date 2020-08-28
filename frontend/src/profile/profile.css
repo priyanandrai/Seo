@@ -79,5 +79,14 @@
   height: auto;
 }
 .headingfont{
-  font-size: 25px;
+  font-size: 21px !important;
+  font-weight: 600 !important;
+}
+.cancelbtn{
+  background-color: #18758d !important;
+  outline: none !important;
+}
+.deletebtn{
+  background-color: rgb(220, 0, 78)!important;
+  outline: none !important;
 }

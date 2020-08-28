@@ -836,7 +836,7 @@ class Nav extends Component {
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="email"
+                      placeholder="Email"
                     />
                   </fieldset>
 
