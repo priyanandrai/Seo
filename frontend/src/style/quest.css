@@ -1792,10 +1792,18 @@ input:disabled {
   width: 170px !important;
 }
 .dialoged {
-  width: 50vh;
-  height: 50vh;
+  width: 100%;
+  height: auto;
 }
 .drophover :hover{
 background-color:#18758d !important ;
 color: white !important;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+.piecenter{
+  padding-top: 45% !important;
+  margin-left: 37%;
 }

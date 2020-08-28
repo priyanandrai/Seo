@@ -196,6 +196,9 @@ export class Maincontentpage2 extends Component {
       ],
     };
   }
+  fullView = () => {
+    window.open("/tasks" );
+  }
   drilldown = (para) => {
     this.setState({ drilldown: !this.state.drilldown });
     if (para == "create a table") {
@@ -772,8 +775,8 @@ export class Maincontentpage2 extends Component {
               //   });
               // }}
             >
-              <a className="hrefcolor" href="profile">
-                <FontAwesomeIcon icon={faEye} />
+              <a className="hrefcolor">
+                <FontAwesomeIcon icon={faEye} onClick={()=>{this.fullView()}} />
               </a>{" "}
             </span>
             <Grid container>

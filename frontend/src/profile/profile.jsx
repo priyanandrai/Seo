@@ -18,6 +18,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { Container, Row, Col, Form } from "react-bootstrap";
 
 class Profile extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Profile extends Component {
         {
           id: 1,
           Date: "20/12/2000",
-          task: "create a table",
+          task: "Search Engine Submission",
           status: "Inprogress",
           action: (
             <span>
@@ -59,13 +60,13 @@ class Profile extends Component {
         {
           id: 2,
           Date: "21/12/2000",
-          task: "Assign login",
+          task: "Social book marketing",
           status: "Aborted",
           action: (
             <span>
               <FontAwesomeIcon
                 className=" mr-2"
-                onClick={this.Playsession}
+                onClick={this.Playsession1}
                 icon={faPlay}
               />
               |
@@ -81,7 +82,7 @@ class Profile extends Component {
         {
           id: 3,
           Date: "22/12/2000",
-          task: "Create a new page",
+          task: "Classified Submission",
           status: "Stopped",
           action: (
             <span>
@@ -103,7 +104,7 @@ class Profile extends Component {
         {
           id: 4,
           Date: "23/12/2000",
-          task: "Create a some page",
+          task: "Search Engine Submission",
           status: "Complete",
           action: (
             <span>
@@ -192,6 +193,9 @@ class Profile extends Component {
   };
   Playsession = () => {
     this.setState({ Playsession: !this.state.Playsession });
+  };
+  Playsession1 = () => {
+    this.setState({ Playsession1: !this.state.Playsession1 });
   };
   render() {
     return (
@@ -362,8 +366,132 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
+              <div className="mt-3 ml-4">
+              <Form.Label>Name</Form.Label>
+                        <Form.Control
+                          type="name"
+                          placeholder="Enter name"
+                          id="Name"
+                          className="w-75"
+                          onChange={(e) =>
+                            this.setState({ name: e.target.value })
+                          }
+                        />
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          className="w-75"
+                          id="Email"
+                          value={this.state.email}
+                          onChange={(e) =>
+                            this.setState({
+                              email: e.target.value,
+                            })
+                          }
+                        />
+                        <Form.Label>Enter Url</Form.Label>
+                        <Form.Control
+                          type="Url"
+                          id="Url"
+                          placeholder="Enter url"
+                          className="w-75"
+                          onChange={(e) =>
+                            this.setState({ sbsUrl: e.target.value })
+                          }
+                        />
+
+                        <div className="d-flex justify-content-end mrrginside22">
+                          <Button
+                            variant="contained"
+                            className="startbtn"
+                            onClick={this.handlesubmit}
+                          >
+                            Start
+                          </Button>
+                        </div>
+              </div>
           </div>
         </Dialog>
+        <Dialog
+          open={this.state.Playsession1}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  Playsession1: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+              <div className="mt-3 ml-4">
+              <Form.Label>Url</Form.Label>
+                          <Form.Control
+                            type="url"
+                            placeholder="Enter url"
+                            className="w-75"
+                            value={this.state.sbmUrl}
+                            onChange={(e) =>
+                              this.setState({ sbmUrl: e.target.value })
+                            }
+                          />
+                          <Form.Label>title</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter title"
+                            className="w-75"
+                            value={this.state.title}
+                            onChange={(e) =>
+                              this.setState({ title: e.target.value })
+                            }
+                          />
+                          <Form.Label>Description</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Description"
+                            className="w-75"
+                            value={this.state.description}
+                            onChange={(e) =>
+                              this.setState({ description: e.target.value })
+                            }
+                          />
+                          <Form.Label>Keywords</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Keywords"
+                            className="w-75"
+                            value={this.state.keywords}
+                            onChange={(e) =>
+                              this.setState({ keywords: e.target.value })
+                            }
+                          />
+                          {/* <Button
+                            style={{ marginRight: "24%", marginTop: "4%" }}
+                            id="buttonn"
+                            variant="contained"
+                            color="secondary "
+                            onClick={this.handlesubmission}
+                          >
+                            Start
+                          </Button> */}
+                          <div className="d-flex justify-content-end mrrginside22">
+                            <Button
+                              variant="contained"
+                              className="startbtn"
+                              onClick={this.handlesubmission}
+                            >
+                              Start
+                            </Button>
+              </div>
+          </div>
+          </div>
+        </Dialog>
+
         <Dialog
           open={this.state.deleteoption}
           aria-labelledby="alert-dialog-title"

@@ -353,8 +353,8 @@ UniqueId = () => {
                   class="dropdown-menu dropdown-menu-right drophover"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item" onClick={this.UniqueId}>
-                    Unique Id
+                  <a class="dropdown-item" onClick={this.UniqueId} className="disabled dropdown-item">
+                    Unique Id:2211
                   </a>
                   <a class="dropdown-item" onClick={this.AddBalance}>
                     Add Balance
