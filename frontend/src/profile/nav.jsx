@@ -771,90 +771,50 @@ class Nav extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
 
-            {/* <div>
-              <Input
-                className="change11 mt-3 ml-2"
-                type="password"
-                name="full_name"
-                placeholder="Current Password"
-                autocomplete="off"
-                // value={this.state.full_name}
-                // onChange={this.handelOnChange}
-              />
-            </div> */}
-            <div>
-              <fieldset className="inputHome mt-5 ml-3 mr-3">
-                {/* <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="signup-icon"
-                    />{" "} */}
-                <Input
-                  className="bodernull111 ml-2"
-                  type="password"
-                  placeholder="Current Password"
-                  autocomplete="off"
-                  // value={email}
-                  // onChange={this.handelOnChange}
-                />
-              </fieldset>
-            </div>
-            <div>
-              {/* <Input
-                className="change11 mt-4 ml-2"
-                type="password"
-                name="full_name"
-                placeholder="New Password"
-                autocomplete="off"
-                // value={this.state.full_name}
-                // onChange={this.handelOnChange}
-              /> */}
-              <fieldset className="inputHome mt-4 ml-3 mr-3">
-                {/* <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="signup-icon"
-                    />{" "} */}
-                <Input
-                  className="bodernull111 ml-2"
-                  type="password"
-                  placeholder="New Password"
-                  autocomplete="off"
-                  // value={email}
-                  // onChange={this.handelOnChange}
-                />
-              </fieldset>
-            </div>
-            <div>
-              {/* <Input
-                className="change11 mt-4 ml-2"
-                type="password"
-                name="full_name"
-                placeholder="Confirm Password"
-                autocomplete="off"
-                // value={this.state.full_name}
-                // onChange={this.handelOnChange}
-              /> */}
-              <fieldset className="inputHome mt-4 ml-3 mr-3">
-                {/* <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="signup-icon"
-                    />{" "} */}
-                <Input
-                  className="bodernull111 ml-2"
-                  type="password"
-                  placeholder="Confirm Password"
-                  autocomplete="off"
-                  // value={email}
-                  // onChange={this.handelOnChange}
-                />
-              </fieldset>
-            </div>
-            <div className="mb-2">
-              {/* <button className="mt-4 ml-5 btncolor11">Change Password</button> */}
-              <Button
-                className="questtwoheadingpspan btncolor11 mt-4 ml-5"
-                type="submit"
-                value="Change Password"
-              />
+            <div id="auth-modal">
+              <div className="auth-modal-in">
+                <span
+                  className="float-right pr-2 pt-1"
+                  onClick={() => {
+                    this.setState({
+                      dialogBox1: false,
+                    });
+                  }}
+                >
+                  <FontAwesomeIcon icon={faTimes} />{" "}
+                </span>
+                <div className="forgotpwdModal">
+                  <h1>Change Password</h1>
+                  <fieldset className="inputHome mt-2  ml-3 mr-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Current Password"
+                    />
+                  </fieldset>
+                  <fieldset className="inputHome mt-3 ml-3 mr-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="New Password"
+                    />
+                  </fieldset>
+                  <fieldset className="inputHome mt-3 ml-3 mr-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                    />
+                  </fieldset>
+                  <div className="mt-4 ">
+                    <Button
+                      className="forgetpwdbtn mx-auto d-block"
+                      type="submit"
+                      value="Change Password"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Dialog>
@@ -881,15 +841,6 @@ class Nav extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
 
-            {/* <Input
-              className="mt-3 ml-3 textareawidth"
-              type="text"
-              name="email"
-              placeholder="Email ID"
-              autocomplete="off"
-              value={email}
-              onChange={this.handelOnChange}
-            /> */}
             <div>
               <fieldset className="inputHome mt-5 ml-3 mr-3">
                 <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />{" "}
@@ -899,8 +850,6 @@ class Nav extends Component {
                   name="email"
                   placeholder="Email ID"
                   autocomplete="off"
-                  // value={email}
-                  // onChange={this.handelOnChange}
                 />
               </fieldset>
             </div>
@@ -915,7 +864,6 @@ class Nav extends Component {
               />
             </div>
             <div>
-              {/* <button className="btncolorcenter mr-3 mt-3">SUBMIT</button> */}
               <Button
                 className="questtwoheadingpspan btncolor11 mt-4 ml-5"
                 type="submit"

@@ -43,7 +43,7 @@ export class Maincontentpage2 extends Component {
         { title: "five", value: 30, color: "red" },
       ],
       snackbar: false,
-      drilldown: true,
+      drilldown: false,
       // drilldown1: false,
       message: "",
       name: "",

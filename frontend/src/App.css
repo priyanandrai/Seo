@@ -5,17 +5,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.forgottext{
-  color: #13708C !important;
+.forgottext {
+  color: #13708c !important;
 }
-
-
-
 
 /*************/
 /*** COVER ***/
 /*************/
-#backgroundd{
+#backgroundd {
   background-color: red !important;
 }
 
@@ -39,23 +36,22 @@ body {
 /**************/
 /*** HEADER ***/
 /**************/
-.homehed{
+.homehed {
   float: right;
   padding-left: 2%;
   margin-top: -2%;
 }
-#homeheding{
+#homeheding {
   margin-top: 1%;
 }
-.imageheader{
+.imageheader {
   float: right;
   margin-top: -5%;
   margin-left: 45% !important;
   padding-left: -11% !important;
   position: absolute;
-} 
-.guess{
-
+}
+.guess {
 }
 .header {
   width: 100%;
@@ -63,7 +59,7 @@ body {
   margin: 0 auto;
   padding: 0px;
   background-color: white;
-  font-family:  Helvetica;
+  font-family: Helvetica;
 }
 
 .header .headerin {
@@ -86,42 +82,40 @@ body {
   background-position: 50%;
   display: inline-block;
 }
-#upcalibericon{
+#upcalibericon {
   font-weight: 500;
-  color:white;
-  font-size:25px;
+  color: white;
+  font-size: 25px;
   margin-left: 80px;
   font-family: Arial, Helvetica, sans-serif !important;
- 
 }
-.paraalignhome{
+.paraalignhome {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif !important;
   text-align: justify;
   opacity: 0.8 !important;
 }
 
-div{
-  font-family:  Helvetica;
+div {
+  font-family: Helvetica;
 }
 
-li{
+li {
   font-family: Helvetica;
 }
-span{
+span {
   font-family: Helvetica;
 }
-p{
+p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.navigation{
+.navigation {
   float: left;
   margin-left: 49%;
 }
 
-.button{
+.button {
   margin-left: 10px;
   margin-top: 4%;
   background-color: black;
@@ -148,14 +142,10 @@ p{
   margin: 0px;
 } */
 
-
-
 header .headerin .navigation ul li a:hover,
 header .headerin .navigation ul li a.active {
   background-color: #3495a2;
 }
-
-
 
 /**************/
 /*** FOOTER ***/
@@ -166,7 +156,7 @@ footer {
   height: 90px;
   margin: 0 auto;
   padding: 0px;
-  background-color: #A5A5A5 !important;
+  background-color: #a5a5a5 !important;
 }
 
 footer .footerin {
@@ -267,16 +257,15 @@ footer .footerin p a:hover {
   padding: 15px 15px 15px 50px;
   margin: 0px;
   width: calc(100% - 100px);
-
 }
-.inputHome{
+.inputHome {
   outline-color: #4fafbc;
   border: 1px solid #c1c1c1 !important;
   border-radius: 5px;
 }
-.bodernull111{
-  border-width:0px;
-  border:none;
+.bodernull111 {
+  border-width: 0px;
+  border: none;
   box-shadow: none !important;
   outline: none;
 }
@@ -295,7 +284,7 @@ footer .footerin p a:hover {
 }
 
 #auth-modal .auth-modal-in form fieldset button {
-  background-color: #13708C;
+  background-color: #13708c;
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
@@ -328,17 +317,16 @@ footer .footerin p a:hover {
   margin: 0px 0px 30px 0px;
   padding: 0px;
 }
-.terms3{
+.terms3 {
   /* margin-top: -25px !important;
   margin-left: -100px!important; */
   margin-top: -20px !important;
-    margin-left: -161px!important;
-
+  margin-left: -161px !important;
 }
 
 #auth-modal .auth-modal-in span {
   cursor: pointer;
-  color:grey;
+  color: grey;
 }
 
 #auth-modal .auth-modal-in span:hover {
@@ -372,7 +360,7 @@ footer .footerin p a:hover {
 #main .header h1 {
   font-size: 28px;
   font-family: Raleway;
-  color: #13708C;
+  color: #13708c;
   text-transform: uppercase;
   padding: 0px;
   margin: 0px;
@@ -413,7 +401,7 @@ footer .footerin p a:hover {
 
 #main .content .myaccount .accountdivs h2 {
   font-size: 18px;
-  color: #13708C;
+  color: #13708c;
   margin: 20px 0px;
   padding: 0px;
 }
@@ -649,7 +637,7 @@ footer .footerin p a:hover {
 #main .content .profile .tabtwo .tabtwoone h2 {
   font-size: 18px;
   font-weight: bold;
-  color: #13708C;
+  color: #13708c;
   margin: 20px;
   padding: 0px;
 }
@@ -806,7 +794,7 @@ footer .footerin p a:hover {
 #main .content .profile .tabthree .tabthreeone h2 {
   font-size: 18px;
   font-weight: bold;
-  color: #13708C;
+  color: #13708c;
   margin: 20px;
   padding: 0px;
 }
@@ -1135,7 +1123,7 @@ footer .footerin p a:hover {
 #main .content .profile .tabfour h2 {
   font-size: 18px;
   font-weight: bold;
-  color: #13708C;
+  color: #13708c;
   margin: 20px 0px;
   padding: 0px;
 }
@@ -1565,46 +1553,55 @@ html {
   width: 10%;
   margin-left: 0%;
 }
-.underscore22{
+.underscore22 {
   /* border-bottom: 4px solid #005d78; */
   width: 50%;
-  background-color:#005d78;
+  background-color: #005d78;
   height: 3px;
 }
 
 .header-title {
-  color:#13708C;
+  color: #13708c;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0px 0px 20px -15px #000;
 }
-.header-title h1{
+.header-title h1 {
   margin: 5px;
   padding: 10px;
 }
 
-.headaingwhycaliber{
-  font-size:31px;
+.headaingwhycaliber {
+  font-size: 31px;
   font-weight: bold;
-  font-family:Helvetica;
+  font-family: Helvetica;
 }
-.linewirth111{
+.linewirth111 {
   width: 62vh;
 }
-.signupcolor{
-  color:#13708C!important;
+.signupcolor {
+  color: #13708c !important;
 }
-.profileformatting{
-  font-weight:bold;
+.profileformatting {
+  font-weight: bold;
   font-size: 13px !important;
-  color:#005D78;
+  color: #005d78;
 }
-.infoformat{
-  font-size:11px !important;
+.infoformat {
+  font-size: 11px !important;
   opacity: 0.8;
 }
-.profileheading{
-  font-size:13px !important;
+.profileheading {
+  font-size: 13px !important;
 }
-.profilecontent{
-  font-size:11px !important;
+.profilecontent {
+  font-size: 11px !important;
+}
+.inputForgetPwd {
+  margin: 5px;
+}
+.forgotpwdModal {
+  padding: 20px;
+}
+.forgetpwdbtn {
+  background: #18758d;
 }
