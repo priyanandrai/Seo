@@ -1791,3 +1791,11 @@ input:disabled {
 .piewidth{
   width: 170px !important;
 }
+.dialoged {
+  width: 50vh;
+  height: 50vh;
+}
+.drophover :hover{
+background-color:#18758d !important ;
+color: white !important;
+}

@@ -47,6 +47,8 @@ class Nav extends Component {
       dialogBox: false,
       dialogBox1: false,
       dialogBox2: false,
+      UniqueId:false,
+      AddBalance:false,
       isLogged: false,
       phone: "",
       otp: "",
@@ -72,7 +74,12 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
-
+UniqueId = () => {
+    this.setState({ UniqueId: !this.state.UniqueId });
+  };
+  AddBalance = () => {
+    this.setState({ AddBalance: !this.state.AddBalance });
+  };
   dialogBox2 = () => {
     this.setState({ dialogBox2: !this.state.dialogBox2 });
   };
@@ -322,7 +329,7 @@ class Nav extends Component {
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
-                <a class="nav-link text-dark">
+                <a class="nav-link text-dark font-weight-bold">
                   Balance:{" "}
                   <span className="align-middle">{this.state.balance}</span>{" "}
                 </a>
@@ -332,7 +339,7 @@ class Nav extends Component {
                 </a>
                 <a
                   className="dropdownss"
-                  class="nav-link dropdown-toggle text-dark"
+                  class="nav-link dropdown-toggle text-dark "
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
@@ -343,13 +350,13 @@ class Nav extends Component {
                 </a>
                 <div
                   className="ml-5"
-                  class="dropdown-menu dropdown-menu-right "
+                  class="dropdown-menu dropdown-menu-right drophover"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" onClick={this.UniqueId}>
                     Unique Id
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" onClick={this.AddBalance}>
                     Add Balance
                   </a>
                   <a class="dropdown-item" href="dashboard">
@@ -858,6 +865,42 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
+          </div>
+        </Dialog>
+        <Dialog
+          open={this.state.UniqueId}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  UniqueId: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+          </div>
+        </Dialog>
+        <Dialog
+          open={this.state.AddBalance}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged">
+            <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  AddBalance: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
           </div>
         </Dialog>
       </AppBar>

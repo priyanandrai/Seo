@@ -12,19 +12,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DataTable, { createTheme } from "react-data-table-component";
 import TextField from "@material-ui/core/TextField";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       organization: "",
-      deleteoption:false,
+      deleteoption: false,
       organizationEnable: true,
       profession: "",
       professionEnable: true,
@@ -41,9 +41,18 @@ class Profile extends Component {
           status: "Inprogress",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon
+                className=" mr-2"
+                onClick={this.Playsession}
+                icon={faPlay}
+              />
+              |
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption}  icon={faTrash} />
+              <FontAwesomeIcon
+                className=" mr-2 ml-2"
+                onClick={this.deleteoption}
+                icon={faTrash}
+              />
             </span>
           ),
         },
@@ -54,9 +63,18 @@ class Profile extends Component {
           status: "Aborted",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon
+                className=" mr-2"
+                onClick={this.Playsession}
+                icon={faPlay}
+              />
+              |
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
+              <FontAwesomeIcon
+                className=" mr-2 ml-2"
+                onClick={this.deleteoption}
+                icon={faTrash}
+              />
             </span>
           ),
         },
@@ -67,9 +85,18 @@ class Profile extends Component {
           status: "Stopped",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon
+                className=" mr-2"
+                onClick={this.Playsession}
+                icon={faPlay}
+              />
+              |
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
+              <FontAwesomeIcon
+                className=" mr-2 ml-2"
+                onClick={this.deleteoption}
+                icon={faTrash}
+              />
             </span>
           ),
         },
@@ -80,9 +107,18 @@ class Profile extends Component {
           status: "Complete",
           action: (
             <span>
-              <FontAwesomeIcon className=" mr-2" onClick={this.Playsession} icon={faPlay} />|
+              <FontAwesomeIcon
+                className=" mr-2"
+                onClick={this.Playsession}
+                icon={faPlay}
+              />
+              |
               <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
-              <FontAwesomeIcon className=" mr-2 ml-2" onClick={this.deleteoption} icon={faTrash} />
+              <FontAwesomeIcon
+                className=" mr-2 ml-2"
+                onClick={this.deleteoption}
+                icon={faTrash}
+              />
             </span>
           ),
         },
@@ -119,7 +155,7 @@ class Profile extends Component {
         },
       ],
       dialogBox: false,
-      Playsession:false,
+      Playsession: false,
     };
   }
 
@@ -340,7 +376,6 @@ class Profile extends Component {
           </div>
         </Dialog>
         <Dialog
-         
           open={this.state.Playsession}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -359,38 +394,33 @@ class Profile extends Component {
           </div>
         </Dialog>
         <Dialog
-         
           open={this.state.deleteoption}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
           <div className="dialoged2">
-            <span
-              className="floatright crossbtncolor mt-2"
-              onClick={() => {
-                this.setState({
-                  deleteoption: false,
-                });
-              }}
-            >
-              <FontAwesomeIcon icon={faTimes} />{" "}
-            </span>
-            {/* <div className="mt-5">
-              <h2 className="ml-3 mr-3 headingfont">Are you Sure ? Do you want to Delete ? </h2>
-            </div> */}
+            
             <DialogContent>
-          <DialogContentText id="alert-dialog-description " className="headingfont">
-          Are you Sure  Do you want to Delete ?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button className="cancelbtn">
-            Cancel
-          </Button>
-          <Button className="deletebtn">
-          Delete
-          </Button>
-        </DialogActions>
+              <DialogContentText
+                id="alert-dialog-description "
+                className="headingfont"
+              >
+                Are you Sure Do you want to Delete ?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                className="cancelbtn"
+                onClick={() => {
+                  this.setState({
+                    deleteoption: false,
+                  });
+                }}
+              >
+                Cancel
+              </Button>
+              <Button className="deletebtn">Delete</Button>
+            </DialogActions>
           </div>
         </Dialog>
       </div>
