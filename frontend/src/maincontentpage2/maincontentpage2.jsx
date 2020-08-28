@@ -35,6 +35,7 @@ export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      taskTitle: "none",
       pieChartData: [
         { title: "One", value: 10, color: "#E38627" },
         { title: "Two", value: 15, color: "#C13C37" },
@@ -119,7 +120,9 @@ export class Maincontentpage2 extends Component {
               className=" mr-2 ml-2"
               title="DrillDown"
               icon={faAngleDoubleDown}
-              onClick={this.drilldown}
+              onClick={() => {
+                this.drilldown("create a table");
+              }}
             />
           ),
         },
@@ -135,7 +138,9 @@ export class Maincontentpage2 extends Component {
               className=" mr-2 ml-2"
               title="DrillDown"
               icon={faAngleDoubleDown}
-              onClick={this.drilldown}
+              onClick={() => {
+                this.drilldown("Assign login");
+              }}
             />
           ),
         },
@@ -151,7 +156,9 @@ export class Maincontentpage2 extends Component {
               className=" mr-2 ml-2"
               title="DrillDown"
               icon={faAngleDoubleDown}
-              onClick={this.drilldown}
+              onClick={() => {
+                this.drilldown("Create a new page");
+              }}
             />
           ),
         },
@@ -189,8 +196,17 @@ export class Maincontentpage2 extends Component {
       ],
     };
   }
-  drilldown = () => {
+  drilldown = (para) => {
     this.setState({ drilldown: !this.state.drilldown });
+    if (para == "create a table") {
+      this.setState({ taskTitle: "Create a table" });
+    }
+    if (para == "Assign login") {
+      this.setState({ taskTitle: "Assign login" });
+    }
+    if (para == "Create a new page") {
+      this.setState({ taskTitle: "Create a new page" });
+    }
   };
   // drilldown1 = () => {
   //   // this.setState({ drilldown1: !this.state.profile });
@@ -767,7 +783,7 @@ export class Maincontentpage2 extends Component {
                 </div>
                 <div className="container">
                   <DataTable
-                    title="Task Type Name"
+                    title={this.state.taskTitle}
                     // title={this.state.title}
                     columns={this.state.columnsdialog}
                     data={this.state.datadialog}
@@ -779,7 +795,6 @@ export class Maincontentpage2 extends Component {
               </Grid>
               <Grid item md={5}>
                 <div className="piewidth mt-2">
-                 
                   <PieChart
                     data={this.state.pieChartData}
                     animate={true}
@@ -788,8 +803,6 @@ export class Maincontentpage2 extends Component {
                 </div>
               </Grid>
             </Grid>
-
-            
           </div>
         </Dialog>
       </div>
