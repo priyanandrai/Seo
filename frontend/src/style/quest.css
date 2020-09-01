@@ -1695,6 +1695,25 @@ input:disabled {
 }
 
 }
+@media only screen and (min-width: 480px) and (max-width: 998px) {
+  .hidemie {
+    font-size: 19px;
+    font-family: Century !important;
+    color: cadetblue;
+    margin-left: 19% !important;
+    margin-top: -32px;
+}
+.MuiGrid-spacing-xs-3 > .MuiGrid-item {
+  padding: 25px !important;
+}
+.admin-main {
+  width: 60vh;
+  height: auto;
+  border: 2px solid #18758d;
+  margin-top: 32% !important;
+  border-radius: 10px;
+}
+}
 
 
 
@@ -1860,3 +1879,20 @@ a.disabled {
 .Balancebold{
   font-weight: bold;
 }
+.admin-main{
+  width: 60vh;
+  height: auto;
+  border: 2px solid #18758d;
+  margin-top: 13%;
+  border-radius: 10px;
+}
+.inputwidth{
+  width: 91% !important;
+}
+.forgetpwdbtn1 {
+  background: #18758d;
+  width: 83%;
+  outline: none !important;
+  border-radius: 5px;
+}
+

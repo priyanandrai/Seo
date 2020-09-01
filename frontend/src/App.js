@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Nav from "./profile/nav";
 import Profile from "./profile/profile"
 import Tasks from "./profile/tasks"
+import Admin from "./profile/admin"
 import "./App.css";
 import HOC from "./components/HOC";
 import Maincontentpage from "./maincontentpage/maincontentpage";
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/dashboard" component={Maincontentpage2} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
+        <Route exact path="/adminute" component={Admin}  />
        
        
       </div>
