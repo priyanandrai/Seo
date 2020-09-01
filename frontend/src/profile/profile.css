@@ -125,3 +125,54 @@
   height: 40vh;
   width: 40vh;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .imagecentermobile{
+    margin-left: 50% !important;
+  }
+  .profile-right {
+    margin-top: 70px !important;
+    margin-left: 20% !important;
+    margin-right: 20% !important;
+    width: 41vh !important;
+  }
+  .inputdata11{
+    width: 41vh !important;
+    margin-left: 21% !important;
+  }
+  .upgrademargin{
+    margin-left: 21% !important;
+  }
+  .MuiDialogActions-root {
+    flex: 0 0 auto;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 23% !important;
+}
+.mrrginside2200 {
+  
+  margin-right: 24% !important;
+}
+.marginleftfor{
+  padding-left: 13% !important;
+  width: 41vh !important;
+}
+.btnrighttoleft {
+  margin-top: 4% !important;
+  margin-right: 25% !important;
+}
+
+
+}
+.mrrginside2200{
+  margin-right: 26%;
+  margin-top: 4%;
+}
+.afterplaycolor:active{
+  color: white;
+  background-color: #18758d;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}

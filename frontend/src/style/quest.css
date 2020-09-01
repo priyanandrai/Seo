@@ -1675,9 +1675,23 @@ input:disabled {
   font-size: 17px !important;
   font-family: Century !important;
   color: cadetblue;
-  margin-left: 7%;
+  margin-left: 27% !important;
   margin-top: -32px;
   width: 100% !important;
+}
+#auth-modal .auth-modal-in {
+  width: 345px !important;
+  height: auto;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.textareawidth {
+  width: 90% !important;
+  outline: none;
 }
 
 }

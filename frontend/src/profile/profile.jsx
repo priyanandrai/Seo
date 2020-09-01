@@ -48,7 +48,7 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -65,12 +65,12 @@ class Profile extends Component {
           action: (
             <span>
               <FontAwesomeIcon
-                className=" mr-2"
+                className=" mr-2 "
                 onClick={this.Playsession1}
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -92,7 +92,7 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -114,7 +114,7 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2" icon={faDownload} />|
+              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -148,7 +148,6 @@ class Profile extends Component {
 
           sortable: true,
           right: true,
-         
         },
       ],
       dialogBox: false,
@@ -200,23 +199,22 @@ class Profile extends Component {
   Playsession2 = () => {
     this.setState({ Playsession2: !this.state.Playsession2 });
   };
-  
+
   render() {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
           <Grid item md={4}>
-            <div className="mt-5">
-              
+            <div className="mt-5 imagecentermobile">
               <img
                 className="profilepicture1 mx-auto d-block"
                 src="https://i.pinimg.com/originals/11/fd/aa/11fdaae6f8e4deb13481103b4e9a0744.jpg"
               />
             </div>
 
-            <div className=" d-flex mt-4">
-              
+            <div className=" d-flex mt-4 inputdata11">
               <TextField
+                className=""
                 id="standard-basic"
                 label=""
                 disabled={this.state.usernameEnable}
@@ -227,7 +225,7 @@ class Profile extends Component {
               />
               <div className="align-self-end p-2">
                 <FontAwesomeIcon
-                  className=""
+                  className="afterplaycolor"
                   icon={faPencilAlt}
                   onClick={() => {
                     this.editForm("username");
@@ -236,7 +234,7 @@ class Profile extends Component {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 upgrademargin">
               <a onClick={this.dialogBox} className="upgradetext">
                 Upgrade to Premium
               </a>
@@ -245,7 +243,6 @@ class Profile extends Component {
           <Grid item md={8}>
             <div className="profile-right">
               <div className="d-flex">
-                
                 <TextField
                   id="standard-basic"
                   label="Email"
@@ -256,7 +253,7 @@ class Profile extends Component {
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
-                    className=""
+                    className="afterplaycolor"
                     icon={faPencilAlt}
                     onClick={() => {
                       this.editForm("email");
@@ -265,7 +262,6 @@ class Profile extends Component {
                 </div>
               </div>
               <div className="d-flex mr-4">
-               
                 <TextField
                   id="standard-basic"
                   className="mt-1"
@@ -274,7 +270,6 @@ class Profile extends Component {
                 />
               </div>
               <div className="d-flex profrssionclick">
-                
                 <TextField
                   id="standard-basic"
                   className="mt-1 "
@@ -286,7 +281,7 @@ class Profile extends Component {
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
-                    className=""
+                    className="afterplaycolor"
                     icon={faPencilAlt}
                     onClick={() => {
                       this.editForm("profession");
@@ -295,7 +290,6 @@ class Profile extends Component {
                 </div>
               </div>
               <div className="d-flex">
-                
                 <TextField
                   id="standard-basic"
                   className="mt-1"
@@ -307,7 +301,7 @@ class Profile extends Component {
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
-                    className=""
+                    className="afterplaycolor"
                     icon={faPencilAlt}
                     onClick={() => {
                       this.editForm("organization");
@@ -370,55 +364,50 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-              <div className="mt-3 ml-4 seacrhengine2">
-              <h3 className="seacrhengine mt-4">
-                      Search Engine Submission
-                    </h3>
-                    <hr className="w-50 ml-4"/>
+            <div className="mt-3 ml-4 seacrhengine2">
+              <h3 className="seacrhengine mt-4">Search Engine Submission</h3>
+              <hr className="w-50 ml-4" />
               <Form.Label>Name</Form.Label>
-                        <Form.Control
-                          type="name"
-                          placeholder="Enter name"
-                          id="Name"
-                          className="w-75"
-                          onChange={(e) =>
-                            this.setState({ name: e.target.value })
-                          }
-                        />
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                          type="email"
-                          placeholder="Enter email"
-                          className="w-75"
-                          id="Email"
-                          value={this.state.email}
-                          onChange={(e) =>
-                            this.setState({
-                              email: e.target.value,
-                            })
-                          }
-                        />
-                        <Form.Label>Enter Url</Form.Label>
-                        <Form.Control
-                          type="Url"
-                          id="Url"
-                          placeholder="Enter url"
-                          className="w-75"
-                          onChange={(e) =>
-                            this.setState({ sbsUrl: e.target.value })
-                          }
-                        />
+              <Form.Control
+                type="name"
+                placeholder="Enter name"
+                id="Name"
+                className="w-75"
+                onChange={(e) => this.setState({ name: e.target.value })}
+              />
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                className="w-75"
+                id="Email"
+                value={this.state.email}
+                onChange={(e) =>
+                  this.setState({
+                    email: e.target.value,
+                  })
+                }
+              />
+              <Form.Label>Enter Url</Form.Label>
+              <Form.Control
+                type="Url"
+                id="Url"
+                placeholder="Enter url"
+                className="w-75"
+                onChange={(e) => this.setState({ sbsUrl: e.target.value })}
+              />
 
-                        <div className="d-flex justify-content-end mrrginside22">
-                          <Button
-                            variant="contained"
-                            className="startbtn"
-                            onClick={this.handlesubmit}
-                          >
-                            Start
-                          </Button>
-                        </div><br/>
+              <div className="d-flex justify-content-end mrrginside2200">
+                <Button
+                  variant="contained"
+                  className="startbtn"
+                  onClick={this.handlesubmit}
+                >
+                  Start
+                </Button>
               </div>
+              <br />
+            </div>
           </div>
         </Dialog>
         <Dialog
@@ -437,52 +426,42 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-              <div className="mt-3 ml-4 seacrhengine2">
-              <h3 className="seacrhengine mt-4">
-              Social Book Marketing
-                    </h3>
-                    <hr className="w-50 ml-4"/>
+            <div className="mt-3 ml-4 seacrhengine2">
+              <h3 className="seacrhengine mt-4">Social Book Marketing</h3>
+              <hr className="w-50 ml-4" />
               <Form.Label>Url</Form.Label>
-                          <Form.Control
-                            type="url"
-                            placeholder="Enter url"
-                            className="w-75"
-                            value={this.state.sbmUrl}
-                            onChange={(e) =>
-                              this.setState({ sbmUrl: e.target.value })
-                            }
-                          />
-                          <Form.Label>title</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter title"
-                            className="w-75"
-                            value={this.state.title}
-                            onChange={(e) =>
-                              this.setState({ title: e.target.value })
-                            }
-                          />
-                          <Form.Label>Description</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter Description"
-                            className="w-75"
-                            value={this.state.description}
-                            onChange={(e) =>
-                              this.setState({ description: e.target.value })
-                            }
-                          />
-                          <Form.Label>Keywords</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter Keywords"
-                            className="w-75"
-                            value={this.state.keywords}
-                            onChange={(e) =>
-                              this.setState({ keywords: e.target.value })
-                            }
-                          />
-                          {/* <Button
+              <Form.Control
+                type="url"
+                placeholder="Enter url"
+                className="w-75"
+                value={this.state.sbmUrl}
+                onChange={(e) => this.setState({ sbmUrl: e.target.value })}
+              />
+              <Form.Label>title</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                className="w-75"
+                value={this.state.title}
+                onChange={(e) => this.setState({ title: e.target.value })}
+              />
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Description"
+                className="w-75"
+                value={this.state.description}
+                onChange={(e) => this.setState({ description: e.target.value })}
+              />
+              <Form.Label>Keywords</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Keywords"
+                className="w-75"
+                value={this.state.keywords}
+                onChange={(e) => this.setState({ keywords: e.target.value })}
+              />
+              {/* <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
                             id="buttonn"
                             variant="contained"
@@ -491,16 +470,17 @@ class Profile extends Component {
                           >
                             Start
                           </Button> */}
-                          <div className="d-flex justify-content-end mrrginside22">
-                            <Button
-                              variant="contained"
-                              className="startbtn"
-                              onClick={this.handlesubmission}
-                            >
-                              Start
-                            </Button>
-              </div><br/>
-          </div>
+              <div className="d-flex justify-content-end mrrginside2200">
+                <Button
+                  variant="contained"
+                  className="startbtn"
+                  onClick={this.handlesubmission}
+                >
+                  Start
+                </Button>
+              </div>
+              <br />
+            </div>
           </div>
         </Dialog>
         <Dialog
@@ -509,7 +489,7 @@ class Profile extends Component {
           aria-describedby="alert-dialog-description"
         >
           <div className="dialoged seacrhengine2">
-          <span
+            <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
                 this.setState({
@@ -519,91 +499,82 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-            <h3 className="seacrhengine1 mt-4 ml-3">
-            Classified Submission
-                    </h3>
-                    <hr className="w-25 hrcolor"/>
+            <h3 className="seacrhengine1 mt-4">Classified Submission</h3>
+            <hr className="w-25 hrcolor" />
             <Grid container>
-          <Grid item md={6}>
-              <div className="ml-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                            type="email"
-                            placeholder="Enter Email"
-                            className="w-75"
-                            value={this.state.emaill}
-                            onChange={(e) =>
-                              this.setState({ emaill: e.target.value })
-                            }
-                          />
-                          <Form.Label>Password</Form.Label>
-                          <Form.Control
-                            type="password"
-                            placeholder="Enter Password"
-                            className="w-75"
-                            value={this.state.Passwordd}
-                            onChange={(e) =>
-                              this.setState({ Passwordd: e.target.value })
-                            }
-                          />
-                          <Form.Label>Title</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter title"
-                            className="w-75"
-                            value={this.state.titles}
-                            onChange={(e) =>
-                              this.setState({ titles: e.target.value })
-                            }
-                          />
-              </div>
-          </Grid>
-          <Grid item md={6}>
-            <div className="ml-3">
-          <Form.Label>Description</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter Description"
-                            className="w-75"
-                            value={this.state.descriptionss}
-                            onChange={(e) =>
-                              this.setState({ descriptionss: e.target.value })
-                            }
-                          />
-                          <Form.Label>URL</Form.Label>
-                          <Form.Control
-                            type="url"
-                            placeholder="Enter url"
-                            className="w-75"
-                            value={this.state.sbmUrl}
-                            onChange={(e) =>
-                              this.setState({ sbmUrl: e.target.value })
-                            }
-                          />
-                          <Form.Label>Keywords</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Enter Keywords"
-                            className="w-75"
-                            value={this.state.keywordsss}
-                            onChange={(e) =>
-                              this.setState({ keywordsss: e.target.value })
-                            }
-                          />
-                          </div>
+              <Grid item md={6}>
+                <div className="ml-3 marginleftfor">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter Email"
+                    className="w-75"
+                    value={this.state.emaill}
+                    onChange={(e) => this.setState({ emaill: e.target.value })}
+                  />
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Enter Password"
+                    className="w-75"
+                    value={this.state.Passwordd}
+                    onChange={(e) =>
+                      this.setState({ Passwordd: e.target.value })
+                    }
+                  />
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter title"
+                    className="w-75"
+                    value={this.state.titles}
+                    onChange={(e) => this.setState({ titles: e.target.value })}
+                  />
+                </div>
+              </Grid>
+              <Grid item md={6}>
+                <div className="ml-3 marginleftfor">
+                  <Form.Label>Description</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Description"
+                    className="w-75"
+                    value={this.state.descriptionss}
+                    onChange={(e) =>
+                      this.setState({ descriptionss: e.target.value })
+                    }
+                  />
+                  <Form.Label>URL</Form.Label>
+                  <Form.Control
+                    type="url"
+                    placeholder="Enter url"
+                    className="w-75"
+                    value={this.state.sbmUrl}
+                    onChange={(e) => this.setState({ sbmUrl: e.target.value })}
+                  />
+                  <Form.Label>Keywords</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Keywords"
+                    className="w-75"
+                    value={this.state.keywordsss}
+                    onChange={(e) =>
+                      this.setState({ keywordsss: e.target.value })
+                    }
+                  />
+                </div>
+              </Grid>
             </Grid>
-           
-          </Grid>
-          <div className="d-flex justify-content-end btnrighttoleft">
-                            <Button
-                              variant="contained"
-                              className="startbtn"
-                              onClick={this.handleclick}
-                            >
-                              Start
-                            </Button>
-                          </div>
-                          <br/>
+            <div className="d-flex justify-content-end btnrighttoleft">
+              <Button
+                variant="contained"
+                className="startbtn"
+                onClick={this.handleclick}
+              >
+                Start
+              </Button>
+            </div>
+            <br />
           </div>
         </Dialog>
 
@@ -613,7 +584,6 @@ class Profile extends Component {
           aria-describedby="alert-dialog-description"
         >
           <div className="dialoged2">
-            
             <DialogContent>
               <DialogContentText
                 id="alert-dialog-description "

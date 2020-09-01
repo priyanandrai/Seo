@@ -468,7 +468,7 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h3 className="hidemie">Social book marketing</h3>
+                    <h3 className="hidemie">Social Book Marketing</h3>
                   </div>
 
                   <div>

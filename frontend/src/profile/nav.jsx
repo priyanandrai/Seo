@@ -768,7 +768,7 @@ UniqueId = () => {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <div className="changepasss">
+          <div>
             <div id="auth-modal">
               <div className="auth-modal-in">
                 <span
@@ -841,7 +841,7 @@ UniqueId = () => {
                 </span>
                 <div className="forgotpwdModal">
                   <h1>Submit Request</h1>
-                  <fieldset className="inputHome mt-2  ml-3 mr-3">
+                  <fieldset className="inputHome mt-2  ml-3 mr-3 emailwidth">
                     <input
                       type="text"
                       class="form-control"
