@@ -39,7 +39,7 @@ class Maincontentpage extends React.Component {
           </Grid>
           <Grid item md={5}>
             <div className="animate__animated animate__backInRight right-main-section">
-              <Card>
+              <Card className="reactplayer">
                 <CardActionArea>
                   <CardContent>
                     {/* <h3 className="main-title-heading">Video online</h3>

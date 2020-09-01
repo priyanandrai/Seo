@@ -329,22 +329,24 @@ UniqueId = () => {
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
-                <a class="nav-link text-dark font-weight-bold">
-                  Balance:{" "}
-                  <span className="align-middle">{this.state.balance}</span>{" "}
+                <a class="nav-link text-dark Balancebold">
+                  Balance:
+                  <span className="align-middle">{this.state.balance}</span>
                 </a>
 
                 <a class="navbar-brand mr-0" href="">
-                  <img width="30" height="30" src={login} />
+                  <img width="30" height="30" src={login} className="logomin" />
                 </a>
                 <a
-                  className="dropdownss"
-                  class="nav-link dropdown-toggle text-dark "
+                  
+                  class="nav-link dropdown-toggle text-dark dropdownss"
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  maxLength="8"
+                  
                 >
                   {this.state.user}
                 </a>

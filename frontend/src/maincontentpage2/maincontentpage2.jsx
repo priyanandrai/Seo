@@ -417,7 +417,7 @@ export class Maincontentpage2 extends Component {
                           type="name"
                           placeholder="Enter name"
                           id="Name"
-                          className="w-75"
+                          className="formwidth"
                           onChange={(e) =>
                             this.setState({ name: e.target.value })
                           }
@@ -426,7 +426,7 @@ export class Maincontentpage2 extends Component {
                         <Form.Control
                           type="email"
                           placeholder="Enter email"
-                          className="w-75"
+                          className="formwidth"
                           id="Email"
                           value={this.state.email}
                           onChange={(e) =>
@@ -440,7 +440,7 @@ export class Maincontentpage2 extends Component {
                           type="Url"
                           id="Url"
                           placeholder="Enter url"
-                          className="w-75"
+                          className="formwidth"
                           onChange={(e) =>
                             this.setState({ sbsUrl: e.target.value })
                           }
@@ -482,7 +482,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.sbmUrl}
                             onChange={(e) =>
                               this.setState({ sbmUrl: e.target.value })
@@ -492,7 +492,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.title}
                             onChange={(e) =>
                               this.setState({ title: e.target.value })
@@ -502,7 +502,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.description}
                             onChange={(e) =>
                               this.setState({ description: e.target.value })
@@ -512,7 +512,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.keywords}
                             onChange={(e) =>
                               this.setState({ keywords: e.target.value })
@@ -567,7 +567,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.emaill}
                             onChange={(e) =>
                               this.setState({ emaill: e.target.value })
@@ -577,7 +577,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="password"
                             placeholder="Enter Password"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.Passwordd}
                             onChange={(e) =>
                               this.setState({ Passwordd: e.target.value })
@@ -587,7 +587,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.titles}
                             onChange={(e) =>
                               this.setState({ titles: e.target.value })
@@ -597,7 +597,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.descriptionss}
                             onChange={(e) =>
                               this.setState({ descriptionss: e.target.value })
@@ -607,7 +607,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.sbmUrl}
                             onChange={(e) =>
                               this.setState({ sbmUrl: e.target.value })
@@ -617,7 +617,7 @@ export class Maincontentpage2 extends Component {
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
-                            className="w-75"
+                            className="formwidth"
                             value={this.state.keywordsss}
                             onChange={(e) =>
                               this.setState({ keywordsss: e.target.value })

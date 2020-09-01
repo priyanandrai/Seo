@@ -1641,11 +1641,43 @@ input:disabled {
   margin-top: -40px;
 }
 .mrrginside22 {
-    margin-right: 25% !important;
-    margin-top: 4% !important;
+  margin-right: 0% !important;
+  margin-top: 7% !important;
 }
 .marginleftpannel{
   margin-left: 10%;
+}
+.Balancebold {
+  font-weight: bold !important;
+  font-size: 11px !important;
+  vertical-align: middle !important; 
+  margin-top: 4px !important;
+}
+.logomin{
+  width: 20px;
+  height: 20px;
+ 
+ 
+}
+.dropdownss{
+  font-size: 12px !important;
+  margin-top: 4px !important;
+}
+.img {
+  /* vertical-align: middle; */
+  border-style: none;
+}
+.marginleftside {
+  margin-left: 24% !important;
+  
+}
+.hidemie {
+  font-size: 17px !important;
+  font-family: Century !important;
+  color: cadetblue;
+  margin-left: 7%;
+  margin-top: -32px;
+  width: 100% !important;
 }
 
 }
@@ -1810,4 +1842,7 @@ a.disabled {
 .addbalance{
   width: 40vh;
   height: 40vh;
+}
+.Balancebold{
+  font-weight: bold;
 }

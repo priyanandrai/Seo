@@ -145,3 +145,18 @@ body{
 .thirdclick{
   margin-top: 2%;
 }
+.formwidth{
+  width: 75% !important;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .right-main-section {
+    padding-top: 50px;
+    padding-left: 31px;
+    padding-right: 0px;
+    margin-right: 32px;
+  }
+  .formwidth {
+    width: 32vh !important;
+}
+ 
+}
