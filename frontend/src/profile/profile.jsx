@@ -88,7 +88,7 @@ class Profile extends Component {
             <span>
               <FontAwesomeIcon
                 className=" mr-2"
-                onClick={this.Playsession}
+                onClick={this.Playsession2}
                 icon={faPlay}
               />
               |
@@ -196,6 +196,9 @@ class Profile extends Component {
   };
   Playsession1 = () => {
     this.setState({ Playsession1: !this.state.Playsession1 });
+  };
+  Playsession2 = () => {
+    this.setState({ Playsession2: !this.state.Playsession2 });
   };
   render() {
     return (
@@ -367,6 +370,9 @@ class Profile extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
               <div className="mt-3 ml-4">
+              <h3 className="seacrhengine mt-4">
+                      Search Engine Submission
+                    </h3>
               <Form.Label>Name</Form.Label>
                         <Form.Control
                           type="name"
@@ -409,7 +415,7 @@ class Profile extends Component {
                           >
                             Start
                           </Button>
-                        </div>
+                        </div><br/>
               </div>
           </div>
         </Dialog>
@@ -430,6 +436,9 @@ class Profile extends Component {
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
               <div className="mt-3 ml-4">
+              <h3 className="seacrhengine mt-4">
+              Social book marketing
+                    </h3>
               <Form.Label>Url</Form.Label>
                           <Form.Control
                             type="url"
@@ -487,8 +496,110 @@ class Profile extends Component {
                             >
                               Start
                             </Button>
-              </div>
+              </div><br/>
           </div>
+          </div>
+        </Dialog>
+        <Dialog
+          open={this.state.Playsession2}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="dialoged">
+          <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  Playsession2: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+            <h3 className="seacrhengine1 mt-4 ml-3">
+            Classified Submission
+                    </h3>
+            <Grid container>
+          <Grid item md={6}>
+              <div className="ml-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                            type="email"
+                            placeholder="Enter Email"
+                            className="w-75"
+                            value={this.state.emaill}
+                            onChange={(e) =>
+                              this.setState({ emaill: e.target.value })
+                            }
+                          />
+                          <Form.Label>Password</Form.Label>
+                          <Form.Control
+                            type="password"
+                            placeholder="Enter Password"
+                            className="w-75"
+                            value={this.state.Passwordd}
+                            onChange={(e) =>
+                              this.setState({ Passwordd: e.target.value })
+                            }
+                          />
+                          <Form.Label>Title</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter title"
+                            className="w-75"
+                            value={this.state.titles}
+                            onChange={(e) =>
+                              this.setState({ titles: e.target.value })
+                            }
+                          />
+              </div>
+          </Grid>
+          <Grid item md={6}>
+            <div className="ml-3">
+          <Form.Label>Description</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Description"
+                            className="w-75"
+                            value={this.state.descriptionss}
+                            onChange={(e) =>
+                              this.setState({ descriptionss: e.target.value })
+                            }
+                          />
+                          <Form.Label>URL</Form.Label>
+                          <Form.Control
+                            type="url"
+                            placeholder="Enter url"
+                            className="w-75"
+                            value={this.state.sbmUrl}
+                            onChange={(e) =>
+                              this.setState({ sbmUrl: e.target.value })
+                            }
+                          />
+                          <Form.Label>Keywords</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Keywords"
+                            className="w-75"
+                            value={this.state.keywordsss}
+                            onChange={(e) =>
+                              this.setState({ keywordsss: e.target.value })
+                            }
+                          />
+                          </div>
+            </Grid>
+           
+          </Grid>
+          <div className="d-flex justify-content-end btnrighttoleft">
+                            <Button
+                              variant="contained"
+                              className="startbtn"
+                              onClick={this.handleclick}
+                            >
+                              Start
+                            </Button>
+                          </div>
+                          <br/>
           </div>
         </Dialog>
 

@@ -466,7 +466,7 @@ UniqueId = () => {
                       placeholder={"Mobile no. *"}
                       country={"us"}
                       // value={this.state.fields.number}
-                      tabindex="1"
+                      // tabindex="1"
                       value={this.state.phone}
                       onChange={(e) => {
                         console.log(e);
@@ -534,7 +534,7 @@ UniqueId = () => {
                       placeholder={"Mobile no. *"}
                       country={"us"}
                       // value={this.state.fields.number}
-                      tabindex="1"
+                      // tabindex="1"
                       value={this.state.phone}
                       onChange={(e) => {
                         console.log(e);
@@ -636,7 +636,7 @@ UniqueId = () => {
                           placeholder={"Mobile no. *"}
                           country={"us"}
                           // value={this.state.fields.number}
-                          tabindex="1"
+                          // tabindex="1"
                           value={this.state.phone}
                           onChange={(e) => {
                             console.log(e);
@@ -890,7 +890,7 @@ UniqueId = () => {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <div className="dialoged">
+          <div className="addbalance">
             <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {

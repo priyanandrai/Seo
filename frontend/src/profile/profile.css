@@ -87,3 +87,21 @@
   background-color: rgb(220, 0, 78)!important;
   outline: none !important;
 }
+.seacrhengine{
+  font-size: 14px;
+  font-family: Century !important;
+  color: cadetblue;
+ 
+ 
+}
+.btnrighttoleft{
+  margin-top: 2%;
+  margin-right: 12%;
+}
+.seacrhengine1{
+  font-size: 16px;
+  font-family: Century !important;
+  color: cadetblue;
+  text-align: center;
+ 
+}
