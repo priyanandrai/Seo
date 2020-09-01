@@ -200,6 +200,7 @@ class Profile extends Component {
   Playsession2 = () => {
     this.setState({ Playsession2: !this.state.Playsession2 });
   };
+  
   render() {
     return (
       <div className="profile-main-div container">
@@ -272,11 +273,11 @@ class Profile extends Component {
                   disabled
                 />
               </div>
-              <div className="d-flex">
+              <div className="d-flex profrssionclick">
                 
                 <TextField
                   id="standard-basic"
-                  className="mt-1"
+                  className="mt-1 "
                   label="Profession"
                   disabled={this.state.professionEnable}
                   onChange={(e) => {
@@ -340,7 +341,7 @@ class Profile extends Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <div className="dialoged">
+          <div className="dialoged222">
             <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
@@ -369,10 +370,11 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-              <div className="mt-3 ml-4">
+              <div className="mt-3 ml-4 seacrhengine2">
               <h3 className="seacrhengine mt-4">
                       Search Engine Submission
                     </h3>
+                    <hr className="w-50 ml-4"/>
               <Form.Label>Name</Form.Label>
                         <Form.Control
                           type="name"
@@ -435,10 +437,11 @@ class Profile extends Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-              <div className="mt-3 ml-4">
+              <div className="mt-3 ml-4 seacrhengine2">
               <h3 className="seacrhengine mt-4">
-              Social book marketing
+              Social Book Marketing
                     </h3>
+                    <hr className="w-50 ml-4"/>
               <Form.Label>Url</Form.Label>
                           <Form.Control
                             type="url"
@@ -505,7 +508,7 @@ class Profile extends Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <div className="dialoged">
+          <div className="dialoged seacrhengine2">
           <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
@@ -519,6 +522,7 @@ class Profile extends Component {
             <h3 className="seacrhengine1 mt-4 ml-3">
             Classified Submission
                     </h3>
+                    <hr className="w-25 hrcolor"/>
             <Grid container>
           <Grid item md={6}>
               <div className="ml-3">

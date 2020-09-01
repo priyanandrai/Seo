@@ -88,6 +88,14 @@
   outline: none !important;
 }
 .seacrhengine{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Century !important;
+  color: cadetblue;
+ 
+ 
+}
+.seacrhengine2{
   font-size: 14px;
   font-family: Century !important;
   color: cadetblue;
@@ -103,5 +111,17 @@
   font-family: Century !important;
   color: cadetblue;
   text-align: center;
+  font-weight: bold;
  
+}
+
+.profrssionclick :focus{
+ color: red;
+}
+.hrcolor{
+  text-align: center;
+}
+.dialoged222{
+  height: 40vh;
+  width: 40vh;
 }
