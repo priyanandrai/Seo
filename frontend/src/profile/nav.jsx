@@ -42,13 +42,15 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      adminGuard: false,
+      adminprofile:false,
       balance: "30.00SR",
       checked: false,
       dialogBox: false,
       dialogBox1: false,
       dialogBox2: false,
-      UniqueId:false,
-      AddBalance:false,
+      UniqueId: false,
+      AddBalance: false,
       isLogged: false,
       phone: "",
       otp: "",
@@ -74,7 +76,7 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
-UniqueId = () => {
+  UniqueId = () => {
     this.setState({ UniqueId: !this.state.UniqueId });
   };
   AddBalance = () => {
@@ -94,6 +96,12 @@ UniqueId = () => {
   };
 
   componentWillMount() {
+    if (window.location.pathname == "/adminute-dashboard") {
+      this.setState({ adminGuard: true });
+    }
+    if (window.location.pathname == "/444-profile") {
+      this.setState({ adminprofile: true });
+    }
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
     if (temp == true || temp == "true") {
@@ -290,17 +298,19 @@ UniqueId = () => {
 
     const navigation_links_list = navigation_links.map((data, index) => {
       console.log("My endpoint name is", data, index);
-    let temp =  window.location.pathname != "/adminute" ? (
-      <button
-          id={data.title}
-          className="auth-button"
-          type="button"
-          onClick={() => this.openModal(data.endpoint)}
-        >
-          {data.title}
-        </button>
-        
-      ):("");
+      let temp =
+        window.location.pathname != "/adminute" ? (
+          <button
+            id={data.title}
+            className="auth-button"
+            type="button"
+            onClick={() => this.openModal(data.endpoint)}
+          >
+            {data.title}
+          </button>
+        ) : (
+          ""
+        );
       return temp;
     });
     const {
@@ -331,16 +341,17 @@ UniqueId = () => {
           {this.state.isLogged == true ? (
             <div className="ml-auto">
               <div className="d-flex">
-                <a class="nav-link text-dark Balancebold">
-                  Balance:
-                  <span className="align-middle">{this.state.balance}</span>
-                </a>
+                {(this.state.adminGuard == false) &&  (this.state.adminprofile == false)?(
+                  <a class="nav-link text-dark Balancebold">
+                    Balance:
+                    <span className="align-middle">{this.state.balance}</span>
+                  </a>
+                ) : null}
 
                 <a class="navbar-brand mr-0" href="">
                   <img width="30" height="30" src={login} className="logomin" />
                 </a>
                 <a
-                  
                   class="nav-link dropdown-toggle text-dark dropdownss"
                   id="navbarDropdown"
                   role="button"
@@ -348,7 +359,6 @@ UniqueId = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                   maxLength="8"
-                  
                 >
                   {this.state.user}
                 </a>
@@ -357,25 +367,37 @@ UniqueId = () => {
                   class="dropdown-menu dropdown-menu-right drophover"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item" onClick={this.UniqueId} className="disabled dropdown-item">
+                 {(this.state.adminGuard == false) &&  (this.state.adminprofile == false)? (
+                  <a
+                    class="dropdown-item"
+                    onClick={this.UniqueId}
+                    className="disabled dropdown-item"
+                  >
                     Unique Id:2211
                   </a>
+                  ) : null}
+                  {(this.state.adminGuard == false) &&  (this.state.adminprofile == false)? (
                   <a class="dropdown-item" onClick={this.AddBalance}>
                     Add Balance
                   </a>
+                   ) : null}
+                  {(this.state.adminGuard == false) &&  (this.state.adminprofile == false)? (
                   <a class="dropdown-item" href="dashboard">
                     DashBoard
                   </a>
+                   ) : null}
+                   
                   <a class="dropdown-item" href="profile">
                     View Profile
                   </a>
                   <a class="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
-
+                  {(this.state.adminGuard == false) &&  (this.state.adminprofile == false) ? (
                   <a class="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
+                   ) : null}
 
                   <a class="dropdown-item" onClick={this.logout}>
                     Logout
