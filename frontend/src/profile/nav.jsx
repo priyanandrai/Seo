@@ -290,8 +290,8 @@ UniqueId = () => {
 
     const navigation_links_list = navigation_links.map((data, index) => {
       console.log("My endpoint name is", data, index);
-      return (
-        <button
+    let temp =  window.location.pathname != "/adminute" ? (
+      <button
           id={data.title}
           className="auth-button"
           type="button"
@@ -299,7 +299,9 @@ UniqueId = () => {
         >
           {data.title}
         </button>
-      );
+        
+      ):("");
+      return temp;
     });
     const {
       show_account_dropdown,
