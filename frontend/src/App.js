@@ -3,6 +3,8 @@ import Nav from "./profile/nav";
 import Profile from "./profile/profile"
 import Tasks from "./profile/tasks"
 import Admin from "./profile/admin"
+import Admin_Dashboard from "./profile/admin_dashboard"
+import Admin_Profile from "./profile/admin_profile"
 import "./App.css";
 import HOC from "./components/HOC";
 import Maincontentpage from "./maincontentpage/maincontentpage";
@@ -40,6 +42,8 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
         <Route exact path="/adminute" component={Admin}  />
+        <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
+        <Route exact path="/444-profile" component={Admin_Profile}  />
        
        
       </div>
