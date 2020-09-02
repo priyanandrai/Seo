@@ -1702,6 +1702,22 @@ input:disabled {
   .usermobile{
     width: 48vh !important;
   }
+  .mobileviewset {
+    width: 47vh !important;
+}
+.gridwodth1{
+  width: 41vh !important;
+}
+.marginnill{
+  margin-top: -1% !important;
+}
+.searchboxright {
+  width: 50% !important;
+  margin-left: 10%;
+  background-color: #18758d;
+  color: white;
+  outline: none !important;
+}
 }
 @media only screen and (min-width: 480px) and (max-width: 998px) {
   .hidemie {
@@ -1909,17 +1925,26 @@ a.disabled {
   margin-top: 15vh;
 }
 .uniqueidw{
-  width: 50% !important;
+  width: 50%;
+  
 }
 .uniqueidw1{
-  margin-left: 10%;
+  margin-left: 5%;
 }
 .searchboxright{
-  width: 30% !important;
-  margin-left: 10%;
+  width: 30%;
+  margin-left: 5%;
  background-color:#18758d ;
  color: white;
  outline: none !important;
+ 
   
   
+}
+.uniquediv{
+  margin-left: 5%;
+}
+
+.marginnill{
+  margin-top: 1.5rem;
 }
