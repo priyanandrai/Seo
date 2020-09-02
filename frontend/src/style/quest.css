@@ -1914,3 +1914,12 @@ a.disabled {
 .uniqueidw1{
   margin-left: 10%;
 }
+.searchboxright{
+  width: 30% !important;
+  margin-left: 10%;
+ background-color:#18758d ;
+ color: white;
+ outline: none !important;
+  
+  
+}

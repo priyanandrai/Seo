@@ -23,6 +23,7 @@ class Admin_profile extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    
   }
 
   render() {
@@ -47,9 +48,184 @@ class Admin_profile extends Component {
               <Form.Label>Mobile No.</Form.Label>
               <PhoneInput placeholder={"Mobile no. *"} country={"us"} />
             </div>
+            <div>
+              {/* <input
+                type="text"
+                className="form-control searchboxright mt-4"
+                placeholder="Search"
+              /> */}
+              <button className="mt-4 searchboxright ">Search</button>
+            </div>
           </Grid>
         </Grid>
-        <div>{/* <input type="text"  */}</div>
+        <br />
+        <hr />
+        <div>
+          <form>
+            <Grid container className="submenu-alignment">
+              <Grid item md={6}>
+                <div className="mt-4 w-75 ml-5">
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="User Name"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Unique ID"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Account Type"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Current Balance"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item md={6}>
+              <div className="mt-4 w-75 ml-5">
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Email"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Mobile No."
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Profession"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex mb-2">
+                    <TextField
+                      id="standard-basic"
+                      label="Organisation"
+                      // disabled={this.state.emailEnable}
+                      // onChange={(e) => {
+                      //   this.setState({ email: e.target.value });
+                      // }}
+                    />
+                    <div className="align-self-end p-2">
+                      <FontAwesomeIcon
+                        className="afterplaycolor"
+                        icon={faPencilAlt}
+                        // onClick={() => {
+                        //   this.editForm("email");
+                        // }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
       </div>
     );
   }

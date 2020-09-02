@@ -29,7 +29,7 @@ class Admin_dashboard extends Component {
     return (
       <div className="container mt-5">
          <Grid container className="submenu-alignment">
-          <Grid item md={6}>
+          <Grid item md={4}>
           <div className="mt-5 imagecentermobile1">
               <img
                 className="profilepicture1 mx-auto d-block"
@@ -51,7 +51,7 @@ class Admin_dashboard extends Component {
         
              </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={4}>
           <div className="mt-5 imagecentermobile1 ">
               <img
                 className="profilepicture1 mx-auto d-block"
@@ -75,6 +75,7 @@ class Admin_dashboard extends Component {
         </div>
              </div>
           </Grid>
+          <Grid item md={4}></Grid>
           </Grid>
      
       </div>
