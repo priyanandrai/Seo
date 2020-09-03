@@ -455,68 +455,73 @@ class Admin_profile extends Component {
           </form>
         </div>
         <div>
-        <Dialog
-          // onClose={() => {
-          //   this.setState({
-          //     drilldown: false,
-          //   });
-          // }}
-          open={this.state.drilldown}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <div className="drill-main">
-            <span
-              className="floatright crossbtncolor mt-2"
-              onClick={() => {
-                this.setState({
-                  drilldown: false,
-                });
-              }}
-            >
-              <FontAwesomeIcon icon={faTimes} />{" "}
-            </span>
-            <span
-              className="floatright crossbtncolor mt-2"
-              // onClick={() => {
-              //   this.setState({
-              //     drilldown1: false,
-              //   });
-              // }}
-            >
-              <a className="hrefcolor">
-                <FontAwesomeIcon icon={faEye} onClick={()=>{this.fullView()}} />
-              </a>{" "}
-            </span>
-            <Grid container>
-              <Grid item md={7}>
-                <div>
-                  <h2 className="mt-4 ml-4 progesssize">Progress Status</h2>
-                </div>
-                <div className="container">
-                  <DataTable
-                    title={this.state.taskTitle}
-                    // title={this.state.title}
-                    columns={this.state.columnsdialog}
-                    data={this.state.datadialog}
-                    // pagination={true}
-                    // paginationDefaultPage
+          <Dialog
+            // onClose={() => {
+            //   this.setState({
+            //     drilldown: false,
+            //   });
+            // }}
+            open={this.state.drilldown}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <div className="drill-main">
+              <span
+                className="floatright crossbtncolor mt-2"
+                onClick={() => {
+                  this.setState({
+                    drilldown: false,
+                  });
+                }}
+              >
+                <FontAwesomeIcon icon={faTimes} />{" "}
+              </span>
+              <span
+                className="floatright crossbtncolor mt-2"
+                // onClick={() => {
+                //   this.setState({
+                //     drilldown1: false,
+                //   });
+                // }}
+              >
+                <a className="hrefcolor">
+                  <FontAwesomeIcon
+                    icon={faEye}
+                    onClick={() => {
+                      this.fullView();
+                    }}
                   />
-                  <br />
-                </div>
+                </a>{" "}
+              </span>
+              <Grid container>
+                <Grid item md={7}>
+                  <div>
+                    <h2 className="mt-4 ml-4 progesssize">Progress Status</h2>
+                  </div>
+                  <div className="container">
+                    <DataTable
+                      title={this.state.taskTitle}
+                      // title={this.state.title}
+                      columns={this.state.columnsdialog}
+                      data={this.state.datadialog}
+                      // pagination={true}
+                      // paginationDefaultPage
+                    />
+                    <br />
+                  </div>
+                </Grid>
+                <Grid item md={5}>
+                  <div className="piewidth mt-2">
+                    <PieChart
+                      data={this.state.pieChartData}
+                      animate={true}
+                      // reveal ={90}
+                    />
+                  </div>
+                </Grid>
               </Grid>
-              <Grid item md={5}>
-                <div className="piewidth mt-2">
-                  <PieChart
-                    data={this.state.pieChartData}
-                    animate={true}
-                    // reveal ={90}
-                  />
-                </div>
-              </Grid>
-            </Grid>
-          </div>
-        </Dialog>
+            </div>
+          </Dialog>
         </div>
       </div>
     );

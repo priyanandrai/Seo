@@ -37,10 +37,15 @@ class Admin extends Component {
       alert("Please enter characters only.");
       return;
     }
+    else if (!this.state.Name.trim().match("admin")) {
+      alert("UserName Admin");
+      return;
+    }
     if (this.state.pwd.length < 8) {
       alert("Password must be 8 characters long");
       return;
     }
+    window.localStorage.setItem("adminlogin",true);
     window.location = "adminute-dashboard";
   };
 
