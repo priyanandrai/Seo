@@ -96,9 +96,12 @@ class Nav extends Component {
   };
 
   componentWillMount() {
-    if (window.location.pathname == "/adminute-dashboard") {
+    if (window.location.pathname.indexOf("/adminute-") > -1) {
       this.setState({ adminGuard: true });
     }
+    // if (window.location.pathname == "/adminute-dashboard") {
+    //   this.setState({ adminGuard: true });
+    // }
     if (window.location.pathname == "/444-profile") {
       this.setState({ adminprofile: true });
     }

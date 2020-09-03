@@ -1948,3 +1948,9 @@ a.disabled {
 .marginnill{
   margin-top: 1.5rem;
 }
+.leftimagediv{
+  border: 2px solid gray;
+  margin-top: 50px;
+  width: 200px !important;
+  height: 220px !important;
+}
