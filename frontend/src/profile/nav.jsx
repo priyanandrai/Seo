@@ -42,7 +42,6 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      adminview:false,
       adminGuard: false,
       adminprofile: false,
       balance: "30.00SR",
@@ -103,9 +102,6 @@ class Nav extends Component {
     if (window.location.pathname == "/444-profile") {
       this.setState({ adminprofile: true });
     }
-    if (window.location.pathname == "/adminute") {
-      this.setState({ adminview: true });
-    }
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
     if (temp == true || temp == "true") {
@@ -119,10 +115,6 @@ class Nav extends Component {
   logout = () => {
     window.localStorage.clear();
     window.location = "/home";
-  };
-  logout1 = () => {
-    window.localStorage.clear();
-    window.location = "/adminute";
   };
 
   openModal(type) {
@@ -255,7 +247,6 @@ class Nav extends Component {
               alert(response.data.message);
             } else {
               window.localStorage.setItem("user", response.data.name);
-              return;
               window.location = "/dashboard";
             }
           },
@@ -422,97 +413,21 @@ class Nav extends Component {
               </div>
             </div>
           ) : (
-            <div className="ml-auto">
-              <div className="d-flex">
-                {this.state.adminview == false &&
-                this.state.adminGuard == false &&
-                this.state.adminprofile == false ? (
-                  <a class="nav-link text-dark Balancebold">
-                    Balance:
-                    <span className="align-middle">{this.state.balance}</span>
-                  </a>
-                 ) : null}
-
-                <a class="navbar-brand mr-0" href="">
-                  <img width="30" height="30" src={login} className="logomin" />
-                </a>
-                <a
-                  class="nav-link dropdown-toggle text-dark dropdownss"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  maxLength="8"
-                >
-                  {this.state.user}
-                </a>
-                <div
-                  className="ml-5"
-                  class="dropdown-menu dropdown-menu-right drophover"
-                  aria-labelledby="navbarDropdown"
-                >
-                  {this.state.adminview == false &&
-                  this.state.adminGuard == false &&
-                  this.state.adminprofile == false ? (
-                    <a
-                      class="dropdown-item"
-                      onClick={this.UniqueId}
-                      className="disabled dropdown-item"
-                    >
-                      Unique Id:2211
-                    </a>
-                   ) : null}
-                  {this.state.adminview == false &&
-                  this.state.adminGuard == false &&
-                  this.state.adminprofile == false ? (
-                    <a class="dropdown-item" onClick={this.AddBalance}>
-                      Add Balance
-                    </a>
-                   ) : null}
-                  {this.state.adminview == false &&
-                  this.state.adminGuard == false &&
-                  this.state.adminprofile == false ? (
-                    <a class="dropdown-item" href="dashboard">
-                      DashBoard
-                    </a>
-                   ) : null} 
-
-                  <a class="dropdown-item" href="">
-                    View Profile
-                  </a>
-                  <a class="dropdown-item" onClick={this.dialogBox1}>
-                    Change Password
-                  </a>
-                  {this.state.adminview == false &&
-                  this.state.adminGuard == false &&
-                  this.state.adminprofile == false ? (
-                    <a class="dropdown-item" onClick={this.dialogBox2}>
-                      Submit Request
-                    </a>
-                   ) : null} 
-
-                  <a class="dropdown-item" onClick={this.logout1}>
-                    Logout
-                  </a>
-                </div>
-                </div>
-              </div>
-            // <div className="navLinks">
-            //   {navigation_links_list}
-            //   <FontAwesomeIcon icon={faBars} className="bugermenu" />
-            //   {/* <button
-            //     className="navbar-toggler bugermenu"
-            //     type="button"
-            //     data-toggle="collapse"
-            //     data-target="#headerDropDown"
-            //     aria-controls="navbarSupportedContent"
-            //     aria-expanded="false"
-            //     aria-label="Toggle navigation"
-            //   >
-            //     <span class="navbar-toggler-icon"></span>
-            //   </button> */}
-            // </div>
+            <div className="navLinks">
+              {navigation_links_list}
+              <FontAwesomeIcon icon={faBars} className="bugermenu" />
+              {/* <button
+                className="navbar-toggler bugermenu"
+                type="button"
+                data-toggle="collapse"
+                data-target="#headerDropDown"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button> */}
+            </div>
           )}
         </Toolbar>
         <Dialog
