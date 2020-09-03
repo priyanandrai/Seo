@@ -449,7 +449,7 @@ class Admin_profile extends Component {
                     pagination={true}
                     paginationDefaultPage
                   />
-                </div>
+                </div><br/>
               </div>
             ) : null}
           </form>
