@@ -65,6 +65,8 @@ class Nav extends Component {
       button_status: "disabled",
       register: false,
       getintouch: false,
+      barmenu :false,
+      logindialog:false,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -345,10 +347,10 @@ class Nav extends Component {
               <div className="d-flex">
                 {/* {this.state.adminGuard == false &&
                 this.state.adminprofile == false ? ( */}
-                  <a class="nav-link text-dark Balancebold">
-                    Balance:
-                    <span className="align-middle">{this.state.balance}</span>
-                  </a>
+                <a class="nav-link text-dark Balancebold">
+                  Balance:
+                  <span className="align-middle">{this.state.balance}</span>
+                </a>
                 {/* // ) : null} */}
 
                 <a class="navbar-brand mr-0" href="">
@@ -372,25 +374,25 @@ class Nav extends Component {
                 >
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                    <a
-                      class="dropdown-item"
-                      onClick={this.UniqueId}
-                      className="disabled dropdown-item"
-                    >
-                      Unique Id:2211
-                    </a>
+                  <a
+                    class="dropdown-item"
+                    onClick={this.UniqueId}
+                    className="disabled dropdown-item"
+                  >
+                    Unique Id:2211
+                  </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                    <a class="dropdown-item" onClick={this.AddBalance}>
-                      Add Balance
-                    </a>
+                  <a class="dropdown-item" onClick={this.AddBalance}>
+                    Add Balance
+                  </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                    <a class="dropdown-item" href="dashboard">
-                      DashBoard
-                    </a>
+                  <a class="dropdown-item" href="dashboard">
+                    DashBoard
+                  </a>
                   {/* ) : null} */}
 
                   <a class="dropdown-item" href="profile">
@@ -401,9 +403,9 @@ class Nav extends Component {
                   </a>
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                    <a class="dropdown-item" onClick={this.dialogBox2}>
-                      Submit Request
-                    </a>
+                  <a class="dropdown-item" onClick={this.dialogBox2}>
+                    Submit Request
+                  </a>
                   {/* ) : null} */}
 
                   <a class="dropdown-item" onClick={this.logout}>
@@ -415,7 +417,29 @@ class Nav extends Component {
           ) : (
             <div className="navLinks">
               {navigation_links_list}
-              <FontAwesomeIcon icon={faBars} className="bugermenu" />
+              {this.state.barmenu ? (
+                <div className="dropblock" >
+                <a class="dropdown-item" href="">
+                  Login
+                </a>
+
+                <a class="dropdown-item" href="">
+                  Register
+                </a>
+                <a class="dropdown-item" href="">
+                  Contact Us
+                </a>
+
+                
+              </div>
+               
+              ):
+              <FontAwesomeIcon icon={faBars} className="bugermenu"/>
+              }
+              
+            
+
+              
               {/* <button
                 className="navbar-toggler bugermenu"
                 type="button"

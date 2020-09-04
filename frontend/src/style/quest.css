@@ -1608,6 +1608,10 @@ input:disabled {
   color: red;
   display: none;
 }
+.dropblock{
+  display: none;
+  border: 1px solid gray;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -1618,6 +1622,9 @@ input:disabled {
     padding: 0px 8px !important;
     letter-spacing: 0.5px;
     display: none;
+  }
+  .dropblock{
+    display: block;
   }
   .bugermenu {
     display: block;
@@ -1717,6 +1724,14 @@ input:disabled {
   background-color: #18758d;
   color: white;
   outline: none !important;
+}
+.leftimagediv {
+  border: 2px solid gray;
+  margin-top: 50px;
+  width: 200px !important;
+  height: 220px !important;
+  /* text-align: center; */
+  margin-left: 45% !important;
 }
 }
 @media only screen and (min-width: 480px) and (max-width: 998px) {
