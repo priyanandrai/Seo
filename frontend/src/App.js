@@ -41,9 +41,9 @@ function App() {
         <Route exact path="/dashboard" component={Maincontentpage2} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
-        <Route exact path="/adminute" component={Admin}  />
+        <Route exact path="/adminute-" component={Admin}  />
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
-        <Route exact path="/444-profile" component={Admin_Profile}  />
+        <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
        
        
       </div>

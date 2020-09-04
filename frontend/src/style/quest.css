@@ -1610,8 +1610,9 @@ input:disabled {
 }
 .dropblock{
   display: none;
-  border: 1px solid gray;
+  border: 0.5px solid gray;
 }
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -1625,10 +1626,20 @@ input:disabled {
   }
   .dropblock{
     display: block;
+    position: absolute;
+    -webkit-transform: translateX(-80%);
+    top: 29px;
+    border-radius: 5%;
+    
+    background-color: white;
   }
+  /* .drophovering:hover {
+    background-color: #18758d  ;
+    color: white;
+  } */
   .bugermenu {
     display: block;
-
+  
     /* width: 10% !important; */
     color: red !important;
   }

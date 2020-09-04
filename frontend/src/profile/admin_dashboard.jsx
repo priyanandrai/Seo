@@ -25,7 +25,7 @@ class Admin_dashboard extends Component {
     };
   }
   test = () => {
-    window.location="/444-profile";
+    window.location="/adminute-444-profile";
   }
 
   render() {

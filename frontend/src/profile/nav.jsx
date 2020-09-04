@@ -66,7 +66,8 @@ class Nav extends Component {
       register: false,
       getintouch: false,
       barmenu :false,
-      logindialog:false,
+      // logindialog:false,
+      // dropdownmenu:false,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -78,6 +79,9 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+  barmenu = () => {
+    this.setState({ barmenu: !this.state.barmenu });
+  };
   UniqueId = () => {
     this.setState({ UniqueId: !this.state.UniqueId });
   };
@@ -288,7 +292,7 @@ class Nav extends Component {
       },
       {
         title: "Register",
-
+        to: "/quests",
         endpoint: "signup",
       },
       {
@@ -300,10 +304,12 @@ class Nav extends Component {
 
     const navigation_links_list = navigation_links.map((data, index) => {
       console.log("My endpoint name is", data, index);
+      console.log(window.location.href.indexOf("adminute"));
       let temp =
-        window.location.pathname != "/adminute" &&
-        window.location.pathname != "/adminute-dashboard" &&
-        window.location.pathname != "/444-profile" ? (
+      window.location.href.indexOf("adminute") == -1 ? (
+        // window.location.pathname != "/adminute" &&
+        // window.location.pathname != "/adminute-dashboard" &&
+        // window.location.pathname != "/444-profile" ? (
           <button
             id={data.title}
             className="auth-button"
@@ -417,40 +423,26 @@ class Nav extends Component {
           ) : (
             <div className="navLinks">
               {navigation_links_list}
+              <FontAwesomeIcon icon={faBars} className="bugermenu" onClick={(e) => {
+                this.setState({ barmenu: !this.state.barmenu })
+              }} />
               {this.state.barmenu ? (
-                <div className="dropblock" >
-                <a class="dropdown-item" href="">
+                   <div className="dropblock mt-4 drophovering"  /*open={this.state.barmenu}*/>
+                  <a class="dropdown-item" href="signin">
                   Login
                 </a>
-
                 <a class="dropdown-item" href="">
                   Register
                 </a>
                 <a class="dropdown-item" href="">
                   Contact Us
                 </a>
-
                 
               </div>
                
-              ):
-              <FontAwesomeIcon icon={faBars} className="bugermenu"/>
+              ):""
+              
               }
-              
-            
-
-              
-              {/* <button
-                className="navbar-toggler bugermenu"
-                type="button"
-                data-toggle="collapse"
-                data-target="#headerDropDown"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button> */}
             </div>
           )}
         </Toolbar>

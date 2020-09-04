@@ -487,9 +487,9 @@ class Admin_profile extends Component {
                 <a className="hrefcolor">
                   <FontAwesomeIcon
                     icon={faEye}
-                    onClick={() => {
-                      this.fullView();
-                    }}
+                    // onClick={() => {
+                    //   this.fullView();
+                    // }}
                   />
                 </a>{" "}
               </span>
