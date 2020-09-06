@@ -304,7 +304,7 @@ class Nav extends Component {
 
     const navigation_links_list = navigation_links.map((data, index) => {
       console.log("My endpoint name is", data, index);
-      console.log(window.location.href.indexOf("adminute"));
+      
       let temp =
       window.location.href.indexOf("adminute") == -1 ? (
         // window.location.pathname != "/adminute" &&
