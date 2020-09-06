@@ -2,27 +2,34 @@ package com.seo.controller;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.seo.dto.Login;
+import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.services.ISignUpService;
+import com.seo.services.SearchEngineservice;
 
 @RestController
 public class MainServices {
 
 	@Autowired
 	ISignUpService iSignUpService;
+	@Autowired
+	SearchEngineservice searchEngineService;
 
 	@Autowired
 	private  Environment env;
+	
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/signup")
@@ -90,5 +97,41 @@ public class MainServices {
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getprofile")
+	public  Optional<SignUp> validateotp (@RequestParam("id") Long id) {
+		try {
+			Optional<SignUp> signup=this.iSignUpService.findById(id);
+			return signup;
+		} catch (Exception e) {
+			Optional<SignUp> signup=null;
+			return signup;
+		}
+		
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("/starttask")
+	SearchEngine starttask(@RequestBody SearchEngine searchengine) {
+		try { 
+		
+		if(searchengine.getName() == null ||searchengine.getEmailaddress() == null||searchengine.getSubmiturl()==null) {
+			searchengine=null;
+			return searchengine;
+			}
+		else {
+			 searchEngineService.savedatail(searchengine);
+			 return searchengine;
+		}
+		}catch (Exception e) {
+			searchengine=null;
+			return searchengine;
+		}
+		
+		
+	}
+	 
 }
+
+
 

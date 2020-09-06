@@ -29,8 +29,8 @@ public class SignUpService implements ISignUpService{
 
 	@Override
 	public Optional<SignUp> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
+		
 	}
 
 	@Override
