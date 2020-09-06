@@ -1742,7 +1742,7 @@ input:disabled {
   width: 200px !important;
   height: 220px !important;
   /* text-align: center; */
-  margin-left: 45% !important;
+  margin-left: 30% !important;
 }
 }
 @media only screen and (min-width: 480px) and (max-width: 998px) {

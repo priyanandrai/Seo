@@ -127,20 +127,22 @@
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .imagecentermobile{
-    margin-left: 50% !important;
+    margin-left: 10% !important;
   }
+   
   .profile-right {
-    margin-top: 70px !important;
-    margin-left: 20% !important;
-    margin-right: 20% !important;
-    width: 41vh !important;
+    margin-top: 36px !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    width: 45vh !important;
   }
   .inputdata11{
-    width: 41vh !important;
-    margin-left: 21% !important;
+    width: 45vh !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
   }
   .upgrademargin{
-    margin-left: 21% !important;
+    margin-left: 10% !important;
   }
   .MuiDialogActions-root {
     flex: 0 0 auto;
