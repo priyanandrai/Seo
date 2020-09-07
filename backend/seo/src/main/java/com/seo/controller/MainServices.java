@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
@@ -100,7 +103,7 @@ public class MainServices {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getprofile")
-	public  Optional<SignUp> validateotp (@RequestParam("id") Long id) {
+	public  Optional<SignUp> getprofile (@RequestParam("id") Long id) {
 		try {
 			Optional<SignUp> signup=this.iSignUpService.findById(id);
 			return signup;
@@ -129,6 +132,30 @@ public class MainServices {
 		}
 		
 		
+	}
+	
+	
+	@CrossOrigin(origins = "*")
+	@PutMapping("/changepassword")
+	String changePassword(@RequestBody ChangePassword changepassword) {
+		Optional<SignUp> signup=this.iSignUpService.findById(changepassword.getUserId());
+		SignUp signup1 = signup.get();
+		try {
+
+			if (signup1.getPassword().equals(changepassword.getCurrentPassword())) {
+				signup1.setPassword(changepassword.getNewPassword());
+				iSignUpService.save(signup1);
+				return "{\"message\":\"Password Successfully Changed\"}";
+			} else {
+				return "{\"message\":\"Please enter the correct existing password\"}";
+			}
+
+		} catch (Exception e) {
+			
+		return "{\"message\":\"Error in changing password , Please try again \"}";
+
+		}
+
 	}
 	 
 }
