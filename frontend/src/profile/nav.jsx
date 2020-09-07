@@ -79,6 +79,9 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+
+
+  
   barmenu = () => {
     this.setState({ barmenu: !this.state.barmenu });
   };
@@ -111,9 +114,12 @@ class Nav extends Component {
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
     if (temp == true || temp == "true") {
+     let user = window.localStorage.getItem("user");
+      let newUser = user.substring(0, 8);
       this.setState({
         isLogged: true,
-        user: window.localStorage.getItem("user"),
+        user: newUser,
+
       });
     }
   }
@@ -363,19 +369,19 @@ class Nav extends Component {
                   <img width="30" height="30" src={login} className="logomin" />
                 </a>
                 <a
-                  class="nav-link dropdown-toggle text-dark dropdownss"
+                  class="nav-link dropdown-toggle text-dark dropdownss dropwidth"
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  maxLength="8"
+                  // maxLength="8"
                 >
                   {this.state.user}
                 </a>
                 <div
-                  className="ml-5"
-                  class="dropdown-menu dropdown-menu-right drophover"
+                 
+                  class="dropdown-menu dropdown-menu-right drophover margindrop"
                   aria-labelledby="navbarDropdown"
                 >
                   {/* {this.state.adminGuard == false &&
