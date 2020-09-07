@@ -1626,6 +1626,10 @@ input:disabled {
     letter-spacing: 0.5px;
     display: none;
   }
+  .terms3 {
+    padding-left: 63px !important;
+    padding-top: 10px !important;
+}
   .dropblock{
     display: block;
     position: absolute;

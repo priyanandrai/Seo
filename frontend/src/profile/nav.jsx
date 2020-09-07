@@ -445,13 +445,13 @@ class Nav extends Component {
                        {data.title}
                      </button>
                       }); */}
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="#" onClick={() => this.openModal("signin")}>
                   Login
                 </a>
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="#" onClick={() => this.openModal("signup")}>
                   Register
                 </a>
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="#" onClick={() => this.openModal("contactus")}>
                   Contact Us
                 </a>
                 
