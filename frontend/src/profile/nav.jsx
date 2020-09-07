@@ -212,7 +212,8 @@ class Nav extends Component {
         modal_open: false,
       });
       this.setState({ dialogBox: !this.state.dialogBox });
-
+        // alert(this.state.phone);
+        // console.log(this.state.phone)
       let temp = {
         name: this.state.full_name,
         email: this.state.email,
@@ -257,10 +258,10 @@ class Nav extends Component {
           (response) => {
             if (response.data.message != undefined) {
               alert(response.data.message);
-            } else {
+            } 
               window.localStorage.setItem("user", response.data.name);
               window.location = "/dashboard";
-            }
+            
           },
           (error) => {
             alert(error.response.data.message);
@@ -433,8 +434,18 @@ class Nav extends Component {
                 this.setState({ barmenu: !this.state.barmenu })
               }} />
               {this.state.barmenu ? (
-                   <div className="dropblock mt-4 drophovering"  /*open={this.state.barmenu}*/>
-                  <a class="dropdown-item" href="signin">
+                   <div className="dropblock mt-4 drophovering">
+                   {/* let navigation_links_list = navigation_links.map((data, index) => {
+                       <button
+                       id={data.title}
+                       className="auth-button"
+                       type="button"
+                       onClick={() => this.openModal(data.endpoint)}
+                     >
+                       {data.title}
+                     </button>
+                      }); */}
+                  <a class="dropdown-item" href="">
                   Login
                 </a>
                 <a class="dropdown-item" href="">
@@ -519,7 +530,7 @@ class Nav extends Component {
                     <PhoneInput
                       className="inputHome bodernull111"
                       placeholder={"Mobile no. *"}
-                      country={"us"}
+                      country={"in"}
                       // value={this.state.fields.number}
                       // tabindex="1"
                       value={this.state.phone}
@@ -529,7 +540,7 @@ class Nav extends Component {
                           return;
                         }
                         this.setState({
-                          phone: e,
+                          phone: "+"+e,
                         });
                       }}
                     />
@@ -587,7 +598,7 @@ class Nav extends Component {
                     <PhoneInput
                       className="inputHome bodernull111"
                       placeholder={"Mobile no. *"}
-                      country={"us"}
+                      country={"in"}
                       // value={this.state.fields.number}
                       // tabindex="1"
                       value={this.state.phone}
@@ -597,7 +608,7 @@ class Nav extends Component {
                           return;
                         }
                         this.setState({
-                          phone: e,
+                          phone:"+"+e,
                         });
                       }}
                     />
