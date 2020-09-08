@@ -41,11 +41,15 @@ public class SignUp {
 	private boolean loginstatus;
 	private String submissionEmailID;
 	
+
 	@Override
 	public String toString() {
-		return "{\"id\":" + id + ", \"name\":\"" + name +" \",\"organisation\":\"" + organisation + "\", \"email\":\"" + email + "\", \"submissionEmailID\":\"" + submissionEmailID
-				+ "\",\"profession\":\""+ profession +  "\"}";
+		return "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"phoneNumber\":\"" + phoneNumber +"\", \"email\":\"" + email
+				+"\", \"password\":\"" + password +"\", \"profession\":\"" + profession + "\", \"organisation\":\"" + organisation + "\", \"role\":\""
+				+ role + "\", \"loginstatus\":\"" + loginstatus +"\", \"submissionEmailID\":\"" + submissionEmailID
+				+ "\", \"submissionPassword\":\"" + submissionPassword + "\"}";
 	}
+
 	public String getProfession() {
 		return profession;
 	}
