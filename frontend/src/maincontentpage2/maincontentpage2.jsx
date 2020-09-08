@@ -32,6 +32,7 @@ import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export class Maincontentpage2 extends Component {
         { title: "five", value: 30, color: "red" },
       ],
       snackbar: false,
+      progressbar:false,
       tasktype:"xyz",
       todaydate:"06-09-2020 18:06",
       userId:"3",
@@ -272,24 +274,31 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if (this.state.error === null) {
-      this.setState({ snackbar: true, message: "Success Updated" });
-    }
+    // if (this.state.error === null) {
+    //   this.setState({ snackbar: true, message: "Success Updated" });
+    // }
     // window.localStorage.setItem("name", name);
     // window.localStorage.setItem("email", emailaddress);
     // window.localStorage.setItem("url", submiturl);
 
     let url = getBaseUrl() + "/starttask";
+    this.setState({
+      progressbar:true
+    })
     axios.post(url,this.state).then((response) => {
+
           // alert(response.data.message);
           this.setState({
+            progressbar:false,
             snackbar: true,
             error: "Data is successfully uploaded",
           });
           return;
         },
         (error) => {
-          
+          this.setState({
+            progressbar:false,
+          })
         }
       )
     
@@ -830,6 +839,20 @@ export class Maincontentpage2 extends Component {
                 </div>
               </Grid>
             </Grid>
+          </div>
+        </Dialog>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.progressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="loader-main">
+          {this.state.progressbar && <CircularProgress size={68} className="loaderbar" />}
           </div>
         </Dialog>
       </div>

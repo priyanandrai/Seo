@@ -1986,3 +1986,12 @@ a.disabled {
   width: 200px !important;
   height: 220px !important;
 }
+.loader-main{
+  width: 15vh;
+  height: 15vh;
+}
+.loaderbar{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
