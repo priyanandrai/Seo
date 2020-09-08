@@ -45,9 +45,9 @@ public class SearchEngine {
 	
 	@Override
 	public String toString() {
-		return "SearchEngine [id=" + id + ", userId=" + userId + ", tasktype=" + tasktype + ", taskstatus=" + taskstatus
-				+ ", todaydate=" + date + ", name=" + name + ", emailaddress=" + emailaddress + ", submiturl="
-				+ submiturl + ", visualId=" + visualId + "]";
+		return "{\"id\":\"" + id + "\", \"userId\":\"" + userId + "\", \"tasktype\":\"" + tasktype + "\", \"taskstatus\":\"" + taskstatus
+				+ "\", \"todaydate\":\"" + date + "\", \"name\":\"" + name + "\", \"emailaddress\":\"" + emailaddress + "\", \"submiturl\":\""
+				+ submiturl + "\", \"visualId\":\"" + visualId + "\"}";
 	}
 
 
