@@ -259,7 +259,9 @@ class Nav extends Component {
             if (response.data.message != undefined) {
               alert(response.data.message);
             } 
+            let tmp = response.data;
               window.localStorage.setItem("user", response.data.name);
+              window.localStorage.setItem("id",tmp.id);
               window.location = "/dashboard";
             
           },
