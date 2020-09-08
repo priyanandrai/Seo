@@ -101,13 +101,13 @@ public class MainServices {
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getprofile")
-	public boolean getprofile(@RequestParam("id") Long id) {
+	public String getprofile(@RequestParam("id") Long id) {
 		try {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
-			return this.iSignUpService.existsById(id);
+			return signup.get().toString();
 		} catch (Exception e) {
 			Optional<SignUp> signup = null;
-			return this.iSignUpService.existsById(id);
+			return "no data " ;
 		}
 
 	}

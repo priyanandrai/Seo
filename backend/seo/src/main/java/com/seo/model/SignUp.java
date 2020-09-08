@@ -43,7 +43,7 @@ public class SignUp {
 	
 	@Override
 	public String toString() {
-		return "{\"id\":" + id + ", \"name\":\"" + name + ",\"organisation\":\"" + organisation + "\", \"email\":\"" + email + "\", \"submissionEmailID\":\"" + submissionEmailID
+		return "{\"id\":" + id + ", \"name\":\"" + name +" \",\"organisation\":\"" + organisation + "\", \"email\":\"" + email + "\", \"submissionEmailID\":\"" + submissionEmailID
 				+ "\",\"profession\":\""+ profession +  "\"}";
 	}
 	public String getProfession() {
