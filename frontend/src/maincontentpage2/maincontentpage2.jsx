@@ -30,6 +30,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -44,6 +46,9 @@ export class Maincontentpage2 extends Component {
         { title: "five", value: 30, color: "red" },
       ],
       snackbar: false,
+      tasktype:"xyz",
+      todaydate:"06-09-2020 18:06",
+      userId:"3",
       drilldown: false,
       // drilldown1: false,
       message: "",
@@ -59,7 +64,8 @@ export class Maincontentpage2 extends Component {
       title: "",
       description: "",
       keywords: "",
-
+      emailaddress:"",
+      submiturl:"",
       error: null,
       emaill: "",
       Passwordd: "",
@@ -223,6 +229,7 @@ export class Maincontentpage2 extends Component {
   handlesubmit = (e) => {
     e.preventDefault();
     const { name, email, sbsUrl } = this.state;
+    
 
     if (name.trim() == "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
@@ -237,13 +244,13 @@ export class Maincontentpage2 extends Component {
       return;
     }
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (email.trim() == "") {
+    if (this.state.emailaddress.trim() == "") {
       this.setState({
         snackbar: true,
         error: "Please enter email Id.",
       });
       return;
-    } else if (!email.match(regexex)) {
+    } else if (!this.state.emailaddress.match(regexex)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid email Id.",
@@ -252,13 +259,13 @@ export class Maincontentpage2 extends Component {
     }
 
     const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    if (sbsUrl == "") {
+    if (this.state.submiturl == "") {
       this.setState({
         snackbar: true,
         error: "please enter the URL.",
       });
       return;
-    } else if (!sbsUrl.match(regesxm)) {
+    } else if (!this.state.submiturl.match(regesxm)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid  URL.",
@@ -268,9 +275,24 @@ export class Maincontentpage2 extends Component {
     if (this.state.error === null) {
       this.setState({ snackbar: true, message: "Success Updated" });
     }
-    window.localStorage.setItem("name", name);
-    window.localStorage.setItem("email", email);
-    window.localStorage.setItem("url", sbsUrl);
+    // window.localStorage.setItem("name", name);
+    // window.localStorage.setItem("email", emailaddress);
+    // window.localStorage.setItem("url", submiturl);
+
+    let url = getBaseUrl() + "/starttask";
+    axios.post(url,this.state).then((response) => {
+          // alert(response.data.message);
+          this.setState({
+            snackbar: true,
+            error: "Data is successfully uploaded",
+          });
+          return;
+        },
+        (error) => {
+          
+        }
+      )
+    
   };
 
   handlesubmission = (e) => {
@@ -418,6 +440,7 @@ export class Maincontentpage2 extends Component {
                           placeholder="Enter name"
                           id="Name"
                           className="formwidth"
+                          value={this.state.name}
                           onChange={(e) =>
                             this.setState({ name: e.target.value })
                           }
@@ -428,10 +451,10 @@ export class Maincontentpage2 extends Component {
                           placeholder="Enter email"
                           className="formwidth"
                           id="Email"
-                          value={this.state.email}
+                          value={this.state.emailaddress}
                           onChange={(e) =>
                             this.setState({
-                              email: e.target.value,
+                              emailaddress: e.target.value,
                             })
                           }
                         />
@@ -441,8 +464,9 @@ export class Maincontentpage2 extends Component {
                           id="Url"
                           placeholder="Enter url"
                           className="formwidth"
+                          value={this.state.submiturl}
                           onChange={(e) =>
-                            this.setState({ sbsUrl: e.target.value })
+                            this.setState({ submiturl: e.target.value })
                           }
                         />
 

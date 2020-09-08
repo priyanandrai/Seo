@@ -19,6 +19,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Container, Row, Col, Form } from "react-bootstrap";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
 
 class Profile extends Component {
   constructor(props) {
@@ -27,12 +29,16 @@ class Profile extends Component {
       organization: "",
       deleteoption: false,
       organizationEnable: true,
-      profession: "",
+      profession: "null",
       professionEnable: true,
       emailEnable: true,
       username: "",
       email: "",
+      name:"",
+      organisation:"null",
       usernameEnable: true,
+
+      phoneNumber:"",
       drillDown: "DrillDown",
       data: [
         {
@@ -200,10 +206,30 @@ class Profile extends Component {
     this.setState({ Playsession2: !this.state.Playsession2 });
   };
 
+  componentWillMount(){
+    let self=this;
+    let url = getBaseUrl() + "/getprofile?id="+window.localStorage.getItem("id");
+    axios.get(url).then((response) => {
+          // alert(response.data.message);
+          self.setState({
+            name:response.data.name,
+            email:response.data.email,
+            phoneNumber:response.data.phoneNumber,
+            profession:response.data.profession,
+            organisation:response.data.organisation,
+          })
+        },
+        (error) => {
+          
+        }
+      )
+  }
+
   render() {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
+
           <Grid item md={4}>
             <div className="mt-5 imagecentermobile">
               <img
@@ -221,7 +247,7 @@ class Profile extends Component {
                 onChange={(e) => {
                   this.setState({ username: e.target.value });
                 }}
-                value={this.state.username}
+                value={this.state.name}
               />
               <div className="align-self-end p-2">
                 <FontAwesomeIcon
@@ -241,6 +267,7 @@ class Profile extends Component {
             </div>
           </Grid>
           <Grid item md={8}>
+           
             <div className="profile-right">
               <div className="d-flex">
                 <TextField
@@ -250,6 +277,7 @@ class Profile extends Component {
                   onChange={(e) => {
                     this.setState({ email: e.target.value });
                   }}
+                  value={this.state.email}
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
@@ -267,6 +295,7 @@ class Profile extends Component {
                   className="mt-1"
                   label="Mobile No."
                   disabled
+                  value={this.state.phoneNumber}
                 />
               </div>
               <div className="d-flex profrssionclick">
@@ -278,6 +307,7 @@ class Profile extends Component {
                   onChange={(e) => {
                     this.setState({ profession: e.target.value });
                   }}
+                  value={this.state.profession}
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
@@ -298,6 +328,7 @@ class Profile extends Component {
                   onChange={(e) => {
                     this.setState({ organization: e.target.value });
                   }}
+                  value={this.state.organisation}
                 />
                 <div className="align-self-end p-2">
                   <FontAwesomeIcon
@@ -311,6 +342,7 @@ class Profile extends Component {
               </div>
               <br />
             </div>
+      
           </Grid>
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
@@ -607,6 +639,7 @@ class Profile extends Component {
             </DialogActions>
           </div>
         </Dialog>
+        
       </div>
     );
   }
