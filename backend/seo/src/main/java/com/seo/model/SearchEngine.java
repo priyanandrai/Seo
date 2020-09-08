@@ -1,5 +1,6 @@
 package com.seo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,41 +9,55 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name="searchenginedetails")
+@Table(name="taskprogress")
 public class SearchEngine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Transient
+	@Column(name="userid")
 	private Long userId;
 	private String tasktype;
-	private String todaydate;
+	private String taskstatus;
+	private String date;
 	private String name;
 	private String emailaddress;
 	private String submiturl;
-	public SearchEngine(Long id, Long userId, String tasktype, String todaydate, String name, String emailaddress,
-			String submiturl) {
+	@Column(name="visualid")
+	private String visualId;
+	
+	
+	
+	
+	public SearchEngine(Long id, Long userId, String tasktype, String taskstatus, String date, String name,
+			String emailaddress, String submiturl, String visualId) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.tasktype = tasktype;
-		this.todaydate = todaydate;
+		this.taskstatus = taskstatus;
+		this.date = date;
 		this.name = name;
 		this.emailaddress = emailaddress;
 		this.submiturl = submiturl;
+		this.visualId = visualId;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "SearchEngine [id=" + id + ", userId=" + userId + ", tasktype=" + tasktype + ", todaydate=" + todaydate
-				+ ", name=" + name + ", emailaddress=" + emailaddress + ", submiturl=" + submiturl + "]";
+		return "SearchEngine [id=" + id + ", userId=" + userId + ", tasktype=" + tasktype + ", taskstatus=" + taskstatus
+				+ ", todaydate=" + date + ", name=" + name + ", emailaddress=" + emailaddress + ", submiturl="
+				+ submiturl + ", visualId=" + visualId + "]";
 	}
+
+
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 	public void setUserId(Long userId) {
@@ -54,11 +69,11 @@ public class SearchEngine {
 	public void setTasktype(String tasktype) {
 		this.tasktype = tasktype;
 	}
-	public String getTodaydate() {
-		return todaydate;
+	public String getDate() {
+		return date;
 	}
-	public void setTodaydate(String todaydate) {
-		this.todaydate = todaydate;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public String getName() {
 		return name;
@@ -79,6 +94,17 @@ public class SearchEngine {
 		this.submiturl = submiturl;
 	}
 	
-	
+	public String getTaskstatus() {
+		return taskstatus;
+	}
+	public void setTaskstatus(String taskstatus) {
+		this.taskstatus = taskstatus;
+	}
+	public String getVisualId() {
+		return visualId;
+	}
+	public void setVisualId(String visualId) {
+		this.visualId = visualId;
+	}
 
 }

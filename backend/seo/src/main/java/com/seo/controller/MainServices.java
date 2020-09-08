@@ -31,39 +31,37 @@ public class MainServices {
 	SearchEngineservice searchEngineService;
 
 	@Autowired
-	private  Environment env;
-	
+	private Environment env;
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/signup")
-	public String showsignUp (@RequestBody SignUp  signup) {
+	public String showsignUp(@RequestBody SignUp signup) {
 		try {
-			Iterator<SignUp> iterable =  iSignUpService.findAll().iterator();
-			while(iterable.hasNext()) {
+			Iterator<SignUp> iterable = iSignUpService.findAll().iterator();
+			while (iterable.hasNext()) {
 				SignUp signUp2 = iterable.next();
-				if(signUp2.getEmail().equalsIgnoreCase(signup.getEmail())) {
+				if (signUp2.getEmail().equalsIgnoreCase(signup.getEmail())) {
 					return "{\"message\":\"User already exist .Please try to login ot forget password\"}";
 				}
-			}		
+			}
 			iSignUpService.save(signup);
 		} catch (Exception e) {
-			e.printStackTrace(); 
+			e.printStackTrace();
 		}
 		return "{\"message\":\"Thank you registration\"}";
 	}
 
-
 	@CrossOrigin(origins = "*")
 	@PostMapping("/forgetPassword")
-	public String showsignUp (@RequestBody Login login) {
+	public String showsignUp(@RequestBody Login login) {
 		try {
 			List<SignUp> signup = (List<SignUp>) iSignUpService.findAll();
 			System.out.println(signup.toString());
 			for (int i = 0; i < signup.size(); i++) {
-				if(signup.get(i).getPhoneNumber() == null ||signup.get(i).getPassword() == null ) {
+				if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
 					continue;
 				}
-				if(signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber()) ) {
+				if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())) {
 					return "{\"message\":\"Please check your Phone for OTP\"}";
 				}
 			}
@@ -74,10 +72,9 @@ public class MainServices {
 		}
 	}
 
-
 	@CrossOrigin(origins = "*")
 	@GetMapping("/validateotp")
-	public String validateotp (@RequestParam(defaultValue="") String otp) {
+	public String validateotp(@RequestParam(defaultValue = "") String otp) {
 		try {
 			return "{\"message\":\"Otp Validation done suscessfully\"}";
 		} catch (Exception e) {
@@ -91,54 +88,68 @@ public class MainServices {
 		List<SignUp> signup = (List<SignUp>) iSignUpService.findAll();
 		System.out.println(signup.toString());
 		for (int i = 0; i < signup.size(); i++) {
-			if(signup.get(i).getPhoneNumber() == null ||signup.get(i).getPassword() == null ) {
+			if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
 				continue;
 			}
-			if(signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber()) && signup.get(i).getPassword().equals(login.getPassword()) ) {
+			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
+					&& signup.get(i).getPassword().equals(login.getPassword())) {
 				return signup.get(i).toString();
 			}
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
-	
+
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getprofile")
-	public  Optional<SignUp> getprofile (@RequestParam("id") Long id) {
+	public boolean getprofile(@RequestParam("id") Long id) {
 		try {
-			Optional<SignUp> signup=this.iSignUpService.findById(id);
-			return signup;
+			Optional<SignUp> signup = this.iSignUpService.findById(id);
+			return this.iSignUpService.existsById(id);
 		} catch (Exception e) {
-			Optional<SignUp> signup=null;
-			return signup;
+			Optional<SignUp> signup = null;
+			return this.iSignUpService.existsById(id);
 		}
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/starttask")
-	SearchEngine starttask(@RequestBody SearchEngine searchengine) {
+	String starttask(@RequestBody SearchEngine searchengine) {
 		try { 
 		
-		if(searchengine.getName() == null ||searchengine.getEmailaddress() == null||searchengine.getSubmiturl()==null) {
-			searchengine=null;
-			return searchengine;
-			}
-		else {
-			 searchEngineService.savedatail(searchengine);
-			 return searchengine;
+		if(searchengine.getName() == null ) {
+			return "{\"message\":\" Please enter your name\"}";
 		}
+		else {
+			if(searchengine.getEmailaddress() == null) {
+				return "{\"message\":\" Please enter your email address\"}";
+			}
+			
+			else {
+				if(searchengine.getSubmiturl()==null){
+					return "{\"message\":\" Please enter the URl\"}";
+				}
+				
+				else {
+					searchengine.setTaskstatus("In Progress");
+					searchEngineService.savedatail(searchengine);
+					 return "{\"message\":\" Task type started successfully\"}";
+				}
+				
+			}
+		}
+	
 		}catch (Exception e) {
-			searchengine=null;
-			return searchengine;
+			return "{\"message\":\"Error in creating task , Please try again \"}";
 		}
 		
 		
 	}
-	
-	
+
 	@CrossOrigin(origins = "*")
 	@PutMapping("/changepassword")
 	String changePassword(@RequestBody ChangePassword changepassword) {
-		Optional<SignUp> signup=this.iSignUpService.findById(changepassword.getUserId());
+		Optional<SignUp> signup = this.iSignUpService.findById(changepassword.getUserId());
 		SignUp signup1 = signup.get();
 		try {
 
@@ -151,14 +162,11 @@ public class MainServices {
 			}
 
 		} catch (Exception e) {
-			
-		return "{\"message\":\"Error in changing password , Please try again \"}";
+
+			return "{\"message\":\"Error in changing password , Please try again \"}";
 
 		}
 
 	}
-	 
+
 }
-
-
-
