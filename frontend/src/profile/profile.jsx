@@ -238,9 +238,9 @@ class Profile extends Component {
               />
             </div>
 
-            <div className=" d-flex mt-4 inputdata11">
+            <div className=" d-flex mt-4 inputdata11 ">
               <TextField
-                className=""
+                className="textcolorfont"
                 id="standard-basic"
                 label=""
                 disabled={this.state.usernameEnable}
@@ -271,6 +271,7 @@ class Profile extends Component {
             <div className="profile-right">
               <div className="d-flex">
                 <TextField
+                className="textcolorfont1"
                   id="standard-basic"
                   label="Email"
                   disabled={this.state.emailEnable}
@@ -291,8 +292,9 @@ class Profile extends Component {
               </div>
               <div className="d-flex mr-4">
                 <TextField
+                
                   id="standard-basic"
-                  className="mt-1"
+                  className="mt-1 textcolorfont1"
                   label="Mobile No."
                   disabled
                   value={this.state.phoneNumber}
@@ -300,8 +302,9 @@ class Profile extends Component {
               </div>
               <div className="d-flex profrssionclick">
                 <TextField
+               
                   id="standard-basic"
-                  className="mt-1 "
+                  className="mt-1 textcolorfont1"
                   label="Profession"
                   disabled={this.state.professionEnable}
                   onChange={(e) => {
@@ -321,8 +324,9 @@ class Profile extends Component {
               </div>
               <div className="d-flex">
                 <TextField
+                
                   id="standard-basic"
-                  className="mt-1"
+                  className="mt-1 textcolorfont1"
                   label="Organisation"
                   disabled={this.state.organizationEnable}
                   onChange={(e) => {
@@ -346,8 +350,9 @@ class Profile extends Component {
           </Grid>
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
-        <div>
+        <div className="sadataset">
           <DataTable
+          
             title="Your History"
             columns={this.state.columns}
             data={this.state.data}
