@@ -54,6 +54,7 @@ class Nav extends Component {
       isLogged: false,
       phone: "",
       otp: "",
+      id: "",
       user: "Francis",
       show_account_dropdown: false,
       modal_open: false,
@@ -65,7 +66,7 @@ class Nav extends Component {
       button_status: "disabled",
       register: false,
       getintouch: false,
-      barmenu :false,
+      barmenu: false,
       // logindialog:false,
       // dropdownmenu:false,
     };
@@ -80,8 +81,6 @@ class Nav extends Component {
   //   window.location
   // }
 
-
-  
   barmenu = () => {
     this.setState({ barmenu: !this.state.barmenu });
   };
@@ -105,6 +104,8 @@ class Nav extends Component {
   };
 
   componentWillMount() {
+    let id = window.localStorage.getItem("id");
+    this.setState({ id: id });
     if (window.location.pathname == "/adminute-dashboard") {
       this.setState({ adminGuard: true });
     }
@@ -114,12 +115,11 @@ class Nav extends Component {
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
     if (temp == true || temp == "true") {
-     let user = window.localStorage.getItem("user");
+      let user = window.localStorage.getItem("user");
       let newUser = user.substring(0, 8);
       this.setState({
         isLogged: true,
         user: newUser,
-
       });
     }
   }
@@ -212,8 +212,8 @@ class Nav extends Component {
         modal_open: false,
       });
       this.setState({ dialogBox: !this.state.dialogBox });
-        // alert(this.state.phone);
-        // console.log(this.state.phone)
+      // alert(this.state.phone);
+      // console.log(this.state.phone)
       let temp = {
         name: this.state.full_name,
         email: this.state.email,
@@ -258,12 +258,11 @@ class Nav extends Component {
           (response) => {
             if (response.data.message != undefined) {
               alert(response.data.message);
-            } 
+            }
             let tmp = response.data;
-              window.localStorage.setItem("user", response.data.name);
-              window.localStorage.setItem("id",tmp.id);
-              window.location = "/dashboard";
-            
+            window.localStorage.setItem("user", response.data.name);
+            window.localStorage.setItem("id", response.data.id);
+            window.location = "/dashboard";
           },
           (error) => {
             alert(error.response.data.message);
@@ -313,12 +312,12 @@ class Nav extends Component {
 
     const navigation_links_list = navigation_links.map((data, index) => {
       console.log("My endpoint name is", data, index);
-      
+
       let temp =
-      window.location.href.indexOf("adminute") == -1 ? (
-        // window.location.pathname != "/adminute" &&
-        // window.location.pathname != "/adminute-dashboard" &&
-        // window.location.pathname != "/444-profile" ? (
+        window.location.href.indexOf("adminute") == -1 ? (
+          // window.location.pathname != "/adminute" &&
+          // window.location.pathname != "/adminute-dashboard" &&
+          // window.location.pathname != "/444-profile" ? (
           <button
             id={data.title}
             className="auth-button"
@@ -383,7 +382,6 @@ class Nav extends Component {
                   {this.state.user}
                 </a>
                 <div
-                 
                   class="dropdown-menu dropdown-menu-right drophover margindrop"
                   aria-labelledby="navbarDropdown"
                 >
@@ -391,10 +389,10 @@ class Nav extends Component {
                   this.state.adminprofile == false ? ( */}
                   <a
                     class="dropdown-item"
-                    onClick={this.UniqueId}
-                    className="disabled dropdown-item"
+                    // onClick={this.UniqueId}
+                    className=" dropdown-item"
                   >
-                    Unique Id:2211
+                    Unique Id: {this.state.id}
                   </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
@@ -432,12 +430,16 @@ class Nav extends Component {
           ) : (
             <div className="navLinks">
               {navigation_links_list}
-              <FontAwesomeIcon icon={faBars} className="bugermenu" onClick={(e) => {
-                this.setState({ barmenu: !this.state.barmenu })
-              }} />
+              <FontAwesomeIcon
+                icon={faBars}
+                className="bugermenu"
+                onClick={(e) => {
+                  this.setState({ barmenu: !this.state.barmenu });
+                }}
+              />
               {this.state.barmenu ? (
-                   <div className="dropblock mt-4 drophovering">
-                   {/* let navigation_links_list = navigation_links.map((data, index) => {
+                <div className="dropblock mt-4 drophovering">
+                  {/* let navigation_links_list = navigation_links.map((data, index) => {
                        <button
                        id={data.title}
                        className="auth-button"
@@ -447,21 +449,31 @@ class Nav extends Component {
                        {data.title}
                      </button>
                       }); */}
-                  <a class="dropdown-item" href="#" onClick={() => this.openModal("signin")}>
-                  Login
-                </a>
-                <a class="dropdown-item" href="#" onClick={() => this.openModal("signup")}>
-                  Register
-                </a>
-                <a class="dropdown-item" href="#" onClick={() => this.openModal("contactus")}>
-                  Contact Us
-                </a>
-                
-              </div>
-               
-              ):""
-              
-              }
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onClick={() => this.openModal("signin")}
+                  >
+                    Login
+                  </a>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onClick={() => this.openModal("signup")}
+                  >
+                    Register
+                  </a>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onClick={() => this.openModal("contactus")}
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           )}
         </Toolbar>
@@ -542,7 +554,7 @@ class Nav extends Component {
                           return;
                         }
                         this.setState({
-                          phone: "+"+e,
+                          phone: "+" + e,
                         });
                       }}
                     />
@@ -610,7 +622,7 @@ class Nav extends Component {
                           return;
                         }
                         this.setState({
-                          phone:"+"+e,
+                          phone: "+" + e,
                         });
                       }}
                     />
