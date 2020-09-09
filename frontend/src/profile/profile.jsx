@@ -29,13 +29,13 @@ class Profile extends Component {
       organization: "",
       deleteoption: false,
       organizationEnable: true,
-      profession: "null",
+      profession: "N/A",
       professionEnable: true,
       emailEnable: true,
       username: "",
       email: "",
       name: "",
-      organisation: "null",
+      organisation: "N/A",
       usernameEnable: true,
 
       phoneNumber: "",
@@ -247,7 +247,8 @@ class Profile extends Component {
         <Grid container className="submenu-alignment">
           <Grid item md={12}>
             <div className="buttonsright22">
-              hello
+              <button type="button" className="btnmargin bottoncolorq">Save</button>
+              <button type="button" className="bottoncolorq">Cancel</button>
             </div>
           </Grid>
           <Grid item md={4}>

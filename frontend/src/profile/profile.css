@@ -178,21 +178,9 @@
   font-size: 20px !important;
   color: darkblue !important;
   text-align: center !important;
-  outline: none !important;
+ 
 }
-/* .textcolorfont
 
-  .MuiInput-underline.Mui-disabled:before
-  .MuiInput-underline:before {
-  border-bottom-style: none !important;
-  border-bottom-color: lightgrey !important;
-  border-bottom-width: 0;
-   left: 0;
-  right: 0;
-  bottom: 0;
- position: none !important;
-  transition: none !important;
-} */
 .textcolorfont1 .MuiInputBase-input {
   font-family: Century !important;
   font-size: 20px !important;
@@ -225,4 +213,14 @@
 }
 .buttonsright22{
   float: right;
+  
+}
+.btnmargin{
+  margin-right: 50px;
+}
+.bottoncolorq{
+  background-color: #18758d ;
+  outline: none !important;
+  border-radius: 5px;
+  padding: 5px 21px !important;
 }
