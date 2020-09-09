@@ -898,7 +898,7 @@ class Nav extends Component {
                   <FontAwesomeIcon icon={faTimes} />{" "}
                 </span>
                 <div className="forgotpwdModal">
-                  <h1>Change Password</h1>
+                  <h1 className="dropwidth">Change Password</h1>
                   <fieldset className="inputHome mt-2  ml-3 mr-3">
                     <input
                       type="password"

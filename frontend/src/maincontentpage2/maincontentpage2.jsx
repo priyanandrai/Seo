@@ -32,7 +32,7 @@ import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export class Maincontentpage2 extends Component {
   constructor(props) {
@@ -47,10 +47,11 @@ export class Maincontentpage2 extends Component {
         { title: "five", value: 30, color: "red" },
       ],
       snackbar: false,
-      progressbar:false,
-      tasktype:"xyz",
-      todaydate:"06-09-2020 18:06",
-      userId:"3",
+      progressbar: false,
+      tasktype: "xyz",
+      todaydate: new Date().toISOString(),
+      userId:"",
+      userId: "3",
       drilldown: false,
       // drilldown1: false,
       message: "",
@@ -66,8 +67,8 @@ export class Maincontentpage2 extends Component {
       title: "",
       description: "",
       keywords: "",
-      emailaddress:"",
-      submiturl:"",
+      emailaddress: "",
+      submiturl: "",
       error: null,
       emaill: "",
       Passwordd: "",
@@ -205,8 +206,8 @@ export class Maincontentpage2 extends Component {
     };
   }
   fullView = () => {
-    window.open("/tasks" );
-  }
+    window.open("/tasks");
+  };
   drilldown = (para) => {
     this.setState({ drilldown: !this.state.drilldown });
     if (para == "create a table") {
@@ -228,10 +229,10 @@ export class Maincontentpage2 extends Component {
     this.setState({ snackbar: false });
   };
 
+
   handlesubmit = (e) => {
     e.preventDefault();
     const { name, email, sbsUrl } = this.state;
-    
 
     if (name.trim() == "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
@@ -283,25 +284,38 @@ export class Maincontentpage2 extends Component {
 
     let url = getBaseUrl() + "/starttask";
     this.setState({
-      progressbar:true
-    })
-    axios.post(url,this.state).then((response) => {
-
-          // alert(response.data.message);
-          this.setState({
-            progressbar:false,
-            snackbar: true,
-            error: "Data is successfully uploaded",
-          });
-          return;
-        },
-        (error) => {
-          this.setState({
-            progressbar:false,
-          })
-        }
-      )
-    
+      progressbar: true,
+    });
+    let month =  new Date().getMonth() +1;
+    let day= new Date().getDate();
+    let year = new Date().getFullYear();
+    let hour =  new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + '-' + month + '-' + year + ' ' + hour + ':' + min;
+    let temp = {
+      userId: window.localStorage.getItem("id"),
+      name: this.state.name,
+      emailaddress: this.state.emailaddress,
+      submiturl: this.state.submiturl,
+      date: date,
+      tasktype: this.state.tasktype
+    };
+    axios.post(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
   };
 
   handlesubmission = (e) => {
@@ -350,21 +364,6 @@ export class Maincontentpage2 extends Component {
   };
   handleclick = (e) => {
     const { name, emaill, sbmUrl } = this.state;
-    // const reg =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    // if(this.state.emaill.trim()){
-    //   alert("please enter the email")
-    //   return;
-    // }
-    // else if (this.state.match(reg)){
-    //   alert("please enter the valid email")
-    // return;
-    // }
-
-    // const regpassword =
-    // if(this.state.Passwordd.trim()==""){
-    //   alert("please enter the passwords")
-
-    // }else if(this.state.Passwordd.match())
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emaill == "") {
@@ -551,15 +550,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keywords: e.target.value })
                             }
                           />
-                          {/* <Button
-                            style={{ marginRight: "24%", marginTop: "4%" }}
-                            id="buttonn"
-                            variant="contained"
-                            color="secondary "
-                            onClick={this.handlesubmission}
-                          >
-                            Start
-                          </Button> */}
+
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button
                               variant="contained"
@@ -593,10 +584,6 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          {/* <form  noValidate autoComplete="on">
-      <TextField style={{width:'75%'}} id="standard-basic" label="email" />
-      </form> */}
-
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
@@ -656,16 +643,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keywordsss: e.target.value })
                             }
                           />
-                          {/* <Button
-                            style={{ marginRight: "24%", marginTop: "4%" }}
-                            id="buttonn"
-                            variant="contained"
-                            color="secondary "
-                            onClick={this.handleclick}
-                          >
-                            Start
-                          </Button>
-                        </div> */}
+
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button
                               variant="contained"
@@ -705,44 +683,9 @@ export class Maincontentpage2 extends Component {
           </Grid>
         </Grid>
 
-        {/* <div>
-          <Grid container style={{ marginTop: "%" }}>
-            <Grid item xs={2}>
-              <Paper></Paper>
-            </Grid>
-
-            <Grid item xs={8}>
-              <Paper style={{ width: "100%", marginLeft: "15%" }}>
-                <div className="animate__animated animate__backInUp longcards">
-                  <Card variant="outlined">
-                    <CardContent>
-                      <Typography color="textSecondary" gutterBottom>
-                        Get off-page optimization service free of cost
-                      </Typography>
-                      <Typography variant="h5" component="h2"></Typography>
-                      <Typography color="textSecondary">adjective</Typography>
-                      <Typography variant="body2" component="p">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </div>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={2}>
-              <Paper></Paper>
-            </Grid>
-          </Grid><br/><br/>
-        </div> */}
         <div className="container">
           <div className="mt-5 border-top bodercolor"> </div>
-          <div>
+          <div className="sadataset">
             <DataTable
               title="Current Session"
               columns={this.state.columns}
@@ -809,7 +752,12 @@ export class Maincontentpage2 extends Component {
               // }}
             >
               <a className="hrefcolor">
-                <FontAwesomeIcon icon={faEye} onClick={()=>{this.fullView()}} />
+                <FontAwesomeIcon
+                  icon={faEye}
+                  onClick={() => {
+                    this.fullView();
+                  }}
+                />
               </a>{" "}
             </span>
             <Grid container>
@@ -852,7 +800,9 @@ export class Maincontentpage2 extends Component {
           aria-describedby="alert-dialog-description"
         >
           <div className="loader-main">
-          {this.state.progressbar && <CircularProgress size={68} className="loaderbar" />}
+            {this.state.progressbar && (
+              <CircularProgress size={68} className="loaderbar" />
+            )}
           </div>
         </Dialog>
       </div>
