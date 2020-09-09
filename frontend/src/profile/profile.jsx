@@ -246,7 +246,7 @@ class Profile extends Component {
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
           <Grid item md={12}>
-            <div className="buttonsright22">
+            <div className="buttonsright22 btnmobile">
               <button type="button" className="btnmargin bottoncolorq">Save</button>
               <button type="button" className="bottoncolorq">Cancel</button>
             </div>
@@ -264,10 +264,10 @@ class Profile extends Component {
               
                 className="textcolorfont"
                 id="standard-basic"
-                label=""
+              
                 disabled={this.state.usernameEnable}
                 onChange={(e) => {
-                  this.setState({ username: e.target.value });
+                  this.setState({ name: e.target.value });
                 }}
                 value={this.state.name}
               />
@@ -348,7 +348,7 @@ class Profile extends Component {
                   label="Organisation"
                   disabled={this.state.organizationEnable}
                   onChange={(e) => {
-                    this.setState({ organization: e.target.value });
+                    this.setState({ organisation: e.target.value });
                   }}
                   value={this.state.organisation}
                 />
