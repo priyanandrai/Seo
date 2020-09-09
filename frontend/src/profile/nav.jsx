@@ -60,6 +60,9 @@ class Nav extends Component {
       modal_open: false,
       modal_type: "",
       full_name: "",
+      current_pass:"",
+      new_pass:"",
+      conf_pass:"",
       email: "",
       password: "",
       confirm_password: "",
@@ -93,8 +96,43 @@ class Nav extends Component {
   dialogBox2 = () => {
     this.setState({ dialogBox2: !this.state.dialogBox2 });
   };
+  chnagepassword = () => {
+    if (this.state.current_pass.length == "") {
+        alert("Please enter the old password");
+         return;
+       }
+       if (this.state.new_pass.length == "") {
+        alert("Please enter the new password");
+         return;
+       }
+       if (this.state.new_pass.length <8) {
+        alert("Password must be 8 characters long");
+         return;
+       }
+       if (this.state.conf_pass !== this.state.new_pass) {
+        alert("Password must match.");
+        return;
+      }
+  }
   dialogBox1 = () => {
+   
+    
     this.setState({ dialogBox1: !this.state.dialogBox });
+    let url = getBaseUrl() + "/changepassword?id="+window.localStorage.getItem("id");
+    
+    axios.post(url,this.state).then((response) => {
+      
+
+          // alert(response.data.message);
+          this.setState({
+           
+          });
+          return;
+        },
+        (error) => {
+         
+        }
+      )
   };
   chnagepass = () => {
     window.location = "/changepassword";
@@ -388,11 +426,11 @@ class Nav extends Component {
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
                   <a
-                    class="dropdown-item"
+                    
                     // onClick={this.UniqueId}
                     className=" dropdown-item"
                   >
-                    Unique Id: {this.state.id}
+                   <b>Unique Id: {this.state.id}</b> 
                   </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
@@ -863,23 +901,50 @@ class Nav extends Component {
                   <h1>Change Password</h1>
                   <fieldset className="inputHome mt-2  ml-3 mr-3">
                     <input
-                      type="text"
-                      class="form-control"
+                      type="password"
+                      
+                      className="form-control"
                       placeholder="Current Password"
+                      value={this.state.current_pass}
+                      onChange={(e) => {
+                        this.setState({
+                          current_pass:e.target.value
+                        })
+                        
+                        
+                      }}
                     />
                   </fieldset>
                   <fieldset className="inputHome mt-3 ml-3 mr-3">
                     <input
-                      type="text"
-                      class="form-control"
+                      type="password"
+                     
+                      className="form-control"
                       placeholder="New Password"
+                      value={this.state.new_pass}
+                      onChange={(e) => {
+                        this.setState({
+                          new_pass:e.target.value
+                        })
+                        
+                        
+                      }}
                     />
                   </fieldset>
                   <fieldset className="inputHome mt-3 ml-3 mr-3">
                     <input
-                      type="text"
-                      class="form-control"
+                    type="password"
+                      
+                      className="form-control"
                       placeholder="Confirm Password"
+                      value={this.state.conf_pass}
+                      onChange={(e) => {
+                        this.setState({
+                          conf_pass:e.target.value
+                        })
+                        
+                        
+                      }}
                     />
                   </fieldset>
                   <div className="mt-4 ">
@@ -887,6 +952,7 @@ class Nav extends Component {
                       className="forgetpwdbtn mx-auto d-block"
                       type="submit"
                       value="Change Password"
+                      onClick={this.chnagepassword}
                     />
                   </div>
                 </div>
