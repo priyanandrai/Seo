@@ -34,11 +34,11 @@ class Profile extends Component {
       emailEnable: true,
       username: "",
       email: "",
-      name:"",
-      organisation:"null",
+      name: "",
+      organisation: "null",
       usernameEnable: true,
 
-      phoneNumber:"",
+      phoneNumber: "",
       drillDown: "DrillDown",
       data: [
         {
@@ -54,7 +54,11 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
+              <FontAwesomeIcon
+                className=" mr-2 ml-2 afterplaycolor"
+                icon={faDownload}
+              />
+              |
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -76,7 +80,11 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
+              <FontAwesomeIcon
+                className=" mr-2 ml-2 afterplaycolor"
+                icon={faDownload}
+              />
+              |
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -98,7 +106,11 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
+              <FontAwesomeIcon
+                className=" mr-2 ml-2 afterplaycolor"
+                icon={faDownload}
+              />
+              |
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -120,7 +132,11 @@ class Profile extends Component {
                 icon={faPlay}
               />
               |
-              <FontAwesomeIcon className=" mr-2 ml-2 afterplaycolor" icon={faDownload} />|
+              <FontAwesomeIcon
+                className=" mr-2 ml-2 afterplaycolor"
+                icon={faDownload}
+              />
+              |
               <FontAwesomeIcon
                 className=" mr-2 ml-2"
                 onClick={this.deleteoption}
@@ -206,30 +222,34 @@ class Profile extends Component {
     this.setState({ Playsession2: !this.state.Playsession2 });
   };
 
-  componentWillMount(){
-    let self=this;
-    let url = getBaseUrl() + "/getprofile?id="+window.localStorage.getItem("id");
-    axios.get(url).then((response) => {
-          // alert(response.data.message);
-          self.setState({
-            name:response.data.name,
-            email:response.data.email,
-            phoneNumber:response.data.phoneNumber,
-            profession:response.data.profession,
-            organisation:response.data.organisation,
-          })
-        },
-        (error) => {
-          
-        }
-      )
+  componentWillMount() {
+    let self = this;
+    let url =
+      getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
+    axios.get(url).then(
+      (response) => {
+        // alert(response.data.message);
+        self.setState({
+          name: response.data.name,
+          email: response.data.email,
+          phoneNumber: response.data.phoneNumber,
+          profession: response.data.profession,
+          organisation: response.data.organisation,
+        });
+      },
+      (error) => {}
+    );
   }
 
   render() {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
-
+          <Grid item md={12}>
+            <div className="buttonsright22">
+              hello
+            </div>
+          </Grid>
           <Grid item md={4}>
             <div className="mt-5 imagecentermobile">
               <img
@@ -240,6 +260,7 @@ class Profile extends Component {
 
             <div className=" d-flex mt-4 inputdata11 ">
               <TextField
+              
                 className="textcolorfont"
                 id="standard-basic"
                 label=""
@@ -267,11 +288,10 @@ class Profile extends Component {
             </div>
           </Grid>
           <Grid item md={8}>
-           
             <div className="profile-right">
               <div className="d-flex">
                 <TextField
-                className="textcolorfont1"
+                  className="textcolorfont1"
                   id="standard-basic"
                   label="Email"
                   disabled={this.state.emailEnable}
@@ -292,7 +312,6 @@ class Profile extends Component {
               </div>
               <div className="d-flex mr-4">
                 <TextField
-                
                   id="standard-basic"
                   className="mt-1 textcolorfont1"
                   label="Mobile No."
@@ -302,7 +321,6 @@ class Profile extends Component {
               </div>
               <div className="d-flex profrssionclick">
                 <TextField
-               
                   id="standard-basic"
                   className="mt-1 textcolorfont1"
                   label="Profession"
@@ -324,7 +342,6 @@ class Profile extends Component {
               </div>
               <div className="d-flex">
                 <TextField
-                
                   id="standard-basic"
                   className="mt-1 textcolorfont1"
                   label="Organisation"
@@ -346,13 +363,11 @@ class Profile extends Component {
               </div>
               <br />
             </div>
-      
           </Grid>
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
           <DataTable
-          
             title="Your History"
             columns={this.state.columns}
             data={this.state.data}
@@ -644,7 +659,6 @@ class Profile extends Component {
             </DialogActions>
           </div>
         </Dialog>
-        
       </div>
     );
   }

@@ -68,83 +68,79 @@
   color: cadetblue;
   font-family: Century !important;
 }
-.HWHoi, .jHsXUi, .lgkeMn {
+.HWHoi,
+.jHsXUi,
+.lgkeMn {
   font-size: 16px !important;
   font-weight: 700 !important;
 }
-.dialoged2{
+.dialoged2 {
   width: 60vh;
   height: auto;
 }
-.headingfont{
+.headingfont {
   font-size: 14px !important;
   font-weight: 600 !important;
 }
-.cancelbtn{
+.cancelbtn {
   background-color: #18758d !important;
   outline: none !important;
 }
-.deletebtn{
-  background-color: rgb(220, 0, 78)!important;
+.deletebtn {
+  background-color: rgb(220, 0, 78) !important;
   outline: none !important;
 }
-.seacrhengine{
+.seacrhengine {
   font-size: 15px;
   font-weight: bold;
   font-family: Century !important;
   color: cadetblue;
- 
- 
 }
-.seacrhengine2{
+.seacrhengine2 {
   font-size: 14px;
   font-family: Century !important;
   color: cadetblue;
- 
- 
 }
-.btnrighttoleft{
+.btnrighttoleft {
   margin-top: 2%;
   margin-right: 12%;
 }
-.seacrhengine1{
+.seacrhengine1 {
   font-size: 16px;
   font-family: Century !important;
   color: cadetblue;
   text-align: center;
   font-weight: bold;
- 
 }
 
 /* .profrssionclick :focus{
  color: red;
 } */
-.hrcolor{
+.hrcolor {
   text-align: center;
 }
-.dialoged222{
+.dialoged222 {
   height: 40vh;
   width: 40vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  .imagecentermobile{
+  .imagecentermobile {
     margin-left: 10% !important;
   }
-   
+
   .profile-right {
     margin-top: 36px !important;
     margin-left: 10% !important;
     margin-right: 10% !important;
     width: 45vh !important;
   }
-  .inputdata11{
+  .inputdata11 {
     width: 45vh !important;
     margin-left: 10% !important;
     margin-right: 10% !important;
   }
-  .upgrademargin{
+  .upgrademargin {
     margin-left: 10% !important;
-    
   }
   .MuiDialogActions-root {
     flex: 0 0 auto;
@@ -153,47 +149,80 @@
     align-items: center;
     justify-content: flex-end;
     margin-right: 23% !important;
+  }
+  .mrrginside2200 {
+    margin-right: 24% !important;
+  }
+  .marginleftfor {
+    padding-left: 13% !important;
+    width: 41vh !important;
+  }
+  .btnrighttoleft {
+    margin-top: 4% !important;
+    margin-right: 25% !important;
+  }
 }
 .mrrginside2200 {
-  
-  margin-right: 24% !important;
-}
-.marginleftfor{
-  padding-left: 13% !important;
-  width: 41vh !important;
-}
-.btnrighttoleft {
-  margin-top: 4% !important;
-  margin-right: 25% !important;
-}
-
-
-}
-.mrrginside2200{
   margin-right: 26%;
   margin-top: 4%;
 }
-.afterplaycolor:active{
+.afterplaycolor:active {
   color: white;
   background-color: #18758d;
   width: 23px;
   height: 23px;
   border-radius: 50%;
 }
-.textcolorfont .MuiInputBase-input{
+.textcolorfont .MuiInputBase-input {
   font-family: Century !important;
   font-size: 20px !important;
   color: darkblue !important;
   text-align: center !important;
   outline: none !important;
 }
-.textcolorfont1 .MuiInputBase-input{
+/* .textcolorfont
+
+  .MuiInput-underline.Mui-disabled:before
+  .MuiInput-underline:before {
+  border-bottom-style: none !important;
+  border-bottom-color: lightgrey !important;
+  border-bottom-width: 0;
+   left: 0;
+  right: 0;
+  bottom: 0;
+ position: none !important;
+  transition: none !important;
+} */
+.textcolorfont1 .MuiInputBase-input {
   font-family: Century !important;
   font-size: 20px !important;
   color: darkblue !important;
- 
-  
 }
-.sadataset{
+.sadataset * div {
   font-family: Century !important;
+}
+.textcolorfont .MuiInput-underline:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-bottom: none;
+  pointer-events: none;
+}
+.textcolorfont .MuiInput-underline::before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-bottom: none;
+  pointer-events: none;
+}
+.buttonsright22{
+  float: right;
 }
