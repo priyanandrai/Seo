@@ -60,9 +60,11 @@ class Nav extends Component {
       modal_open: false,
       modal_type: "",
       full_name: "",
-      current_pass:"",
-      new_pass:"",
-      conf_pass:"",
+      current_pass: "",
+      currentPassword: "",
+      newPassword: "",
+      new_pass: "",
+      conf_pass: "",
       email: "",
       password: "",
       confirm_password: "",
@@ -97,46 +99,44 @@ class Nav extends Component {
     this.setState({ dialogBox2: !this.state.dialogBox2 });
   };
   chnagepassword = () => {
-    if (this.state.current_pass.length == "") {
-        alert("Please enter the old password");
-         return;
-       }
-       if (this.state.new_pass.length == "") {
-        alert("Please enter the new password");
-         return;
-       }
-       if (this.state.new_pass.length <8) {
-        alert("Password must be 8 characters long");
-         return;
-       }
-       if (this.state.conf_pass !== this.state.new_pass) {
-        alert("Password must match.");
-        return;
-      }
-  }
-  dialogBox1 = () => {
-   
-    
-    this.setState({ dialogBox1: !this.state.dialogBox });
-    let url = getBaseUrl() + "/changepassword?id="+window.localStorage.getItem("id");
-    
-    axios.post(url,this.state).then((response) => {
-      
+    if (this.state.currentPassword.length == "") {
+      alert("Please enter the old password");
+      return;
+    }
+    if (this.state.newPassword.length == "") {
+      alert("Please enter the new password");
+      return;
+    }
+    if (this.state.newPassword.length < 8) {
+      alert("Password must be 8 characters long");
+      return;
+    }
+    if (this.state.conf_pass !== this.state.newPassword) {
+      alert("Password must match.");
+      return;
+    }
+    let url =
+      getBaseUrl() + "/changepassword?id=" + window.localStorage.getItem("id");
+    let temp = {
+      currentPassword: this.state.currentPassword,
+      newPassword: this.state.newPassword,
+    };
 
-          // alert(response.data.message);
-          this.setState({
-           
-          });
-          return;
-        },
-        (error) => {
-         
-        }
-      )
+    axios.put(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({});
+        return;
+      },
+      (error) => {}
+    );
   };
-  chnagepass = () => {
-    window.location = "/changepassword";
+  dialogBox1 = () => {
+    this.setState({ dialogBox1: !this.state.dialogBox });
   };
+  // chnagepass = () => {
+  //   window.location = "/changepassword";
+  // };
   Confirmotp = () => {
     window.location = "/dashboard";
   };
@@ -426,11 +426,10 @@ class Nav extends Component {
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
                   <a
-                    
                     // onClick={this.UniqueId}
                     className=" dropdown-item"
                   >
-                   <b>Unique Id: {this.state.id}</b> 
+                    <b>Unique Id: {this.state.id}</b>
                   </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
@@ -902,48 +901,39 @@ class Nav extends Component {
                   <fieldset className="inputHome mt-2  ml-3 mr-3">
                     <input
                       type="password"
-                      
                       className="form-control"
                       placeholder="Current Password"
-                      value={this.state.current_pass}
+                      value={this.state.currentPassword}
                       onChange={(e) => {
                         this.setState({
-                          current_pass:e.target.value
-                        })
-                        
-                        
+                          currentPassword: e.target.value,
+                        });
                       }}
                     />
                   </fieldset>
                   <fieldset className="inputHome mt-3 ml-3 mr-3">
                     <input
                       type="password"
-                     
                       className="form-control"
                       placeholder="New Password"
-                      value={this.state.new_pass}
+                      value={this.state.newPassword}
                       onChange={(e) => {
                         this.setState({
-                          new_pass:e.target.value
-                        })
-                        
-                        
+                          newPassword: e.target.value,
+                        });
                       }}
                     />
                   </fieldset>
                   <fieldset className="inputHome mt-3 ml-3 mr-3">
                     <input
-                    type="password"
-                      
+                      type="password"
                       className="form-control"
                       placeholder="Confirm Password"
                       value={this.state.conf_pass}
                       onChange={(e) => {
                         this.setState({
-                          conf_pass:e.target.value
-                        })
-                        
-                        
+                          conf_pass: e.target.value,
+                        });
                       }}
                     />
                   </fieldset>
