@@ -46,14 +46,17 @@ export class Maincontentpage2 extends Component {
         { title: "four", value: 5, color: "#fc8256" },
         { title: "five", value: 30, color: "red" },
       ],
+      id:"",
       snackbar: false,
       progressbar: false,
       tasktype: "xyz",
+      visualId: null,
       todaydate: new Date().toISOString(),
       userId:"",
       userId: "3",
       drilldown: false,
       // drilldown1: false,
+      data:[],
       message: "",
       name: "",
       show: false,
@@ -118,12 +121,7 @@ export class Maincontentpage2 extends Component {
 
       data: [
         {
-          id: 1,
-          sno: "1",
-          task: "create a table",
-          time: "12:30pm",
-          visual: "3123",
-          //  action: <a href="#">drilDown</a>,
+          
           action: (
             <FontAwesomeIcon
               className=" mr-2 ml-2"
@@ -136,12 +134,7 @@ export class Maincontentpage2 extends Component {
           ),
         },
         {
-          id: 2,
-          sno: "2",
-          task: "Assign login",
-          time: "03:50pm",
-          visual: "3434",
-          // action: <a href="#">drilDown 1</a>,
+          
           action: (
             <FontAwesomeIcon
               className=" mr-2 ml-2"
@@ -154,12 +147,7 @@ export class Maincontentpage2 extends Component {
           ),
         },
         {
-          id: 3,
-          sno: "3",
-          task: "Create a new page",
-          time: "08:00pm",
-          visual: "2342",
-          // action: <a href="#">drilDown 2</a>,
+         
           action: (
             <FontAwesomeIcon
               className=" mr-2 ml-2"
@@ -180,19 +168,19 @@ export class Maincontentpage2 extends Component {
         },
         {
           name: "Task Type",
-          selector: "task",
+          selector: "tasktype",
           sortable: true,
           center: true,
         },
         {
           name: "Start Time",
-          selector: "time",
+          selector: "date",
           sortable: true,
           right: true,
         },
         {
           name: "Visual ID",
-          selector: "visual",
+          selector: "visualId",
           sortable: true,
           right: true,
         },
@@ -282,7 +270,7 @@ export class Maincontentpage2 extends Component {
     // window.localStorage.setItem("email", emailaddress);
     // window.localStorage.setItem("url", submiturl);
 
-    let url = getBaseUrl() + "/starttask";
+    let url = getBaseUrl() + "/starttask?id";
     this.setState({
       progressbar: true,
     });
@@ -296,11 +284,13 @@ export class Maincontentpage2 extends Component {
     let date = day + '-' + month + '-' + year + ' ' + hour + ':' + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
+      tasktype: "Search Engine Submission",
+      date: date,
       name: this.state.name,
       emailaddress: this.state.emailaddress,
-      submiturl: this.state.submiturl,
-      date: date,
-      tasktype: this.state.tasktype
+      submiturl: this.state.submiturl
+      
+      
     };
     axios.post(url, temp).then(
       (response) => {
@@ -418,6 +408,20 @@ export class Maincontentpage2 extends Component {
       return;
     }
   };
+  componentWillMount() {
+    let self = this;
+    let url =
+      getBaseUrl() + "/getinprogresstask?id="+window.localStorage.getItem("id");
+    axios.get(url).then(
+      (response) => {
+        
+        self.setState({
+         data:response.data
+        });
+      },
+      (error) => {}
+    );
+  }
   render() {
     return (
       <div className="container">

@@ -28,6 +28,7 @@ class Profile extends Component {
     this.state = {
       organization: "",
       deleteoption: false,
+      data:[],
       organizationEnable: true,
       profession: "N/A",
       professionEnable: true,
@@ -42,10 +43,7 @@ class Profile extends Component {
       drillDown: "DrillDown",
       data: [
         {
-          id: 1,
-          Date: "20/12/2000",
-          task: "Search Engine Submission",
-          status: "Inprogress",
+          
           action: (
             <span>
               <FontAwesomeIcon
@@ -68,10 +66,7 @@ class Profile extends Component {
           ),
         },
         {
-          id: 2,
-          Date: "21/12/2000",
-          task: "Social book marketing",
-          status: "Aborted",
+          
           action: (
             <span>
               <FontAwesomeIcon
@@ -94,10 +89,7 @@ class Profile extends Component {
           ),
         },
         {
-          id: 3,
-          Date: "22/12/2000",
-          task: "Classified Submission",
-          status: "Stopped",
+          
           action: (
             <span>
               <FontAwesomeIcon
@@ -120,10 +112,7 @@ class Profile extends Component {
           ),
         },
         {
-          id: 4,
-          Date: "23/12/2000",
-          task: "Search Engine Submission",
-          status: "Complete",
+          
           action: (
             <span>
               <FontAwesomeIcon
@@ -149,18 +138,18 @@ class Profile extends Component {
       columns: [
         {
           name: "DATE",
-          selector: "Date",
+          selector: "date",
           sortable: true,
         },
         {
           name: "TASK",
-          selector: "task",
+          selector: "tasktype",
           sortable: true,
           center: true,
         },
         {
           name: "STATUS",
-          selector: "status",
+          selector: "taskstatus",
           sortable: true,
           right: true,
         },
@@ -239,6 +228,21 @@ class Profile extends Component {
       },
       (error) => {}
     );
+
+
+    
+    
+    let nurl =  getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+    axios.get(nurl).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          data:response.data
+        });
+      },
+      (error) => {}
+    );
+
   }
 
   render() {
