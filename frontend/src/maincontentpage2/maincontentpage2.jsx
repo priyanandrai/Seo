@@ -119,52 +119,58 @@ export class Maincontentpage2 extends Component {
         },
       ],
 
-      data: [
-        {
+      // data: [
+      //   {
           
-          action: (
-            <FontAwesomeIcon
-              className=" mr-2 ml-2"
-              title="DrillDown"
-              icon={faAngleDoubleDown}
-              onClick={() => {
-                this.drilldown("create a table");
-              }}
-            />
-          ),
-        },
-        {
+      //     action: (
+      //       <FontAwesomeIcon
+      //         className=" mr-2 ml-2"
+      //         title="DrillDown"
+      //         icon={faAngleDoubleDown}
+      //         onClick={() => {
+      //           this.drilldown("create a table");
+      //         }}
+      //       />
+      //     ),
+      //   },
+      //   {
           
-          action: (
-            <FontAwesomeIcon
-              className=" mr-2 ml-2"
-              title="DrillDown"
-              icon={faAngleDoubleDown}
-              onClick={() => {
-                this.drilldown("Assign login");
-              }}
-            />
-          ),
-        },
-        {
+      //     action: (
+      //       <FontAwesomeIcon
+      //         className=" mr-2 ml-2"
+      //         title="DrillDown"
+      //         icon={faAngleDoubleDown}
+      //         onClick={() => {
+      //           this.drilldown("Assign login");
+      //         }}
+      //       />
+      //     ),
+      //   },
+      //   {
          
-          action: (
-            <FontAwesomeIcon
-              className=" mr-2 ml-2"
-              title="DrillDown"
-              icon={faAngleDoubleDown}
-              onClick={() => {
-                this.drilldown("Create a new page");
-              }}
-            />
-          ),
-        },
-      ],
+      //     action: (
+      //       <FontAwesomeIcon
+      //         className=" mr-2 ml-2"
+      //         title="DrillDown"
+      //         icon={faAngleDoubleDown}
+      //         onClick={() => {
+      //           this.drilldown("Create a new page");
+      //         }}
+      //       />
+      //     ),
+      //   },
+      // ],
       columns: [
+        // {
+        //   name: "S.No",
+        //   selector: "sno",
+        //   sortable: true,
+        // },
         {
-          name: "S.No",
-          selector: "sno",
+          name: "Start Time",
+          selector: "date",
           sortable: true,
+          left: true,
         },
         {
           name: "Task Type",
@@ -173,17 +179,19 @@ export class Maincontentpage2 extends Component {
           center: true,
         },
         {
-          name: "Start Time",
-          selector: "date",
-          sortable: true,
-          right: true,
-        },
+        name: "Task Status",
+        selector: "taskstatus",
+        sortable: true,
+        center: true,
+      },
+        
         {
           name: "Visual ID",
           selector: "visualId",
           sortable: true,
-          right: true,
+          center: true,
         },
+
         {
           name: "action",
           selector: "action",
@@ -416,7 +424,8 @@ export class Maincontentpage2 extends Component {
       (response) => {
         
         self.setState({
-         data:response.data
+         data:response.data,
+         
         });
       },
       (error) => {}

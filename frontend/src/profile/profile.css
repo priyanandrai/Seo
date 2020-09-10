@@ -64,8 +64,9 @@
 }
 
 .upgradetext {
-  color: cadetblue;
+  color: mediumvioletred;
   font-family: Century !important;
+  text-align: center !important;
 }
 .HWHoi,
 .jHsXUi,
