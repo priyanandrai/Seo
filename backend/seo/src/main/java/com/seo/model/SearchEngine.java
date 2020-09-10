@@ -43,6 +43,14 @@ public class SearchEngine {
 	}
 	
 	
+	
+	public SearchEngine() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "{\"id\":\"" + id + "\", \"userId\":\"" + userId + "\", \"tasktype\":\"" + tasktype + "\", \"taskstatus\":\"" + taskstatus

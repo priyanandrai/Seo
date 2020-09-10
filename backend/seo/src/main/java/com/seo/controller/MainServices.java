@@ -1,8 +1,10 @@
 package com.seo.controller;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
@@ -106,7 +109,7 @@ public class MainServices {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
 			return signup.get().toString();
 		} catch (Exception e) {
-			Optional<SignUp> signup = null;
+			
 			return "no data " ;
 		}
 
@@ -150,6 +153,7 @@ public class MainServices {
 	@PutMapping("/changepassword")
 	String changePassword(@RequestBody ChangePassword changepassword) {
 		Optional<SignUp> signup = this.iSignUpService.findById(changepassword.getUserId());
+		
 		SignUp signup1 = signup.get();
 		try {
 
@@ -168,5 +172,25 @@ public class MainServices {
 		}
 
 	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getinprogresstask")
+	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
+		try {
+			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+			
+			List<SearchEngine> list1=list.stream().filter(searchengine ->searchengine.getUserId()==id).collect(Collectors.toList()); 
+			return list1;
+			
+		} catch (Exception e) {
+			
+			return null;
+		}
 
+	}
+	
+
+	
 }
+		
+		

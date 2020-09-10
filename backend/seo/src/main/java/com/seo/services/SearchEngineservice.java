@@ -1,5 +1,7 @@
 package com.seo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,12 @@ public class SearchEngineservice {
 		
 		this.searchrepository.save(searchengine);
 		
+		
+	}
+	
+	public List<SearchEngine> findAlldetail() {
+		List<SearchEngine> list =(List<SearchEngine>)this.searchrepository.findAll();
+		return list;
 	}
 	
 
