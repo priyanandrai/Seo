@@ -92,6 +92,7 @@ public class MainServices {
 		System.out.println(signup.toString());
 		for (int i = 0; i < signup.size(); i++) {
 			if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
+			
 				continue;
 			}
 			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())

@@ -115,9 +115,9 @@ class Nav extends Component {
       alert("Password must match.");
       return;
     }
-    let url =
-      getBaseUrl() + "/changepassword?id=" + window.localStorage.getItem("id");
+    let url = getBaseUrl() + "/changepassword";
     let temp = {
+      userId: window.localStorage.getItem("id"),
       currentPassword: this.state.currentPassword,
       newPassword: this.state.newPassword,
     };
@@ -125,9 +125,15 @@ class Nav extends Component {
     axios.put(url, temp).then(
       (response) => {
         // alert(response.data.message);
-        this.setState({});
+        this.setState({
+          
+        });
+        alert("Password Successfully Changed");
+
+
         return;
       },
+
       (error) => {}
     );
   };
