@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
 import com.seo.model.SearchEngine;
@@ -92,7 +91,7 @@ public class MainServices {
 		System.out.println(signup.toString());
 		for (int i = 0; i < signup.size(); i++) {
 			if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
-			
+
 				continue;
 			}
 			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
@@ -110,8 +109,8 @@ public class MainServices {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
 			return signup.get().toString();
 		} catch (Exception e) {
-			
-			return "no data " ;
+
+			return "no data ";
 		}
 
 	}
@@ -119,42 +118,68 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@PostMapping("/starttask")
 	String starttask(@RequestBody SearchEngine searchengine) {
-		try { 
-		
-		if(searchengine.getName() == null ) {
-			return "{\"message\":\" Please enter your name\"}";
-		}
-		else {
-			if(searchengine.getEmailaddress() == null) {
-				return "{\"message\":\" Please enter your email address\"}";
-			}
-			
-			else {
-				if(searchengine.getSubmiturl()==null){
+		try {
+			String task1 = "Search Engine Submission";
+			String task2 = "Social Book Marketing";
+			String task3="Classified Submission";
+			if (searchengine.getTasktype().equalsIgnoreCase(task1)) {
+				if (searchengine.getName() == null) {
+					return "{\"message\":\" Please enter your name\"}";
+				}if (searchengine.getEmailaddress() == null) {
+					return "{\"message\":\" Please enter your email address\"}";
+				}if (searchengine.getSubmiturl() == null) {
 					return "{\"message\":\" Please enter the URl\"}";
 				}
-				
-				else {
-					searchengine.setTaskstatus("In Progress");
-					searchEngineService.savedatail(searchengine);
-					 return "{\"message\":\" Task type started successfully\"}";
+				searchengine.setTaskstatus("In Progress");
+				searchEngineService.savedatail(searchengine);
+				return "{\"message\":\" Task type started successfully\"}";
+			}else if (searchengine.getTasktype().equalsIgnoreCase(task2)) {
+                if (searchengine.getTitle() == null) {
+					return "{\"message\":\" Please enter the Title\"}";
+				}if (searchengine.getKeyword() == null) {
+						return "{\"message\":\" Please enter the keyword\"}";
+				}if (searchengine.getDescription() == null) {
+							return "{\"message\":\" Please enter the Description\"}";
+				}if (searchengine.getSubmiturl() == null) {
+								return "{\"message\":\" Please enter the URl\"}";
 				}
-				
+				searchengine.setTaskstatus("In Progress");
+				searchEngineService.savedatail(searchengine);
+				return "{\"message\":\" Task type started successfully\"}";
+			}else if (searchengine.getTasktype().equalsIgnoreCase(task3)){
+					if (searchengine.getTitle() == null) {
+		        	  return "{\"message\":\" Please enter the Title\"}";
+		          }if (searchengine.getKeyword() == null) {
+		        	  return "{\"message\":\" Please enter the keyword\"}";
+		          }if (searchengine.getDescription() == null) {
+		        	  return "{\"message\":\" Please enter the Description\"}";
+		          }if (searchengine.getSubmiturl() == null) {
+		        	  return "{\"message\":\" Please enter the URl\"}";
+		          }if (searchengine.getEmailaddress() == null) {
+						return "{\"message\":\" Please enter your email address\"}";
+		          }if(searchengine.getPassword() == null) {
+						return "{\"message\":\" Please enter your email address\"}";
+		          }
+		          searchengine.setTaskstatus("In Progress");
+		          searchEngineService.savedatail(searchengine);
+		          return "{\"message\":\" Task type started successfully\"}";
+				}
+			else {
+				return "{\"message\":\" Please select a valid   Task Type\"}";
 			}
-		}
-	
-		}catch (Exception e) {
-			return "{\"message\":\"Error in creating task , Please try again \"}";
-		}
-		
-		
+									
+	}catch(Exception e)
+	{
+		return "{\"message\":\"Error in creating task , Please try again \"}";
+	}
+
 	}
 
 	@CrossOrigin(origins = "*")
 	@PutMapping("/changepassword")
 	String changePassword(@RequestBody ChangePassword changepassword) {
 		Optional<SignUp> signup = this.iSignUpService.findById(changepassword.getUserId());
-		
+
 		SignUp signup1 = signup.get();
 		try {
 
@@ -173,41 +198,39 @@ public class MainServices {
 		}
 
 	}
-	
+
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getinprogresstask")
 	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
 		try {
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
-			String taskstatus="In Progress";
-			List<SearchEngine> list1=list.stream().filter(searchengine ->searchengine.getUserId()==id && searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)).collect(Collectors.toList()); 
+			String taskstatus = "In Progress";
+			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id
+					&& searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)).collect(Collectors.toList());
 			return list1;
-			
+
 		} catch (Exception e) {
-			
+
 			return null;
 		}
 
 	}
-	
-	
+
 	@CrossOrigin(origins = "*")
 	@GetMapping("/gettask")
 	public List<SearchEngine> getTask(@RequestParam("id") Long id) {
 		try {
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
-			
-			List<SearchEngine> list1=list.stream().filter(searchengine ->searchengine.getUserId()==id).collect(Collectors.toList()); 
+
+			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
+					.collect(Collectors.toList());
 			return list1;
-			
+
 		} catch (Exception e) {
-			
+
 			return null;
 		}
 
 	}
 
-	
 }
-		
-		
