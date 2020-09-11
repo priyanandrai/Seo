@@ -294,6 +294,7 @@ export class Maincontentpage2 extends Component {
           snackbar: true,
           error: "Data is successfully uploaded",
         });
+        window.location.reload();
         return;
       },
       (error) => {
@@ -385,6 +386,7 @@ export class Maincontentpage2 extends Component {
           snackbar: true,
           error: "Data is successfully uploaded",
         });
+        window.location.reload();
         return;
       },
       (error) => {
@@ -493,6 +495,7 @@ export class Maincontentpage2 extends Component {
           snackbar: true,
           error: "Data is successfully uploaded",
         });
+        window.location.reload();
         return;
       },
       (error) => {
@@ -579,6 +582,17 @@ export class Maincontentpage2 extends Component {
                             this.setState({ submiturl: e.target.value })
                           }
                         />
+                          <Form.Label>Comment</Form.Label>
+                        <Form.Control
+                          type="Url"
+                          id="Url"
+                          placeholder="Enter your comment"
+                          className="formwidth"
+                          // value={this.state.submiturl}
+                          // onChange={(e) =>
+                          //   this.setState({ submiturl: e.target.value })
+                          // }
+                        />
 
                         <div className="d-flex justify-content-end mrrginside22">
                           <Button
@@ -652,6 +666,17 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
+                          <Form.Label>Comment</Form.Label>
+                        <Form.Control
+                          type="Url"
+                          id="Url"
+                          placeholder="Enter your comment"
+                          className="formwidth"
+                          // value={this.state.submiturl}
+                          // onChange={(e) =>
+                          //   this.setState({ submiturl: e.target.value })
+                          // }
+                        />
 
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button
@@ -746,6 +771,17 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
+                          <Form.Label>Comment</Form.Label>
+                        <Form.Control
+                          type="Url"
+                          id="Url"
+                          placeholder="Enter your comment"
+                          className="formwidth"
+                          // value={this.state.submiturl}
+                          // onChange={(e) =>
+                          //   this.setState({ submiturl: e.target.value })
+                          // }
+                        />
 
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button
