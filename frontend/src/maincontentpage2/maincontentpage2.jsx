@@ -512,12 +512,13 @@ export class Maincontentpage2 extends Component {
       "/getinprogresstask?id=" +
       window.localStorage.getItem("id");
     axios.get(url).then(
-      (response) => {
+        (response) => {
+          let fontonly =  (<FontAwesomeIcon className=" mr-2 ml-2" title="DrillDown" icon={faAngleDoubleDown} onClick={() => { this.drilldown("create a table"); }}/>);
+          response.data.map(i=>i.action=fontonly);
         self.setState({
           data: response.data,
         });
-        console.log("AAAAAAAAAAAAAA", response.data);
-      },
+       },
       (error) => {}
     );
   }
