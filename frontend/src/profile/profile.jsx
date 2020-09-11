@@ -286,7 +286,7 @@ class Profile extends Component {
               </div>
             </div>
 
-            <div className="pt-2 upgrademargin">
+            <div className="pt-2 upgrademargin ">
               <a onClick={this.dialogBox} className="upgradetext">
                 Upgrade to Premium
               </a>
