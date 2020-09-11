@@ -76,6 +76,11 @@ export class Maincontentpage2 extends Component {
       emaill: "",
       Passwordd: "",
       descriptionss: "",
+      visualId:"",
+      description:"",
+      password:"",
+      title:"",
+      keyword:"",
       urls: "",
       keywordsss: "",
 
@@ -274,6 +279,12 @@ export class Maincontentpage2 extends Component {
       name: this.state.name,
       emailaddress: this.state.emailaddress,
       submiturl: this.state.submiturl,
+      visualId:this.state.visualId,
+      title:this.state.title,
+      keyword:this.state.keyword,
+      description:this.state.description,
+      password:this.state.password
+
     };
     axios.post(url, temp).then(
       (response) => {
@@ -294,17 +305,17 @@ export class Maincontentpage2 extends Component {
   };
 
   handlesubmission = (e) => {
-    const { sbmUrl, title, description, keywords } = this.state;
+    const { submiturl, title, description, keyword } = this.state;
 
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
-    if (sbmUrl == "") {
+    if (submiturl == "") {
       this.setState({
         snackbar: true,
         error: "please enter the url",
       });
       return;
-    } else if (!sbmUrl.match(regesxemssm)) {
+    } else if (!submiturl.match(regesxemssm)) {
       this.setState({
         snackbar: true,
         error: "enter the valid url",
@@ -328,7 +339,7 @@ export class Maincontentpage2 extends Component {
 
       return;
     }
-    if (keywords == "") {
+    if (keyword == "") {
       this.setState({
         snackbar: true,
         error: "please enter the keywords",
@@ -336,18 +347,64 @@ export class Maincontentpage2 extends Component {
 
       return;
     }
+    let url = getBaseUrl() + "/starttask?id";
+    this.setState({
+      progressbar: true,
+    });
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let year = new Date().getFullYear();
+    let hour = new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
+    let temp = {
+      userId: window.localStorage.getItem("id"),
+      tasktype: "Social Book Marketing",
+      date: date,
+      name: this.state.name,
+      emailaddress: this.state.emailaddress,
+      submiturl: this.state.submiturl,
+      visualId:this.state.visualId,
+      title:this.state.title,
+      keyword:this.state.keyword,
+      description:this.state.description,
+      password:this.state.password
+
+    };
+    axios.post(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
   };
   handleclick = (e) => {
-    const { name, emaill, sbmUrl } = this.state;
+    const { name, emailaddress, submiturl } = this.state;
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (emaill == "") {
+    if (emailaddress == "") {
       this.setState({
         snackbar: true,
         error: "Please enter email Id.",
       });
       return;
-    } else if (!emaill.match(regexex)) {
+    } else if (!emailaddress.match(regexex)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid email Id.",
@@ -355,27 +412,35 @@ export class Maincontentpage2 extends Component {
       return;
     }
 
-    if (this.state.Passwordd == "") {
+    if (this.state.password == "") {
       this.setState({
         snackbar: true,
         error: "Please enter the password",
       });
       return;
     }
-    if (this.state.descriptionss == "") {
+    if (this.state.title == "") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter the title",
+      });
+      return;
+    }
+    if (this.state.description == "") {
       this.setState({
         snackbar: true,
         error: "Please enter the description",
       });
       return;
     }
-    if (this.state.sbmUrl == "") {
+    const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    if (this.state.submiturl == "") {
       this.setState({
         snackbar: true,
         error: "Please enter the url",
       });
       return;
-    } else if (!sbmUrl.match(regexex)) {
+    } else if (!submiturl.match(regesxemssm)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid URL.",
@@ -383,13 +448,59 @@ export class Maincontentpage2 extends Component {
       return;
     }
 
-    if (this.state.keywordsss == "") {
+    if (this.state.keyword == "") {
       this.setState({
         snackbar: true,
         error: "Please enter the keywords",
       });
       return;
     }
+    let url = getBaseUrl() + "/starttask?id";
+    this.setState({
+      progressbar: true,
+    });
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let year = new Date().getFullYear();
+    let hour = new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
+    let temp = {
+      userId: window.localStorage.getItem("id"),
+      tasktype: "Classified Submission",
+      date: date,
+      name: this.state.name,
+      emailaddress: this.state.emailaddress,
+      submiturl: this.state.submiturl,
+      visualId:this.state.visualId,
+      title:this.state.title,
+      keyword:this.state.keyword,
+      description:this.state.description,
+      password:this.state.password
+
+    };
+    axios.post(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
   };
   componentWillMount() {
     let self = this;
@@ -506,9 +617,9 @@ export class Maincontentpage2 extends Component {
                             type="url"
                             placeholder="Enter url"
                             className="formwidth"
-                            value={this.state.sbmUrl}
+                            value={this.state.submiturl}
                             onChange={(e) =>
-                              this.setState({ sbmUrl: e.target.value })
+                              this.setState({ submiturl: e.target.value })
                             }
                           />
                           <Form.Label>title</Form.Label>
@@ -536,9 +647,9 @@ export class Maincontentpage2 extends Component {
                             type="text"
                             placeholder="Enter Keywords"
                             className="formwidth"
-                            value={this.state.keywords}
+                            value={this.state.keyword}
                             onChange={(e) =>
-                              this.setState({ keywords: e.target.value })
+                              this.setState({ keyword: e.target.value })
                             }
                           />
 
@@ -580,9 +691,9 @@ export class Maincontentpage2 extends Component {
                             type="email"
                             placeholder="Enter Email"
                             className="formwidth"
-                            value={this.state.emaill}
+                            value={this.state.emailaddress}
                             onChange={(e) =>
-                              this.setState({ emaill: e.target.value })
+                              this.setState({ emailaddress: e.target.value })
                             }
                           />
                           <Form.Label>Password</Form.Label>
@@ -590,9 +701,9 @@ export class Maincontentpage2 extends Component {
                             type="password"
                             placeholder="Enter Password"
                             className="formwidth"
-                            value={this.state.Passwordd}
+                            value={this.state.password}
                             onChange={(e) =>
-                              this.setState({ Passwordd: e.target.value })
+                              this.setState({ password: e.target.value })
                             }
                           />
                           <Form.Label>Title</Form.Label>
@@ -600,9 +711,9 @@ export class Maincontentpage2 extends Component {
                             type="text"
                             placeholder="Enter title"
                             className="formwidth"
-                            value={this.state.titles}
+                            value={this.state.title}
                             onChange={(e) =>
-                              this.setState({ titles: e.target.value })
+                              this.setState({ title: e.target.value })
                             }
                           />
                           <Form.Label>Description</Form.Label>
@@ -610,9 +721,9 @@ export class Maincontentpage2 extends Component {
                             type="text"
                             placeholder="Enter Description"
                             className="formwidth"
-                            value={this.state.descriptionss}
+                            value={this.state.description}
                             onChange={(e) =>
-                              this.setState({ descriptionss: e.target.value })
+                              this.setState({ description: e.target.value })
                             }
                           />
                           <Form.Label>URL</Form.Label>
@@ -620,9 +731,9 @@ export class Maincontentpage2 extends Component {
                             type="url"
                             placeholder="Enter url"
                             className="formwidth"
-                            value={this.state.sbmUrl}
+                            value={this.state.submiturl}
                             onChange={(e) =>
-                              this.setState({ sbmUrl: e.target.value })
+                              this.setState({ submiturl: e.target.value })
                             }
                           />
                           <Form.Label>Keywords</Form.Label>
@@ -630,9 +741,9 @@ export class Maincontentpage2 extends Component {
                             type="text"
                             placeholder="Enter Keywords"
                             className="formwidth"
-                            value={this.state.keywordsss}
+                            value={this.state.keyword}
                             onChange={(e) =>
-                              this.setState({ keywordsss: e.target.value })
+                              this.setState({ keyword: e.target.value })
                             }
                           />
 
