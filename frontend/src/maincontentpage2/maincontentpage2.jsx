@@ -46,17 +46,17 @@ export class Maincontentpage2 extends Component {
         { title: "four", value: 5, color: "#fc8256" },
         { title: "five", value: 30, color: "red" },
       ],
-      id:"",
+      id: "",
       snackbar: false,
       progressbar: false,
       tasktype: "xyz",
       visualId: null,
       todaydate: new Date().toISOString(),
-      userId:"",
+      userId: "",
       userId: "3",
       drilldown: false,
       // drilldown1: false,
-      data:[],
+      data: [],
       message: "",
       name: "",
       show: false,
@@ -78,6 +78,7 @@ export class Maincontentpage2 extends Component {
       descriptionss: "",
       urls: "",
       keywordsss: "",
+
       datadialog: [
         {
           id: 1,
@@ -121,7 +122,6 @@ export class Maincontentpage2 extends Component {
 
       // data: [
       //   {
-          
       //     action: (
       //       <FontAwesomeIcon
       //         className=" mr-2 ml-2"
@@ -129,32 +129,6 @@ export class Maincontentpage2 extends Component {
       //         icon={faAngleDoubleDown}
       //         onClick={() => {
       //           this.drilldown("create a table");
-      //         }}
-      //       />
-      //     ),
-      //   },
-      //   {
-          
-      //     action: (
-      //       <FontAwesomeIcon
-      //         className=" mr-2 ml-2"
-      //         title="DrillDown"
-      //         icon={faAngleDoubleDown}
-      //         onClick={() => {
-      //           this.drilldown("Assign login");
-      //         }}
-      //       />
-      //     ),
-      //   },
-      //   {
-         
-      //     action: (
-      //       <FontAwesomeIcon
-      //         className=" mr-2 ml-2"
-      //         title="DrillDown"
-      //         icon={faAngleDoubleDown}
-      //         onClick={() => {
-      //           this.drilldown("Create a new page");
       //         }}
       //       />
       //     ),
@@ -179,12 +153,12 @@ export class Maincontentpage2 extends Component {
           center: true,
         },
         {
-        name: "Task Status",
-        selector: "taskstatus",
-        sortable: true,
-        center: true,
-      },
-        
+          name: "Task Status",
+          selector: "taskstatus",
+          sortable: true,
+          center: true,
+        },
+
         {
           name: "Visual ID",
           selector: "visualId",
@@ -224,7 +198,6 @@ export class Maincontentpage2 extends Component {
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
-
 
   handlesubmit = (e) => {
     e.preventDefault();
@@ -282,23 +255,25 @@ export class Maincontentpage2 extends Component {
     this.setState({
       progressbar: true,
     });
-    let month =  new Date().getMonth() +1;
-    if(month<10){month='0'+month}
-    let day= new Date().getDate();
-     if(day<10){day='0'+day} 
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
     let year = new Date().getFullYear();
-    let hour =  new Date().getHours();
+    let hour = new Date().getHours();
     let min = new Date().getMinutes();
-    let date = day + '-' + month + '-' + year + ' ' + hour + ':' + min;
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
       tasktype: "Search Engine Submission",
       date: date,
       name: this.state.name,
       emailaddress: this.state.emailaddress,
-      submiturl: this.state.submiturl
-      
-      
+      submiturl: this.state.submiturl,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -419,14 +394,15 @@ export class Maincontentpage2 extends Component {
   componentWillMount() {
     let self = this;
     let url =
-      getBaseUrl() + "/getinprogresstask?id="+window.localStorage.getItem("id");
+      getBaseUrl() +
+      "/getinprogresstask?id=" +
+      window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-        
         self.setState({
-         data:response.data,
-         
+          data: response.data,
         });
+        console.log("AAAAAAAAAAAAAA", response.data);
       },
       (error) => {}
     );
@@ -599,6 +575,7 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
+                          <Form.Label>Email</Form.Label>
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
