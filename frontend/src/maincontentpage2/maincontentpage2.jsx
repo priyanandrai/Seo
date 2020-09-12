@@ -22,6 +22,7 @@ import {
   faAngleDoubleDown,
   faTimes,
   faEye,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
@@ -554,7 +555,8 @@ export class Maincontentpage2 extends Component {
                         style={{ marginLeft: "10%" }}
                         className="input-width"
                       >
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Name</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                        {/* <FontAwesomeIcon icon={faStar} className="starcolor" /> */}
                         <Form.Control
                           type="name"
                           placeholder="Enter name"
@@ -565,7 +567,7 @@ export class Maincontentpage2 extends Component {
                             this.setState({ name: e.target.value })
                           }
                         />
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label>Email address</Form.Label><Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="email"
                           placeholder="Enter email"
@@ -578,7 +580,7 @@ export class Maincontentpage2 extends Component {
                             })
                           }
                         />
-                        <Form.Label>Enter Url</Form.Label>
+                        <Form.Label>Enter Url</Form.Label><Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -589,7 +591,7 @@ export class Maincontentpage2 extends Component {
                             this.setState({ submiturl: e.target.value })
                           }
                         />
-                        <Form.Label>Comment</Form.Label>
+                        <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -633,7 +635,7 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <Form.Label>Url</Form.Label>
+                          <Form.Label>Url</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
@@ -643,7 +645,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ submiturl: e.target.value })
                             }
                           />
-                          <Form.Label>title</Form.Label>
+                          <Form.Label>title</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
@@ -653,7 +655,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ title: e.target.value })
                             }
                           />
-                          <Form.Label>Description</Form.Label>
+                          <Form.Label>Description</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
@@ -663,7 +665,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ description: e.target.value })
                             }
                           />
-                          <Form.Label>Keywords</Form.Label>
+                          <Form.Label>Keywords</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
@@ -673,7 +675,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
-                          <Form.Label>Comment</Form.Label>
+                          <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="Url"
                             id="Url"
@@ -718,7 +720,7 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <Form.Label>Email</Form.Label>
+                          <Form.Label>Email</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
@@ -728,7 +730,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ emailaddress: e.target.value })
                             }
                           />
-                          <Form.Label>Password</Form.Label>
+                          <Form.Label>Password</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="password"
                             placeholder="Enter Password"
@@ -738,7 +740,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ password: e.target.value })
                             }
                           />
-                          <Form.Label>Title</Form.Label>
+                          <Form.Label>Title</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
@@ -748,7 +750,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ title: e.target.value })
                             }
                           />
-                          <Form.Label>Description</Form.Label>
+                          <Form.Label>Description</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
@@ -758,7 +760,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ description: e.target.value })
                             }
                           />
-                          <Form.Label>URL</Form.Label>
+                          <Form.Label>URL</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
@@ -768,7 +770,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ submiturl: e.target.value })
                             }
                           />
-                          <Form.Label>Keywords</Form.Label>
+                          <Form.Label>Keywords</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
@@ -778,7 +780,7 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
-                          <Form.Label>Comment</Form.Label>
+                          <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="Url"
                             id="Url"
