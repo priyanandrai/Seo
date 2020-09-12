@@ -21,7 +21,9 @@ import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
+import com.seo.model.SubmitRequest;
 import com.seo.services.ISignUpService;
+import com.seo.services.ISubmitRequestService;
 import com.seo.services.SearchEngineservice;
 
 @RestController
@@ -31,6 +33,8 @@ public class MainServices {
 	ISignUpService iSignUpService;
 	@Autowired
 	SearchEngineservice searchEngineService;
+	@Autowired
+	ISubmitRequestService iSubmitRequestService;
 
 	@Autowired
 	private Environment env;
@@ -237,6 +241,15 @@ public class MainServices {
 			return null;
 		}
 
+	}
+	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/submitrequest")
+	public String submitrequesthere(@RequestBody SubmitRequest  submitRequest) {
+		iSubmitRequestService.save(submitRequest);
+		System.out.println(submitRequest.toString());
+		return "request is added sucessfully";
 	}
 
 }
