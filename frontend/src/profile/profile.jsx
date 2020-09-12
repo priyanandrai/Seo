@@ -154,6 +154,12 @@ class Profile extends Component {
           right: true,
         },
         {
+          name: "COMMENTS",
+          selector: "",
+          sortable: true,
+          right: true,
+        },
+        {
           name: "ACTION",
           selector: "action",
 
