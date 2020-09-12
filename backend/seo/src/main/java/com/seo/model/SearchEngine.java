@@ -28,14 +28,12 @@ public class SearchEngine {
 	private String keyword;
 	private String description;
 	private String password;
+	private String comments;
 	
 	
-	
-	
-
 	public SearchEngine(Long id, Long userId, String tasktype, String taskstatus, String date, String name,
 			String emailaddress, String submiturl, String visualId, String title, String keyword, String description,
-			String password) {
+			String password, String comments) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -50,105 +48,166 @@ public class SearchEngine {
 		this.keyword = keyword;
 		this.description = description;
 		this.password = password;
+		this.comments = comments;
 	}
+
 
 	public SearchEngine() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
 	@Override
 	public String toString() {
-		return "SearchEngine [id=" + id + ", userId=" + userId + ", tasktype=" + tasktype + ", taskstatus=" + taskstatus
-				+ ", date=" + date + ", name=" + name + ", emailaddress=" + emailaddress + ", submiturl=" + submiturl
-				+ ", visualId=" + visualId + ", title=" + title + ", keyword=" + keyword + ", description="
-				+ description + ", password=" + password + "]";
+		return "{\"id\":\"" + id + "\", \"userId\":\"" + userId + "\", \"tasktype\":\"" + tasktype + "\", \"taskstatus\":\"" + taskstatus
+				+ "\", \"date\":\"" + date + "\", \"name\":\"" + name + "\", \"emailaddress\":\"" + emailaddress + "\", \"submiturl\":\"" + submiturl
+				+ "\", \"visualId\":\"" + visualId + "\", \"title\":\"" + title + "\", \"keyword\":\"" + keyword + "\", \"description\":\""
+				+ description + "\", \"password\":\"" + password + "\", \"comments\":\"" + comments + "\"}";
 	}
+
 
 	public Long getId() {
 		return id;
 	}
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public long getUserId() {
+
+
+	public Long getUserId() {
 		return userId;
 	}
+
+
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+
+
 	public String getTasktype() {
 		return tasktype;
 	}
+
+
 	public void setTasktype(String tasktype) {
 		this.tasktype = tasktype;
 	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmailaddress() {
-		return emailaddress;
-	}
-	public void setEmailaddress(String emailaddress) {
-		this.emailaddress = emailaddress;
-	}
-	public String getSubmiturl() {
-		return submiturl;
-	}
-	public void setSubmiturl(String submiturl) {
-		this.submiturl = submiturl;
-	}
-	
+
+
 	public String getTaskstatus() {
 		return taskstatus;
 	}
+
+
 	public void setTaskstatus(String taskstatus) {
 		this.taskstatus = taskstatus;
 	}
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getEmailaddress() {
+		return emailaddress;
+	}
+
+
+	public void setEmailaddress(String emailaddress) {
+		this.emailaddress = emailaddress;
+	}
+
+
+	public String getSubmiturl() {
+		return submiturl;
+	}
+
+
+	public void setSubmiturl(String submiturl) {
+		this.submiturl = submiturl;
+	}
+
+
 	public String getVisualId() {
 		return visualId;
 	}
+
+
 	public void setVisualId(String visualId) {
 		this.visualId = visualId;
 	}
+
 
 	public String getTitle() {
 		return title;
 	}
 
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 
 	public String getKeyword() {
 		return keyword;
 	}
 
+
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+
 
 	public String getDescription() {
 		return description;
 	}
 
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
+
+
+	public String getComments() {
+		return comments;
+	}
+
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
+	
+	
+
+	
 }

@@ -129,6 +129,8 @@ public class MainServices {
 					return "{\"message\":\" Please enter your email address\"}";
 				}if (searchengine.getSubmiturl() == null) {
 					return "{\"message\":\" Please enter the URl\"}";
+				}if(searchengine.getComments()==null) {
+					return "{\"message\":\" Please enter the comment\"}";
 				}
 				searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
@@ -142,6 +144,8 @@ public class MainServices {
 							return "{\"message\":\" Please enter the Description\"}";
 				}if (searchengine.getSubmiturl() == null) {
 								return "{\"message\":\" Please enter the URl\"}";
+				}if(searchengine.getComments()==null) {
+					return "{\"message\":\" Please enter the comment\"}";
 				}
 				searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
@@ -159,7 +163,9 @@ public class MainServices {
 						return "{\"message\":\" Please enter your email address\"}";
 		          }if(searchengine.getPassword() == null) {
 						return "{\"message\":\" Please enter your email address\"}";
-		          }
+		          }if(searchengine.getComments()==null) {
+						return "{\"message\":\" Please enter the comment\"}";
+					}
 		          searchengine.setTaskstatus("In Progress");
 		          searchEngineService.savedatail(searchengine);
 		          return "{\"message\":\" Task type started successfully\"}";
