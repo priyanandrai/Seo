@@ -32,6 +32,7 @@ import {
   faKey,
   faEnvelope,
   faUser,
+  faEye,
   faTimes,
   faBars,
   faPhone,
@@ -675,6 +676,7 @@ class Nav extends Component {
                   <fieldset className="inputHome">
                     <FontAwesomeIcon icon={faKey} className="signup-icon" />
                     <Input
+                      id="myInput"
                       className="bodernull111"
                       type="password"
                       name="password"
@@ -683,6 +685,7 @@ class Nav extends Component {
                       value={password}
                       onChange={this.handelOnChange}
                     />
+                    <FontAwesomeIcon icon={faEye} className="ml-5 signup-icon" onClick={this.myFunction} />
                   </fieldset>
                 )}
                 {modal_type === "signin" && (
