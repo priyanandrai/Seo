@@ -56,11 +56,12 @@ export class Maincontentpage2 extends Component {
       userId: "",
       userId: "3",
       drilldown: false,
-      // drilldown1: false,
+     
       data: [],
       message: "",
       name: "",
       show: false,
+      selectedtasktype:"",
       showme: false,
       showto: false,
       email: "",
@@ -79,6 +80,7 @@ export class Maincontentpage2 extends Component {
       descriptionss: "",
       visualId: "",
       description: "",
+      selectedlist:{},
       comments:"",
       password: "",
       title: "",
@@ -185,18 +187,23 @@ export class Maincontentpage2 extends Component {
   fullView = () => {
     window.open("/tasks");
   };
-  drilldown = (para) => {
-    this.setState({ drilldown: !this.state.drilldown });
-    if (para == "create a table") {
-      this.setState({ taskTitle: "" });
-    }
-    if (para == "Assign login") {
-      this.setState({ taskTitle: "Assign login" });
-    }
-    if (para == "Create a new page") {
-      this.setState({ taskTitle: "Create a new page" });
-    }
-  };
+  // drilldown = (index) =>{
+  //   this.setState({
+  //     selectedlist:this.state.taskstatus[index]
+  //   })
+  // }
+  // drilldown = (para) => {
+  //   this.setState({ drilldown: !this.state.drilldown });
+  //   if (para == "create a table") {
+  //     this.setState({ taskTitle: "" });
+  //   }
+  //   if (para == "Assign login") {
+  //     this.setState({ taskTitle: "Assign login" });
+  //   }
+  //   if (para == "Create a new page") {
+  //     this.setState({ taskTitle: "Create a new page" });
+  //   }
+  // };
   // drilldown1 = () => {
   //   // this.setState({ drilldown1: !this.state.profile });
   //   window.location= "/profile";
@@ -536,18 +543,16 @@ export class Maincontentpage2 extends Component {
       window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-        let fontonly = (
-          <FontAwesomeIcon
-            className=" mr-2 ml-2"
-            title="DrillDown"
-            icon={faAngleDoubleDown}
-            onClick={() => {
-              this.drilldown("create a table");
-            }}
-          />
-        );
-        response.data.map((i) => 
-        (i.action = fontonly),
+        
+        response.data.map((i,index ) => 
+        (i.action = ( <FontAwesomeIcon
+          className=" mr-2 ml-2"
+          title="DrillDown"
+          icon={faAngleDoubleDown}
+          onClick={() => {
+            this.handleClickOpen(index)
+          }}
+        />)),
        );
         
        
@@ -563,6 +568,16 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
+
+  handleClickOpen(index) {
+    // alert(this.state.data[index].tasktype)
+    this.setState({
+       drilldown:true,
+       selectedtasktype:this.state.data[index].tasktype
+    })
+           //  document.getElementById("viewAppoinment").modal('show');
+  
+    }
   render() {
     return (
       <div className="container">
@@ -949,7 +964,7 @@ export class Maincontentpage2 extends Component {
                 </div>
                 <div className="container">
                   <DataTable
-                    title={this.state.taskTitle}
+                    title={this.state.selectedtasktype}
                     // title={this.state.title}
                     columns={this.state.columnsdialog}
                     data={this.state.datadialog}
