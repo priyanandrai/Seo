@@ -95,7 +95,14 @@ class Nav extends Component {
       x.type = "password";
     }
   }
-
+  myFunction1 = () => {
+    var x = document.getElementById("myInput1");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 
   barmenu = () => {
     this.setState({ barmenu: !this.state.barmenu });
@@ -713,6 +720,7 @@ class Nav extends Component {
                   <fieldset className="inputHome">
                     <FontAwesomeIcon icon={faKey} className="signup-icon" />
                     <Input
+                     id="myInput1"
                       className="bodernull111"
                       type="password"
                       name="confirm_password"
@@ -721,6 +729,7 @@ class Nav extends Component {
                       value={confirm_password}
                       onChange={this.handelOnChange}
                     />
+                    <FontAwesomeIcon icon={faEye} className="ml-5 signup-icon" onClick={this.myFunction1} />
                   </fieldset>
                 )}
 
