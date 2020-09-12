@@ -521,7 +521,16 @@ export class Maincontentpage2 extends Component {
             }}
           />
         );
-        response.data.map((i) => (i.action = fontonly));
+        response.data.map((i) => 
+        (i.action = fontonly),
+       );
+        
+       
+       let loader=<CircularProgress color="secondary" className="circular"/>
+        response.data.map((i)=>
+        (i.taskstatus=loader)
+        );
+        
         self.setState({
           data: response.data,
         });

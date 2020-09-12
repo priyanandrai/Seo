@@ -2005,3 +2005,7 @@ a.disabled {
   
   color: red !important;
 }
+.circular{
+  width:20px !important;
+  height: 20px !important;
+}
