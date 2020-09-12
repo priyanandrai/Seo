@@ -152,13 +152,13 @@ class Profile extends Component {
           name: "STATUS",
           selector: "taskstatus",
           sortable: true,
-          right: true,
+          center: true,
         },
         {
           name: "COMMENTS",
           selector: "comments",
           sortable: true,
-          right: true,
+          center: true,
         },
         {
           name: "ACTION",
@@ -277,6 +277,9 @@ class Profile extends Component {
     );
 
   }
+  cancelprofile = () => {
+    window.location.reload();
+  }
 
   render() {
     return (
@@ -285,7 +288,7 @@ class Profile extends Component {
           <Grid item md={12}>
             <div className="buttonsright22 btnmobile">
               <button type="button" className="btnmargin bottoncolorq">Save</button>
-              <button type="button" className="bottoncolorq">Cancel</button>
+              <button type="button" className="bottoncolorq" onClick={this.cancelprofile}>Cancel</button>
             </div>
           </Grid>
           <Grid item md={4}>
