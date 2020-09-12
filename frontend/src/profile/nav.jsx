@@ -73,6 +73,7 @@ class Nav extends Component {
       register: false,
       getintouch: false,
       barmenu: false,
+      message:"",
       // logindialog:false,
       // dropdownmenu:false,
     };
@@ -86,6 +87,44 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+  submitrequest = () => {
+    const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (this.state.email == "") {
+      alert("Enter your Email");
+      return;
+    } else if (!this.state.email.match(regexex)) {
+     alert("Please valid Email") 
+      return;
+    }
+    if (this.state.message == "") {
+      alert("Enter your message");
+      return;
+    } 
+  
+
+    let url = getBaseUrl() + "/submitrequest";
+    let temp = {
+      userId: window.localStorage.getItem("id"),
+      email:this.state.email,
+      message:this.state.message
+    };
+
+    axios.post(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          
+        });
+        alert("Request Successfully Submit");
+
+
+        return;
+      },
+
+      (error) => {}
+    );
+  };
+  
   
   myFunction = () => {
     var x = document.getElementById("myInput");
@@ -1008,7 +1047,13 @@ class Nav extends Component {
                       type="text"
                       class="form-control"
                       placeholder="Email"
-                    />
+                      value={this.state.email}
+                      onChange={(e)=>{
+                        this.setState({
+                          email:e.target.value
+                        })
+                      }}
+/>
                   </fieldset>
 
                   <textarea
@@ -1016,6 +1061,12 @@ class Nav extends Component {
                     placeholder="Enter message here"
                     multiline
                     rows={4}
+                    value={this.state.message}
+                    onChange={(e)=>{
+                      this.setState({
+                        message:e.target.value
+                      })
+                    }}
                     rowsMax={4}
                   />
 
@@ -1024,6 +1075,8 @@ class Nav extends Component {
                       className="forgetpwdbtn mx-auto d-block"
                       type="submit"
                       value="SUBMIT"
+                      onClick={this.submitrequest}
+                      
                     />
                   </div>
                 </div>

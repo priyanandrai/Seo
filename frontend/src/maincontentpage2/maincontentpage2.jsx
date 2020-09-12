@@ -188,7 +188,7 @@ export class Maincontentpage2 extends Component {
   drilldown = (para) => {
     this.setState({ drilldown: !this.state.drilldown });
     if (para == "create a table") {
-      this.setState({ taskTitle: "Create a table" });
+      this.setState({ taskTitle: "" });
     }
     if (para == "Assign login") {
       this.setState({ taskTitle: "Assign login" });
