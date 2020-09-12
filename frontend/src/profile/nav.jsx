@@ -86,6 +86,16 @@ class Nav extends Component {
   // otpconfirm = () =>{
   //   window.location
   // }
+  
+  myFunction = () => {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
 
   barmenu = () => {
     this.setState({ barmenu: !this.state.barmenu });
