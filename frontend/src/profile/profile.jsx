@@ -243,17 +243,20 @@ class Profile extends Component {
                     className=" mr-2"
                     onClick={this.Playsession}
                     icon={faPlay}
+                    title="Play Session"
                   />
                   |
                   <FontAwesomeIcon
                     className=" mr-2 ml-2 afterplaycolor"
                     icon={faDownload}
+                    title="Download Session"
                   />
                   |
                   <FontAwesomeIcon
                     className=" mr-2 ml-2"
                     onClick={this.deleteoption}
                     icon={faTrash}
+                    title="Delete Session"
                   />
                 </span>
         );
