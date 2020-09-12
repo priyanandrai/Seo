@@ -76,11 +76,11 @@ export class Maincontentpage2 extends Component {
       emaill: "",
       Passwordd: "",
       descriptionss: "",
-      visualId:"",
-      description:"",
-      password:"",
-      title:"",
-      keyword:"",
+      visualId: "",
+      description: "",
+      password: "",
+      title: "",
+      keyword: "",
       urls: "",
       keywordsss: "",
 
@@ -279,12 +279,11 @@ export class Maincontentpage2 extends Component {
       name: this.state.name,
       emailaddress: this.state.emailaddress,
       submiturl: this.state.submiturl,
-      visualId:this.state.visualId,
-      title:this.state.title,
-      keyword:this.state.keyword,
-      description:this.state.description,
-      password:this.state.password
-
+      visualId: this.state.visualId,
+      title: this.state.title,
+      keyword: this.state.keyword,
+      description: this.state.description,
+      password: this.state.password,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -371,12 +370,11 @@ export class Maincontentpage2 extends Component {
       name: this.state.name,
       emailaddress: this.state.emailaddress,
       submiturl: this.state.submiturl,
-      visualId:this.state.visualId,
-      title:this.state.title,
-      keyword:this.state.keyword,
-      description:this.state.description,
-      password:this.state.password
-
+      visualId: this.state.visualId,
+      title: this.state.title,
+      keyword: this.state.keyword,
+      description: this.state.description,
+      password: this.state.password,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -480,12 +478,11 @@ export class Maincontentpage2 extends Component {
       name: this.state.name,
       emailaddress: this.state.emailaddress,
       submiturl: this.state.submiturl,
-      visualId:this.state.visualId,
-      title:this.state.title,
-      keyword:this.state.keyword,
-      description:this.state.description,
-      password:this.state.password
-
+      visualId: this.state.visualId,
+      title: this.state.title,
+      keyword: this.state.keyword,
+      description: this.state.description,
+      password: this.state.password,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -512,13 +509,22 @@ export class Maincontentpage2 extends Component {
       "/getinprogresstask?id=" +
       window.localStorage.getItem("id");
     axios.get(url).then(
-        (response) => {
-          let fontonly =  (<FontAwesomeIcon className=" mr-2 ml-2" title="DrillDown" icon={faAngleDoubleDown} onClick={() => { this.drilldown("create a table"); }}/>);
-          response.data.map(i=>i.action=fontonly);
+      (response) => {
+        let fontonly = (
+          <FontAwesomeIcon
+            className=" mr-2 ml-2"
+            title="DrillDown"
+            icon={faAngleDoubleDown}
+            onClick={() => {
+              this.drilldown("create a table");
+            }}
+          />
+        );
+        response.data.map((i) => (i.action = fontonly));
         self.setState({
           data: response.data,
         });
-       },
+      },
       (error) => {}
     );
   }
@@ -583,7 +589,7 @@ export class Maincontentpage2 extends Component {
                             this.setState({ submiturl: e.target.value })
                           }
                         />
-                          <Form.Label>Comment</Form.Label>
+                        <Form.Label>Comment</Form.Label>
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -668,16 +674,16 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Comment</Form.Label>
-                        <Form.Control
-                          type="Url"
-                          id="Url"
-                          placeholder="Enter your comment"
-                          className="formwidth"
-                          // value={this.state.submiturl}
-                          // onChange={(e) =>
-                          //   this.setState({ submiturl: e.target.value })
-                          // }
-                        />
+                          <Form.Control
+                            type="Url"
+                            id="Url"
+                            placeholder="Enter your comment"
+                            className="formwidth"
+                            // value={this.state.submiturl}
+                            // onChange={(e) =>
+                            //   this.setState({ submiturl: e.target.value })
+                            // }
+                          />
 
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button
@@ -773,16 +779,16 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Comment</Form.Label>
-                        <Form.Control
-                          type="Url"
-                          id="Url"
-                          placeholder="Enter your comment"
-                          className="formwidth"
-                          // value={this.state.submiturl}
-                          // onChange={(e) =>
-                          //   this.setState({ submiturl: e.target.value })
-                          // }
-                        />
+                          <Form.Control
+                            type="Url"
+                            id="Url"
+                            placeholder="Enter your comment"
+                            className="formwidth"
+                            // value={this.state.submiturl}
+                            // onChange={(e) =>
+                            //   this.setState({ submiturl: e.target.value })
+                            // }
+                          />
 
                           <div className="d-flex justify-content-end mrrginside22">
                             <Button

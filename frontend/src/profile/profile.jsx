@@ -41,100 +41,100 @@ class Profile extends Component {
 
       phoneNumber: "",
       drillDown: "DrillDown",
-      data: [
-        {
+      // data: [
+      //   {
           
-          action: (
-            <span>
-              <FontAwesomeIcon
-                className=" mr-2"
-                onClick={this.Playsession}
-                icon={faPlay}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2 afterplaycolor"
-                icon={faDownload}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2"
-                onClick={this.deleteoption}
-                icon={faTrash}
-              />
-            </span>
-          ),
-        },
-        {
+      //     action: (
+      //       <span>
+      //         <FontAwesomeIcon
+      //           className=" mr-2"
+      //           onClick={this.Playsession}
+      //           icon={faPlay}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2 afterplaycolor"
+      //           icon={faDownload}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2"
+      //           onClick={this.deleteoption}
+      //           icon={faTrash}
+      //         />
+      //       </span>
+      //     ),
+      //   },
+      //   {
           
-          action: (
-            <span>
-              <FontAwesomeIcon
-                className=" mr-2 "
-                onClick={this.Playsession1}
-                icon={faPlay}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2 afterplaycolor"
-                icon={faDownload}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2"
-                onClick={this.deleteoption}
-                icon={faTrash}
-              />
-            </span>
-          ),
-        },
-        {
+      //     action: (
+      //       <span>
+      //         <FontAwesomeIcon
+      //           className=" mr-2 "
+      //           onClick={this.Playsession1}
+      //           icon={faPlay}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2 afterplaycolor"
+      //           icon={faDownload}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2"
+      //           onClick={this.deleteoption}
+      //           icon={faTrash}
+      //         />
+      //       </span>
+      //     ),
+      //   },
+      //   {
           
-          action: (
-            <span>
-              <FontAwesomeIcon
-                className=" mr-2"
-                onClick={this.Playsession2}
-                icon={faPlay}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2 afterplaycolor"
-                icon={faDownload}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2"
-                onClick={this.deleteoption}
-                icon={faTrash}
-              />
-            </span>
-          ),
-        },
-        {
+      //     action: (
+      //       <span>
+      //         <FontAwesomeIcon
+      //           className=" mr-2"
+      //           onClick={this.Playsession2}
+      //           icon={faPlay}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2 afterplaycolor"
+      //           icon={faDownload}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2"
+      //           onClick={this.deleteoption}
+      //           icon={faTrash}
+      //         />
+      //       </span>
+      //     ),
+      //   },
+      //   {
           
-          action: (
-            <span>
-              <FontAwesomeIcon
-                className=" mr-2"
-                onClick={this.Playsession}
-                icon={faPlay}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2 afterplaycolor"
-                icon={faDownload}
-              />
-              |
-              <FontAwesomeIcon
-                className=" mr-2 ml-2"
-                onClick={this.deleteoption}
-                icon={faTrash}
-              />
-            </span>
-          ),
-        },
-      ],
+      //     action: (
+      //       <span>
+      //         <FontAwesomeIcon
+      //           className=" mr-2"
+      //           onClick={this.Playsession}
+      //           icon={faPlay}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2 afterplaycolor"
+      //           icon={faDownload}
+      //         />
+      //         |
+      //         <FontAwesomeIcon
+      //           className=" mr-2 ml-2"
+      //           onClick={this.deleteoption}
+      //           icon={faTrash}
+      //         />
+      //       </span>
+      //     ),
+      //   },
+      // ],
       columns: [
         {
           name: "DATE",
@@ -217,8 +217,10 @@ class Profile extends Component {
       getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
+      
         // alert(response.data.message);
         self.setState({
+          
           name: response.data.name,
           email: response.data.email,
           phoneNumber: response.data.phoneNumber,
@@ -235,6 +237,27 @@ class Profile extends Component {
     let nurl =  getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
     axios.get(nurl).then(
       (response) => {
+        let fontonly = (
+          <span>
+                  <FontAwesomeIcon
+                    className=" mr-2"
+                    onClick={this.Playsession}
+                    icon={faPlay}
+                  />
+                  |
+                  <FontAwesomeIcon
+                    className=" mr-2 ml-2 afterplaycolor"
+                    icon={faDownload}
+                  />
+                  |
+                  <FontAwesomeIcon
+                    className=" mr-2 ml-2"
+                    onClick={this.deleteoption}
+                    icon={faTrash}
+                  />
+                </span>
+        );
+        response.data.map((i) => (i.action = fontonly));
         // alert(response.data.message);
         this.setState({
           data:response.data
