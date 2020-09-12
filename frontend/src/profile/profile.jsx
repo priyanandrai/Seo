@@ -36,6 +36,7 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
+      comments:"",
       organisation: "N/A",
       usernameEnable: true,
 
@@ -155,7 +156,7 @@ class Profile extends Component {
         },
         {
           name: "COMMENTS",
-          selector: "",
+          selector: "comments",
           sortable: true,
           right: true,
         },
