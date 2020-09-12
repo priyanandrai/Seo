@@ -79,6 +79,7 @@ export class Maincontentpage2 extends Component {
       descriptionss: "",
       visualId: "",
       description: "",
+      comments:"",
       password: "",
       title: "",
       keyword: "",
@@ -207,7 +208,7 @@ export class Maincontentpage2 extends Component {
 
   handlesubmit = (e) => {
     e.preventDefault();
-    const { name, email, sbsUrl } = this.state;
+    const { name, email, sbsUrl,comments } = this.state;
 
     if (name.trim() == "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
@@ -250,6 +251,13 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
+    if(this.state.comments == ""){
+      this.setState({
+        snackbar: true,
+        error: "please enter your comment.",
+      });
+      return;
+    }
     // if (this.state.error === null) {
     //   this.setState({ snackbar: true, message: "Success Updated" });
     // }
@@ -285,6 +293,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
+      comments:this.state.comments
     };
     axios.post(url, temp).then(
       (response) => {
@@ -306,7 +315,7 @@ export class Maincontentpage2 extends Component {
   };
 
   handlesubmission = (e) => {
-    const { submiturl, title, description, keyword } = this.state;
+    const { submiturl, title, description, keyword,comments } = this.state;
 
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
@@ -348,6 +357,13 @@ export class Maincontentpage2 extends Component {
 
       return;
     }
+    if(this.state.comments == ""){
+      this.setState({
+        snackbar: true,
+        error: "please enter your comment.",
+      });
+      return;
+    }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
       progressbar: true,
@@ -376,6 +392,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
+      comments:this.state.comments
     };
     axios.post(url, temp).then(
       (response) => {
@@ -396,7 +413,7 @@ export class Maincontentpage2 extends Component {
     );
   };
   handleclick = (e) => {
-    const { name, emailaddress, submiturl } = this.state;
+    const { name, emailaddress, submiturl,comments } = this.state;
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emailaddress == "") {
@@ -456,6 +473,13 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
+    if(this.state.comments == ""){
+      this.setState({
+        snackbar: true,
+        error: "please enter your comment.",
+      });
+      return;
+    }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
       progressbar: true,
@@ -484,6 +508,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
+      comments:this.state.comments
     };
     axios.post(url, temp).then(
       (response) => {
@@ -606,10 +631,10 @@ export class Maincontentpage2 extends Component {
                           id="Url"
                           placeholder="Enter your comment"
                           className="formwidth"
-                          // value={this.state.submiturl}
-                          // onChange={(e) =>
-                          //   this.setState({ submiturl: e.target.value })
-                          // }
+                          value={this.state.comments}
+                          onChange={(e) =>
+                            this.setState({ comments: e.target.value })
+                          }
                         />
 
                         <div className="d-flex justify-content-end mrrginside22">
@@ -690,10 +715,10 @@ export class Maincontentpage2 extends Component {
                             id="Url"
                             placeholder="Enter your comment"
                             className="formwidth"
-                            // value={this.state.submiturl}
-                            // onChange={(e) =>
-                            //   this.setState({ submiturl: e.target.value })
-                            // }
+                            value={this.state.comments}
+                            onChange={(e) =>
+                              this.setState({ comments: e.target.value })
+                            }
                           />
 
                           <div className="d-flex justify-content-end mrrginside22">
@@ -795,10 +820,10 @@ export class Maincontentpage2 extends Component {
                             id="Url"
                             placeholder="Enter your comment"
                             className="formwidth"
-                            // value={this.state.submiturl}
-                            // onChange={(e) =>
-                            //   this.setState({ submiturl: e.target.value })
-                            // }
+                            value={this.state.comments}
+                            onChange={(e) =>
+                              this.setState({ comments: e.target.value })
+                            }
                           />
 
                           <div className="d-flex justify-content-end mrrginside22">
