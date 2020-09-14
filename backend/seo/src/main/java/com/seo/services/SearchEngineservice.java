@@ -26,6 +26,11 @@ public class SearchEngineservice {
 		List<SearchEngine> list =(List<SearchEngine>)this.searchrepository.findAll();
 		return list;
 	}
+
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		searchrepository.deleteById(id);
+	}
 	
 
 }

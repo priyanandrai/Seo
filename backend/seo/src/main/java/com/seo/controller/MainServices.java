@@ -191,6 +191,7 @@ public class MainServices {
 		Optional<SignUp> signup = this.iSignUpService.findById(changepassword.getUserId());
 
 		SignUp signup1 = signup.get();
+		
 		try {
 
 			if (signup1.getPassword().equals(changepassword.getCurrentPassword())) {
@@ -250,6 +251,33 @@ public class MainServices {
 		iSubmitRequestService.save(submitRequest);
 		System.out.println(submitRequest.toString());
 		return "request is added sucessfully";
+	}
+	
+	
+	@CrossOrigin(origins = "*")
+	@PutMapping("/updateprofile")
+	public String updateprofile (@RequestParam(value ="id") Long id,@RequestParam(value ="name") String name,
+			@RequestParam(value ="email") String email,@RequestParam(value ="profession") String profession ,@RequestParam(value ="organisation") String organisation) {
+		
+		System.out.println("ID::" +id);
+		Optional<SignUp> temp = iSignUpService.findById(id);
+		
+		SignUp signup1 = temp.get();
+		
+		signup1.setName(name);
+		signup1.setEmail(email);
+		signup1.setProfession(profession);
+		signup1.setOrganisation(organisation);
+		iSignUpService.save(signup1);
+		return "update sucessfully";
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/deletedtasks")
+	public String deletedtasks (@RequestParam(defaultValue="") Long id ) {
+		System.out.println();
+		searchEngineService.deleteById(id);
+		return "deleted sucessfully";
 	}
 
 }
