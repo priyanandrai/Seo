@@ -28,7 +28,7 @@ class Profile extends Component {
     this.state = {
       organization: "",
       deleteoption: false,
-      data:[],
+      data: [],
       organizationEnable: true,
       profession: "N/A",
       professionEnable: true,
@@ -36,7 +36,9 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
-      comments:"",
+      tasktype:"",
+      selectedtasktype:"",
+      comments: "",
       organisation: "N/A",
       usernameEnable: true,
 
@@ -44,7 +46,7 @@ class Profile extends Component {
       drillDown: "DrillDown",
       // data: [
       //   {
-          
+
       //     action: (
       //       <span>
       //         <FontAwesomeIcon
@@ -67,7 +69,7 @@ class Profile extends Component {
       //     ),
       //   },
       //   {
-          
+
       //     action: (
       //       <span>
       //         <FontAwesomeIcon
@@ -90,7 +92,7 @@ class Profile extends Component {
       //     ),
       //   },
       //   {
-          
+
       //     action: (
       //       <span>
       //         <FontAwesomeIcon
@@ -113,7 +115,7 @@ class Profile extends Component {
       //     ),
       //   },
       //   {
-          
+
       //     action: (
       //       <span>
       //         <FontAwesomeIcon
@@ -224,10 +226,8 @@ class Profile extends Component {
       getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-      
         // alert(response.data.message);
         self.setState({
-          
           name: response.data.name,
           email: response.data.email,
           phoneNumber: response.data.phoneNumber,
@@ -238,57 +238,93 @@ class Profile extends Component {
       (error) => {}
     );
 
-
-    
-    
-    let nurl =  getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+    let nurl =
+      getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
     axios.get(nurl).then(
       (response) => {
-        let fontonly = (
-          <span>
-                  <FontAwesomeIcon
-                    className=" mr-2"
-                    onClick={this.Playsession}
-                    icon={faPlay}
-                    title="Play Session"
-                  />
-                  |
-                  <FontAwesomeIcon
-                    className=" mr-2 ml-2 afterplaycolor"
-                    icon={faDownload}
-                    title="Download Session"
-                  />
-                  |
-                  <FontAwesomeIcon
-                    className=" mr-2 ml-2"
-                    onClick={this.deleteoption}
-                    icon={faTrash}
-                    title="Delete Session"
-                  />
-                </span>
-        );
-        response.data.map((i) => (i.action = fontonly));
+     
+        // let fontonly = (
+          
+         
+          
+        // );
+        
+        response.data.map((i, ind) => (i.action =  <span>
+          <FontAwesomeIcon
+            className=" mr-2"
+            onClick={this.Playsession}
+            icon={faPlay}
+            title="Play Session"
+          />
+          |
+          <FontAwesomeIcon
+            className=" mr-2 ml-2 afterplaycolor"
+            icon={faDownload}
+            title="Download Session"
+          />
+          |
+          <FontAwesomeIcon
+            className=" mr-2 ml-2"
+            onClick={() => {
+              this.handleClickOpen(ind)
+            }}
+            icon={faTrash}
+            title="Delete Session"
+            
+          />
+        </span>));
         // alert(response.data.message);
         this.setState({
-          data:response.data
+          data: response.data,
         });
       },
       (error) => {}
     );
 
+    
+    
   }
+  deleteoptiontask = () => {
+    let url =
+      getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
+      console.log(this.state.selectedtasktype);
+    axios.get(url).then(
+      (response) => {
+        window.location.reload();
+      },
+     
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
   cancelprofile = () => {
     window.location.reload();
-  }
+  };
 
+  handleClickOpen(ind) {
+    // alert(this.state.data[index].tasktype)
+    this.setState({
+       deleteoption:true,
+       selectedtasktype:this.state.data[ind].id
+    })
+  }
   render() {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
           <Grid item md={12}>
             <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq">Save</button>
-              <button type="button" className="bottoncolorq" onClick={this.cancelprofile}>Cancel</button>
+              <button type="button" className="btnmargin bottoncolorq">
+                Save
+              </button>
+              <button
+                type="button"
+                className="bottoncolorq"
+                onClick={this.cancelprofile}
+              >
+                Cancel
+              </button>
             </div>
           </Grid>
           <Grid item md={4}>
@@ -301,10 +337,8 @@ class Profile extends Component {
 
             <div className=" d-flex mt-4 inputdata11 ">
               <TextField
-              
                 className="textcolorfont"
                 id="standard-basic"
-              
                 disabled={this.state.usernameEnable}
                 onChange={(e) => {
                   this.setState({ name: e.target.value });
@@ -414,6 +448,7 @@ class Profile extends Component {
             data={this.state.data}
             pagination={true}
             paginationDefaultPage
+            value={this.state.selectedtasktype}
           />
         </div>
         <br />
@@ -686,6 +721,7 @@ class Profile extends Component {
               </DialogContentText>
             </DialogContent>
             <DialogActions>
+              {/* <h1>{this.state.selectedtasktype}</h1> */}
               <Button
                 className="cancelbtn"
                 onClick={() => {
@@ -696,7 +732,8 @@ class Profile extends Component {
               >
                 Cancel
               </Button>
-              <Button className="deletebtn">Delete</Button>
+              <Button className="deletebtn"
+               onClick={this.deleteoptiontask}>Delete</Button>
             </DialogActions>
           </div>
         </Dialog>
