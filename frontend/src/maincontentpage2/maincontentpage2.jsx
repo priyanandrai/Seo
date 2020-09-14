@@ -184,31 +184,13 @@ export class Maincontentpage2 extends Component {
       ],
     };
   }
+  
   fullView = () => {
+    window.localStorage.setItem("tasktype",this.state.selectedtasktype)
     window.open("/tasks");
+    
   };
-  // drilldown = (index) =>{
-  //   this.setState({
-  //     selectedlist:this.state.taskstatus[index]
-  //   })
-  // }
-  // drilldown = (para) => {
-  //   this.setState({ drilldown: !this.state.drilldown });
-  //   if (para == "create a table") {
-  //     this.setState({ taskTitle: "" });
-  //   }
-  //   if (para == "Assign login") {
-  //     this.setState({ taskTitle: "Assign login" });
-  //   }
-  //   if (para == "Create a new page") {
-  //     this.setState({ taskTitle: "Create a new page" });
-  //   }
-  // };
-  // drilldown1 = () => {
-  //   // this.setState({ drilldown1: !this.state.profile });
-  //   window.location= "/profile";
-  // };
-
+ 
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
@@ -556,9 +538,9 @@ export class Maincontentpage2 extends Component {
        );
         
        
-       let loader=<CircularProgress color="secondary" className="circular"/>
+       let loader=<CircularProgress color="secondary" className="circular" />
         response.data.map((i)=>
-        (i.taskstatus=loader)
+      ( i.taskstatus=loader )
         );
         
         self.setState({
