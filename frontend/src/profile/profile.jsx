@@ -37,10 +37,12 @@ class Profile extends Component {
       email: "",
       name: "",
       tasktype: "",
+      submiturl: "",
       selectedtasktype: "",
       comments: "",
       organisation: "N/A",
       usernameEnable: true,
+      emailaddress: "",
 
       phoneNumber: "",
       profileImg:
@@ -214,8 +216,6 @@ class Profile extends Component {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
   playtask = (tasktype) => {
-    console.log("dfhkljdshfkhdskjfhj", tasktype);
-
     if (tasktype == "Search Engine Submission") {
       this.setState({ Playsession: !this.state.Playsession });
       return;
@@ -305,6 +305,21 @@ class Profile extends Component {
       },
       (error) => {}
     );
+
+    // url =
+    //   getBaseUrl() +
+    //   "/getinprogresstask?id=" +
+    //   window.localStorage.getItem("id");
+    // axios.get(url).then(
+    //   (response) => {
+    //     this.setState({
+    //       selectedtasktype: this.state.data.id,
+    //       submiturl: response.data.submiturl,
+    //       emailaddress: response.data.emailaddress,
+    //     });
+    //   },
+    //   (error) => {}
+    // );
   }
   deleteoptiontask = () => {
     let url = getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
@@ -346,22 +361,21 @@ class Profile extends Component {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
-          <Grid item  xs={12} className="gridwidth">
+          <Grid item xs={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
-            <button type="button" className="btnmargin bottoncolorq">
-              Save
-            </button>
-            <button
-              type="button"
-              className="bottoncolorq"
-              onClick={this.cancelprofile}
-            >
-              Cancel
-            </button>
+              <button type="button" className="btnmargin bottoncolorq">
+                Save
+              </button>
+              <button
+                type="button"
+                className="bottoncolorq"
+                onClick={this.cancelprofile}
+              >
+                Cancel
+              </button>
             </div>
           </Grid>
           <Grid item md={4}>
-           
             <div className="mt-5 imagecentermobile">
               <div className="">
                 {/* <h1 className="heading">Add your Image</h1> */}
@@ -378,7 +392,7 @@ class Profile extends Component {
                 <div className="label">
                   <label className="image-upload" htmlFor="input">
                     <i className="material-icons"></i>
-                    Choose your Photo
+                    Upload your Photo
                   </label>
                 </div>
               </div>
@@ -549,6 +563,7 @@ class Profile extends Component {
                 placeholder="Enter name"
                 id="Name"
                 className="w-75"
+                // value={this.state.name}
                 onChange={(e) => this.setState({ name: e.target.value })}
               />
               <Form.Label>Email address</Form.Label>
@@ -557,10 +572,10 @@ class Profile extends Component {
                 placeholder="Enter email"
                 className="w-75"
                 id="Email"
-                value={this.state.email}
+                value={this.state.emailaddress}
                 onChange={(e) =>
                   this.setState({
-                    email: e.target.value,
+                    emailaddress: e.target.value,
                   })
                 }
               />
@@ -570,7 +585,8 @@ class Profile extends Component {
                 id="Url"
                 placeholder="Enter url"
                 className="w-75"
-                onChange={(e) => this.setState({ sbsUrl: e.target.value })}
+                onChange={(e) => this.setState({ submiturl: e.target.value })}
+                value={this.state.submiturl}
               />
 
               <div className="d-flex justify-content-end mrrginside2200">
@@ -685,8 +701,8 @@ class Profile extends Component {
                     type="email"
                     placeholder="Enter Email"
                     className="w-75"
-                    value={this.state.emaill}
-                    onChange={(e) => this.setState({ emaill: e.target.value })}
+                    value={this.state.emailaddress}
+                    onChange={(e) => this.setState({ emailaddress: e.target.value })}
                   />
                   <Form.Label>Password</Form.Label>
                   <Form.Control

@@ -283,11 +283,11 @@
 }
 .image-upload{
   margin: auto;
-  /* width: 200px;
-	height: 50px;
+  width: 150px;
+	height: 22px;
   color: white;
-  border-radius: 10px;
-  background-color: black; */
+  border-radius: 5px;
+  background-color:  #18758d ;
   text-align: center;
   cursor: pointer;
 }
@@ -298,6 +298,7 @@
     margin-right: 20%;
     width: 134% !important;
   }
+
    
     
 }
