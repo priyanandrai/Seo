@@ -210,15 +210,34 @@ class Profile extends Component {
   dialogBox = () => {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
-  Playsession = () => {
+  playtask = (tasktype) => {
+    
     this.setState({ Playsession: !this.state.Playsession });
-  };
-  Playsession1 = () => {
+    if (tasktype == "Search Engine Submission") {
+      // this.setState({ tasktype: "Search Engine Submission" });
+      return;
+    }
+    
     this.setState({ Playsession1: !this.state.Playsession1 });
-  };
-  Playsession2 = () => {
+    if (tasktype == "Classified Submission") {
+      // this.setState({ tasktype: "Search Engine Submission" });
+      return;
+    }
     this.setState({ Playsession2: !this.state.Playsession2 });
-  };
+    if (tasktype == "Social Book Marketing") {
+      // this.setState({ tasktype: "Search Engine Submission" });
+      return;
+    }
+     
+    }
+  
+  
+  // Playsession1 = () => {
+  //   this.setState({ Playsession1: !this.state.Playsession1 });
+  // };
+  // Playsession2 = () => {
+  //   this.setState({ Playsession2: !this.state.Playsession2 });
+  // };
 
   componentWillMount() {
     let self = this;
@@ -252,7 +271,7 @@ class Profile extends Component {
         response.data.map((i, ind) => (i.action =  <span>
           <FontAwesomeIcon
             className=" mr-2"
-            onClick={this.Playsession}
+            onClick={this.playtask}
             icon={faPlay}
             title="Play Session"
           />
