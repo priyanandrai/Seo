@@ -372,15 +372,15 @@ class Profile extends Component {
 
             </div>  */}
               <div className="page">
-				<div className="container">
-					<h1 className="heading">Add your Image</h1>
-					<div className="img-holder">
+				<div className="">
+					{/* <h1 className="heading">Add your Image</h1> */}
+					<div className="profilepicture1 mx-auto d-block">
 						<img src={profileImg} alt="" id="img" className="img" />
 					</div>
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
 					<div className="label">
           <label className="image-upload" htmlFor="input">
-						<i className="material-icons">add_photo_alternate</i>
+						<i className="material-icons"></i>
 						Choose your Photo
 					</label>
           </div>
