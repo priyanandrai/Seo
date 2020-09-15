@@ -212,27 +212,33 @@ class Profile extends Component {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
   playtask = (tasktype) => {
+    console.log("dfhkljdshfkhdskjfhj",tasktype) 
     
-    this.setState({ Playsession: !this.state.Playsession });
+  
     if (tasktype == "Search Engine Submission") {
-      // this.setState({ tasktype: "Search Engine Submission" });
+      
+      this.setState({ Playsession: !this.state.Playsession });
       return;
     }
     
-    this.setState({ Playsession1: !this.state.Playsession1 });
-    if (tasktype == "Classified Submission") {
-      // this.setState({ tasktype: "Search Engine Submission" });
+   
+    if (tasktype == "Social Book Marketing") {
+      
+      this.setState({ Playsession1: !this.state.Playsession1 });
       return;
     }
-    this.setState({ Playsession2: !this.state.Playsession2 });
-    if (tasktype == "Social Book Marketing") {
-      // this.setState({ tasktype: "Search Engine Submission" });
+ 
+    if (tasktype == "Classified Submission") {
+      
+      this.setState({ Playsession2: !this.state.Playsession2 });
       return;
     }
      
     }
   
-  
+   // Playsession = () => {
+   //   this.setState({ Playsession1: !this.state.Playsession1 });
+   // };
   // Playsession1 = () => {
   //   this.setState({ Playsession1: !this.state.Playsession1 });
   // };
@@ -272,7 +278,7 @@ class Profile extends Component {
         response.data.map((i, ind) => (i.action =  <span>
           <FontAwesomeIcon
             className=" mr-2"
-            onClick={this.playtask}
+            onClick={() =>{this.playtask(i.tasktype)}}
             icon={faPlay}
             title="Play Session"
           />
@@ -371,7 +377,7 @@ class Profile extends Component {
 <img id="myImg" src="#" alt="" className="profilepicture1 mx-auto d-block"/>
 
             </div>  */}
-              <div className="page">
+              <div className="mt-5 imagecentermobile">
 				<div className="">
 					{/* <h1 className="heading">Add your Image</h1> */}
 					<div className="profilepicture1 mx-auto d-block">
