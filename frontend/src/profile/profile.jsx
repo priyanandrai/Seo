@@ -36,14 +36,15 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
-      tasktype:"",
-      selectedtasktype:"",
+      tasktype: "",
+      selectedtasktype: "",
       comments: "",
       organisation: "N/A",
       usernameEnable: true,
 
       phoneNumber: "",
-      profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+      profileImg:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
       drillDown: "DrillDown",
       // data: [
       //   {
@@ -162,7 +163,7 @@ class Profile extends Component {
           selector: "comments",
           sortable: true,
           center: true,
-          title:"comments",
+          title: "comments",
         },
         {
           name: "ACTION",
@@ -213,33 +214,27 @@ class Profile extends Component {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
   playtask = (tasktype) => {
-    console.log("dfhkljdshfkhdskjfhj",tasktype) 
-    
-  
+    console.log("dfhkljdshfkhdskjfhj", tasktype);
+
     if (tasktype == "Search Engine Submission") {
-      
       this.setState({ Playsession: !this.state.Playsession });
       return;
     }
-    
-   
+
     if (tasktype == "Social Book Marketing") {
-      
       this.setState({ Playsession1: !this.state.Playsession1 });
       return;
     }
- 
+
     if (tasktype == "Classified Submission") {
-      
       this.setState({ Playsession2: !this.state.Playsession2 });
       return;
     }
-     
-    }
-  
-   // Playsession = () => {
-   //   this.setState({ Playsession1: !this.state.Playsession1 });
-   // };
+  };
+
+  // Playsession = () => {
+  //   this.setState({ Playsession1: !this.state.Playsession1 });
+  // };
   // Playsession1 = () => {
   //   this.setState({ Playsession1: !this.state.Playsession1 });
   // };
@@ -269,37 +264,40 @@ class Profile extends Component {
       getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
     axios.get(nurl).then(
       (response) => {
-     
         // let fontonly = (
-          
-         
-          
+
         // );
-        
-        response.data.map((i, ind) => (i.action =  <span>
-          <FontAwesomeIcon
-            className=" mr-2"
-            onClick={() =>{this.playtask(i.tasktype)}}
-            icon={faPlay}
-            title="Restart Session"
-          />
-          |
-          <FontAwesomeIcon
-            className=" mr-2 ml-2 afterplaycolor"
-            icon={faDownload}
-            title="View Report"
-          />
-          |
-          <FontAwesomeIcon
-            className=" mr-2 ml-2"
-            onClick={() => {
-              this.handleClickOpen(ind)
-            }}
-            icon={faTrash}
-            title="Delete Session"
-            
-          />
-        </span>));
+
+        response.data.map(
+          (i, ind) =>
+            (i.action = (
+              <span>
+                <FontAwesomeIcon
+                  className=" mr-2"
+                  onClick={() => {
+                    this.playtask(i.tasktype);
+                  }}
+                  icon={faPlay}
+                  title="Restart Session"
+                />
+                |
+                <FontAwesomeIcon
+                  className=" mr-2 ml-2 afterplaycolor"
+                  icon={faDownload}
+                  title="View Report"
+                />
+                |
+                <FontAwesomeIcon
+                  className=" mr-2 ml-2"
+                  onClick={() => {
+                    this.handleClickOpen(ind);
+                  }}
+                  icon={faTrash}
+                  title="Delete Session"
+                />
+              </span>
+            ))
+        );
         // alert(response.data.message);
         this.setState({
           data: response.data,
@@ -307,19 +305,15 @@ class Profile extends Component {
       },
       (error) => {}
     );
-
-    
-    
   }
   deleteoptiontask = () => {
-    let url =
-      getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
-      console.log(this.state.selectedtasktype);
+    let url = getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
+    console.log(this.state.selectedtasktype);
     axios.get(url).then(
       (response) => {
         window.location.reload();
       },
-     
+
       (error) => {
         console.log(error);
       }
@@ -332,67 +326,63 @@ class Profile extends Component {
   handleClickOpen(ind) {
     // alert(this.state.data[index].tasktype)
     this.setState({
-       deleteoption:true,
-       selectedtasktype:this.state.data[ind].id
-    })
+      deleteoption: true,
+      selectedtasktype: this.state.data[ind].id,
+    });
   }
 
   imageHandler = (e) => {
     const reader = new FileReader();
-    reader.onload = () =>{
-      if(reader.readyState === 2){
-        this.setState({profileImg: reader.result})
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        this.setState({ profileImg: reader.result });
       }
-    }
-    reader.readAsDataURL(e.target.files[0])
+    };
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   render() {
-    const { profileImg} = this.state
+    const { profileImg } = this.state;
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
-          <Grid item md={12} className="gridwidth">
+          <Grid item  xs={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq">
-                Save
-              </button>
-              <button
-                type="button"
-                className="bottoncolorq"
-                onClick={this.cancelprofile}
-              >
-                Cancel
-              </button>
+            <button type="button" className="btnmargin bottoncolorq">
+              Save
+            </button>
+            <button
+              type="button"
+              className="bottoncolorq"
+              onClick={this.cancelprofile}
+            >
+              Cancel
+            </button>
             </div>
           </Grid>
           <Grid item md={4}>
-            {/* <div className="mt-5 imagecentermobile">
-              {/* <img
-                className="profilepicture1 mx-auto d-block"
-                src="https://i.pinimg.com/originals/11/fd/aa/11fdaae6f8e4deb13481103b4e9a0744.jpg"
-              /> */}
-
-
-{/* <input type="file" />
-<img id="myImg" src="#" alt="" className="profilepicture1 mx-auto d-block"/>
-
-            </div>  */}
-              <div className="mt-5 imagecentermobile">
-				<div className="">
-					{/* <h1 className="heading">Add your Image</h1> */}
-					<div className="profilepicture1 mx-auto d-block">
-						<img src={profileImg} alt="" id="img" className="img" />
-					</div>
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
-					<div className="label">
-          <label className="image-upload" htmlFor="input">
-						<i className="material-icons"></i>
-						Choose your Photo
-					</label>
-          </div>
-				</div>
-			</div>
+           
+            <div className="mt-5 imagecentermobile">
+              <div className="">
+                {/* <h1 className="heading">Add your Image</h1> */}
+                <div className="profilepicture1 mx-auto d-block">
+                  <img src={profileImg} alt="" id="img" className="img" />
+                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="image-upload"
+                  id="input"
+                  onChange={this.imageHandler}
+                />
+                <div className="label">
+                  <label className="image-upload" htmlFor="input">
+                    <i className="material-icons"></i>
+                    Choose your Photo
+                  </label>
+                </div>
+              </div>
+            </div>
             <div className=" d-flex mt-4 inputdata11 ">
               <TextField
                 className="textcolorfont"
@@ -790,8 +780,9 @@ class Profile extends Component {
               >
                 Cancel
               </Button>
-              <Button className="deletebtn"
-               onClick={this.deleteoptiontask}>Delete</Button>
+              <Button className="deletebtn" onClick={this.deleteoptiontask}>
+                Delete
+              </Button>
             </DialogActions>
           </div>
         </Dialog>

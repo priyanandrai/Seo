@@ -160,9 +160,9 @@
     margin-top: 4% !important;
     margin-right: 25% !important;
   }
-  .btnmobile{
-    margin-left: 21vh !important;
-  }
+  /* .btnmobile{
+    width: 100%;
+  } */
   .btnmargin {
     margin-right: 7px !important;
 }
@@ -291,14 +291,19 @@
   text-align: center;
   cursor: pointer;
 }
-@media only screen and (min-width: 480px) and (max-width: 995px) {
+/* @media only screen and (min-width: 480px) and (max-width: 995px) {
   .buttonsright22 {
     float: right;
    
     
-}
+} */
 
-.gridwidth{
+/* .gridwidth{
   width: 100% !important;
-}
+} */
+.profile-right {
+  margin-top: 70px;
+  margin-left: 20%;
+  margin-right: 20%;
+  
 }
