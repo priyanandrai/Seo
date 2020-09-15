@@ -116,6 +116,7 @@
 } */
 .hrcolor {
   text-align: center;
+  margin-left: 35%;
 }
 .dialoged222 {
   height: 40vh;
@@ -289,4 +290,15 @@
   background-color: black; */
   text-align: center;
   cursor: pointer;
+}
+@media only screen and (min-width: 480px) and (max-width: 995px) {
+  .buttonsright22 {
+    float: right;
+   
+    
+}
+
+.gridwidth{
+  width: 100% !important;
+}
 }

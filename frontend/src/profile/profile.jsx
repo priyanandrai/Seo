@@ -162,6 +162,7 @@ class Profile extends Component {
           selector: "comments",
           sortable: true,
           center: true,
+          title:"comments",
         },
         {
           name: "ACTION",
@@ -280,13 +281,13 @@ class Profile extends Component {
             className=" mr-2"
             onClick={() =>{this.playtask(i.tasktype)}}
             icon={faPlay}
-            title="Play Session"
+            title="Restart Session"
           />
           |
           <FontAwesomeIcon
             className=" mr-2 ml-2 afterplaycolor"
             icon={faDownload}
-            title="Download Session"
+            title="View Report"
           />
           |
           <FontAwesomeIcon
@@ -351,7 +352,7 @@ class Profile extends Component {
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
-          <Grid item md={12}>
+          <Grid item md={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
               <button type="button" className="btnmargin bottoncolorq">
                 Save
