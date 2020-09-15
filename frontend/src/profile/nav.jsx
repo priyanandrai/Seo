@@ -223,6 +223,20 @@ class Nav extends Component {
         user: newUser,
       });
     }
+    let self = this;
+    let url =
+      getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
+    axios.get(url).then(
+      (response) => {
+        // alert(response.data.message);
+        self.setState({
+          
+          email: response.data.email,
+          
+        });
+      },
+      (error) => {}
+    );
   }
 
   logout = () => {
