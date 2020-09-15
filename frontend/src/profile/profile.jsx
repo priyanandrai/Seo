@@ -43,6 +43,7 @@ class Profile extends Component {
       usernameEnable: true,
 
       phoneNumber: "",
+      profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
       drillDown: "DrillDown",
       // data: [
       //   {
@@ -328,7 +329,19 @@ class Profile extends Component {
        selectedtasktype:this.state.data[ind].id
     })
   }
+
+  imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+        this.setState({profileImg: reader.result})
+      }
+    }
+    reader.readAsDataURL(e.target.files[0])
+  };
+
   render() {
+    const { profileImg} = this.state
     return (
       <div className="profile-main-div container">
         <Grid container className="submenu-alignment">
@@ -347,13 +360,32 @@ class Profile extends Component {
             </div>
           </Grid>
           <Grid item md={4}>
-            <div className="mt-5 imagecentermobile">
-              <img
+            {/* <div className="mt-5 imagecentermobile">
+              {/* <img
                 className="profilepicture1 mx-auto d-block"
                 src="https://i.pinimg.com/originals/11/fd/aa/11fdaae6f8e4deb13481103b4e9a0744.jpg"
-              />
-            </div>
+              /> */}
 
+
+{/* <input type="file" />
+<img id="myImg" src="#" alt="" className="profilepicture1 mx-auto d-block"/>
+
+            </div>  */}
+              <div className="page">
+				<div className="container">
+					<h1 className="heading">Add your Image</h1>
+					<div className="img-holder">
+						<img src={profileImg} alt="" id="img" className="img" />
+					</div>
+					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+					<div className="label">
+          <label className="image-upload" htmlFor="input">
+						<i className="material-icons">add_photo_alternate</i>
+						Choose your Photo
+					</label>
+          </div>
+				</div>
+			</div>
             <div className=" d-flex mt-4 inputdata11 ">
               <TextField
                 className="textcolorfont"
