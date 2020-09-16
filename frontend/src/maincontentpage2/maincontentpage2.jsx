@@ -56,12 +56,12 @@ export class Maincontentpage2 extends Component {
       userId: "",
       userId: "3",
       drilldown: false,
-     
+
       data: [],
       message: "",
       name: "",
       show: false,
-      selectedtasktype:"",
+      selectedtasktype: "",
       showme: false,
       showto: false,
       email: "",
@@ -80,8 +80,8 @@ export class Maincontentpage2 extends Component {
       descriptionss: "",
       visualId: "",
       description: "",
-      selectedlist:{},
-      comments:"",
+      selectedlist: {},
+      comments: "",
       password: "",
       title: "",
       keyword: "",
@@ -144,7 +144,6 @@ export class Maincontentpage2 extends Component {
       //   },
       // ],
       columns: [
-  
         {
           name: "Start Time",
           selector: "date",
@@ -180,20 +179,19 @@ export class Maincontentpage2 extends Component {
       ],
     };
   }
-  
+
   fullView = () => {
-    window.localStorage.setItem("tasktype",this.state.selectedtasktype)
+    window.localStorage.setItem("tasktype", this.state.selectedtasktype);
     window.open("/tasks");
-    
   };
- 
+
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
 
   handlesubmit = (e) => {
     e.preventDefault();
-    const { name, email, sbsUrl,comments } = this.state;
+    const { name, email, sbsUrl, comments } = this.state;
 
     if (name.trim() == "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
@@ -236,7 +234,7 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if(this.state.comments == ""){
+    if (this.state.comments == "") {
       this.setState({
         snackbar: true,
         error: "please enter your comment.",
@@ -278,7 +276,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
-      comments:this.state.comments
+      comments: this.state.comments,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -300,7 +298,7 @@ export class Maincontentpage2 extends Component {
   };
 
   handlesubmission = (e) => {
-    const { submiturl, title, description, keyword,comments } = this.state;
+    const { submiturl, title, description, keyword, comments } = this.state;
 
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
@@ -342,7 +340,7 @@ export class Maincontentpage2 extends Component {
 
       return;
     }
-    if(this.state.comments == ""){
+    if (this.state.comments == "") {
       this.setState({
         snackbar: true,
         error: "please enter your comment.",
@@ -377,7 +375,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
-      comments:this.state.comments
+      comments: this.state.comments,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -398,7 +396,7 @@ export class Maincontentpage2 extends Component {
     );
   };
   handleclick = (e) => {
-    const { name, emailaddress, submiturl,comments } = this.state;
+    const { name, emailaddress, submiturl, comments } = this.state;
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emailaddress == "") {
@@ -458,7 +456,7 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if(this.state.comments == ""){
+    if (this.state.comments == "") {
       this.setState({
         snackbar: true,
         error: "please enter your comment.",
@@ -493,7 +491,7 @@ export class Maincontentpage2 extends Component {
       keyword: this.state.keyword,
       description: this.state.description,
       password: this.state.password,
-      comments:this.state.comments
+      comments: this.state.comments,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -521,24 +519,33 @@ export class Maincontentpage2 extends Component {
       window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-        
-        response.data.map((i,index ) => 
-        (i.action = ( <FontAwesomeIcon
-          className=" mr-2 ml-2"
-          title="DrillDown"
-          icon={faAngleDoubleDown}
-          onClick={() => {
-            this.handleClickOpen(index)
-          }}
-        />)),
-       );
-        
-       
-       let loader=<CircularProgress color="secondary" className="circular" />
-        response.data.map((i)=>
-      ( i.taskstatus=loader )
+        response.data.map(
+          (i, index) =>
+            (i.action = (
+              <FontAwesomeIcon
+                className=" mr-2 ml-2"
+                title="DrillDown"
+                icon={faAngleDoubleDown}
+                onClick={() => {
+                  this.handleClickOpen(index);
+                }}
+              />
+            ))
         );
-        
+
+        let loader = (
+          <CircularProgress color="secondary" className="circular" />
+        );
+        response.data.map(
+          (i) =>
+            (i.taskstatus = (
+              <p>
+                {" "}
+                <span>{i.taskstatus} </span> <span>{loader}</span>
+              </p>
+            ))
+        );
+
         self.setState({
           data: response.data,
         });
@@ -550,12 +557,11 @@ export class Maincontentpage2 extends Component {
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
     this.setState({
-       drilldown:true,
-       selectedtasktype:this.state.data[index].tasktype
-    })
-           //  document.getElementById("viewAppoinment").modal('show');
-  
-    }
+      drilldown: true,
+      selectedtasktype: this.state.data[index].tasktype,
+    });
+    //  document.getElementById("viewAppoinment").modal('show');
+  }
   render() {
     return (
       <div className="container">
@@ -582,7 +588,8 @@ export class Maincontentpage2 extends Component {
                         style={{ marginLeft: "10%" }}
                         className="input-width"
                       >
-                        <Form.Label>Name</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Label className="starcolor">*</Form.Label>
                         {/* <FontAwesomeIcon icon={faStar} className="starcolor" /> */}
                         <Form.Control
                           type="name"
@@ -594,7 +601,8 @@ export class Maincontentpage2 extends Component {
                             this.setState({ name: e.target.value })
                           }
                         />
-                        <Form.Label>Email address</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="email"
                           placeholder="Enter email"
@@ -607,7 +615,8 @@ export class Maincontentpage2 extends Component {
                             })
                           }
                         />
-                        <Form.Label>Enter Url</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                        <Form.Label>Enter Url</Form.Label>
+                        <Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -618,7 +627,8 @@ export class Maincontentpage2 extends Component {
                             this.setState({ submiturl: e.target.value })
                           }
                         />
-                        <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                        <Form.Label>Comment</Form.Label>
+                        <Form.Label className="starcolor">*</Form.Label>
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -662,7 +672,8 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <Form.Label>Url</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Url</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
@@ -672,7 +683,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ submiturl: e.target.value })
                             }
                           />
-                          <Form.Label>title</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>title</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
@@ -682,7 +694,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ title: e.target.value })
                             }
                           />
-                          <Form.Label>Description</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Description</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
@@ -692,7 +705,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ description: e.target.value })
                             }
                           />
-                          <Form.Label>Keywords</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Keywords</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
@@ -702,7 +716,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
-                          <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Comment</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="Url"
                             id="Url"
@@ -747,7 +762,8 @@ export class Maincontentpage2 extends Component {
                           style={{ marginLeft: "10%" }}
                           className="input-width"
                         >
-                          <Form.Label>Email</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Email</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="email"
                             placeholder="Enter Email"
@@ -757,7 +773,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ emailaddress: e.target.value })
                             }
                           />
-                          <Form.Label>Password</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Password</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="password"
                             placeholder="Enter Password"
@@ -767,7 +784,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ password: e.target.value })
                             }
                           />
-                          <Form.Label>Title</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Title</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter title"
@@ -777,7 +795,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ title: e.target.value })
                             }
                           />
-                          <Form.Label>Description</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Description</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Description"
@@ -787,7 +806,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ description: e.target.value })
                             }
                           />
-                          <Form.Label>URL</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>URL</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="url"
                             placeholder="Enter url"
@@ -797,7 +817,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ submiturl: e.target.value })
                             }
                           />
-                          <Form.Label>Keywords</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Keywords</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter Keywords"
@@ -807,7 +828,8 @@ export class Maincontentpage2 extends Component {
                               this.setState({ keyword: e.target.value })
                             }
                           />
-                          <Form.Label>Comment</Form.Label><Form.Label className="starcolor">*</Form.Label>
+                          <Form.Label>Comment</Form.Label>
+                          <Form.Label className="starcolor">*</Form.Label>
                           <Form.Control
                             type="Url"
                             id="Url"

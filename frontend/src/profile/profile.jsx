@@ -26,7 +26,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.belowlist=this.belowlist.bind(this);
+    this.belowlist = this.belowlist.bind(this);
     this.state = {
       organization: "",
       deleteoption: false,
@@ -39,13 +39,13 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
-      mname:"",
-      msubmiturl:"",
-      memailaddress:"",
-      mtitle:"",
-      mdescription:"",
-      mkeyword:"",
-      mpassword:"",
+      mname: "",
+      msubmiturl: "",
+      memailaddress: "",
+      mtitle: "",
+      mdescription: "",
+      mkeyword: "",
+      mpassword: "",
       tasktype: "",
       submiturl: "",
       selectedtasktype: "",
@@ -58,106 +58,13 @@ class Profile extends Component {
       profileImg:
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
       drillDown: "DrillDown",
-      // data: [
-      //   {
 
-      //     action: (
-      //       <span>
-      //         <FontAwesomeIcon
-      //           className=" mr-2"
-      //           onClick={this.Playsession}
-      //           icon={faPlay}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2 afterplaycolor"
-      //           icon={faDownload}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2"
-      //           onClick={this.deleteoption}
-      //           icon={faTrash}
-      //         />
-      //       </span>
-      //     ),
-      //   },
-      //   {
-
-      //     action: (
-      //       <span>
-      //         <FontAwesomeIcon
-      //           className=" mr-2 "
-      //           onClick={this.Playsession1}
-      //           icon={faPlay}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2 afterplaycolor"
-      //           icon={faDownload}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2"
-      //           onClick={this.deleteoption}
-      //           icon={faTrash}
-      //         />
-      //       </span>
-      //     ),
-      //   },
-      //   {
-
-      //     action: (
-      //       <span>
-      //         <FontAwesomeIcon
-      //           className=" mr-2"
-      //           onClick={this.Playsession2}
-      //           icon={faPlay}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2 afterplaycolor"
-      //           icon={faDownload}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2"
-      //           onClick={this.deleteoption}
-      //           icon={faTrash}
-      //         />
-      //       </span>
-      //     ),
-      //   },
-      //   {
-
-      //     action: (
-      //       <span>
-      //         <FontAwesomeIcon
-      //           className=" mr-2"
-      //           onClick={this.Playsession}
-      //           icon={faPlay}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2 afterplaycolor"
-      //           icon={faDownload}
-      //         />
-      //         |
-      //         <FontAwesomeIcon
-      //           className=" mr-2 ml-2"
-      //           onClick={this.deleteoption}
-      //           icon={faTrash}
-      //         />
-      //       </span>
-      //     ),
-      //   },
-      // ],
       columns: [
         {
           name: "DATE",
           selector: "date",
           sortable: true,
-          left:true,
+          left: true,
         },
         {
           name: "TASK",
@@ -176,7 +83,6 @@ class Profile extends Component {
           selector: "comments",
           sortable: true,
           center: true,
-      
         },
         {
           name: "ACTION",
@@ -203,12 +109,8 @@ class Profile extends Component {
   };
 
   editForm = (para) => {
-    // const { username} = this.state
     if (para == "username") {
       this.setState({ usernameEnable: false });
-      // if(username == ""){
-      //   alert("Please enter name")
-      // }
     }
     if (para == "email") {
       this.setState({ emailEnable: false });
@@ -226,53 +128,51 @@ class Profile extends Component {
   dialogBox = () => {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
-  playtask = (tasktype,id,name,submiturl,emailaddress,title,description,keyword,password) => {
-    if (tasktype == "Search Engine Submission") 
-  {
-
-      this.setState({ 
+  playtask = (
+    tasktype,
+    id,
+    name,
+    submiturl,
+    emailaddress,
+    title,
+    description,
+    keyword,
+    password
+  ) => {
+    if (tasktype == "Search Engine Submission") {
+      this.setState({
         Playsession: !this.state.Playsession,
-        mname:name,
-        msubmiturl:submiturl,
-        memailaddress:emailaddress
-      
+        mname: name,
+        msubmiturl: submiturl,
+        memailaddress: emailaddress,
       });
       return;
     }
 
     if (tasktype == "Social Book Marketing") {
-      this.setState({ Playsession1: !this.state.Playsession1,
-        msubmiturl:submiturl,
-        mtitle:title,
-        mdescription:description,
-        mkeyword:keyword
+      this.setState({
+        Playsession1: !this.state.Playsession1,
+        msubmiturl: submiturl,
+        mtitle: title,
+        mdescription: description,
+        mkeyword: keyword,
       });
       return;
     }
 
     if (tasktype == "Classified Submission") {
-      this.setState({ Playsession2: !this.state.Playsession2,
-        memailaddress:emailaddress,
-        mtitle:title,
-        mdescription:description,
-        mkeyword:keyword,
-        msubmiturl:submiturl,
-        mpassword:password
-
+      this.setState({
+        Playsession2: !this.state.Playsession2,
+        memailaddress: emailaddress,
+        mtitle: title,
+        mdescription: description,
+        mkeyword: keyword,
+        msubmiturl: submiturl,
+        mpassword: password,
       });
       return;
     }
   };
-
-  // Playsession = () => {
-  //   this.setState({ Playsession1: !this.state.Playsession1 });
-  // };
-  // Playsession1 = () => {
-  //   this.setState({ Playsession1: !this.state.Playsession1 });
-  // };
-  // Playsession2 = () => {
-  //   this.setState({ Playsession2: !this.state.Playsession2 });
-  // };
 
   componentWillMount() {
     let self = this;
@@ -280,7 +180,6 @@ class Profile extends Component {
       getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-        // alert(response.data.message);
         self.setState({
           name: response.data.name,
           email: response.data.email,
@@ -292,22 +191,7 @@ class Profile extends Component {
       (error) => {}
     );
 
-   this.belowlist()
-
-  //   url =
-  //     getBaseUrl() +
-  //     "/gettask?id=" +
-  //     window.localStorage.getItem("id");
-  //   axios.get(url).then(
-  //     (response) => {
-  //       this.setState({
-  //         selectedtasktype: this.state.data.id,
-  //         submiturl: response.data.submiturl,
-  //         emailaddress: response.data.emailaddress,
-  //       });
-  //     },
-  //     (error) => {}
-  //   );
+    this.belowlist();
   }
   deleteoptiontask = () => {
     document.getElementById("close").click();
@@ -320,10 +204,9 @@ class Profile extends Component {
       (response) => {
         this.setState({
           progressbar: false,
-         
         });
-     
-        this.belowlist()
+
+        this.belowlist();
         // window.location.reload();
       },
 
@@ -334,7 +217,6 @@ class Profile extends Component {
         console.log(error);
       }
     );
-   
   };
   cancelprofile = () => {
     window.location.reload();
@@ -357,56 +239,59 @@ class Profile extends Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-belowlist(){
-  let nurl =
-  getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
-axios.get(nurl).then(
-  (response) => {
-    // let fontonly = (
-
-    // );
-
-    response.data.map(
-      (i, ind) =>
-        (i.action = (
-          <span>
-            <FontAwesomeIcon
-              className=" mr-2"
-              onClick={() => {
-                // alert("id",i.id);
-                // console.log("id ",i.id)
-                this.playtask(i.tasktype,i.id,i.name,i.submiturl,i.emailaddress,i.title,i.keyword,i.description,i.password);
-              }}
-              icon={faPlay}
-              title="Restart Session"
-            />
-            |
-            <FontAwesomeIcon
-              className=" mr-2 ml-2 afterplaycolor"
-              icon={faDownload}
-              title="View Report"
-            />
-            |
-            <FontAwesomeIcon
-              className=" mr-2 ml-2"
-              onClick={() => {
-                this.handleClickOpen(ind);
-              }}
-              icon={faTrash}
-              title="Delete Session"
-            />
-          </span>
-        ))
+  belowlist() {
+    let nurl =
+      getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+    axios.get(nurl).then(
+      (response) => {
+        response.data.map(
+          (i, ind) =>
+            (i.action = (
+              <span>
+                <FontAwesomeIcon
+                  className=" mr-2"
+                  onClick={() => {
+                    this.playtask(
+                      i.tasktype,
+                      i.id,
+                      i.name,
+                      i.submiturl,
+                      i.emailaddress,
+                      i.title,
+                      i.keyword,
+                      i.description,
+                      i.password
+                    );
+                  }}
+                  icon={faPlay}
+                  title="Restart Session"
+                />
+                |
+                <FontAwesomeIcon
+                  className=" mr-2 ml-2 afterplaycolor"
+                  icon={faDownload}
+                  title="View Report"
+                />
+                |
+                <FontAwesomeIcon
+                  className=" mr-2 ml-2"
+                  onClick={() => {
+                    this.handleClickOpen(ind);
+                  }}
+                  icon={faTrash}
+                  title="Delete Session"
+                />
+              </span>
+            ))
+        );
+        // alert(response.data.message);
+        this.setState({
+          data: response.data,
+        });
+      },
+      (error) => {}
     );
-    // alert(response.data.message);
-    this.setState({
-      data: response.data,
-    });
-  },
-  (error) => {}
-);
-}
-
+  }
 
   render() {
     const { profileImg } = this.state;
@@ -695,7 +580,9 @@ axios.get(nurl).then(
                 placeholder="Enter Description"
                 className="w-75"
                 value={this.state.mdescription}
-                onChange={(e) => this.setState({ mdescription: e.target.value })}
+                onChange={(e) =>
+                  this.setState({ mdescription: e.target.value })
+                }
               />
               <Form.Label>Keywords</Form.Label>
               <Form.Control
@@ -754,7 +641,9 @@ axios.get(nurl).then(
                     placeholder="Enter Email"
                     className="w-75"
                     value={this.state.memailaddress}
-                    onChange={(e) => this.setState({ memailaddress: e.target.value })}
+                    onChange={(e) =>
+                      this.setState({ memailaddress: e.target.value })
+                    }
                   />
                   <Form.Label>Password</Form.Label>
                   <Form.Control
@@ -794,7 +683,9 @@ axios.get(nurl).then(
                     placeholder="Enter url"
                     className="w-75"
                     value={this.state.msubmiturl}
-                    onChange={(e) => this.setState({ msubmiturl: e.target.value })}
+                    onChange={(e) =>
+                      this.setState({ msubmiturl: e.target.value })
+                    }
                   />
                   <Form.Label>Keywords</Form.Label>
                   <Form.Control
