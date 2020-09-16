@@ -21,13 +21,16 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
+    this.belowlist=this.belowlist.bind(this);
     this.state = {
       organization: "",
       deleteoption: false,
+      progressbar: false,
       data: [],
       organizationEnable: true,
       profession: "N/A",
@@ -36,6 +39,7 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
+      usname:"",
       tasktype: "",
       submiturl: "",
       selectedtasktype: "",
@@ -147,6 +151,7 @@ class Profile extends Component {
           name: "DATE",
           selector: "date",
           sortable: true,
+          left:true,
         },
         {
           name: "TASK",
@@ -165,7 +170,7 @@ class Profile extends Component {
           selector: "comments",
           sortable: true,
           center: true,
-          title: "comments",
+      
         },
         {
           name: "ACTION",
@@ -260,79 +265,49 @@ class Profile extends Component {
       (error) => {}
     );
 
-    let nurl =
-      getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
-    axios.get(nurl).then(
+   this.belowlist()
+
+    url =
+      getBaseUrl() +
+      "/gettask?id=" +
+      window.localStorage.getItem("id");
+    axios.get(url).then(
       (response) => {
-        // let fontonly = (
-
-        // );
-
-        response.data.map(
-          (i, ind) =>
-            (i.action = (
-              <span>
-                <FontAwesomeIcon
-                  className=" mr-2"
-                  onClick={() => {
-                    this.playtask(i.tasktype);
-                  }}
-                  icon={faPlay}
-                  title="Restart Session"
-                />
-                |
-                <FontAwesomeIcon
-                  className=" mr-2 ml-2 afterplaycolor"
-                  icon={faDownload}
-                  title="View Report"
-                />
-                |
-                <FontAwesomeIcon
-                  className=" mr-2 ml-2"
-                  onClick={() => {
-                    this.handleClickOpen(ind);
-                  }}
-                  icon={faTrash}
-                  title="Delete Session"
-                />
-              </span>
-            ))
-        );
-        // alert(response.data.message);
         this.setState({
-          data: response.data,
+          selectedtasktype: this.state.data.id,
+          submiturl: response.data.submiturl,
+          emailaddress: response.data.emailaddress,
         });
       },
       (error) => {}
     );
-
-    // url =
-    //   getBaseUrl() +
-    //   "/getinprogresstask?id=" +
-    //   window.localStorage.getItem("id");
-    // axios.get(url).then(
-    //   (response) => {
-    //     this.setState({
-    //       selectedtasktype: this.state.data.id,
-    //       submiturl: response.data.submiturl,
-    //       emailaddress: response.data.emailaddress,
-    //     });
-    //   },
-    //   (error) => {}
-    // );
   }
   deleteoptiontask = () => {
+    document.getElementById("close").click();
     let url = getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
+    this.setState({
+      progressbar: true,
+    });
     console.log(this.state.selectedtasktype);
     axios.get(url).then(
       (response) => {
-        window.location.reload();
+        this.setState({
+          progressbar: false,
+         
+        });
+     
+        this.belowlist()
+        // window.location.reload();
       },
 
       (error) => {
+        this.setState({
+          progressbar: false,
+        });
         console.log(error);
       }
     );
+   
   };
   cancelprofile = () => {
     window.location.reload();
@@ -355,6 +330,56 @@ class Profile extends Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+belowlist(){
+  let nurl =
+  getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+axios.get(nurl).then(
+  (response) => {
+    // let fontonly = (
+
+    // );
+
+    response.data.map(
+      (i, ind) =>
+        (i.action = (
+          <span>
+            <FontAwesomeIcon
+              className=" mr-2"
+              onClick={() => {
+                // alert("id",i.id);
+                // console.log("id ",i.id)
+                this.playtask(i.tasktype,i.id);
+              }}
+              icon={faPlay}
+              title="Restart Session"
+            />
+            |
+            <FontAwesomeIcon
+              className=" mr-2 ml-2 afterplaycolor"
+              icon={faDownload}
+              title="View Report"
+            />
+            |
+            <FontAwesomeIcon
+              className=" mr-2 ml-2"
+              onClick={() => {
+                this.handleClickOpen(ind);
+              }}
+              icon={faTrash}
+              title="Delete Session"
+            />
+          </span>
+        ))
+    );
+    // alert(response.data.message);
+    this.setState({
+      data: response.data,
+    });
+  },
+  (error) => {}
+);
+}
+
 
   render() {
     const { profileImg } = this.state;
@@ -626,8 +651,8 @@ class Profile extends Component {
                 type="url"
                 placeholder="Enter url"
                 className="w-75"
-                value={this.state.sbmUrl}
-                onChange={(e) => this.setState({ sbmUrl: e.target.value })}
+                value={this.state.submiturl}
+                onChange={(e) => this.setState({ submiturl: e.target.value })}
               />
               <Form.Label>title</Form.Label>
               <Form.Control
@@ -741,8 +766,8 @@ class Profile extends Component {
                     type="url"
                     placeholder="Enter url"
                     className="w-75"
-                    value={this.state.sbmUrl}
-                    onChange={(e) => this.setState({ sbmUrl: e.target.value })}
+                    value={this.state.submiturl}
+                    onChange={(e) => this.setState({ submiturl: e.target.value })}
                   />
                   <Form.Label>Keywords</Form.Label>
                   <Form.Control
@@ -788,6 +813,7 @@ class Profile extends Component {
               {/* <h1>{this.state.selectedtasktype}</h1> */}
               <Button
                 className="cancelbtn"
+                id="close"
                 onClick={() => {
                   this.setState({
                     deleteoption: false,
@@ -800,6 +826,22 @@ class Profile extends Component {
                 Delete
               </Button>
             </DialogActions>
+          </div>
+        </Dialog>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.progressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="loader-main">
+            {this.state.progressbar && (
+              <CircularProgress size={68} className="loaderbar" />
+            )}
           </div>
         </Dialog>
       </div>
