@@ -58,7 +58,6 @@ class Profile extends Component {
       profileImg:
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
       drillDown: "DrillDown",
-
       columns: [
         {
           name: "DATE",
@@ -493,7 +492,8 @@ class Profile extends Component {
             </span>
             <div className="mt-3 ml-4 seacrhengine2">
               <h3 className="seacrhengine mt-4">Search Engine Submission</h3>
-              <hr className="w-50 ml-4" />
+              <hr className="w-50 ml-5" />
+              <div className="seachinginewidthset">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="name"
@@ -535,6 +535,7 @@ class Profile extends Component {
                   Start
                 </Button>
               </div>
+              </div>
               <br />
             </div>
           </div>
@@ -557,7 +558,8 @@ class Profile extends Component {
             </span>
             <div className="mt-3 ml-4 seacrhengine2">
               <h3 className="seacrhengine mt-4">Social Book Marketing</h3>
-              <hr className="w-50 ml-4" />
+              <hr className="w-50 ml-5" />
+              <div className="seachinginewidthset">
               <Form.Label>Url</Form.Label>
               <Form.Control
                 type="url"
@@ -610,6 +612,7 @@ class Profile extends Component {
                   Start
                 </Button>
               </div>
+              </div>
               <br />
             </div>
           </div>
@@ -634,7 +637,7 @@ class Profile extends Component {
             <hr className="w-25 hrcolor" />
             <Grid container>
               <Grid item md={6}>
-                <div className="ml-3 marginleftfor">
+                <div className="ml-5 marginleftfor">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
@@ -666,7 +669,7 @@ class Profile extends Component {
                 </div>
               </Grid>
               <Grid item md={6}>
-                <div className="ml-3 marginleftfor">
+                <div className="ml-3 marginleftfor1">
                   <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"

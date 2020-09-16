@@ -93,6 +93,7 @@
   font-weight: bold;
   font-family: Century !important;
   color: cadetblue;
+  text-align: center;
 }
 .seacrhengine2 {
   font-size: 14px;
@@ -153,12 +154,16 @@
     margin-right: 24% !important;
   }
   .marginleftfor {
-    padding-left: 13% !important;
+   
     width: 41vh !important;
+  }
+  .marginleftfor1 {
+    padding-left: 10% !important;
+    width: 47vh !important;
   }
   .btnrighttoleft {
     margin-top: 4% !important;
-    margin-right: 25% !important;
+    margin-right: 15% !important;
   }
   /* .btnmobile{
     width: 100%;
@@ -302,6 +307,12 @@
    
     
 }
-
+.seachinginewidthset{
+  width: 40vh;
+    margin-left: 27px;
+}
+.hrcenter{
+  
+}
 
 

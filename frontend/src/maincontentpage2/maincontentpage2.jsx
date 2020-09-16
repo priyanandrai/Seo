@@ -129,20 +129,7 @@ export class Maincontentpage2 extends Component {
         },
       ],
 
-      // data: [
-      //   {
-      //     action: (
-      //       <FontAwesomeIcon
-      //         className=" mr-2 ml-2"
-      //         title="DrillDown"
-      //         icon={faAngleDoubleDown}
-      //         onClick={() => {
-      //           this.drilldown("create a table");
-      //         }}
-      //       />
-      //     ),
-      //   },
-      // ],
+
       columns: [
         {
           name: "Start Time",
@@ -171,7 +158,7 @@ export class Maincontentpage2 extends Component {
         },
 
         {
-          name: "action",
+          name: "Action",
           selector: "action",
           sortable: true,
           right: true,
