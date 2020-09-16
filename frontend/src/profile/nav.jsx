@@ -73,7 +73,7 @@ class Nav extends Component {
       register: false,
       getintouch: false,
       barmenu: false,
-      message:"",
+      message: "",
       // logindialog:false,
       // dropdownmenu:false,
     };
@@ -93,30 +93,26 @@ class Nav extends Component {
       alert("Enter your Email");
       return;
     } else if (!this.state.email.match(regexex)) {
-     alert("Please valid Email") 
+      alert("Please valid Email");
       return;
     }
     if (this.state.message == "") {
       alert("Enter your message");
       return;
-    } 
-  
+    }
 
     let url = getBaseUrl() + "/submitrequest";
     let temp = {
       userId: window.localStorage.getItem("id"),
-      email:this.state.email,
-      message:this.state.message
+      email: this.state.email,
+      message: this.state.message,
     };
 
     axios.post(url, temp).then(
       (response) => {
         // alert(response.data.message);
-        this.setState({
-          
-        });
+        this.setState({});
         alert("Request Successfully Submit");
-
 
         return;
       },
@@ -124,8 +120,7 @@ class Nav extends Component {
       (error) => {}
     );
   };
-  
-  
+
   myFunction = () => {
     var x = document.getElementById("myInput");
     if (x.type === "password") {
@@ -133,7 +128,7 @@ class Nav extends Component {
     } else {
       x.type = "password";
     }
-  }
+  };
   myFunction1 = () => {
     var x = document.getElementById("myInput1");
     if (x.type === "password") {
@@ -141,7 +136,7 @@ class Nav extends Component {
     } else {
       x.type = "password";
     }
-  }
+  };
 
   barmenu = () => {
     this.setState({ barmenu: !this.state.barmenu });
@@ -182,11 +177,8 @@ class Nav extends Component {
     axios.put(url, temp).then(
       (response) => {
         // alert(response.data.message);
-        this.setState({
-          
-        });
+        this.setState({});
         alert("Password Successfully Changed");
-
 
         return;
       },
@@ -230,9 +222,7 @@ class Nav extends Component {
       (response) => {
         // alert(response.data.message);
         self.setState({
-          
           email: response.data.email,
-          
         });
       },
       (error) => {}
@@ -373,6 +363,7 @@ class Nav extends Component {
           (response) => {
             if (response.data.message != undefined) {
               alert(response.data.message);
+              return;
             }
             let tmp = response.data;
             window.localStorage.setItem("user", response.data.name);
@@ -380,6 +371,7 @@ class Nav extends Component {
             window.location = "/dashboard";
           },
           (error) => {
+            
             alert(error.response.data.message);
           }
         )
@@ -755,7 +747,11 @@ class Nav extends Component {
                       value={password}
                       onChange={this.handelOnChange}
                     />
-                    <FontAwesomeIcon icon={faEye} className="ml-5 signup-icon" onClick={this.myFunction} />
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="ml-5 signup-icon"
+                      onClick={this.myFunction}
+                    />
                   </fieldset>
                 )}
                 {modal_type === "signin" && (
@@ -773,7 +769,7 @@ class Nav extends Component {
                   <fieldset className="inputHome">
                     <FontAwesomeIcon icon={faKey} className="signup-icon" />
                     <Input
-                     id="myInput1"
+                      id="myInput1"
                       className="bodernull111"
                       type="password"
                       name="confirm_password"
@@ -782,7 +778,11 @@ class Nav extends Component {
                       value={confirm_password}
                       onChange={this.handelOnChange}
                     />
-                    <FontAwesomeIcon icon={faEye} className="ml-5 signup-icon" onClick={this.myFunction1} />
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="ml-5 signup-icon"
+                      onClick={this.myFunction1}
+                    />
                   </fieldset>
                 )}
 
@@ -1062,12 +1062,12 @@ class Nav extends Component {
                       class="form-control"
                       placeholder="Email"
                       value={this.state.email}
-                      onChange={(e)=>{
+                      onChange={(e) => {
                         this.setState({
-                          email:e.target.value
-                        })
+                          email: e.target.value,
+                        });
                       }}
-/>
+                    />
                   </fieldset>
 
                   <textarea
@@ -1076,10 +1076,10 @@ class Nav extends Component {
                     multiline
                     rows={4}
                     value={this.state.message}
-                    onChange={(e)=>{
+                    onChange={(e) => {
                       this.setState({
-                        message:e.target.value
-                      })
+                        message: e.target.value,
+                      });
                     }}
                     rowsMax={4}
                   />
@@ -1090,7 +1090,6 @@ class Nav extends Component {
                       type="submit"
                       value="SUBMIT"
                       onClick={this.submitrequest}
-                      
                     />
                   </div>
                 </div>

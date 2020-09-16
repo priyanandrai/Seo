@@ -1720,9 +1720,9 @@ input:disabled {
     margin-top: 48% !important;
     border-radius: 10px;
   }
-  .imagecentermobile1{
-    /* margin-left: 41% !important; */
-  }
+  /* .imagecentermobile1{
+    margin-left: 41% !important;
+  } */
   .usermobile{
     width: 48vh !important;
   }
