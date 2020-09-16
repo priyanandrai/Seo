@@ -39,7 +39,13 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
-      usname:"",
+      mname:"",
+      msubmiturl:"",
+      memailaddress:"",
+      mtitle:"",
+      mdescription:"",
+      mkeyword:"",
+      mpassword:"",
       tasktype: "",
       submiturl: "",
       selectedtasktype: "",
@@ -220,19 +226,40 @@ class Profile extends Component {
   dialogBox = () => {
     this.setState({ dialogBox: !this.state.dialogBox });
   };
-  playtask = (tasktype) => {
-    if (tasktype == "Search Engine Submission") {
-      this.setState({ Playsession: !this.state.Playsession });
+  playtask = (tasktype,id,name,submiturl,emailaddress,title,description,keyword,password) => {
+    if (tasktype == "Search Engine Submission") 
+  {
+
+      this.setState({ 
+        Playsession: !this.state.Playsession,
+        mname:name,
+        msubmiturl:submiturl,
+        memailaddress:emailaddress
+      
+      });
       return;
     }
 
     if (tasktype == "Social Book Marketing") {
-      this.setState({ Playsession1: !this.state.Playsession1 });
+      this.setState({ Playsession1: !this.state.Playsession1,
+        msubmiturl:submiturl,
+        mtitle:title,
+        mdescription:description,
+        mkeyword:keyword
+      });
       return;
     }
 
     if (tasktype == "Classified Submission") {
-      this.setState({ Playsession2: !this.state.Playsession2 });
+      this.setState({ Playsession2: !this.state.Playsession2,
+        memailaddress:emailaddress,
+        mtitle:title,
+        mdescription:description,
+        mkeyword:keyword,
+        msubmiturl:submiturl,
+        mpassword:password
+
+      });
       return;
     }
   };
@@ -267,20 +294,20 @@ class Profile extends Component {
 
    this.belowlist()
 
-    url =
-      getBaseUrl() +
-      "/gettask?id=" +
-      window.localStorage.getItem("id");
-    axios.get(url).then(
-      (response) => {
-        this.setState({
-          selectedtasktype: this.state.data.id,
-          submiturl: response.data.submiturl,
-          emailaddress: response.data.emailaddress,
-        });
-      },
-      (error) => {}
-    );
+  //   url =
+  //     getBaseUrl() +
+  //     "/gettask?id=" +
+  //     window.localStorage.getItem("id");
+  //   axios.get(url).then(
+  //     (response) => {
+  //       this.setState({
+  //         selectedtasktype: this.state.data.id,
+  //         submiturl: response.data.submiturl,
+  //         emailaddress: response.data.emailaddress,
+  //       });
+  //     },
+  //     (error) => {}
+  //   );
   }
   deleteoptiontask = () => {
     document.getElementById("close").click();
@@ -348,7 +375,7 @@ axios.get(nurl).then(
               onClick={() => {
                 // alert("id",i.id);
                 // console.log("id ",i.id)
-                this.playtask(i.tasktype,i.id);
+                this.playtask(i.tasktype,i.id,i.name,i.submiturl,i.emailaddress,i.title,i.keyword,i.description,i.password);
               }}
               icon={faPlay}
               title="Restart Session"
@@ -588,8 +615,8 @@ axios.get(nurl).then(
                 placeholder="Enter name"
                 id="Name"
                 className="w-75"
-                // value={this.state.name}
-                onChange={(e) => this.setState({ name: e.target.value })}
+                value={this.state.mname}
+                onChange={(e) => this.setState({ mname: e.target.value })}
               />
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -597,10 +624,10 @@ axios.get(nurl).then(
                 placeholder="Enter email"
                 className="w-75"
                 id="Email"
-                value={this.state.emailaddress}
+                value={this.state.memailaddress}
                 onChange={(e) =>
                   this.setState({
-                    emailaddress: e.target.value,
+                    memailaddress: e.target.value,
                   })
                 }
               />
@@ -610,8 +637,8 @@ axios.get(nurl).then(
                 id="Url"
                 placeholder="Enter url"
                 className="w-75"
-                onChange={(e) => this.setState({ submiturl: e.target.value })}
-                value={this.state.submiturl}
+                onChange={(e) => this.setState({ msubmiturl: e.target.value })}
+                value={this.state.msubmiturl}
               />
 
               <div className="d-flex justify-content-end mrrginside2200">
@@ -651,32 +678,32 @@ axios.get(nurl).then(
                 type="url"
                 placeholder="Enter url"
                 className="w-75"
-                value={this.state.submiturl}
-                onChange={(e) => this.setState({ submiturl: e.target.value })}
+                value={this.state.msubmiturl}
+                onChange={(e) => this.setState({ msubmiturl: e.target.value })}
               />
               <Form.Label>title</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter title"
                 className="w-75"
-                value={this.state.title}
-                onChange={(e) => this.setState({ title: e.target.value })}
+                value={this.state.mtitle}
+                onChange={(e) => this.setState({ mtitle: e.target.value })}
               />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Description"
                 className="w-75"
-                value={this.state.description}
-                onChange={(e) => this.setState({ description: e.target.value })}
+                value={this.state.mdescription}
+                onChange={(e) => this.setState({ mdescription: e.target.value })}
               />
               <Form.Label>Keywords</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Keywords"
                 className="w-75"
-                value={this.state.keywords}
-                onChange={(e) => this.setState({ keywords: e.target.value })}
+                value={this.state.mkeyword}
+                onChange={(e) => this.setState({ mkeyword: e.target.value })}
               />
               {/* <Button
                             style={{ marginRight: "24%", marginTop: "4%" }}
@@ -726,17 +753,17 @@ axios.get(nurl).then(
                     type="email"
                     placeholder="Enter Email"
                     className="w-75"
-                    value={this.state.emailaddress}
-                    onChange={(e) => this.setState({ emailaddress: e.target.value })}
+                    value={this.state.memailaddress}
+                    onChange={(e) => this.setState({ memailaddress: e.target.value })}
                   />
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
                     placeholder="Enter Password"
                     className="w-75"
-                    value={this.state.Passwordd}
+                    value={this.state.mpassword}
                     onChange={(e) =>
-                      this.setState({ Passwordd: e.target.value })
+                      this.setState({ mpassword: e.target.value })
                     }
                   />
                   <Form.Label>Title</Form.Label>
@@ -744,8 +771,8 @@ axios.get(nurl).then(
                     type="text"
                     placeholder="Enter title"
                     className="w-75"
-                    value={this.state.titles}
-                    onChange={(e) => this.setState({ titles: e.target.value })}
+                    value={this.state.mtitle}
+                    onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
                 </div>
               </Grid>
@@ -756,9 +783,9 @@ axios.get(nurl).then(
                     type="text"
                     placeholder="Enter Description"
                     className="w-75"
-                    value={this.state.descriptionss}
+                    value={this.state.mdescription}
                     onChange={(e) =>
-                      this.setState({ descriptionss: e.target.value })
+                      this.setState({ mdescription: e.target.value })
                     }
                   />
                   <Form.Label>URL</Form.Label>
@@ -766,17 +793,17 @@ axios.get(nurl).then(
                     type="url"
                     placeholder="Enter url"
                     className="w-75"
-                    value={this.state.submiturl}
-                    onChange={(e) => this.setState({ submiturl: e.target.value })}
+                    value={this.state.msubmiturl}
+                    onChange={(e) => this.setState({ msubmiturl: e.target.value })}
                   />
                   <Form.Label>Keywords</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Keywords"
                     className="w-75"
-                    value={this.state.keywordsss}
+                    value={this.state.mkeyword}
                     onChange={(e) =>
-                      this.setState({ keywordsss: e.target.value })
+                      this.setState({ mkeyword: e.target.value })
                     }
                   />
                 </div>

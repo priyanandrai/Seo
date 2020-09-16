@@ -144,11 +144,7 @@ export class Maincontentpage2 extends Component {
       //   },
       // ],
       columns: [
-        // {
-        //   name: "S.No",
-        //   selector: "sno",
-        //   sortable: true,
-        // },
+  
         {
           name: "Start Time",
           selector: "date",
