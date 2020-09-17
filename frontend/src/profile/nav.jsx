@@ -308,9 +308,7 @@ class Nav extends Component {
   }
 
   handleOnSubmit(event) {
-    window.localStorage.setItem("isLoggedIn", true);
-    window.localStorage.setItem("user", this.state.email);
-
+    
     event.preventDefault();
     const {
       how_account_dropdown,
@@ -406,15 +404,21 @@ class Nav extends Component {
         .post(url, temp)
         .then(
           (response) => {
-            console.log(response,"singup ka response")
-          
-            // window.localStorage.setItem("user", response.data.name);
-            window.localStorage.setItem("id", response.data.id);
-            window.location = "/dashboard";
-            alert(response.data.message);
+            console.log("iddddddddddddddddddddddddddddd",console.data.id);
+            if(response.data.message  != undefined){
+              alert(response.data.message);
+            }else
+            {
+              window.localStorage.setItem("user", response.data.name);
+              window.localStorage.setItem("id", response.data.id);
+              window.localStorage.setItem("isLoggedIn", true);
+               window.location = "/dashboard";
+              alert("Thank you for Regisrtion");
+            }
           },
           (error) => {
             alert(error.response.data.message);
+
           }
         )
         .catch((e) => {});

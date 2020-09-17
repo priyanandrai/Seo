@@ -54,7 +54,8 @@ public class MainServices {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "{\"message\":\"Thank you registration\"}";
+//		return "{\"message\":\"Thank you registration\"}";
+		return signup.toString();
 	}
 
 	@CrossOrigin(origins = "*")

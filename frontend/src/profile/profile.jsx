@@ -50,6 +50,7 @@ class Profile extends Component {
       mdescription: "",
       mkeyword: "",
       mpassword: "",
+      mcomments: "",
       tasktype: "",
       submiturl: "",
       selectedtasktype: "",
@@ -140,7 +141,8 @@ class Profile extends Component {
     title,
     description,
     keyword,
-    password
+    password,
+    comments
   ) => {
     if (tasktype == "Search Engine Submission") {
       this.setState({
@@ -149,6 +151,7 @@ class Profile extends Component {
         mname: name,
         msubmiturl: submiturl,
         memailaddress: emailaddress,
+        mcomments: comments
       });
       return;
     }
@@ -245,7 +248,7 @@ class Profile extends Component {
   };
   belowlist() {
     let nurl =
-      getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+    getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
     axios.get(nurl).then(
       (response) => {
         response.data.map(
@@ -264,7 +267,8 @@ class Profile extends Component {
                       i.title,
                       i.keyword,
                       i.description,
-                      i.password
+                      i.password,
+                      i.comments
                     );
                   }}
                   icon={faPlay}
@@ -297,9 +301,7 @@ class Profile extends Component {
     );
   }
   handlesubmit = (e) => {
-    
-
-    let url = getBaseUrl() + "/starttask?id";
+    let url = getBaseUrl() + "/starttask";
     this.setState({
       progressbar: true,
     });
@@ -316,21 +318,15 @@ class Profile extends Component {
     let min = new Date().getMinutes();
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
-      // userId: window.localStorage.getItem("id"),
-      id:this.state.mid,
+     userId: window.localStorage.getItem('id'),      
       tasktype: "Search Engine Submission",
       date: date,
-      mname: this.state.mname,
-      memailaddress: this.state.memailaddress,
-      msubmiturl: this.state.msubmiturl,
-      mvisualId: this.state.mvisualId,
-      mtitle: this.state.mtitle,
-      mkeyword: this.state.mkeyword,
-      mdescription: this.state.mdescription,
-      mpassword: this.state.mpassword,
-      // mcomments: this.state.comments,
+      name: this.state.mname,
+      emailaddress: this.state.memailaddress,
+      submiturl: this.state.msubmiturl,
+      comments: this.state.mcomments
     };
-    axios.put(url, temp).then(
+    axios.post(url, temp).then(
       (response) => {
         // alert(response.data.message);
         this.setState({
