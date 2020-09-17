@@ -235,7 +235,7 @@ export class Maincontentpage2 extends Component {
     // window.localStorage.setItem("email", emailaddress);
     // window.localStorage.setItem("url", submiturl);
 
-    let url = getBaseUrl() + "/starttask?id";
+    let url = getBaseUrl() + "/starttask";
     this.setState({
       progressbar: true,
     });

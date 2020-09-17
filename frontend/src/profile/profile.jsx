@@ -39,6 +39,7 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
+      mid:"",
       mname: "",
       msubmiturl: "",
       memailaddress: "",
@@ -141,6 +142,7 @@ class Profile extends Component {
     if (tasktype == "Search Engine Submission") {
       this.setState({
         Playsession: !this.state.Playsession,
+        mid:id,
         mname: name,
         msubmiturl: submiturl,
         memailaddress: emailaddress,
@@ -291,6 +293,159 @@ class Profile extends Component {
       (error) => {}
     );
   }
+  handlesubmit = (e) => {
+    
+
+    let url = getBaseUrl() + "/starttask?id";
+    this.setState({
+      progressbar: true,
+    });
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let year = new Date().getFullYear();
+    let hour = new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
+    let temp = {
+      // userId: window.localStorage.getItem("id"),
+      id:this.state.mid,
+      tasktype: "Search Engine Submission",
+      date: date,
+      mname: this.state.mname,
+      memailaddress: this.state.memailaddress,
+      msubmiturl: this.state.msubmiturl,
+      mvisualId: this.state.mvisualId,
+      mtitle: this.state.mtitle,
+      mkeyword: this.state.mkeyword,
+      mdescription: this.state.mdescription,
+      mpassword: this.state.mpassword,
+      // mcomments: this.state.comments,
+    };
+    axios.put(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        window.location.reload();
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
+  };
+  handlesubmission = (e) => {
+    let url = getBaseUrl() + "/starttask?id";
+    this.setState({
+      progressbar: true,
+    });
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let year = new Date().getFullYear();
+    let hour = new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
+    let temp = {
+      // userId: window.localStorage.getItem("id"),
+      id:this.state.mid,
+      tasktype: "Search Engine Submission",
+      date: date,
+      mname: this.state.mname,
+      memailaddress: this.state.memailaddress,
+      msubmiturl: this.state.msubmiturl,
+      mvisualId: this.state.mvisualId,
+      mtitle: this.state.mtitle,
+      mkeyword: this.state.mkeyword,
+      mdescription: this.state.mdescription,
+      mpassword: this.state.mpassword,
+      // mcomments: this.state.comments,
+    };
+    axios.put(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        window.location.reload();
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
+  }
+  handleclick = (e) => {
+    let url = getBaseUrl() + "/starttask?id";
+    this.setState({
+      progressbar: true,
+    });
+    let month = new Date().getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    let day = new Date().getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let year = new Date().getFullYear();
+    let hour = new Date().getHours();
+    let min = new Date().getMinutes();
+    let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
+    let temp = {
+      // userId: window.localStorage.getItem("id"),
+      id:this.state.mid,
+      tasktype: "Search Engine Submission",
+      date: date,
+      mname: this.state.mname,
+      memailaddress: this.state.memailaddress,
+      msubmiturl: this.state.msubmiturl,
+      mvisualId: this.state.mvisualId,
+      mtitle: this.state.mtitle,
+      mkeyword: this.state.mkeyword,
+      mdescription: this.state.mdescription,
+      mpassword: this.state.mpassword,
+      // mcomments: this.state.comments,
+    };
+    axios.put(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({
+          progressbar: false,
+          snackbar: true,
+          error: "Data is successfully uploaded",
+        });
+        window.location.reload();
+        return;
+      },
+      (error) => {
+        this.setState({
+          progressbar: false,
+        });
+      }
+    );
+  }
+
 
   render() {
     const { profileImg } = this.state;
