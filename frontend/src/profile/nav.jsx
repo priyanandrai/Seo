@@ -37,6 +37,9 @@ import {
   faBars,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 import Logout from "../logout/logout";
 class Nav extends Component {
@@ -90,14 +93,26 @@ class Nav extends Component {
   submitrequest = () => {
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.email == "") {
-      alert("Enter your Email");
+      this.setState({
+        snackbar: true,
+        error: "Enter your Email",
+      });
+      // alert("Enter your Email");
       return;
     } else if (!this.state.email.match(regexex)) {
-      alert("Please valid Email");
+      this.setState({
+        snackbar: true,
+        error: "Please valid Email",
+      });
+      // alert("Please valid Email");
       return;
     }
     if (this.state.message == "") {
-      alert("Enter your message");
+      this.setState({
+        snackbar: true,
+        error: "Enter your message",
+      });
+      // alert("Enter your message");
       return;
     }
 
@@ -152,19 +167,43 @@ class Nav extends Component {
   };
   chnagepassword = () => {
     if (this.state.currentPassword.length == "") {
-      alert("Please enter the old password");
+      this.setState({
+        snackbar: true,
+        error: "Please enter the old password",
+      });
+      // alert("Please enter the old password");
       return;
     }
     if (this.state.newPassword.length == "") {
-      alert("Please enter the new password");
+      this.setState({
+        snackbar: true,
+        error: "Please enter the new password",
+      });
+      // alert("Please enter the new password");
       return;
     }
     if (this.state.newPassword.length < 8) {
-      alert("Password must be 8 characters long");
+      this.setState({
+        snackbar: true,
+        error: "Password must be 8 characters long",
+      });
+      // alert("Password must be 8 characters long");
+      return;
+    }
+    if (this.state.conf_pass.length =="") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter Confirm Password ",
+      });
+      // alert("Password must be 8 characters long");
       return;
     }
     if (this.state.conf_pass !== this.state.newPassword) {
-      alert("Password must match.");
+      this.setState({
+        snackbar: true,
+        error: "Password must match.",
+      });
+      // alert("Password must match.");
       return;
     }
     let url = getBaseUrl() + "/changepassword";
@@ -286,31 +325,68 @@ class Nav extends Component {
     } = this.state;
 
     if (modal_type === "signup") {
+      if (this.state.phone == undefined || this.state.phone.length < 10) {
+        // alert("Phone number must be 10 digit");
+        this.setState({
+          snackbar: true,
+          error: "Phone number must be 10 digit",
+        });
+        return;
+      }
       const nameString = "[a-zA-Z]+\\.?";
       if (this.state.full_name.trim().length < 4) {
-        alert("Full name must be more than 4 characters.");
+        this.setState({
+          snackbar: true,
+          error: "Full name must be more than 4 characters.",
+        });
+        
+        //  alert("Full name must be more than 4 characters.");
         return;
       } else if (full_name.trim().length > 20) {
-        alert("Full name must not exceed 20 characters.");
+        this.setState({
+          snackbar: true,
+          error: "Full name must not exceed 20 characters.",
+        });
+        // alert("Full name must not exceed 20 characters.");
       } else if (!full_name.trim().match(nameString)) {
-        alert("Please enter characters only.");
+        this.setState({
+          snackbar: true,
+          error: "Please enter characters only.",
+        });
+        // alert("Please enter characters only.");
         return;
       }
       const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (!this.state.email.match(emailReg)) {
-        alert("Please enter a valid email.");
+        this.setState({
+          snackbar: true,
+          error: "Please enter a valid email.",
+        });
+        // alert("Please enter a valid email.");
         return;
       }
       if (this.state.password.length < 8) {
-        alert("Password must be 8 characters long");
+        this.setState({
+          snackbar: true,
+          error: "Password must be 8 characters long",
+        });
+        // alert("Password must be 8 characters long");
         return;
       }
       if (this.state.confirm_password !== this.state.password) {
-        alert("Password must match.");
+        this.setState({
+          snackbar: true,
+          error: "Password must match.",
+        });
+        // alert("Password must match.");
         return;
       }
       if (this.state.checked === false) {
-        alert("Please accept the Terms and Conditions");
+        this.setState({
+          snackbar: true,
+          error: "Please accept the Terms and Conditions",
+        });
+        // alert("Please accept the Terms and Conditions");
         return;
       }
       this.setState({
@@ -330,6 +406,11 @@ class Nav extends Component {
         .post(url, temp)
         .then(
           (response) => {
+            console.log(response,"singup ka response")
+          
+            // window.localStorage.setItem("user", response.data.name);
+            window.localStorage.setItem("id", response.data.id);
+            window.location = "/dashboard";
             alert(response.data.message);
           },
           (error) => {
@@ -340,11 +421,19 @@ class Nav extends Component {
     }
     if (modal_type === "signin") {
       if (this.state.phone == undefined || this.state.phone.length < 10) {
-        alert("Phone number must be 10 digit");
+        // alert("Phone number must be 10 digit");
+        this.setState({
+          snackbar: true,
+          error: "Phone number must be 10 digit",
+        });
         return;
       }
       if (this.state.password.length < 8) {
-        alert("Password must be 8 characters long");
+        this.setState({
+          snackbar: true,
+          error: "Password must be 8 characters long",
+        });
+        // alert("Password must be 8 characters long");
         return;
       }
       // if (this.state.checked === false) {
@@ -397,6 +486,9 @@ class Nav extends Component {
     //   return;
     // }
   }
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
 
   render() {
     const navigation_links = [
@@ -893,6 +985,34 @@ class Nav extends Component {
               )}
             </div>
           </div>
+          <div>
+        <Snackbar
+        
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="red"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
+
+
         </Dialog>
 
         <div className="dialogconfirm">
@@ -1029,6 +1149,32 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
+            <div>
+        <Snackbar
+        
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="red"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
           </div>
         </Dialog>
         <Dialog
@@ -1096,6 +1242,30 @@ class Nav extends Component {
               </div>
             </div>
           </div>
+          <Snackbar
+        
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        open={this.state.snackbar}
+        onClose={this.closeSnackbar}
+        message={
+          this.state.error === null ? this.state.message : this.state.error
+        }
+        action={
+          <React.Fragment>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="red"
+              onClick={this.closeSnackbar}
+            >
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </React.Fragment>
+        }
+      />
         </Dialog>
         <Dialog
           open={this.state.UniqueId}
@@ -1133,6 +1303,7 @@ class Nav extends Component {
             </span>
           </div>
         </Dialog>
+       
       </AppBar>
     );
   }
