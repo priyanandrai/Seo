@@ -22,6 +22,9 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 class Profile extends Component {
   constructor(props) {
@@ -445,7 +448,9 @@ class Profile extends Component {
       }
     );
   }
-
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
 
   render() {
     const { profileImg } = this.state;
@@ -695,6 +700,31 @@ class Profile extends Component {
               <br />
             </div>
           </div>
+          <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
         </Dialog>
         <Dialog
           open={this.state.Playsession1}
@@ -772,6 +802,31 @@ class Profile extends Component {
               <br />
             </div>
           </div>
+          <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
         </Dialog>
         <Dialog
           open={this.state.Playsession2}
@@ -870,6 +925,31 @@ class Profile extends Component {
             </div>
             <br />
           </div>
+          <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
         </Dialog>
 
         <Dialog
