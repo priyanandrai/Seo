@@ -311,6 +311,17 @@
   width: 40vh;
     margin-left: 27px;
 }
-
-
+.deletecolor{
+  color: rgb(220, 0, 78);
+}
+.playcolor{
+  color:#18758d;
+}
+.dowmloadcolor{
+  color: darkblue;
+}
+.datatablehoer :hover{
+  background-color: lightgray;
+  color: white;
+}
 

@@ -510,7 +510,7 @@ export class Maincontentpage2 extends Component {
           (i, index) =>
             (i.action = (
               <FontAwesomeIcon
-                className=" mr-2 ml-2"
+                className=" mr-2 ml-2 drillcolor"
                 title="DrillDown"
                 icon={faAngleDoubleDown}
                 onClick={() => {
@@ -871,6 +871,7 @@ export class Maincontentpage2 extends Component {
           <div className="mt-5 border-top bodercolor"> </div>
           <div className="sadataset">
             <DataTable
+            className="datatablehoer"
               title="Current Session"
               columns={this.state.columns}
               data={this.state.data}

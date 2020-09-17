@@ -2013,4 +2013,14 @@ a.disabled {
 .kwRiGp{
   font-size: 15px !important;
 }
+.drillcolor{
+  color:#18758d;
+}
+.jqBTNs {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  font-weight: 600 !important;
+  color: crimson;
+}
 

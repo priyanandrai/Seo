@@ -248,7 +248,7 @@ class Profile extends Component {
             (i.action = (
               <span>
                 <FontAwesomeIcon
-                  className=" mr-2"
+                  className=" mr-2 playcolor"
                   onClick={() => {
                     this.playtask(
                       i.tasktype,
@@ -267,13 +267,13 @@ class Profile extends Component {
                 />
                 |
                 <FontAwesomeIcon
-                  className=" mr-2 ml-2 afterplaycolor"
+                  className=" mr-2 ml-2 afterplaycolor dowmloadcolor"
                   icon={faDownload}
                   title="View Report"
                 />
                 |
                 <FontAwesomeIcon
-                  className=" mr-2 ml-2"
+                  className=" mr-2 ml-2 deletecolor"
                   onClick={() => {
                     this.handleClickOpen(ind);
                   }}
@@ -441,6 +441,7 @@ class Profile extends Component {
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
           <DataTable
+          className="datatablehoer"
             title="Your History"
             columns={this.state.columns}
             data={this.state.data}
