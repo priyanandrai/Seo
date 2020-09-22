@@ -439,54 +439,7 @@ class Profile extends Component {
         });
       }
     );
-    // let url = getBaseUrl() + "/starttask";
-    // this.setState({
-    //   progressbar: true,
-    // });
-    // let month = new Date().getMonth() + 1;
-    // if (month < 10) {
-    //   month = "0" + month;
-    // }
-    // let day = new Date().getDate();
-    // if (day < 10) {
-    //   day = "0" + day;
-    // }
-    // let year = new Date().getFullYear();
-    // let hour = new Date().getHours();
-    // let min = new Date().getMinutes();
-    // let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
-    // let temp = {
-    //   // userId: window.localStorage.getItem("id"),
-    //   id: this.state.mid,
-    //   tasktype: "Classified Submission",
-    //   date: date,
-    //   mname: this.state.mname,
-    //   memailaddress: this.state.memailaddress,
-    //   msubmiturl: this.state.msubmiturl,
-    //   mvisualId: this.state.mvisualId,
-    //   mtitle: this.state.mtitle,
-    //   mkeyword: this.state.mkeyword,
-    //   mdescription: this.state.mdescription,
-    //   mpassword: this.state.mpassword,
-    //   // mcomments: this.state.comments,
-    // };
-    // axios.put(url, temp).then(
-    //   (response) => {
-    //     // alert(response.data.message);
-    //     this.setState({
-    //       progressbar: false,
-    //       snackbar: true,
-    //       error: "Data is successfully uploaded",
-    //     });
-    //     window.location.reload();
-    //     return;
-    //   },
-    //   (error) => {
-    //     this.setState({
-    //       progressbar: false,
-    //     });
-    //   }
-    // );
+   
   };
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -728,6 +681,17 @@ class Profile extends Component {
                   }
                   value={this.state.msubmiturl}
                 />
+                   <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="w-75"
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
 
                 <div className="d-flex justify-content-end mrrginside2200">
                   <Button
@@ -826,15 +790,18 @@ class Profile extends Component {
                   value={this.state.mkeyword}
                   onChange={(e) => this.setState({ mkeyword: e.target.value })}
                 />
-                {/* <Button
-                            style={{ marginRight: "24%", marginTop: "4%" }}
-                            id="buttonn"
-                            variant="contained"
-                            color="secondary "
-                            onClick={this.handlesubmission}
-                          >
-                            Start
-                          </Button> */}
+                 <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="w-75"
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
+              
                 <div className="d-flex justify-content-end mrrginside2200">
                   <Button
                     variant="contained"
@@ -925,6 +892,17 @@ class Profile extends Component {
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
+                   <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="w-75"
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
                 </div>
               </Grid>
               <Grid item md={6}>
