@@ -654,6 +654,7 @@ class Profile extends Component {
                   placeholder="Enter name"
                   id="Name"
                   className="width90"
+                  title={this.state.mname}
                   value={this.state.mname}
                   onChange={(e) => this.setState({ mname: e.target.value })}
                 />
@@ -662,6 +663,7 @@ class Profile extends Component {
                   type="email"
                   placeholder="Enter email"
                   className="width90"
+                  title={this.state.memailaddress}
                   id="Email"
                   value={this.state.memailaddress}
                   onChange={(e) =>
@@ -676,6 +678,7 @@ class Profile extends Component {
                   id="Url"
                   placeholder="Enter url"
                   className="width90"
+                  title={this.state.msubmiturl}
                   onChange={(e) =>
                     this.setState({ msubmiturl: e.target.value })
                   }
@@ -687,6 +690,7 @@ class Profile extends Component {
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
+                  title={this.state.mcomments}
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -759,6 +763,7 @@ class Profile extends Component {
                   type="url"
                   placeholder="Enter url"
                   className="width90"
+                  title={this.state.msubmiturl}
                   value={this.state.msubmiturl}
                   onChange={(e) =>
                     this.setState({ msubmiturl: e.target.value })
@@ -769,6 +774,7 @@ class Profile extends Component {
                   type="text"
                   placeholder="Enter title"
                   className="width90"
+                  title={this.state.mtitle}
                   value={this.state.mtitle}
                   onChange={(e) => this.setState({ mtitle: e.target.value })}
                 />
@@ -777,6 +783,7 @@ class Profile extends Component {
                   type="text"
                   placeholder="Enter Description"
                   className="width90"
+                  title={this.state.mdescription}
                   value={this.state.mdescription}
                   onChange={(e) =>
                     this.setState({ mdescription: e.target.value })
@@ -787,6 +794,7 @@ class Profile extends Component {
                   type="text"
                   placeholder="Enter Keywords"
                   className="width90"
+                  title={this.state.mkeyword}
                   value={this.state.mkeyword}
                   onChange={(e) => this.setState({ mkeyword: e.target.value })}
                 />
@@ -796,6 +804,7 @@ class Profile extends Component {
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
+                  title={this.state.mcomments}
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -869,6 +878,7 @@ class Profile extends Component {
                     type="email"
                     placeholder="Enter Email"
                     className="width90"
+                    title={this.state.memailaddress}
                     value={this.state.memailaddress}
                     onChange={(e) =>
                       this.setState({ memailaddress: e.target.value })
@@ -878,6 +888,7 @@ class Profile extends Component {
                   <Form.Control
                     type="password"
                     placeholder="Enter Password"
+                    title={this.state.mpassword}
                     className="width90"
                     value={this.state.mpassword}
                     onChange={(e) =>
@@ -889,6 +900,7 @@ class Profile extends Component {
                     type="text"
                     placeholder="Enter title"
                     className="width90"
+                    title={this.state.mtitle}
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
@@ -898,6 +910,7 @@ class Profile extends Component {
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
+                  title={this.state.mcomments}
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -912,6 +925,7 @@ class Profile extends Component {
                     type="text"
                     placeholder="Enter Description"
                     className="width90"
+                    title={this.state.mdescription}
                     value={this.state.mdescription}
                     onChange={(e) =>
                       this.setState({ mdescription: e.target.value })
@@ -922,6 +936,7 @@ class Profile extends Component {
                     type="url"
                     placeholder="Enter url"
                     className="width90"
+                    title={this.state.msubmiturl}
                     value={this.state.msubmiturl}
                     onChange={(e) =>
                       this.setState({ msubmiturl: e.target.value })
@@ -932,6 +947,7 @@ class Profile extends Component {
                     type="text"
                     placeholder="Enter Keywords"
                     className="width90"
+                    title={this.state.mkeyword}
                     value={this.state.mkeyword}
                     onChange={(e) =>
                       this.setState({ mkeyword: e.target.value })
