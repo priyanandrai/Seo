@@ -653,7 +653,7 @@ class Profile extends Component {
                   type="name"
                   placeholder="Enter name"
                   id="Name"
-                  className="w-75"
+                  className="width90"
                   value={this.state.mname}
                   onChange={(e) => this.setState({ mname: e.target.value })}
                 />
@@ -661,7 +661,7 @@ class Profile extends Component {
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
-                  className="w-75"
+                  className="width90"
                   id="Email"
                   value={this.state.memailaddress}
                   onChange={(e) =>
@@ -675,7 +675,7 @@ class Profile extends Component {
                   type="Url"
                   id="Url"
                   placeholder="Enter url"
-                  className="w-75"
+                  className="width90"
                   onChange={(e) =>
                     this.setState({ msubmiturl: e.target.value })
                   }
@@ -686,7 +686,7 @@ class Profile extends Component {
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
-                  className="w-75"
+                  className="width90"
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -758,7 +758,7 @@ class Profile extends Component {
                 <Form.Control
                   type="url"
                   placeholder="Enter url"
-                  className="w-75"
+                  className="width90"
                   value={this.state.msubmiturl}
                   onChange={(e) =>
                     this.setState({ msubmiturl: e.target.value })
@@ -768,7 +768,7 @@ class Profile extends Component {
                 <Form.Control
                   type="text"
                   placeholder="Enter title"
-                  className="w-75"
+                  className="width90"
                   value={this.state.mtitle}
                   onChange={(e) => this.setState({ mtitle: e.target.value })}
                 />
@@ -776,7 +776,7 @@ class Profile extends Component {
                 <Form.Control
                   type="text"
                   placeholder="Enter Description"
-                  className="w-75"
+                  className="width90"
                   value={this.state.mdescription}
                   onChange={(e) =>
                     this.setState({ mdescription: e.target.value })
@@ -786,7 +786,7 @@ class Profile extends Component {
                 <Form.Control
                   type="text"
                   placeholder="Enter Keywords"
-                  className="w-75"
+                  className="width90"
                   value={this.state.mkeyword}
                   onChange={(e) => this.setState({ mkeyword: e.target.value })}
                 />
@@ -795,7 +795,7 @@ class Profile extends Component {
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
-                  className="w-75"
+                  className="width90"
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -863,12 +863,12 @@ class Profile extends Component {
             <hr className="w-25 hrcolor" />
             <Grid container>
               <Grid item md={6}>
-                <div className="ml-5 marginleftfor">
+                <div className="ml-3 marginleftfor">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter Email"
-                    className="w-75"
+                    className="width90"
                     value={this.state.memailaddress}
                     onChange={(e) =>
                       this.setState({ memailaddress: e.target.value })
@@ -878,7 +878,7 @@ class Profile extends Component {
                   <Form.Control
                     type="password"
                     placeholder="Enter Password"
-                    className="w-75"
+                    className="width90"
                     value={this.state.mpassword}
                     onChange={(e) =>
                       this.setState({ mpassword: e.target.value })
@@ -888,7 +888,7 @@ class Profile extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Enter title"
-                    className="w-75"
+                    className="width90"
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
@@ -897,7 +897,7 @@ class Profile extends Component {
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
-                  className="w-75"
+                  className="width90"
                   onChange={(e) =>
                     this.setState({ mcomments: e.target.value })
                   }
@@ -906,12 +906,12 @@ class Profile extends Component {
                 </div>
               </Grid>
               <Grid item md={6}>
-                <div className="ml-3 marginleftfor1">
+                <div className=" marginleftfor1">
                   <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Description"
-                    className="w-75"
+                    className="width90"
                     value={this.state.mdescription}
                     onChange={(e) =>
                       this.setState({ mdescription: e.target.value })
@@ -921,7 +921,7 @@ class Profile extends Component {
                   <Form.Control
                     type="url"
                     placeholder="Enter url"
-                    className="w-75"
+                    className="width90"
                     value={this.state.msubmiturl}
                     onChange={(e) =>
                       this.setState({ msubmiturl: e.target.value })
@@ -931,7 +931,7 @@ class Profile extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Enter Keywords"
-                    className="w-75"
+                    className="width90"
                     value={this.state.mkeyword}
                     onChange={(e) =>
                       this.setState({ mkeyword: e.target.value })
