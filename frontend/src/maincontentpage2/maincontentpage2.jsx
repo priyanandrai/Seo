@@ -565,11 +565,11 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h3 style={{ marginRight: "10%" }} className="hidemie">
+                    <h3 className="hidemie">
                       Search Engine Submission
                     </h3>
                   </div>
-                  <h1>
+                  <h1 className="marginleftfordiv">
                     {this.state.show ? (
                       <div
                         style={{ marginLeft: "10%" }}
@@ -654,7 +654,7 @@ export class Maincontentpage2 extends Component {
 
                   <div>
                     {this.state.showme ? (
-                      <h1>
+                      <h1 className="marginleftfordiv">
                         <div
                           style={{ marginLeft: "10%" }}
                           className="input-width"
@@ -738,13 +738,13 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h1></h1>
+                    {/* <h1></h1> */}
                     <h3 className="hidemie">Classified Submission</h3>
                   </div>
 
                   <div>
                     {this.state.showto ? (
-                      <h1>
+                      <h1 className="marginleftfordiv">
                         <div
                           style={{ marginLeft: "10%" }}
                           className="input-width"

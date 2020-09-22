@@ -1618,6 +1618,9 @@ input:disabled {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .marginleftfordiv{
+    margin-left: 10%;
+  }
   .auth-button {
     margin: 5px;
     border-radius: 5px;
@@ -1651,20 +1654,20 @@ input:disabled {
   }
   .headeing-text {
     margin-top: 22% !important;
-    margin-left: 17% !important;
+    /* margin-left: 17% !important; */
     font-size: 24px !important;
     font-family: Century !important;
     color: cadetblue !important;
   }
-  .hidemie {
+  /* .hidemie {
     font-size: 19px;
     font-family: Century !important;
     color: cadetblue;
     margin-left: 21% !important;
     margin-top: -40px;
-  }
+  } */
   .mrrginside22 {
-    margin-right: 0% !important;
+    margin-right: -22% !important;
     margin-top: 7% !important;
   }
   .marginleftpannel {
@@ -1689,13 +1692,13 @@ input:disabled {
     border-style: none;
   }
   .marginleftside {
-    margin-left: 24% !important;
+    margin-left: 0% !important;
   }
   .hidemie {
     font-size: 17px !important;
     font-family: Century !important;
     color: cadetblue;
-    margin-left: 27% !important;
+    margin-left: 23% !important;
     margin-top: -32px;
     width: 100% !important;
   }
@@ -2038,3 +2041,4 @@ a.disabled {
   letter-spacing: 0.01071em;
   background-color: #18758d !important;
 }
+
