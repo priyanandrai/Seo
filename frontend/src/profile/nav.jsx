@@ -301,7 +301,7 @@ class Nav extends Component {
   }
 
   handelOnChange(event) {
-    // window.localStorage.setItem("isLoggedIn", true);
+    window.localStorage.setItem("isLoggedIn", true);
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
