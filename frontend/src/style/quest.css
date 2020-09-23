@@ -1618,6 +1618,16 @@ input:disabled {
   .marginleftfordiv {
     margin-left: 10%;
   }
+  .dataiconsright {
+    position: absolute;
+    z-index: 999;
+    margin-top: 16px;
+    margin-left: 72% !important;
+    padding: 0px 2px;
+    /* background-color: crimson; */
+    width: 25px;
+    height: 25px;
+}
   .auth-button {
     margin: 5px;
     border-radius: 5px;
@@ -2042,6 +2052,6 @@ a.disabled {
   /* background-color: crimson; */
   /* border-radius: 4px;
   outline: none !important; */
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }

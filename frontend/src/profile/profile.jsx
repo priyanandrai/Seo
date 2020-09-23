@@ -444,6 +444,9 @@ class Profile extends Component {
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
+  refreshclick = () => {
+    window.location.reload();
+  };
 
   render() {
     const { profileImg } = this.state;
@@ -593,6 +596,11 @@ class Profile extends Component {
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
+        <img
+              className="dataiconsright"
+              src="https://simpleicon.com/wp-content/uploads/refresh.png"
+              onClick={this.refreshclick}
+            />
           <DataTable
             className="datatablehoer"
             title="Your History"

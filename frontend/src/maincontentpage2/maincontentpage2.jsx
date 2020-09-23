@@ -129,7 +129,6 @@ export class Maincontentpage2 extends Component {
         },
       ],
 
-
       columns: [
         {
           name: "Start Time",
@@ -549,9 +548,9 @@ export class Maincontentpage2 extends Component {
     });
     //  document.getElementById("viewAppoinment").modal('show');
   }
-  refreshclick = () =>{
+  refreshclick = () => {
     window.location.reload();
-  }
+  };
   render() {
     return (
       <div className="container">
@@ -568,9 +567,7 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h3 className="hidemie">
-                      Search Engine Submission
-                    </h3>
+                    <h3 className="hidemie">Search Engine Submission</h3>
                   </div>
                   <h1 className="marginleftfordiv">
                     {this.state.show ? (
@@ -871,22 +868,23 @@ export class Maincontentpage2 extends Component {
         </Grid>
 
         <div className="container">
-          <div className="mt-5 border-top bodercolor"> </div>
+          <div className="mt-5 border-top bodercolor"> </div><br/>
           <div className="sadataset">
-            <img className="dataiconsright" src="https://simpleicon.com/wp-content/uploads/refresh.png" onClick={this.refreshclick}/>
+            <img
+              className="dataiconsright"
+              src="https://simpleicon.com/wp-content/uploads/refresh.png"
+              onClick={this.refreshclick}
+            />
             {/* <button className="dataiconsright" onClick={this.refreshclick}>Refresh</button> */}
-          {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
+            {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
             <DataTable
-            
-            className="datatablehoer"
+              className="datatablehoer"
               title="Current Session"
-              
               columns={this.state.columns}
               data={this.state.data}
               pagination={true}
               paginationDefaultPage
             />
-            
           </div>
           <br />
         </div>
