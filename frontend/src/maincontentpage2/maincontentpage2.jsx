@@ -185,13 +185,13 @@ export class Maincontentpage2 extends Component {
       return;
     }
 
-    if (name.length < 5) {
-      this.setState({
-        snackbar: true,
-        error: "Name must be 5 charchters long.",
-      });
-      return;
-    }
+    // if (name.length < 5) {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "Name must be 5 charchters long.",
+    //   });
+    //   return;
+    // }
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.emailaddress.trim() == "") {
       this.setState({
@@ -549,6 +549,9 @@ export class Maincontentpage2 extends Component {
     });
     //  document.getElementById("viewAppoinment").modal('show');
   }
+  refreshclick = () =>{
+    window.location.reload();
+  }
   render() {
     return (
       <div className="container">
@@ -870,14 +873,20 @@ export class Maincontentpage2 extends Component {
         <div className="container">
           <div className="mt-5 border-top bodercolor"> </div>
           <div className="sadataset">
+            <img className="dataiconsright" src="https://simpleicon.com/wp-content/uploads/refresh.png" onClick={this.refreshclick}/>
+            {/* <button className="dataiconsright" onClick={this.refreshclick}>Refresh</button> */}
+          {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
             <DataTable
+            
             className="datatablehoer"
               title="Current Session"
+              
               columns={this.state.columns}
               data={this.state.data}
               pagination={true}
               paginationDefaultPage
             />
+            
           </div>
           <br />
         </div>
