@@ -301,7 +301,7 @@ class Nav extends Component {
   }
 
   handelOnChange(event) {
-    window.localStorage.setItem("isLoggedIn", true);
+    // window.localStorage.setItem("isLoggedIn", true);
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
@@ -405,18 +405,24 @@ class Nav extends Component {
         .post(url, temp)
         .then(
           (response) => {
-            window.location = "/dashboard";
+            // window.location = "/dashboard";
             // console.log("iddddddddddddddddddddddddddddd",console.data.id);
             // if(response.data.message  != undefined){
             //   alert(response.data.message);
             // }else
-            // {
-            //   window.localStorage.setItem("user", response.data.name);
-            //   window.localStorage.setItem("id", response.data.id);
-            //   window.localStorage.setItem("isLoggedIn", true);
-            //    window.location = "/dashboard";
-            //   alert("Thank you for Regisrtion");
-            // }
+            // {// }
+            if(response.data.message  == undefined){
+
+            }else{
+              alert(response.data.message)
+              return;
+            }
+              window.localStorage.setItem("user", response.data.name);
+              window.localStorage.setItem("id", response.data.id);
+              window.localStorage.setItem("isLoggedIn", true);
+               window.location = "/dashboard";
+              alert("Thank you for Regisrtion");
+            
           },
           (error) => {
             alert(error.response.data.message);

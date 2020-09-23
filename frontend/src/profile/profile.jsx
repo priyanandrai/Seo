@@ -60,7 +60,9 @@ class Profile extends Component {
       emailaddress: "",
 
       phoneNumber: "",
-      profileImg:
+      // profileImg:
+      //   "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
+        profileImg:
         "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
       drillDown: "DrillDown",
       columns: [
