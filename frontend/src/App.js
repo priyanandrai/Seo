@@ -26,11 +26,22 @@ import { Maincontentpage2 } from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
 import { Confirmotp } from "./confirmotp/confirmotp";
+import { getAuthData, isLoggedIn } from "./utils";
 
 function App() {
-  return (
+ // if (!isLoggedIn()) {
+    //   return (<Maincontentpage/>)
+    //  }
+    let tempppp = window.localStorage.getItem("isLoggedIn") ;
+    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",tempppp);
+ 
+    if (window.localStorage.getItem("isLoggedIn") == "true") {
+      
+    return (
+      
     <Router history={BrowserRouter}>
-      <div>
+      {/* <Redirect to="/dashboard"/> */}
+         <div>
         <Nav></Nav>
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
@@ -47,7 +58,21 @@ function App() {
        
        
       </div>
-    </Router>
+      </Router>
+       );
+}
+else {
+  return (
+    <Router history={BrowserRouter}>
+    <div>
+    <Nav></Nav>
+    <Redirect to="/home"/>
+   <Route exact path="/home" component={Maincontentpage} />
+    </div>
+     </Router>
   );
+}
+  
+ 
 }
 export default App;

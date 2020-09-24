@@ -152,6 +152,7 @@ export class Maincontentpage2 extends Component {
         {
           name: "Visual ID",
           selector: "visualId",
+          // onClick={visualId},
           sortable: true,
           center: true,
         },
@@ -517,7 +518,22 @@ export class Maincontentpage2 extends Component {
                 }}
               />
             ))
+            
         );
+        // response.data.map(
+        //   (i, index) =>
+        //     (i.visualId = (
+        //       <FontAwesomeIcon
+        //         className=" mr-2 ml-2 drillcolor"
+        //         title="DrillDown"
+        //         icon={faAngleDoubleDown}
+        //         onClick={() => {
+        //           this.handleClickOpen(index);
+        //         }}
+        //       />
+        //     ))
+            
+        // );
 
         let loader = (
           <CircularProgress color="secondary" className="circular" />
