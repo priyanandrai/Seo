@@ -51,7 +51,7 @@ export class Maincontentpage2 extends Component {
       snackbar: false,
       progressbar: false,
       tasktype: "xyz",
-      visualId: null,
+      // visualId: null,
       todaydate: new Date().toISOString(),
       userId: "",
       userId: "3",
@@ -62,6 +62,7 @@ export class Maincontentpage2 extends Component {
       name: "",
       show: false,
       selectedtasktype: "",
+      selectedvisualid:"",
       showme: false,
       showto: false,
       email: "",
@@ -520,20 +521,19 @@ export class Maincontentpage2 extends Component {
             ))
             
         );
-        // response.data.map(
-        //   (i, index) =>
-        //     (i.visualId = (
-        //       <FontAwesomeIcon
-        //         className=" mr-2 ml-2 drillcolor"
-        //         title="DrillDown"
-        //         icon={faAngleDoubleDown}
-        //         onClick={() => {
-        //           this.handleClickOpen(index);
-        //         }}
-        //       />
-        //     ))
+        response.data.map(
+          (i) =>
+            (i.visualId = (
+              <p onClick={this.playvideoid}> 
+                     
+                      {i.visualId}
+                
+                </p>
+             
+             
+            ))
             
-        // );
+        );
 
         let loader = (
           <CircularProgress color="secondary" className="circular" />
@@ -555,7 +555,11 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
-
+  playvideoid = (ind) =>{
+    alert(this.state.visualId,"hello");
+    
+  
+  }
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
     this.setState({
