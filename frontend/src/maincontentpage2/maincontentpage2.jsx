@@ -38,7 +38,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
-    this.playvideoid=this.playvideoid.bind(this);
+    this.playvideoid = this.playvideoid.bind(this);
     this.state = {
       taskTitle: "none",
       pieChartData: [
@@ -63,7 +63,7 @@ export class Maincontentpage2 extends Component {
       name: "",
       show: false,
       selectedtasktype: "",
-      selectedvisualid:"",
+      selectedvisualid: "",
       showme: false,
       showto: false,
       email: "",
@@ -88,7 +88,7 @@ export class Maincontentpage2 extends Component {
       title: "",
       keyword: "",
       urls: "",
-      url:"https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
+      url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
       keywordsss: "",
 
       datadialog: [
@@ -509,9 +509,11 @@ export class Maincontentpage2 extends Component {
       window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
+
+        
         response.data.map(
-          (i, index) =>
-            (i.action = (
+          (key, index) =>
+            (key.action = (
               <FontAwesomeIcon
                 className=" mr-2 ml-2 drillcolor"
                 title="DrillDown"
@@ -521,29 +523,31 @@ export class Maincontentpage2 extends Component {
                 }}
               />
             ))
-            
         );
         response.data.map(
-          (i,ind) =>
-            (i.visualIdDa = (
-              <p onClick={()=>{
-                let a="https://www.youtube.com/watch?v=9BBulDGszZE";
-                // alert(a);
-                this.playvideoid(i.visualId,a)}}> 
-                         {i.visualId} 
-                </p>
-              ))
+          (key) =>
+            (key.visualIdDa = (
+              <p
+                onClick={() => {
+                  let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
+                  // alert(a);
+                  this.playvideoid(key.visualId, a);
+                }}
+              >
+                {key.visualId}
+              </p>
+            ))
         );
 
         let loader = (
           <CircularProgress color="secondary" className="circular" />
         );
         response.data.map(
-          (i) =>
-            (i.taskstatus = (
+          (key) =>
+            (key.taskstatus = (
               <p>
                 {" "}
-                <span>{i.taskstatus} </span> <span>{loader}</span>
+                <span>{key.taskstatus} </span> <span>{loader}</span>
               </p>
             ))
         );
@@ -555,15 +559,10 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
-  playvideoid(visualId,videourl)
-  {
+  playvideoid(visualId, videourl) {
     // alert(visualId);
-   
-    this.setState({url:videourl}
-       
-       )
-     
-    
+
+    this.setState({ url: videourl });
   }
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
@@ -882,7 +881,7 @@ export class Maincontentpage2 extends Component {
                   }}
                 >
                   <ReactPlayer
-                  playing={true}
+                    playing={true}
                     width="100%"
                     height="100%"
                     url={this.state.url}
@@ -894,7 +893,8 @@ export class Maincontentpage2 extends Component {
         </Grid>
 
         <div className="container">
-          <div className="mt-5 border-top bodercolor"> </div><br/>
+          <div className="mt-5 border-top bodercolor"> </div>
+          <br />
           <div className="sadataset">
             <img
               className="dataiconsright"
