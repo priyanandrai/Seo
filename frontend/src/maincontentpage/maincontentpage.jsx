@@ -56,9 +56,12 @@ class Maincontentpage extends React.Component {
                       </p>
                     </div> */}
                      <ReactPlayer
+                     playing={true}
                     width="100%"
                     height="100%"
                     url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    controls = {true}
+
                   />
                   </CardContent>
                 </CardActionArea>

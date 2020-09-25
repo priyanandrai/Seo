@@ -527,7 +527,7 @@ export class Maincontentpage2 extends Component {
         response.data.map(
           (key) =>
             (key.visualIdDa = (
-              <p
+              <p className="reactclick"
                 onClick={() => {
                   let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
                   // alert(a);
@@ -885,6 +885,7 @@ export class Maincontentpage2 extends Component {
                     width="100%"
                     height="100%"
                     url={this.state.url}
+                    controls = {true}
                   />
                 </Card>
               </div>
