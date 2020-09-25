@@ -38,6 +38,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
+    this.playvideoid=this.playvideoid.bind(this);
     this.state = {
       taskTitle: "none",
       pieChartData: [
@@ -87,6 +88,7 @@ export class Maincontentpage2 extends Component {
       title: "",
       keyword: "",
       urls: "",
+      url:"https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
       keywordsss: "",
 
       datadialog: [
@@ -152,7 +154,7 @@ export class Maincontentpage2 extends Component {
 
         {
           name: "Visual ID",
-          selector: "visualId",
+          selector: "visualIdDa",
           // onClick={visualId},
           sortable: true,
           center: true,
@@ -522,17 +524,15 @@ export class Maincontentpage2 extends Component {
             
         );
         response.data.map(
-          (i) =>
-            (i.visualId = (
-              <p onClick={this.playvideoid}> 
-                     
-                      {i.visualId}
-                
+          (i,ind) =>
+            (i.visualIdDa = (
+              <p onClick={()=>{
+                let a="https://www.youtube.com/watch?v=9BBulDGszZE";
+                // alert(a);
+                this.playvideoid(i.visualId,a)}}> 
+                         {i.visualId} 
                 </p>
-             
-             
-            ))
-            
+              ))
         );
 
         let loader = (
@@ -555,10 +555,15 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
-  playvideoid = (ind) =>{
-    alert(this.state.visualId,"hello");
+  playvideoid(visualId,videourl)
+  {
+    // alert(visualId);
+   
+    this.setState({url:videourl}
+       
+       )
+     
     
-  
   }
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
@@ -877,9 +882,10 @@ export class Maincontentpage2 extends Component {
                   }}
                 >
                   <ReactPlayer
+                  playing={true}
                     width="100%"
                     height="100%"
-                    url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    url={this.state.url}
                   />
                 </Card>
               </div>
