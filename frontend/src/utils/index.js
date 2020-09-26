@@ -1,5 +1,6 @@
 const isLoggedIn = () => {
-    const isLoggedIn = window.localStorage.isLoggedIn == "ture"
+ 
+    const isLoggedIn = window.localStorage.isLoggedIn == "true"
       ? true
       : false;
   // alert(isLoggedIn)

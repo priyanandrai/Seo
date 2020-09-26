@@ -35,7 +35,7 @@ function App() {
     // let tempppp = window.localStorage.getItem("isLoggedIn") ;
     
  
-    if (window.localStorage.getItem("isLoggedIn") == "true") {
+    // if (window.localStorage.getItem("isLoggedIn") == "true") {
       
     return (
       
@@ -60,20 +60,20 @@ function App() {
       </div>
       </Router>
        );
-}
-else {
-  return (
-    <Router history={BrowserRouter}>
-    <div>
-    <Nav></Nav>
 
-    <Redirect to="/home"/>
-   <Route exact path="/home" component={Maincontentpage} />
+// else {
+//   return (
+//     <Router history={BrowserRouter}>
+//     <div>
+//     <Nav></Nav>
+
+//     <Redirect to="/home"/>
+//    <Route exact path="/home" component={Maincontentpage} />
    
-    </div>
-     </Router>
-  );
-}
+//     </div>
+//      </Router>
+//   );
+// }
   
  
 }

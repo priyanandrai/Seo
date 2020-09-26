@@ -18,6 +18,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getAuthData, isLoggedIn } from "../utils";
 import {
   faAngleDoubleDown,
   faTimes,
@@ -502,6 +503,14 @@ export class Maincontentpage2 extends Component {
     );
   };
   componentWillMount() {
+    let temp = isLoggedIn();
+
+    if (temp == true || temp == "true") {
+      
+    } else {
+      window.location = "/home";
+    }
+
     let self = this;
     let url =
       getBaseUrl() +
@@ -509,8 +518,6 @@ export class Maincontentpage2 extends Component {
       window.localStorage.getItem("id");
     axios.get(url).then(
       (response) => {
-
-        
         response.data.map(
           (key, index) =>
             (key.action = (
@@ -527,7 +534,8 @@ export class Maincontentpage2 extends Component {
         response.data.map(
           (key) =>
             (key.visualIdDa = (
-              <p className="reactclick"
+              <p
+                className="reactclick"
                 onClick={() => {
                   let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
                   // alert(a);
@@ -885,7 +893,7 @@ export class Maincontentpage2 extends Component {
                     width="100%"
                     height="100%"
                     url={this.state.url}
-                    controls = {true}
+                    controls={true}
                   />
                 </Card>
               </div>

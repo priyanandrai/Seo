@@ -16,6 +16,7 @@ import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "@material-ui/core/TextField";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Admin_dashboard extends Component {
   constructor(props) {
@@ -26,6 +27,14 @@ class Admin_dashboard extends Component {
   }
   test = () => {
     window.location="/adminute-444-profile";
+  }
+  componentWillMount() {
+    let temp = isLoggedIn();
+if(temp == true || temp =="true"){
+
+}else{
+window.location ="/adminute-home";
+}
   }
 
   render() {

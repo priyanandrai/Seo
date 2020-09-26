@@ -25,6 +25,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Profile extends Component {
   constructor(props) {
@@ -186,6 +187,13 @@ class Profile extends Component {
   };
 
   componentWillMount() {
+    let temp = isLoggedIn();
+if(temp == true || temp =="true"){
+
+}else{
+window.location ="/home";
+}
+
     let self = this;
     let url =
       getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
