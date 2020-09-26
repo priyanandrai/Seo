@@ -268,7 +268,7 @@ window.location ="/home";
             (i.action = (
               <span>
                 <FontAwesomeIcon
-                  className=" mr-2 playcolor"
+                  className=" mr-2 playcolor afterplaycolor"
                   onClick={() => {
                     this.playtask(
                       i.tasktype,

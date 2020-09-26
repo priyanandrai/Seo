@@ -506,7 +506,7 @@ export class Maincontentpage2 extends Component {
     let temp = isLoggedIn();
 
     if (temp == true || temp == "true") {
-      
+
     } else {
       window.location = "/home";
     }
@@ -522,7 +522,7 @@ export class Maincontentpage2 extends Component {
           (key, index) =>
             (key.action = (
               <FontAwesomeIcon
-                className=" mr-2 ml-2 drillcolor"
+                className=" mr-2 ml-2 drillcolor afterplaycolor"
                 title="DrillDown"
                 icon={faAngleDoubleDown}
                 onClick={() => {
@@ -535,7 +535,7 @@ export class Maincontentpage2 extends Component {
           (key) =>
             (key.visualIdDa = (
               <p
-                className="reactclick"
+                className="reactclick afterplaycolor"
                 onClick={() => {
                   let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
                   // alert(a);
