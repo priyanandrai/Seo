@@ -301,7 +301,7 @@ class Nav extends Component {
   }
 
   handelOnChange(event) {
-    window.localStorage.setItem("isLoggedIn", true);
+    // window.localStorage.setItem("isLoggedIn", true);
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
@@ -388,10 +388,8 @@ class Nav extends Component {
         // alert("Please accept the Terms and Conditions");
         return;
       }
-      this.setState({
-        modal_open: false,
-      });
-      this.setState({ dialogBox: !this.state.dialogBox });
+      
+      
       // alert(this.state.phone);
       // console.log(this.state.phone)
       let temp = {
@@ -415,14 +413,17 @@ class Nav extends Component {
 
             }else{
               alert(response.data.message)
-              return;
+             return;
             }
+            this.setState({
+              modal_open: false,
+            });
               window.localStorage.setItem("user", response.data.name);
               window.localStorage.setItem("id", response.data.id);
               window.localStorage.setItem("isLoggedIn", true);
-               window.location = "/dashboard";
+              window.location = "/dashboard";
               alert("Thank you for Regisrtion");
-            
+              this.setState({ dialogBox: !this.state.dialogBox });
           },
           (error) => {
             alert(error.response.data.message);
@@ -432,22 +433,22 @@ class Nav extends Component {
         .catch((e) => {});
     }
     if (modal_type === "signin") {
-      if (this.state.phone == undefined || this.state.phone.length < 10) {
-        // alert("Phone number must be 10 digit");
-        this.setState({
-          snackbar: true,
-          error: "Phone number must be 10 digit",
-        });
-        return;
-      }
-      if (this.state.password.length < 8) {
-        this.setState({
-          snackbar: true,
-          error: "Password must be 8 characters long",
-        });
-        // alert("Password must be 8 characters long");
-        return;
-      }
+      // if (this.state.phone == undefined) {
+      //   // alert("Phone number must be 10 digit");
+      //   this.setState({
+      //     snackbar: true,
+      //     error: "Please Enter Phone number.",
+      //   });
+      //   return;
+      // }
+      // if (this.state.password.length < 8) {
+      //   this.setState({
+      //     snackbar: true,
+      //     error: "Password must be 8 characters long",
+      //   });
+      //   // alert("Password must be 8 characters long");
+      //   return;
+      // }
       // if (this.state.checked === false) {
       //   alert("Please indicate that you accept the Terms and Conditions");
       //   return;
@@ -467,6 +468,7 @@ class Nav extends Component {
               return;
             }
             let tmp = response.data;
+            window.localStorage.setItem("isLoggedIn", true);
             window.localStorage.setItem("user", response.data.name);
             window.localStorage.setItem("id", response.data.id);
             window.location = "/dashboard";
@@ -917,7 +919,7 @@ class Nav extends Component {
                         this.state.full_name == "" ||
                         this.state.confirm_password == ""
                       }
-                      o
+                     
                     />
                   )}
                   {modal_type === "signin" && (
@@ -987,7 +989,7 @@ class Nav extends Component {
               )}
               {modal_type === "forgotpassword" && (
                 <p>
-                  <span
+                  <span className="backtosigh11"
                     onClick={() => this.openModal("signin")}
                     title="Sign In"
                   >

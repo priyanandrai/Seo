@@ -294,7 +294,7 @@ window.location ="/home";
                 />
                 |
                 <FontAwesomeIcon
-                  className=" mr-2 ml-2 deletecolor"
+                  className=" mr-2 ml-2 afterplaycolor deletecolor"
                   onClick={() => {
                     this.handleClickOpen(ind);
                   }}

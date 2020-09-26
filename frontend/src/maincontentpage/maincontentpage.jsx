@@ -18,6 +18,7 @@ class Maincontentpage extends React.Component {
     let temp = !isLoggedIn();
 
     if (temp == true || temp == "true") {
+      // console(isLoggedIn)
     } else {
       window.location = "/dashboard";
     }
