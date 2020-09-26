@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +26,7 @@ import com.seo.model.SubmitRequest;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.SearchEngineservice;
+import searchEngineSubmission.*;
 
 @RestController
 public class MainServices {
@@ -46,7 +48,7 @@ public class MainServices {
 			Iterator<SignUp> iterable = iSignUpService.findAll().iterator();
 			while (iterable.hasNext()) {
 				SignUp signUp2 = iterable.next();
-				if (signUp2.getEmail().equalsIgnoreCase(signup.getEmail())) {
+				if (signUp2.getPhoneNumber().equalsIgnoreCase(signup.getPhoneNumber())) {
 					return "{\"message\":\"User already exist .Please try to login ot forget password\"}";
 				}
 			}
@@ -126,63 +128,87 @@ public class MainServices {
 		try {
 			String task1 = "Search Engine Submission";
 			String task2 = "Social Book Marketing";
-			String task3="Classified Submission";
+			String task3 = "Classified Submission";
+			String Submiturl = searchengine.getSubmiturl();
+			String EmailAddress = searchengine.getEmailaddress();
+			
 			if (searchengine.getTasktype().equalsIgnoreCase(task1)) {
 				if (searchengine.getName() == null) {
 					return "{\"message\":\" Please enter your name\"}";
-				}if (searchengine.getEmailaddress() == null) {
+				}
+				if (searchengine.getEmailaddress() == null) {
 					return "{\"message\":\" Please enter your email address\"}";
-				}if (searchengine.getSubmiturl() == null) {
+				}
+				if (searchengine.getSubmiturl() == null) {
 					return "{\"message\":\" Please enter the URl\"}";
-				}if(searchengine.getComments()==null) {
-					return "{\"message\":\" Please enter the comment\"}";
 				}
+//				if(searchengine.getComments()==null) {
+//					return "{\"message\":\" Please enter the comment\"}";
+//				}
 				searchengine.setTaskstatus("In Progress");
+				SearchEngineSubmisson search = new SearchEngineSubmisson();
+				searchengine.setVisualId(search.openBrowser()); 
 				searchEngineService.savedatail(searchengine);
-				return "{\"message\":\" Task type started successfully\"}";
-			}else if (searchengine.getTasktype().equalsIgnoreCase(task2)) {
-                if (searchengine.getTitle() == null) {
+				//(JavascriptExecutor.executeScript("scroll(0,400)");
+							
+				SearchEngineSubmisson.anoox("http://anoox.com/add_for_indexing_free.php", Submiturl, EmailAddress);
+				
+				// return "{\"message\":\" Task type started successfully\"}";	
+
+				
+				
+			} else if (searchengine.getTasktype().equalsIgnoreCase(task2)) {
+				if (searchengine.getTitle() == null) {
 					return "{\"message\":\" Please enter the Title\"}";
-				}if (searchengine.getKeyword() == null) {
-						return "{\"message\":\" Please enter the keyword\"}";
-				}if (searchengine.getDescription() == null) {
-							return "{\"message\":\" Please enter the Description\"}";
-				}if (searchengine.getSubmiturl() == null) {
-								return "{\"message\":\" Please enter the URl\"}";
-				}if(searchengine.getComments()==null) {
-					return "{\"message\":\" Please enter the comment\"}";
 				}
+				if (searchengine.getKeyword() == null) {
+					return "{\"message\":\" Please enter the keyword\"}";
+				}
+				if (searchengine.getDescription() == null) {
+					return "{\"message\":\" Please enter the Description\"}";
+				}
+				if (searchengine.getSubmiturl() == null) {
+					return "{\"message\":\" Please enter the URl\"}";
+				}
+//				if(searchengine.getComments()==null) {
+//					return "{\"message\":\" Please enter the comment\"}";
+//				}
 				searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
 				return "{\"message\":\" Task type started successfully\"}";
-			}else if (searchengine.getTasktype().equalsIgnoreCase(task3)){
-					if (searchengine.getTitle() == null) {
-		        	  return "{\"message\":\" Please enter the Title\"}";
-		          }if (searchengine.getKeyword() == null) {
-		        	  return "{\"message\":\" Please enter the keyword\"}";
-		          }if (searchengine.getDescription() == null) {
-		        	  return "{\"message\":\" Please enter the Description\"}";
-		          }if (searchengine.getSubmiturl() == null) {
-		        	  return "{\"message\":\" Please enter the URl\"}";
-		          }if (searchengine.getEmailaddress() == null) {
-						return "{\"message\":\" Please enter your email address\"}";
-		          }if(searchengine.getPassword() == null) {
-						return "{\"message\":\" Please enter your email address\"}";
-		          }if(searchengine.getComments()==null) {
-						return "{\"message\":\" Please enter the comment\"}";
-					}
-		          searchengine.setTaskstatus("In Progress");
-		          searchEngineService.savedatail(searchengine);
-		          return "{\"message\":\" Task type started successfully\"}";
+			} else if (searchengine.getTasktype().equalsIgnoreCase(task3)) {
+				if (searchengine.getTitle() == null) {
+					return "{\"message\":\" Please enter the Title\"}";
 				}
-			else {
+				if (searchengine.getKeyword() == null) {
+					return "{\"message\":\" Please enter the keyword\"}";
+				}
+				if (searchengine.getDescription() == null) {
+					return "{\"message\":\" Please enter the Description\"}";
+				}
+				if (searchengine.getSubmiturl() == null) {
+					return "{\"message\":\" Please enter the URl\"}";
+				}
+				if (searchengine.getEmailaddress() == null) {
+					return "{\"message\":\" Please enter your email address\"}";
+				}
+				if (searchengine.getPassword() == null) {
+					return "{\"message\":\" Please enter your email address\"}";
+				}
+//		          if(searchengine.getComments()==null) {
+//						return "{\"message\":\" Please enter the comment\"}";
+//					}
+				searchengine.setTaskstatus("In Progress");
+				searchEngineService.savedatail(searchengine);
+				return "{\"message\":\" Task type started successfully\"}";
+
+			} else {
 				return "{\"message\":\" Please select a valid   Task Type\"}";
 			}
-									
-	}catch(Exception e)
-	{
-		return "{\"message\":\"Error in creating task , Please try again \"}";
-	}
+
+		} catch (Exception e) {
+			return "{\"message\":\"Error in creating task , Please try again \"}";
+		}
 
 	}
 
@@ -192,7 +218,7 @@ public class MainServices {
 		Optional<SignUp> signup = this.iSignUpService.findById(changepassword.getUserId());
 
 		SignUp signup1 = signup.get();
-		
+
 		try {
 
 			if (signup1.getPassword().equals(changepassword.getCurrentPassword())) {
@@ -244,27 +270,26 @@ public class MainServices {
 		}
 
 	}
-	
-	
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/submitrequest")
-	public String submitrequesthere(@RequestBody SubmitRequest  submitRequest) {
+	public String submitrequesthere(@RequestBody SubmitRequest submitRequest) {
 		iSubmitRequestService.save(submitRequest);
 		System.out.println(submitRequest.toString());
 		return "request is added sucessfully";
 	}
-	
-	
+
 	@CrossOrigin(origins = "*")
 	@PutMapping("/updateprofile")
-	public String updateprofile (@RequestParam(value ="id") Long id,@RequestParam(value ="name") String name,
-			@RequestParam(value ="email") String email,@RequestParam(value ="profession") String profession ,@RequestParam(value ="organisation") String organisation) {
-		
-		System.out.println("ID::" +id);
+	public String updateprofile(@RequestParam(value = "id") Long id, @RequestParam(value = "name") String name,
+			@RequestParam(value = "email") String email, @RequestParam(value = "profession") String profession,
+			@RequestParam(value = "organisation") String organisation) {
+
+		System.out.println("ID::" + id);
 		Optional<SignUp> temp = iSignUpService.findById(id);
-		
+
 		SignUp signup1 = temp.get();
-		
+
 		signup1.setName(name);
 		signup1.setEmail(email);
 		signup1.setProfession(profession);
@@ -272,10 +297,10 @@ public class MainServices {
 		iSignUpService.save(signup1);
 		return "update sucessfully";
 	}
-	
+
 	@CrossOrigin(origins = "*")
 	@GetMapping("/deletedtasks")
-	public String deletedtasks (@RequestParam(defaultValue="") Long id ) {
+	public String deletedtasks(@RequestParam(defaultValue = "") Long id) {
 		System.out.println();
 		searchEngineService.deleteById(id);
 		return "deleted sucessfully";
