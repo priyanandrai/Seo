@@ -25,6 +25,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Profile extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Profile extends Component {
       username: "",
       email: "",
       name: "",
-      mid:"",
+      mid: "",
       mname: "",
       msubmiturl: "",
       memailaddress: "",
@@ -60,8 +61,10 @@ class Profile extends Component {
       emailaddress: "",
 
       phoneNumber: "",
-      profileImg:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      // profileImg:
+      //   "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
+        profileImg:
+        "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
       drillDown: "DrillDown",
       columns: [
         {
@@ -147,11 +150,11 @@ class Profile extends Component {
     if (tasktype == "Search Engine Submission") {
       this.setState({
         Playsession: !this.state.Playsession,
-        mid:id,
+        mid: id,
         mname: name,
         msubmiturl: submiturl,
         memailaddress: emailaddress,
-        mcomments: comments
+        mcomments: comments,
       });
       return;
     }
@@ -163,6 +166,7 @@ class Profile extends Component {
         mtitle: title,
         mdescription: description,
         mkeyword: keyword,
+        mcomments: comments,
       });
       return;
     }
@@ -176,12 +180,20 @@ class Profile extends Component {
         mkeyword: keyword,
         msubmiturl: submiturl,
         mpassword: password,
+        mcomments: comments,
       });
       return;
     }
   };
 
   componentWillMount() {
+    let temp = isLoggedIn();
+if(temp == true || temp =="true"){
+
+}else{
+window.location ="/home";
+}
+
     let self = this;
     let url =
       getBaseUrl() + "/getprofile?id=" + window.localStorage.getItem("id");
@@ -248,7 +260,7 @@ class Profile extends Component {
   };
   belowlist() {
     let nurl =
-    getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
+      getBaseUrl() + "/gettask?id=" + window.localStorage.getItem("id");
     axios.get(nurl).then(
       (response) => {
         response.data.map(
@@ -318,13 +330,13 @@ class Profile extends Component {
     let min = new Date().getMinutes();
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
-     userId: window.localStorage.getItem('id'),      
+      userId: window.localStorage.getItem("id"),
       tasktype: "Search Engine Submission",
       date: date,
       name: this.state.mname,
       emailaddress: this.state.memailaddress,
       submiturl: this.state.msubmiturl,
-      comments: this.state.mcomments
+      comments: this.state.mcomments,
     };
     axios.post(url, temp).then(
       (response) => {
@@ -345,7 +357,7 @@ class Profile extends Component {
     );
   };
   handlesubmission = (e) => {
-    let url = getBaseUrl() + "/starttask?id";
+    let url = getBaseUrl() + "/starttask";
     this.setState({
       progressbar: true,
     });
@@ -362,21 +374,16 @@ class Profile extends Component {
     let min = new Date().getMinutes();
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
-      // userId: window.localStorage.getItem("id"),
-      id:this.state.mid,
-      tasktype: "Search Engine Submission",
+      userId: window.localStorage.getItem("id"),
+      tasktype: "Social Book Marketing",
       date: date,
-      mname: this.state.mname,
-      memailaddress: this.state.memailaddress,
-      msubmiturl: this.state.msubmiturl,
-      mvisualId: this.state.mvisualId,
-      mtitle: this.state.mtitle,
-      mkeyword: this.state.mkeyword,
-      mdescription: this.state.mdescription,
-      mpassword: this.state.mpassword,
-      // mcomments: this.state.comments,
+      submiturl: this.state.msubmiturl,
+       title: this.state.mtitle,
+      keyword: this.state.mkeyword,
+      description: this.state.mdescription,
+      comments: this.state.mcomments,
     };
-    axios.put(url, temp).then(
+    axios.post(url, temp).then(
       (response) => {
         // alert(response.data.message);
         this.setState({
@@ -393,9 +400,10 @@ class Profile extends Component {
         });
       }
     );
-  }
+    
+  };
   handleclick = (e) => {
-    let url = getBaseUrl() + "/starttask?id";
+    let url = getBaseUrl() + "/starttask";
     this.setState({
       progressbar: true,
     });
@@ -412,21 +420,19 @@ class Profile extends Component {
     let min = new Date().getMinutes();
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
-      // userId: window.localStorage.getItem("id"),
-      id:this.state.mid,
-      tasktype: "Search Engine Submission",
+      userId: window.localStorage.getItem("id"),
+      tasktype: "Classified Submission",
       date: date,
-      mname: this.state.mname,
-      memailaddress: this.state.memailaddress,
-      msubmiturl: this.state.msubmiturl,
-      mvisualId: this.state.mvisualId,
-      mtitle: this.state.mtitle,
-      mkeyword: this.state.mkeyword,
-      mdescription: this.state.mdescription,
-      mpassword: this.state.mpassword,
-      // mcomments: this.state.comments,
+     
+      emailaddress: this.state.memailaddress,
+      password: this.state.mpassword,
+      title: this.state.mtitle,
+      description: this.state.mdescription,
+      submiturl: this.state.msubmiturl,
+      keyword: this.state.mkeyword,
+      comments: this.state.mcomments,
     };
-    axios.put(url, temp).then(
+    axios.post(url, temp).then(
       (response) => {
         // alert(response.data.message);
         this.setState({
@@ -443,9 +449,13 @@ class Profile extends Component {
         });
       }
     );
-  }
+   
+  };
   closeSnackbar = () => {
     this.setState({ snackbar: false });
+  };
+  refreshclick = () => {
+    window.location.reload();
   };
 
   render() {
@@ -596,14 +606,20 @@ class Profile extends Component {
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
+        <img
+              className="dataiconsright"
+              src="https://simpleicon.com/wp-content/uploads/refresh.png"
+              onClick={this.refreshclick}
+            />
           <DataTable
-          className="datatablehoer"
+            className="datatablehoer"
             title="Your History"
             columns={this.state.columns}
             data={this.state.data}
             pagination={true}
             paginationDefaultPage
             value={this.state.selectedtasktype}
+           
           />
         </div>
         <br />
@@ -651,76 +667,95 @@ class Profile extends Component {
               <h3 className="seacrhengine mt-4">Search Engine Submission</h3>
               <hr className="w-50 ml-5" />
               <div className="seachinginewidthset">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="name"
-                placeholder="Enter name"
-                id="Name"
-                className="w-75"
-                value={this.state.mname}
-                onChange={(e) => this.setState({ mname: e.target.value })}
-              />
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                className="w-75"
-                id="Email"
-                value={this.state.memailaddress}
-                onChange={(e) =>
-                  this.setState({
-                    memailaddress: e.target.value,
-                  })
-                }
-              />
-              <Form.Label>Enter Url</Form.Label>
-              <Form.Control
-                type="Url"
-                id="Url"
-                placeholder="Enter url"
-                className="w-75"
-                onChange={(e) => this.setState({ msubmiturl: e.target.value })}
-                value={this.state.msubmiturl}
-              />
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="name"
+                  placeholder="Enter name"
+                  id="Name"
+                  className="width90"
+                  title={this.state.mname}
+                  value={this.state.mname}
+                  onChange={(e) => this.setState({ mname: e.target.value })}
+                />
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  className="width90"
+                  title={this.state.memailaddress}
+                  id="Email"
+                  value={this.state.memailaddress}
+                  onChange={(e) =>
+                    this.setState({
+                      memailaddress: e.target.value,
+                    })
+                  }
+                />
+                <Form.Label>Enter Url</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter url"
+                  className="width90"
+                  title={this.state.msubmiturl}
+                  onChange={(e) =>
+                    this.setState({ msubmiturl: e.target.value })
+                  }
+                  value={this.state.msubmiturl}
+                />
+                   <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="width90"
+                  title={this.state.mcomments}
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
 
-              <div className="d-flex justify-content-end mrrginside2200">
-                <Button
-                  variant="contained"
-                  className="startbtn"
-                  onClick={this.handlesubmit}
-                >
-                  Start
-                </Button>
-              </div>
+                <div className="d-flex justify-content-end mrrginside2200">
+                  <Button
+                    variant="contained"
+                    className="startbtn"
+                    onClick={this.handlesubmit}
+                  >
+                    Start
+                  </Button>
+                </div>
               </div>
               <br />
             </div>
           </div>
           <div>
-          <Snackbar
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={this.state.snackbar}
-            onClose={this.closeSnackbar}
-            message={
-              this.state.error === null ? this.state.message : this.state.error
-            }
-            action={
-              <React.Fragment>
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="warning"
-                  onClick={this.closeSnackbar}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </React.Fragment>
-            }
-          />
-        </div>
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              open={this.state.snackbar}
+              onClose={this.closeSnackbar}
+              message={
+                this.state.error === null
+                  ? this.state.message
+                  : this.state.error
+              }
+              action={
+                <React.Fragment>
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="warning"
+                    onClick={this.closeSnackbar}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </React.Fragment>
+              }
+            />
+          </div>
         </Dialog>
         <Dialog
           open={this.state.Playsession1}
@@ -742,87 +777,99 @@ class Profile extends Component {
               <h3 className="seacrhengine mt-4">Social Book Marketing</h3>
               <hr className="w-50 ml-5" />
               <div className="seachinginewidthset">
-              <Form.Label>Url</Form.Label>
-              <Form.Control
-                type="url"
-                placeholder="Enter url"
-                className="w-75"
-                value={this.state.msubmiturl}
-                onChange={(e) => this.setState({ msubmiturl: e.target.value })}
-              />
-              <Form.Label>title</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter title"
-                className="w-75"
-                value={this.state.mtitle}
-                onChange={(e) => this.setState({ mtitle: e.target.value })}
-              />
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Description"
-                className="w-75"
-                value={this.state.mdescription}
-                onChange={(e) =>
-                  this.setState({ mdescription: e.target.value })
-                }
-              />
-              <Form.Label>Keywords</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Keywords"
-                className="w-75"
-                value={this.state.mkeyword}
-                onChange={(e) => this.setState({ mkeyword: e.target.value })}
-              />
-              {/* <Button
-                            style={{ marginRight: "24%", marginTop: "4%" }}
-                            id="buttonn"
-                            variant="contained"
-                            color="secondary "
-                            onClick={this.handlesubmission}
-                          >
-                            Start
-                          </Button> */}
-              <div className="d-flex justify-content-end mrrginside2200">
-                <Button
-                  variant="contained"
-                  className="startbtn"
-                  onClick={this.handlesubmission}
-                >
-                  Start
-                </Button>
-              </div>
+                <Form.Label>Url</Form.Label>
+                <Form.Control
+                  type="url"
+                  placeholder="Enter url"
+                  className="width90"
+                  title={this.state.msubmiturl}
+                  value={this.state.msubmiturl}
+                  onChange={(e) =>
+                    this.setState({ msubmiturl: e.target.value })
+                  }
+                />
+                <Form.Label>title</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter title"
+                  className="width90"
+                  title={this.state.mtitle}
+                  value={this.state.mtitle}
+                  onChange={(e) => this.setState({ mtitle: e.target.value })}
+                />
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Description"
+                  className="width90"
+                  title={this.state.mdescription}
+                  value={this.state.mdescription}
+                  onChange={(e) =>
+                    this.setState({ mdescription: e.target.value })
+                  }
+                />
+                <Form.Label>Keywords</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Keywords"
+                  className="width90"
+                  title={this.state.mkeyword}
+                  value={this.state.mkeyword}
+                  onChange={(e) => this.setState({ mkeyword: e.target.value })}
+                />
+                 <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="width90"
+                  title={this.state.mcomments}
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
+              
+                <div className="d-flex justify-content-end mrrginside2200">
+                  <Button
+                    variant="contained"
+                    className="startbtn"
+                    onClick={this.handlesubmission}
+                  >
+                    Start
+                  </Button>
+                </div>
               </div>
               <br />
             </div>
           </div>
           <div>
-          <Snackbar
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={this.state.snackbar}
-            onClose={this.closeSnackbar}
-            message={
-              this.state.error === null ? this.state.message : this.state.error
-            }
-            action={
-              <React.Fragment>
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="warning"
-                  onClick={this.closeSnackbar}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </React.Fragment>
-            }
-          />
-        </div>
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              open={this.state.snackbar}
+              onClose={this.closeSnackbar}
+              message={
+                this.state.error === null
+                  ? this.state.message
+                  : this.state.error
+              }
+              action={
+                <React.Fragment>
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="warning"
+                    onClick={this.closeSnackbar}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </React.Fragment>
+              }
+            />
+          </div>
         </Dialog>
         <Dialog
           open={this.state.Playsession2}
@@ -844,12 +891,13 @@ class Profile extends Component {
             <hr className="w-25 hrcolor" />
             <Grid container>
               <Grid item md={6}>
-                <div className="ml-5 marginleftfor">
+                <div className="ml-3 marginleftfor">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter Email"
-                    className="w-75"
+                    className="width90"
+                    title={this.state.memailaddress}
                     value={this.state.memailaddress}
                     onChange={(e) =>
                       this.setState({ memailaddress: e.target.value })
@@ -859,7 +907,8 @@ class Profile extends Component {
                   <Form.Control
                     type="password"
                     placeholder="Enter Password"
-                    className="w-75"
+                    title={this.state.mpassword}
+                    className="width90"
                     value={this.state.mpassword}
                     onChange={(e) =>
                       this.setState({ mpassword: e.target.value })
@@ -869,19 +918,33 @@ class Profile extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Enter title"
-                    className="w-75"
+                    className="width90"
+                    title={this.state.mtitle}
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
+                   <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="Url"
+                  id="Url"
+                  placeholder="Enter your comment"
+                  className="width90"
+                  title={this.state.mcomments}
+                  onChange={(e) =>
+                    this.setState({ mcomments: e.target.value })
+                  }
+                  value={this.state.mcomments}
+                />
                 </div>
               </Grid>
               <Grid item md={6}>
-                <div className="ml-3 marginleftfor1">
+                <div className=" marginleftfor1">
                   <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Description"
-                    className="w-75"
+                    className="width90"
+                    title={this.state.mdescription}
                     value={this.state.mdescription}
                     onChange={(e) =>
                       this.setState({ mdescription: e.target.value })
@@ -891,7 +954,8 @@ class Profile extends Component {
                   <Form.Control
                     type="url"
                     placeholder="Enter url"
-                    className="w-75"
+                    className="width90"
+                    title={this.state.msubmiturl}
                     value={this.state.msubmiturl}
                     onChange={(e) =>
                       this.setState({ msubmiturl: e.target.value })
@@ -901,7 +965,8 @@ class Profile extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Enter Keywords"
-                    className="w-75"
+                    className="width90"
+                    title={this.state.mkeyword}
                     value={this.state.mkeyword}
                     onChange={(e) =>
                       this.setState({ mkeyword: e.target.value })
@@ -922,30 +987,32 @@ class Profile extends Component {
             <br />
           </div>
           <div>
-          <Snackbar
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={this.state.snackbar}
-            onClose={this.closeSnackbar}
-            message={
-              this.state.error === null ? this.state.message : this.state.error
-            }
-            action={
-              <React.Fragment>
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="warning"
-                  onClick={this.closeSnackbar}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </React.Fragment>
-            }
-          />
-        </div>
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              open={this.state.snackbar}
+              onClose={this.closeSnackbar}
+              message={
+                this.state.error === null
+                  ? this.state.message
+                  : this.state.error
+              }
+              action={
+                <React.Fragment>
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="warning"
+                    onClick={this.closeSnackbar}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </React.Fragment>
+              }
+            />
+          </div>
         </Dialog>
 
         <Dialog

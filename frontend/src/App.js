@@ -26,11 +26,22 @@ import { Maincontentpage2 } from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
 import { Confirmotp } from "./confirmotp/confirmotp";
+import { getAuthData, isLoggedIn } from "./utils";
 
 function App() {
-  return (
+ // if (!isLoggedIn()) {
+    //   return (<Maincontentpage/>)
+    //  }
+    // let tempppp = window.localStorage.getItem("isLoggedIn") ;
+    
+ 
+    // if (window.localStorage.getItem("isLoggedIn") == "true") {
+      
+    return (
+      
     <Router history={BrowserRouter}>
-      <div>
+      {/* <Redirect to="/dashboard"/> */}
+         <div>
         <Nav></Nav>
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
@@ -41,13 +52,29 @@ function App() {
         <Route exact path="/dashboard" component={Maincontentpage2} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
-        <Route exact path="/adminute-" component={Admin}  />
+        <Route exact path="/adminute-home" component={Admin}  />
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
        
        
       </div>
-    </Router>
-  );
+      </Router>
+       );
+
+// else {
+//   return (
+//     <Router history={BrowserRouter}>
+//     <div>
+//     <Nav></Nav>
+
+//     <Redirect to="/home"/>
+//    <Route exact path="/home" component={Maincontentpage} />
+   
+//     </div>
+//      </Router>
+//   );
+// }
+  
+ 
 }
 export default App;

@@ -1,8 +1,9 @@
 const isLoggedIn = () => {
-    const isLoggedIn = window.localStorage.isLoggedIn
-      ? JSON.parse(window.localStorage.isLoggedIn)
+ 
+    const isLoggedIn = window.localStorage.isLoggedIn == "true"
+      ? true
       : false;
-  
+  // alert(isLoggedIn)
     return isLoggedIn;
   };
 

@@ -18,6 +18,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getAuthData, isLoggedIn } from "../utils";
 import {
   faAngleDoubleDown,
   faTimes,
@@ -38,6 +39,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
+    this.playvideoid = this.playvideoid.bind(this);
     this.state = {
       taskTitle: "none",
       pieChartData: [
@@ -51,7 +53,7 @@ export class Maincontentpage2 extends Component {
       snackbar: false,
       progressbar: false,
       tasktype: "xyz",
-      visualId: null,
+      // visualId: null,
       todaydate: new Date().toISOString(),
       userId: "",
       userId: "3",
@@ -62,6 +64,7 @@ export class Maincontentpage2 extends Component {
       name: "",
       show: false,
       selectedtasktype: "",
+      selectedvisualid: "",
       showme: false,
       showto: false,
       email: "",
@@ -86,6 +89,7 @@ export class Maincontentpage2 extends Component {
       title: "",
       keyword: "",
       urls: "",
+      url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
       keywordsss: "",
 
       datadialog: [
@@ -129,7 +133,6 @@ export class Maincontentpage2 extends Component {
         },
       ],
 
-
       columns: [
         {
           name: "Start Time",
@@ -152,7 +155,8 @@ export class Maincontentpage2 extends Component {
 
         {
           name: "Visual ID",
-          selector: "visualId",
+          selector: "visualIdDa",
+          // onClick={visualId},
           sortable: true,
           center: true,
         },
@@ -185,13 +189,13 @@ export class Maincontentpage2 extends Component {
       return;
     }
 
-    if (name.length < 5) {
-      this.setState({
-        snackbar: true,
-        error: "Name must be 5 charchters long.",
-      });
-      return;
-    }
+    // if (name.length < 5) {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "Name must be 5 charchters long.",
+    //   });
+    //   return;
+    // }
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.emailaddress.trim() == "") {
       this.setState({
@@ -499,6 +503,14 @@ export class Maincontentpage2 extends Component {
     );
   };
   componentWillMount() {
+    let temp = isLoggedIn();
+
+    if (temp == true || temp == "true") {
+      
+    } else {
+      window.location = "/home";
+    }
+
     let self = this;
     let url =
       getBaseUrl() +
@@ -507,8 +519,8 @@ export class Maincontentpage2 extends Component {
     axios.get(url).then(
       (response) => {
         response.data.map(
-          (i, index) =>
-            (i.action = (
+          (key, index) =>
+            (key.action = (
               <FontAwesomeIcon
                 className=" mr-2 ml-2 drillcolor"
                 title="DrillDown"
@@ -519,16 +531,31 @@ export class Maincontentpage2 extends Component {
               />
             ))
         );
+        response.data.map(
+          (key) =>
+            (key.visualIdDa = (
+              <p
+                className="reactclick"
+                onClick={() => {
+                  let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
+                  // alert(a);
+                  this.playvideoid(key.visualId, a);
+                }}
+              >
+                {key.visualId}
+              </p>
+            ))
+        );
 
         let loader = (
           <CircularProgress color="secondary" className="circular" />
         );
         response.data.map(
-          (i) =>
-            (i.taskstatus = (
+          (key) =>
+            (key.taskstatus = (
               <p>
                 {" "}
-                <span>{i.taskstatus} </span> <span>{loader}</span>
+                <span>{key.taskstatus} </span> <span>{loader}</span>
               </p>
             ))
         );
@@ -540,7 +567,11 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
+  playvideoid(visualId, videourl) {
+    // alert(visualId);
 
+    this.setState({ url: videourl });
+  }
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
     this.setState({
@@ -549,6 +580,9 @@ export class Maincontentpage2 extends Component {
     });
     //  document.getElementById("viewAppoinment").modal('show');
   }
+  refreshclick = () => {
+    window.location.reload();
+  };
   render() {
     return (
       <div className="container">
@@ -565,11 +599,9 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h3 style={{ marginRight: "10%" }} className="hidemie">
-                      Search Engine Submission
-                    </h3>
+                    <h3 className="hidemie">Search Engine Submission</h3>
                   </div>
-                  <h1>
+                  <h1 className="marginleftfordiv">
                     {this.state.show ? (
                       <div
                         style={{ marginLeft: "10%" }}
@@ -654,7 +686,7 @@ export class Maincontentpage2 extends Component {
 
                   <div>
                     {this.state.showme ? (
-                      <h1>
+                      <h1 className="marginleftfordiv">
                         <div
                           style={{ marginLeft: "10%" }}
                           className="input-width"
@@ -738,13 +770,13 @@ export class Maincontentpage2 extends Component {
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
-                    <h1></h1>
+                    {/* <h1></h1> */}
                     <h3 className="hidemie">Classified Submission</h3>
                   </div>
 
                   <div>
                     {this.state.showto ? (
-                      <h1>
+                      <h1 className="marginleftfordiv">
                         <div
                           style={{ marginLeft: "10%" }}
                           className="input-width"
@@ -857,9 +889,11 @@ export class Maincontentpage2 extends Component {
                   }}
                 >
                   <ReactPlayer
+                    playing={true}
                     width="100%"
                     height="100%"
-                    url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    url={this.state.url}
+                    controls={true}
                   />
                 </Card>
               </div>
@@ -869,9 +903,17 @@ export class Maincontentpage2 extends Component {
 
         <div className="container">
           <div className="mt-5 border-top bodercolor"> </div>
+          <br />
           <div className="sadataset">
+            <img
+              className="dataiconsright"
+              src="https://simpleicon.com/wp-content/uploads/refresh.png"
+              onClick={this.refreshclick}
+            />
+            {/* <button className="dataiconsright" onClick={this.refreshclick}>Refresh</button> */}
+            {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
             <DataTable
-            className="datatablehoer"
+              className="datatablehoer"
               title="Current Session"
               columns={this.state.columns}
               data={this.state.data}

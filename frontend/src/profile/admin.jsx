@@ -14,6 +14,7 @@ import {
 import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "../components/Button";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Admin extends Component {
   constructor(props) {
@@ -48,6 +49,17 @@ class Admin extends Component {
     window.localStorage.setItem("adminlogin",true);
     window.location = "adminute-dashboard";
   };
+  componentWillMount() {
+    let temp = !isLoggedIn();
+// alert(isLoggedIn());
+if(temp == true || temp =="true"){
+ 
+
+}else{
+  console.log("user is login and have a session ")
+window.location ="/adminute-dashboard";
+}
+  }
 
   render() {
     return (

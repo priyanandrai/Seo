@@ -6,8 +6,22 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Maincontentpage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+  componentWillMount() {
+    let temp = !isLoggedIn();
+
+    if (temp == true || temp == "true") {
+    } else {
+      window.location = "/dashboard";
+    }
+  }
   render() {
     return (
       <div className="container mainpage-alignment">
@@ -55,11 +69,13 @@ class Maincontentpage extends React.Component {
                         make up the bulk of the card's content.
                       </p>
                     </div> */}
-                     <ReactPlayer
-                    width="100%"
-                    height="100%"
-                    url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
-                  />
+                    <ReactPlayer
+                      playing={true}
+                      width="100%"
+                      height="100%"
+                      url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                      controls={true}
+                    />
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -94,7 +110,9 @@ class Maincontentpage extends React.Component {
                 </Card>
               </div>
             </Grid>
-          </Grid><br/><br/>
+          </Grid>
+          <br />
+          <br />
           {/* <Container>
             <Row>
               <Col></Col>

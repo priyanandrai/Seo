@@ -102,7 +102,7 @@
 }
 .btnrighttoleft {
   margin-top: 2%;
-  margin-right: 12%;
+  margin-right: 5%;
 }
 .seacrhengine1 {
   font-size: 16px;
@@ -150,20 +150,20 @@
     justify-content: flex-end;
     margin-right: 23% !important;
   }
-  .mrrginside2200 {
+  /* .mrrginside2200 {
     margin-right: 24% !important;
-  }
+  } */
   .marginleftfor {
    
-    width: 41vh !important;
+    width: 44vh !important;
   }
   .marginleftfor1 {
-    padding-left: 10% !important;
+    padding-left: 5% !important;
     width: 47vh !important;
   }
   .btnrighttoleft {
     margin-top: 4% !important;
-    margin-right: 15% !important;
+    margin-right: 8% !important;
   }
   /* .btnmobile{
     width: 100%;
@@ -173,7 +173,7 @@
 }
 }
 .mrrginside2200 {
-  margin-right: 26%;
+  margin-right: 10%;
   margin-top: 4%;
 }
 .afterplaycolor:active {
@@ -309,7 +309,10 @@
 }
 .seachinginewidthset{
   width: 40vh;
-    margin-left: 27px;
+    /* margin-left: 27px; */
+}
+.width90{
+  width: 90% !important;
 }
 .deletecolor{
   color: rgb(220, 0, 78);
@@ -322,6 +325,6 @@
 }
 .datatablehoer :hover{
   background-color: lightgray;
-  color: white;
+  
 }
 

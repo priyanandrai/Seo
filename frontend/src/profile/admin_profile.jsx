@@ -22,6 +22,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/semantic-ui.css";
 import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
+import { getAuthData, isLoggedIn } from "../utils";
 
 class Admin_profile extends Component {
   constructor(props) {
@@ -228,6 +229,14 @@ class Admin_profile extends Component {
       this.setState({ taskTitle: "Classified Submission" });
     }
   };
+  componentWillMount() {
+    let temp = isLoggedIn();
+if(temp == true || temp =="true"){
+
+}else{
+window.location ="/adminute-home";
+}
+  }
 
   render() {
     return (
