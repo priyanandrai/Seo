@@ -938,7 +938,7 @@ class Nav extends Component {
                         <PhoneInput
                           className="inputHome bodernull111"
                           placeholder={"Mobile no. *"}
-                          country={"us"}
+                          country={"in"}
                           // value={this.state.fields.number}
                           // tabindex="1"
                           value={this.state.phone}
@@ -948,7 +948,7 @@ class Nav extends Component {
                               return;
                             }
                             this.setState({
-                              phone: e,
+                              phone: "+" + e,
                             });
                           }}
                         />
@@ -957,7 +957,8 @@ class Nav extends Component {
                       <Button
                         type="submit"
                         value="Send Reset Instructions"
-                        unable={this.state.email == ""}
+                        disabled={this.state.phone == ""}
+                     
                       />
                     </div>
                   )}
