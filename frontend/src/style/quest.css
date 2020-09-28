@@ -2063,3 +2063,10 @@ a.disabled {
 .backtosigh11{
   color:#005d78 !important ;
 }
+.afterplaycolor21:active {
+  color: white;
+  background-color: #18758d;
+  width: 100%;
+  height: 23px;
+  
+}

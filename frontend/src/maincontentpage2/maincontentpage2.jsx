@@ -535,7 +535,7 @@ export class Maincontentpage2 extends Component {
           (key) =>
             (key.visualIdDa = (
               <p
-                className="reactclick afterplaycolor"
+                className="reactclick afterplaycolor21"
                 onClick={() => {
                   let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
                   // alert(a);
