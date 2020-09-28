@@ -142,16 +142,13 @@ public class MainServices {
 				if (searchengine.getSubmiturl() == null) {
 					return "{\"message\":\" Please enter the URl\"}";
 				}
-<<<<<<< HEAD
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
 				searchengine.setTaskstatus("In Progress");
 				SearchEngineSubmisson search = new SearchEngineSubmisson();
 				searchengine.setVisualId(search.openBrowser()); 
-=======
 				searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
->>>>>>> c1e6c0c2daf4b38e681c91bed36ee500010d0d32
 				searchEngineService.savedatail(searchengine);
 				//(JavascriptExecutor.executeScript("scroll(0,400)");
 							
@@ -165,7 +162,6 @@ public class MainServices {
 				if (searchengine.getTitle() == null) {
 					return "{\"message\":\" Please enter the Title\"}";
 				}
-<<<<<<< HEAD
 				if (searchengine.getKeyword() == null) {
 					return "{\"message\":\" Please enter the keyword\"}";
 				}
@@ -199,37 +195,10 @@ public class MainServices {
 				}
 				if (searchengine.getPassword() == null) {
 					return "{\"message\":\" Please enter your email address\"}";
-=======
+				}
 				searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
 				searchEngineService.savedatail(searchengine);
-				return "{\"message\":\" Task type started successfully\"}";
-			}else if (searchengine.getTasktype().equalsIgnoreCase(task3)){
-					if (searchengine.getTitle() == null) {
-		        	  return "{\"message\":\" Please enter the Title\"}";
-		          }if (searchengine.getKeyword() == null) {
-		        	  return "{\"message\":\" Please enter the keyword\"}";
-		          }if (searchengine.getDescription() == null) {
-		        	  return "{\"message\":\" Please enter the Description\"}";
-		          }if (searchengine.getSubmiturl() == null) {
-		        	  return "{\"message\":\" Please enter the URl\"}";
-		          }if (searchengine.getEmailaddress() == null) {
-						return "{\"message\":\" Please enter your email address\"}";
-		          }if(searchengine.getPassword() == null) {
-						return "{\"message\":\" Please enter your email address\"}";
-		          }if(searchengine.getComments()==null) {
-						return "{\"message\":\" Please enter the comment\"}";
-					}
-		          searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
-		          searchEngineService.savedatail(searchengine);
-		          return "{\"message\":\" Task type started successfully\"}";
->>>>>>> c1e6c0c2daf4b38e681c91bed36ee500010d0d32
-				}
-//		          if(searchengine.getComments()==null) {
-//						return "{\"message\":\" Please enter the comment\"}";
-//					}
-				searchengine.setTaskstatus("In Progress");
-				searchEngineService.savedatail(searchengine);
-				return "{\"message\":\" Task type started successfully\"}";
+				return "{\"message\":\" Task type started successfully\"}";		
 
 			} else {
 				return "{\"message\":\" Please select a valid   Task Type\"}";
