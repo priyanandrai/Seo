@@ -465,7 +465,7 @@ window.location ="/home";
         <Grid container className="submenu-alignment">
           <Grid item xs={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq">
+              <button type="button" className="btnmargin bottoncolorq" >
                 Save
               </button>
               <button

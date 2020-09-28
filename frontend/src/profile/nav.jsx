@@ -37,7 +37,7 @@ import {
   faBars,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -47,6 +47,7 @@ class Nav extends Component {
     super(props);
     this.state = {
       adminGuard: false,
+      forgotpassdiaglog: false,
       adminprofile: false,
       balance: "30.00SR",
       checked: false,
@@ -190,7 +191,7 @@ class Nav extends Component {
       // alert("Password must be 8 characters long");
       return;
     }
-    if (this.state.conf_pass.length =="") {
+    if (this.state.conf_pass.length == "") {
       this.setState({
         snackbar: true,
         error: "Please enter Confirm Password ",
@@ -309,7 +310,6 @@ class Nav extends Component {
   }
 
   handleOnSubmit(event) {
-    
     event.preventDefault();
     const {
       how_account_dropdown,
@@ -338,7 +338,7 @@ class Nav extends Component {
           snackbar: true,
           error: "Full name must be more than 4 characters.",
         });
-        
+
         //  alert("Full name must be more than 4 characters.");
         return;
       } else if (full_name.trim().length > 20) {
@@ -388,8 +388,7 @@ class Nav extends Component {
         // alert("Please accept the Terms and Conditions");
         return;
       }
-      
-      
+
       // alert(this.state.phone);
       // console.log(this.state.phone)
       let temp = {
@@ -409,25 +408,23 @@ class Nav extends Component {
             //   alert(response.data.message);
             // }else
             // {// }
-            if(response.data.message  == undefined){
-
-            }else{
-              alert(response.data.message)
-             return;
+            if (response.data.message == undefined) {
+            } else {
+              alert(response.data.message);
+              return;
             }
             this.setState({
               modal_open: false,
             });
-              window.localStorage.setItem("user", response.data.name);
-              window.localStorage.setItem("id", response.data.id);
-              window.localStorage.setItem("isLoggedIn", true);
-              window.location = "/dashboard";
-              alert("Thank you for Regisrtion");
-              this.setState({ dialogBox: !this.state.dialogBox });
+            window.localStorage.setItem("user", response.data.name);
+            window.localStorage.setItem("id", response.data.id);
+            window.localStorage.setItem("isLoggedIn", true);
+            window.location = "/dashboard";
+            alert("Thank you for Regisrtion");
+            this.setState({ dialogBox: !this.state.dialogBox });
           },
           (error) => {
             alert(error.response.data.message);
-
           }
         )
         .catch((e) => {});
@@ -474,7 +471,6 @@ class Nav extends Component {
             window.location = "/dashboard";
           },
           (error) => {
-            
             alert(error.response.data.message);
           }
         )
@@ -919,7 +915,6 @@ class Nav extends Component {
                         this.state.full_name == "" ||
                         this.state.confirm_password == ""
                       }
-                     
                     />
                   )}
                   {modal_type === "signin" && (
@@ -934,7 +929,7 @@ class Nav extends Component {
                   {modal_type === "forgotpassword" && (
                     <div>
                       {/* <input type="text" /> */}
-                      <fieldset className="padii222">
+                      {/* <fieldset className="padii222">
                         <PhoneInput
                           className="inputHome bodernull111"
                           placeholder={"Mobile no. *"}
@@ -952,13 +947,27 @@ class Nav extends Component {
                             });
                           }}
                         />
+                      </fieldset> */}
+                      <fieldset className="inputHome">
+                        <FontAwesomeIcon
+                          icon={faEnvelope}
+                          className="signup-icon"
+                        />
+                        <Input
+                          className="bodernull111"
+                          type="text"
+                          name="email"
+                          placeholder="Email ID"
+                          autocomplete="off"
+                          value={email}
+                          onChange={this.handelOnChange}
+                        />
                       </fieldset>
 
                       <Button
                         type="submit"
                         value="Send Reset Instructions"
-                        disabled={this.state.phone == ""}
-                     
+                        disabled={this.state.email == ""}
                       />
                     </div>
                   )}
@@ -990,7 +999,8 @@ class Nav extends Component {
               )}
               {modal_type === "forgotpassword" && (
                 <p>
-                  <span className="backtosigh11"
+                  <span
+                    className="backtosigh11"
                     onClick={() => this.openModal("signin")}
                     title="Sign In"
                   >
@@ -1001,33 +1011,32 @@ class Nav extends Component {
             </div>
           </div>
           <div>
-        <Snackbar
-        
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={this.state.snackbar}
-            onClose={this.closeSnackbar}
-            message={
-              this.state.error === null ? this.state.message : this.state.error
-            }
-            action={
-              <React.Fragment>
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="red"
-                  onClick={this.closeSnackbar}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </React.Fragment>
-            }
-          />
-        </div>
-
-
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              open={this.state.snackbar}
+              onClose={this.closeSnackbar}
+              message={
+                this.state.error === null
+                  ? this.state.message
+                  : this.state.error
+              }
+              action={
+                <React.Fragment>
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="red"
+                    onClick={this.closeSnackbar}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </React.Fragment>
+              }
+            />
+          </div>
         </Dialog>
 
         <div className="dialogconfirm">
@@ -1165,31 +1174,32 @@ class Nav extends Component {
               </div>
             </div>
             <div>
-        <Snackbar
-        
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={this.state.snackbar}
-            onClose={this.closeSnackbar}
-            message={
-              this.state.error === null ? this.state.message : this.state.error
-            }
-            action={
-              <React.Fragment>
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="red"
-                  onClick={this.closeSnackbar}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </React.Fragment>
-            }
-          />
-        </div>
+              <Snackbar
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                open={this.state.snackbar}
+                onClose={this.closeSnackbar}
+                message={
+                  this.state.error === null
+                    ? this.state.message
+                    : this.state.error
+                }
+                action={
+                  <React.Fragment>
+                    <IconButton
+                      size="small"
+                      aria-label="close"
+                      color="red"
+                      onClick={this.closeSnackbar}
+                    >
+                      <CloseIcon fontSize="small" />
+                    </IconButton>
+                  </React.Fragment>
+                }
+              />
+            </div>
           </div>
         </Dialog>
         <Dialog
@@ -1258,29 +1268,28 @@ class Nav extends Component {
             </div>
           </div>
           <Snackbar
-        
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={this.state.snackbar}
-        onClose={this.closeSnackbar}
-        message={
-          this.state.error === null ? this.state.message : this.state.error
-        }
-        action={
-          <React.Fragment>
-            <IconButton
-              size="small"
-              aria-label="close"
-              color="red"
-              onClick={this.closeSnackbar}
-            >
-              <CloseIcon fontSize="small" />
-            </IconButton>
-          </React.Fragment>
-        }
-      />
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="red"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
         </Dialog>
         <Dialog
           open={this.state.UniqueId}
@@ -1318,7 +1327,53 @@ class Nav extends Component {
             </span>
           </div>
         </Dialog>
-       
+        <Dialog
+          open={this.state.forgotpassdiaglog}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div>
+            <div id="auth-modal">
+              <div className="auth-modal-in">
+                <h2 className="link forgottext text-center mt-2"> New Password</h2>
+              <fieldset className="inputHome mt-3 ml-3 mr-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="New Password"
+                      value={this.state.newPassword}
+                      onChange={(e) => {
+                        this.setState({
+                          newPassword: e.target.value,
+                        });
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset className="inputHome mt-3 ml-3 mr-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Confirm Password"
+                      value={this.state.conf_pass}
+                      onChange={(e) => {
+                        this.setState({
+                          conf_pass: e.target.value,
+                        });
+                      }}
+                    />
+                  </fieldset>
+                  <div className="mt-4 mb-2 ">
+                    <Button
+                      className="forgetpwdbtn mx-auto d-block"
+                      type="submit"
+                      value="Change Password"
+                      onClick={this.chnagepassword}
+                    />
+                  </div>
+              </div>
+            </div>
+          </div>
+        </Dialog>
       </AppBar>
     );
   }
