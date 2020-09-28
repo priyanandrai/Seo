@@ -225,13 +225,13 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if (this.state.comments == "") {
-      this.setState({
-        snackbar: true,
-        error: "please enter your comment.",
-      });
-      return;
-    }
+    // if (this.state.comments == "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "please enter your comment.",
+    //   });
+    //   return;
+    // }
     // if (this.state.error === null) {
     //   this.setState({ snackbar: true, message: "Success Updated" });
     // }
@@ -331,13 +331,13 @@ export class Maincontentpage2 extends Component {
 
       return;
     }
-    if (this.state.comments == "") {
-      this.setState({
-        snackbar: true,
-        error: "please enter your comment.",
-      });
-      return;
-    }
+    // if (this.state.comments == "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "please enter your comment.",
+    //   });
+    //   return;
+    // }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
       progressbar: true,
@@ -447,13 +447,13 @@ export class Maincontentpage2 extends Component {
       });
       return;
     }
-    if (this.state.comments == "") {
-      this.setState({
-        snackbar: true,
-        error: "please enter your comment.",
-      });
-      return;
-    }
+    // if (this.state.comments == "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "please enter your comment.",
+    //   });
+    //   return;
+    // }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
       progressbar: true,
