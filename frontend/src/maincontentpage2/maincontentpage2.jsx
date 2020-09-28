@@ -647,7 +647,7 @@ export class Maincontentpage2 extends Component {
                           }
                         />
                         <Form.Label>Comment</Form.Label>
-                        <Form.Label className="starcolor">*</Form.Label>
+                        {/* <Form.Label className="starcolor">*</Form.Label> */}
                         <Form.Control
                           type="Url"
                           id="Url"
@@ -736,7 +736,7 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Comment</Form.Label>
-                          <Form.Label className="starcolor">*</Form.Label>
+                          {/* <Form.Label className="starcolor">*</Form.Label> */}
                           <Form.Control
                             type="Url"
                             id="Url"
@@ -848,7 +848,7 @@ export class Maincontentpage2 extends Component {
                             }
                           />
                           <Form.Label>Comment</Form.Label>
-                          <Form.Label className="starcolor">*</Form.Label>
+                          {/* <Form.Label className="starcolor">*</Form.Label> */}
                           <Form.Control
                             type="Url"
                             id="Url"
