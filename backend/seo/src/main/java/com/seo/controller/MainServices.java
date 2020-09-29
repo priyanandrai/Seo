@@ -145,10 +145,10 @@ public class MainServices {
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
-				searchengine.setTaskstatus("In Progress");
+				searchengine.setTaskstatus("Pending");
 				SearchEngineSubmisson search = new SearchEngineSubmisson();
 				searchengine.setVisualId(search.openBrowser()); 
-				searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
+				searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
 				//(JavascriptExecutor.executeScript("scroll(0,400)");
 							

@@ -14,6 +14,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 //import org.testng.Assert;
 
 public class SearchEngineSubmisson {
+	
+//	public static void main(String[] args) {
+//		System.out.println("I am coming here ");
+//	}
 
 	public static RemoteWebDriver driver = null;
 	public String openBrowser() throws MalformedURLException {
@@ -24,7 +28,7 @@ public class SearchEngineSubmisson {
 		capabilities.setCapability("enableVNC", true);
 		capabilities.setCapability("enableVideo", false);
 
-		driver = new RemoteWebDriver(URI.create("http://192.168.0.103:8080/wd/hub").toURL(),
+		driver = new RemoteWebDriver(URI.create("http://192.168.0.106:8080/wd/hub").toURL(),
 				capabilities);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
