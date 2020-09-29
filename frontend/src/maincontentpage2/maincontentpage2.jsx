@@ -144,7 +144,7 @@ export class Maincontentpage2 extends Component {
           name: "Task Type",
           selector: "tasktype",
           sortable: true,
-          center: true,
+          left: true,
         },
         {
           name: "Task Status",

@@ -77,7 +77,7 @@ class Profile extends Component {
           name: "TASK",
           selector: "tasktype",
           sortable: true,
-          center: true,
+          left: true,
         },
         {
           name: "STATUS",
@@ -89,7 +89,7 @@ class Profile extends Component {
           name: "COMMENTS",
           selector: "comments",
           sortable: true,
-          center: true,
+          left: true,
         },
         {
           name: "ACTION",
