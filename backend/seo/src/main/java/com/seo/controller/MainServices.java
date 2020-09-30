@@ -145,16 +145,17 @@ public class MainServices {
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
+				
 				searchengine.setTaskstatus("Pending");
 				SearchEngineSubmisson search = new SearchEngineSubmisson();
 				searchengine.setVisualId(search.openBrowser()); 
-				searchengine.setTaskstatus("In Progress");
+				//searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
 				//(JavascriptExecutor.executeScript("scroll(0,400)");
 							
 				SearchEngineSubmisson.anoox("http://anoox.com/add_for_indexing_free.php", Submiturl, EmailAddress);
 				
-				// return "{\"message\":\" Task type started successfully\"}";	
+				 return "{\"message\":\" Task type started successfully\"}";	
 
 				
 				
@@ -207,7 +208,7 @@ public class MainServices {
 		} catch (Exception e) {
 			return "{\"message\":\"Error in creating task , Please try again \"}";
 		}
-		return null;
+	
 
 	}
 
@@ -239,13 +240,21 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getinprogresstask")
 	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
+	
 		try {
-			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
-			String taskstatus = "In Progress";
-			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id
-					&& searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)).collect(Collectors.toList());
-			return list1;
+//			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+//			String taskstatus = "In Progress";
+//			
+//			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id
+//					&& searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)).collect(Collectors.toList());
+//			return list1;
 
+			
+			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+
+			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
+					.collect(Collectors.toList());
+			return list1;
 		} catch (Exception e) {
 
 			return null;
@@ -256,6 +265,7 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/gettask")
 	public List<SearchEngine> getTask(@RequestParam("id") Long id) {
+	
 		try {
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 
