@@ -26,8 +26,8 @@ import com.seo.model.SubmitRequest;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.SearchEngineservice;
-import searchEngineSubmission.*;
 
+import com.seo.Automation.SearchEngineSubmisson;
 @RestController
 public class MainServices {
 
