@@ -148,6 +148,7 @@ public class MainServices {
 				
 				searchengine.setTaskstatus("Pending");
 				SearchEngineSubmisson search = new SearchEngineSubmisson();
+				
 				searchengine.setVisualId(search.openBrowser()); 
 				//searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);

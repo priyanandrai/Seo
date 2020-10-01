@@ -40,6 +40,7 @@ export class Maincontentpage2 extends Component {
   constructor(props) {
     super(props);
     this.playvideoid = this.playvideoid.bind(this);
+    this.getdownlist = this.getdownlist.bind(this);
     this.state = {
       taskTitle: "none",
       pieChartData: [
@@ -510,7 +511,24 @@ export class Maincontentpage2 extends Component {
     } else {
       window.location = "/home";
     }
+    this.getdownlist();
+    
+  }
+  playvideoid(visualId, videourl) {
+    // alert(visualId);
 
+    this.setState({ url: videourl });
+  }
+  handleClickOpen(index) {
+    // alert(this.state.data[index].tasktype)
+    this.setState({
+      drilldown: true,
+      selectedtasktype: this.state.data[index].tasktype,
+    });
+    //  document.getElementById("viewAppoinment").modal('show');
+  }
+
+  getdownlist(){
     let self = this;
     let url =
       getBaseUrl() +
@@ -568,22 +586,11 @@ export class Maincontentpage2 extends Component {
       (error) => {}
     );
   }
-  playvideoid(visualId, videourl) {
-    // alert(visualId);
+ 
+  
 
-    this.setState({ url: videourl });
-  }
-  handleClickOpen(index) {
-    // alert(this.state.data[index].tasktype)
-    this.setState({
-      drilldown: true,
-      selectedtasktype: this.state.data[index].tasktype,
-    });
-    //  document.getElementById("viewAppoinment").modal('show');
-  }
-  refreshclick = () => {
-    window.location.reload();
-  };
+
+
   render() {
     return (
       <div className="container">
@@ -909,7 +916,9 @@ export class Maincontentpage2 extends Component {
             <img
               className="dataiconsright"
               src="https://simpleicon.com/wp-content/uploads/refresh.png"
-              onClick={this.refreshclick}
+              onClick={()=>{
+                
+                this.getdownlist();}}
             />
             {/* <button className="dataiconsright" onClick={this.refreshclick}>Refresh</button> */}
             {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
