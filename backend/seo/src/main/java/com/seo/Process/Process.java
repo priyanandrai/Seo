@@ -33,9 +33,6 @@ public class Process implements Callable<ProcessOutput>{
 	public ProcessOutput call() {
 		ProcessOutput output = new ProcessOutput();
 		try {
-			System.out.println("I ma coming here ");
-			Thread.sleep(10000);
-			System.out.println("I ma coming here --------------- ");
 		} catch (Exception e) {
 			output.setError(e.getMessage());
 		}

@@ -28,6 +28,9 @@ import com.seo.services.ISubmitRequestService;
 import com.seo.services.SearchEngineservice;
 
 import com.seo.Automation.SearchEngineSubmisson;
+import com.seo.MultiThread.MultiThread;
+import com.seo.Process.Process;
+import com.seo.Process.ProcessDTO;
 @RestController
 public class MainServices {
 
@@ -191,6 +194,9 @@ public class MainServices {
 				if (searchengine.getPassword() == null) {
 					return "{\"message\":\" Please enter your email address\"}";
 				}
+				MultiThread multiThread = new MultiThread();
+				ProcessDTO processDTO = new ProcessDTO(searchengine);
+				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
 				searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
 				searchEngineService.savedatail(searchengine);
 				return "{\"message\":\" Task type started successfully\"}";		

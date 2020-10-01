@@ -17,9 +17,6 @@ public class MultiThread {
 			}else {
 			      ThreadPool.executorService_non_premium.submit(process);
 			}
-		
-
-			
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -43,7 +40,7 @@ public class MultiThread {
 		try {
 			for (int i = 0; i < 10; i++) {
 				System.out.println("IIIIIIIIIIIII "+ i);
-				multiThread.submitTasktoThreadPool(new Process(new ProcessDTO()), false);
+				
 			}
 			
 			System.out.println("I Have to wait for task ");
