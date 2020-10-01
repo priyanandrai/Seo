@@ -555,7 +555,8 @@ export class Maincontentpage2 extends Component {
             (key.taskstatus = (
               <p>
                 {" "}
-                <span>{key.taskstatus} </span> <span>{loader}</span>
+               
+                <span>{key.taskstatus} </span>  {key.taskstatus=="Pending"?"":<span>{loader}</span>}
               </p>
             ))
         );
@@ -950,11 +951,11 @@ export class Maincontentpage2 extends Component {
           />
         </div>
         <Dialog
-          // onClose={() => {
-          //   this.setState({
-          //     drilldown: false,
-          //   });
-          // }}
+          onClose={() => {
+            this.setState({
+              drilldown: false,
+            });
+          }}
           open={this.state.drilldown}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
