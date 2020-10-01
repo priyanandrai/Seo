@@ -4,21 +4,13 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
-//import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-//import org.testng.Assert;
-
 public class SearchEngineSubmisson {
 	
-//	public static void main(String[] args) {
-//		System.out.println("I am coming here ");
-//	}
-
 	public static RemoteWebDriver driver = null;
 	public String openBrowser() throws MalformedURLException {
 

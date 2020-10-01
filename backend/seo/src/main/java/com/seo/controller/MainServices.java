@@ -147,15 +147,8 @@ public class MainServices {
 //				}
 				
 				searchengine.setTaskstatus("Pending");
-				SearchEngineSubmisson search = new SearchEngineSubmisson();
-				
-				searchengine.setVisualId(search.openBrowser()); 
-				//searchengine.setTaskstatus("In Progress");
 				searchEngineService.savedatail(searchengine);
-				//(JavascriptExecutor.executeScript("scroll(0,400)");
-							
-				SearchEngineSubmisson.anoox("http://anoox.com/add_for_indexing_free.php", Submiturl, EmailAddress);
-				
+					
 				 return "{\"message\":\" Task type started successfully\"}";	
 
 				
