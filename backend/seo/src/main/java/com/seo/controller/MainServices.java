@@ -242,19 +242,26 @@ public class MainServices {
 	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
 	
 		try {
-//			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
-//			String taskstatus = "In Progress";
-//			
-//			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id
-//					&& searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)).collect(Collectors.toList());
-//			return list1;
+			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+			String taskstatus = "In Progress";
+			String pending= "Pending";
+			
+			List<SearchEngine> list1 = 
+					
+					list.stream()
+					.filter(searchengine -> searchengine.getUserId() == id
+					&& ((searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)) || (searchengine.getTaskstatus().equalsIgnoreCase(pending)) ))
+					.collect(Collectors.toList());
+			
+			
+			return list1;
 
 			
-			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
-
-			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
-					.collect(Collectors.toList());
-			return list1;
+//		List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+//
+//			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
+//				.collect(Collectors.toList());
+//		return list1;
 		} catch (Exception e) {
 
 			return null;
