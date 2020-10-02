@@ -1,10 +1,12 @@
 package com.seo.Process;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.core.env.Environment;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seo.Exception.Seoexception;
+import com.seo.Interface.Interface;
 import com.seo.controller.ApplicationContextHolder;
 import com.seo.model.SearchEngine;
 import com.seo.services.SearchEngineservice;
@@ -22,12 +25,7 @@ public class Process implements Callable<ProcessOutput>{
 	ProcessDTO processDTO = null;
 	RemoteWebDriver driver = null;
 	
-	
-	
-	
-	public Process() {
-		System.out.println("Just make it for take autowired thing ");
-	}
+
 	public Process(ProcessDTO processDTO ) throws Exception{
 		try {
 		
@@ -69,10 +67,12 @@ public class Process implements Callable<ProcessOutput>{
 			searchEngine.updataDatainDTO(this.processDTO,"In Progress", virtualID);
 			searchEngineService.savedatail(searchEngine);
 			
-			
+			ArrayList<Interface> arrayList = getListOfAllListOfAutomationClassAccordingtoProcess(processDTO);
 			Thread.sleep(1000000);
 			
-			
+			for (int i = 0; i < arrayList.size(); i++) {
+				arrayList.get(i).StartAutomation(processDTO, driver);
+			}
 			searchEngine.setTaskstatus("Completed");
 			searchEngineService.savedatail(searchEngine);
 			
@@ -87,6 +87,18 @@ public class Process implements Callable<ProcessOutput>{
 		return null;
 	}
 
+	private ArrayList<Interface> getListOfAllListOfAutomationClassAccordingtoProcess(ProcessDTO processDTO2) {
+		ArrayList<Interface> arrayList = new ArrayList<Interface>(); 
+		/*
+		 * need to Add all class for process and 
+		 */
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return arrayList;
+	}
 	private void updateDatainDataBasewithOutput(SearchEngine output , SearchEngineservice searchEngineService) {
 		try {
 			searchEngineService.savedatail(output);
@@ -105,8 +117,10 @@ public class Process implements Callable<ProcessOutput>{
 		capabilities.setCapability("enableVNC", false);
 		capabilities.setCapability("enableVideo", true);
 		
-
-		driver = new RemoteWebDriver(URI.create("http://192.168.0.108:8080/wd/hub").toURL(),
+		Environment environment = ApplicationContextHolder.getContext().getBean(Environment.class);
+		String url = environment.getProperty("browser.ip");
+		
+		driver = new RemoteWebDriver(URI.create(url).toURL(),
 				capabilities);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);

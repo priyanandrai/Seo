@@ -49,6 +49,7 @@ function App() {
         <Route exact path="/submit" component={SubmitRequest} />
         <Route exact path="/changepassword" component={Changepassword} />
         <Route exact path="/home" component={Maincontentpage} />
+        <Route exact path="/" component={Maincontentpage} />
         <Route exact path="/dashboard" component={Maincontentpage2} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
