@@ -2,6 +2,7 @@ package com.seo.Process;
 
 import javax.persistence.Column;
 
+
 import com.seo.model.SearchEngine;
 
 public class ProcessDTO {

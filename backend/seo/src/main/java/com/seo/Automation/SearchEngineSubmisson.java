@@ -12,26 +12,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class SearchEngineSubmisson {
 	
 	public static RemoteWebDriver driver = null;
-	public String openBrowser() throws MalformedURLException {
-
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setBrowserName("chrome");
-		capabilities.setVersion("84.0");
-		capabilities.setCapability("enableVNC", true);
-		capabilities.setCapability("enableVideo", false);
-
-		driver = new RemoteWebDriver(URI.create("http://192.168.0.106:8080/wd/hub").toURL(),
-				capabilities);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
-		
-		ChromeOptions op = new ChromeOptions();
-	       op.setExperimentalOption("useAutomationExtension", false);
-	       op.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-	       
-	       return driver.getSessionId().toString();
-	}
-
+	
 	public static void anoox(String website, String url, String email) throws InterruptedException {
 		try {
 			driver.get(website);

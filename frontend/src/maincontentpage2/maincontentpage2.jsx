@@ -516,8 +516,8 @@ export class Maincontentpage2 extends Component {
   }
   playvideoid(visualId, videourl) {
     // alert(visualId);
-
-    this.setState({ url: videourl });
+let url = videourl + visualId + ".mp4";
+    this.setState({ url: url });
   }
   handleClickOpen(index) {
     // alert(this.state.data[index].tasktype)
@@ -555,7 +555,7 @@ export class Maincontentpage2 extends Component {
               <p
                 className="reactclick afterplaycolor21"
                 onClick={() => {
-                  let a = "https://www.youtube.com/watch?v=9BBulDGszZE";
+                  let a = "http://192.168.0.108:8080/video/";
                   // alert(a);
                   this.playvideoid(key.visualId, a);
                 }}

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.seo.Process.ProcessDTO;
+
 @Entity
 @Table(name="taskprogress")
 public class SearchEngine {
@@ -204,6 +206,25 @@ public class SearchEngine {
 
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+
+
+	public void updataDatainDTO(ProcessDTO processDTO, String string,String vistualId) {
+		this.id = processDTO.getId();
+		this.userId = processDTO.getUserId();
+		this.tasktype = processDTO.getTasktype();
+		this.taskstatus = string;
+		this.date = processDTO.getDate();
+		this.name = processDTO.getName();
+		this.emailaddress = processDTO.getEmailaddress();
+		this.submiturl = processDTO.getSubmiturl();
+		this.visualId = vistualId;
+		this.title = processDTO.getTitle();
+		this.keyword = processDTO.getKeyword();
+		this.description = processDTO.getDescription();
+		this.password = processDTO.getPassword();
+		this.comments = processDTO.getComments();
+		
 	}
 	
 	

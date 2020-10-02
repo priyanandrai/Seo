@@ -151,6 +151,11 @@ public class MainServices {
 				
 				searchengine.setTaskstatus("Pending");
 				searchEngineService.savedatail(searchengine);
+				
+				MultiThread multiThread = new MultiThread();
+				ProcessDTO processDTO = new ProcessDTO(searchengine);
+				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
+			
 					
 				 return "{\"message\":\" Task type started successfully\"}";	
 

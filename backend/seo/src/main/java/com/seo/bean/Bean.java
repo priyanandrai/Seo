@@ -1,7 +1,11 @@
 package com.seo.bean;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -15,9 +19,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.json.JSONObject;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Bean {
 	
+	
+
 	public static ArrayList<String> getAreaOfAsssment(String Type){
 		
 		System.out.println("Data for fetch "+ Type);

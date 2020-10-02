@@ -1,13 +1,33 @@
 package com.seo.Process;
 
+import java.net.URI;
+import java.util.Collections;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.seo.Exception.Seoexception;
+import com.seo.controller.ApplicationContextHolder;
+import com.seo.model.SearchEngine;
+import com.seo.services.SearchEngineservice;
 
+@Component
 public class Process implements Callable<ProcessOutput>{
 
 	ProcessDTO processDTO = null;
+	RemoteWebDriver driver = null;
 	
+	
+	
+	
+	public Process() {
+		System.out.println("Just make it for take autowired thing ");
+	}
 	public Process(ProcessDTO processDTO ) throws Exception{
 		try {
 		
@@ -31,19 +51,72 @@ public class Process implements Callable<ProcessOutput>{
 
 	@Override
 	public ProcessOutput call() {
-		ProcessOutput output = new ProcessOutput();
+		
+		SearchEngineservice searchEngineService = ApplicationContextHolder.getContext().getBean(SearchEngineservice.class);
+//		ProcessOutput output = new ProcessOutput();
+		
+		System.out.println("going to start Thread");
+		SearchEngine searchEngine = new SearchEngine();
+		System.out.println("going to start Thread   12122");
 		try {
+			//open browser set data in Data base 
+			String virtualID = openBrowser();
+			System.out.println("driver    "+ driver);
+			System.out.println("virtualID    "+ virtualID);
+			if(driver == null ) {
+				new Seoexception("Error in opening Window Please try again ");
+			};
+			searchEngine.updataDatainDTO(this.processDTO,"In Progress", virtualID);
+			searchEngineService.savedatail(searchEngine);
+			
+			
+			Thread.sleep(1000000);
+			
+			
+			searchEngine.setTaskstatus("Completed");
+			searchEngineService.savedatail(searchEngine);
+			
+			
 		} catch (Exception e) {
-			output.setError(e.getMessage());
+			//output.setError(e.getMessage());
+			e.printStackTrace();
+			searchEngine.setTaskstatus("Error in completing task ");
 		}
-	
-		updateDatainDataBasewithOutput(output);
-		return output;
+		updateDatainDataBasewithOutput(searchEngine, searchEngineService);
+		
+		return null;
 	}
 
-	private void updateDatainDataBasewithOutput(ProcessOutput output) {
-		// TODO Auto-generated method stub
-		
+	private void updateDatainDataBasewithOutput(SearchEngine output , SearchEngineservice searchEngineService) {
+		try {
+			searchEngineService.savedatail(output);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 	}
+	
+	
+	private String openBrowser() throws Exception {
+
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setBrowserName("chrome");
+		capabilities.setVersion("84.0");
+		capabilities.setCapability("enableVNC", false);
+		capabilities.setCapability("enableVideo", true);
+		
+
+		driver = new RemoteWebDriver(URI.create("http://192.168.0.108:8080/wd/hub").toURL(),
+				capabilities);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		
+		ChromeOptions op = new ChromeOptions();
+	       op.setExperimentalOption("useAutomationExtension", false);
+	       op.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+	       
+	       return driver.getSessionId().toString();
+	}
+
 
 }
