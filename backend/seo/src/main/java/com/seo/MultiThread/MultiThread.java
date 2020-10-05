@@ -11,7 +11,7 @@ public class MultiThread {
 	public boolean submitTasktoThreadPool(Process process, boolean ispremuim) {
 
 		try {
-			Future<ProcessOutput> future = null; 
+		//	Future<ProcessOutput> future = null; 
 			if(ispremuim) {
 		         ThreadPool.executorService_premium.submit(process);
 			}else {

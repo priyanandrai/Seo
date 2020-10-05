@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.undo.AbstractUndoableEdit;
+
 import org.springframework.core.env.Environment;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.seo.Automation.Anoox;
 import com.seo.Exception.Seoexception;
 import com.seo.Interface.Interface;
 import com.seo.controller.ApplicationContextHolder;
@@ -53,20 +56,17 @@ public class Process implements Callable<ProcessOutput>{
 		SearchEngineservice searchEngineService = ApplicationContextHolder.getContext().getBean(SearchEngineservice.class);
 //		ProcessOutput output = new ProcessOutput();
 		
-		System.out.println("going to start Thread");
 		SearchEngine searchEngine = new SearchEngine();
-		System.out.println("going to start Thread   12122");
 		try {
 			//open browser set data in Data base 
 			String virtualID = openBrowser();
-			System.out.println("driver    "+ driver);
-			System.out.println("virtualID    "+ virtualID);
 			if(driver == null ) {
 				new Seoexception("Error in opening Window Please try again ");
 			};
 			searchEngine.updataDatainDTO(this.processDTO,"In Progress", virtualID);
 			searchEngineService.savedatail(searchEngine);
 			
+			// TODO
 			ArrayList<Interface> arrayList = getListOfAllListOfAutomationClassAccordingtoProcess(processDTO);
 			Thread.sleep(1000000);
 			
@@ -89,14 +89,29 @@ public class Process implements Callable<ProcessOutput>{
 
 	private ArrayList<Interface> getListOfAllListOfAutomationClassAccordingtoProcess(ProcessDTO processDTO2) {
 		ArrayList<Interface> arrayList = new ArrayList<Interface>(); 
+
+		String task1 = "Search Engine Submission";
+		String task2 = "Social Book Marketing";
+		String task3 = "Classified Submission";
 		/*
 		 * need to Add all class for process and 
 		 */
+
 		try {
-			
+			if(processDTO2.getTasktype().equalsIgnoreCase(task1)) {
+				arrayList.add(new Anoox());
+			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
+
+			}
+			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
+
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+
+
+
 		return arrayList;
 	}
 	private void updateDatainDataBasewithOutput(SearchEngine output , SearchEngineservice searchEngineService) {
