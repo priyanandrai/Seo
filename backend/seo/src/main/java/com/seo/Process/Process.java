@@ -100,19 +100,31 @@ public class Process implements Callable<ProcessOutput>{
 
 		try {
 			if(processDTO2.getTasktype().equalsIgnoreCase(task1)) {
+				arrayList.add(new Activesearchresult());
+				arrayList.add(new Addme());
+				arrayList.add(new Addurl());
 				arrayList.add(new Anoox());
 				arrayList.add(new Aweber());
-				arrayList.add(new Sonicrun());
-				arrayList.add(new Gigablast());
-				arrayList.add(new Salouhoteles());
-				arrayList.add(new Addurl());
-				arrayList.add(new Infotiger());
 				arrayList.add(new Biotho());
-				arrayList.add(new Addme());
-				arrayList.add(new Freewebsubmission());
-				arrayList.add(new Subjex());
-				arrayList.add(new Whatuseek());
 				arrayList.add(new Entireweb());
+				arrayList.add(new Exactseek());
+				arrayList.add(new Freewebsubmission());
+				arrayList.add(new Gigablast());
+				arrayList.add(new Hotvsnot());
+				arrayList.add(new Infotiger());
+				arrayList.add(new Salouhoteles());
+				arrayList.add(new Secretsearchenginelabs());
+				arrayList.add(new Sitesondisplay());	
+				arrayList.add(new Sonicrun());	
+				arrayList.add(new Subjex());
+				arrayList.add(new Viesearch());
+				arrayList.add(new Whatuseek());
+				
+				
+				
+				
+				
+				
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
