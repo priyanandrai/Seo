@@ -69,7 +69,7 @@ public class Process implements Callable<ProcessOutput>{
 			
 			// TODO
 			ArrayList<Interface> arrayList = getListOfAllListOfAutomationClassAccordingtoProcess(processDTO);
-			Thread.sleep(1000000);
+		//	Thread.sleep(1000000);
 			
 			for (int i = 0; i < arrayList.size(); i++) {
 				arrayList.get(i).StartAutomation(processDTO, driver);
@@ -97,6 +97,8 @@ public class Process implements Callable<ProcessOutput>{
 		/*
 		 * need to Add all class for process and 
 		 */
+		
+		System.out.println("processDTO2.getTasktype()"+ processDTO2.getTasktype());
 
 		try {
 			if(processDTO2.getTasktype().equalsIgnoreCase(task1)) {
@@ -138,7 +140,7 @@ public class Process implements Callable<ProcessOutput>{
 			// TODO: handle exception
 		}
 
-
+System.out.println(arrayList.size());
 
 		return arrayList;
 	}
