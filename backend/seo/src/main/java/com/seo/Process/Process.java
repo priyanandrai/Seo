@@ -108,6 +108,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Biotho());
 				arrayList.add(new Entireweb());
 				arrayList.add(new Exactseek());
+				arrayList.add(new Freeweb());
 				arrayList.add(new Freewebsubmission());
 				arrayList.add(new Gigablast());
 				arrayList.add(new Hotvsnot());
@@ -117,8 +118,11 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Sitesondisplay());	
 				arrayList.add(new Sonicrun());	
 				arrayList.add(new Subjex());
+				arrayList.add(new Submitstart());
 				arrayList.add(new Viesearch());
 				arrayList.add(new Whatuseek());
+				
+				
 				
 				
 				
