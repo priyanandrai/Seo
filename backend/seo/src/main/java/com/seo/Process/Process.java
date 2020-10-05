@@ -121,12 +121,8 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Submitstart());
 				arrayList.add(new Viesearch());
 				arrayList.add(new Whatuseek());
-				
-				
-				
-				
-				
-				
+				arrayList.add(new Websquash());
+				arrayList.add(new Secretsearchengine());
 				
 				
 				
