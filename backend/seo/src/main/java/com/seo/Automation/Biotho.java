@@ -12,7 +12,7 @@ import com.seo.Process.ProcessDTO;
 
 public class Biotho implements Interface {
 	String website = "http://boitho.com/addyourlink.htm.en";
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		
 		try {
 			driver.get(website);

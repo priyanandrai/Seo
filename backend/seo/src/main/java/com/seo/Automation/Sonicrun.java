@@ -10,7 +10,7 @@ import com.seo.Process.ProcessDTO;
 public class Sonicrun implements Interface {
 	String website  = "https://www.sonicrun.com/freelisting.html";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		try {
 			driver.get(website);
 

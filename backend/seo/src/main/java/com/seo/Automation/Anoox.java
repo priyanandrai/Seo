@@ -9,7 +9,7 @@ import com.seo.Process.ProcessDTO;
 public class Anoox implements Interface {
 	String website="http://anoox.com/add_for_indexing_free.php";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		
 		try {
 			

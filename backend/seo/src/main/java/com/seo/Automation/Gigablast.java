@@ -9,7 +9,7 @@ import com.seo.Process.ProcessDTO;
 public class Gigablast implements Interface {
 	String website="http://www.gigablast.com/addurl";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		
 		try {
 			driver.get(website);

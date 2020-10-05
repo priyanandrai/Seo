@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 public class Salouhoteles implements Interface{
 	String website  = "http://www.salouhoteles.org/en/";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		try {
 			driver.get(website);
 			((JavascriptExecutor) driver).executeScript("scroll(0,800)");

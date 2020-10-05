@@ -11,7 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 public class Infotiger implements Interface{
 	String website  = "http://www.infotiger.com/addurl.html";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		try {
 			driver.get(website);
 

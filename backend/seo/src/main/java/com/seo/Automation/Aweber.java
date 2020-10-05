@@ -12,7 +12,7 @@ public class Aweber implements Interface{
 
 	String website  = "https://www.aweber.com/";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 	try {
 		driver.get(website);
 

@@ -10,7 +10,7 @@ import com.seo.Process.ProcessDTO;
 public class Addme implements Interface{
 	String website="https://www.addme.com/submission/free-submission-start.php?redirect=no";
 	@Override
-	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
+	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException {
 		try {
 			driver.get(website);
 
