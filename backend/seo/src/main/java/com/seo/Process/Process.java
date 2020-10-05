@@ -139,6 +139,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new News());
 				arrayList.add(new Social());
 				arrayList.add(new Digg());
+				arrayList.add(new Submission());
 			}
 			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
 
