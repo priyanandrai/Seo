@@ -103,6 +103,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Anoox());
 				arrayList.add(new Aweber());
 				arrayList.add(new Sonicrun());
+				arrayList.add(new Gigablast());
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
