@@ -2058,8 +2058,13 @@ a.disabled {
 .reactclick :hover{
  
  background-color: #005d78 !important;
+ 
   
 }
+.reactclick{
+  cursor: pointer !important;
+}
+
 .backtosigh11{
   color:#005d78 !important ;
 }

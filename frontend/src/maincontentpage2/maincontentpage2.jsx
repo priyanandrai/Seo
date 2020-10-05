@@ -553,6 +553,7 @@ let url = videourl + visualId + ".mp4";
           (key) =>
             (key.visualIdDa = (
               <p
+              title={key.visualId}
                 className="reactclick afterplaycolor21"
                 onClick={() => {
                   let a = "http://192.168.0.108:8080/video/";

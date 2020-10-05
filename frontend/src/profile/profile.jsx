@@ -606,11 +606,11 @@ window.location ="/home";
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
-        <img
+        {/* <img
               className="dataiconsright"
               src="https://simpleicon.com/wp-content/uploads/refresh.png"
               onClick={this.refreshclick}
-            />
+            /> */}
           <DataTable
             className="datatablehoer"
             title="Your History"
