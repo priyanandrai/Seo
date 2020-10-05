@@ -15,7 +15,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.seo.Automation.Anoox;
+
+import com.seo.Automation.*;
 import com.seo.Exception.Seoexception;
 import com.seo.Interface.Interface;
 import com.seo.controller.ApplicationContextHolder;
@@ -100,6 +101,9 @@ public class Process implements Callable<ProcessOutput>{
 		try {
 			if(processDTO2.getTasktype().equalsIgnoreCase(task1)) {
 				arrayList.add(new Anoox());
+				arrayList.add(new Aweber());
+				arrayList.add(new Sonicrun());
+				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
 			}
