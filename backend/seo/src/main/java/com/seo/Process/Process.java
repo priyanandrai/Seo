@@ -104,6 +104,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Aweber());
 				arrayList.add(new Sonicrun());
 				arrayList.add(new Gigablast());
+				arrayList.add(new Salouhoteles());
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
