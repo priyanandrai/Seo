@@ -104,6 +104,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Addme());
 				arrayList.add(new Addurl());
 				arrayList.add(new Anoox());
+				arrayList.add(new Anooxone());
 				arrayList.add(new Aweber());
 				arrayList.add(new Biotho());
 				arrayList.add(new Entireweb());
@@ -123,6 +124,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Whatuseek());
 				arrayList.add(new Websquash());
 				arrayList.add(new Secretsearchengine());
+			
 				
 				
 				
