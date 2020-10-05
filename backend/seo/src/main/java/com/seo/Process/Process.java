@@ -108,6 +108,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Addurl());
 				arrayList.add(new Infotiger());
 				arrayList.add(new Biotho());
+				arrayList.add(new Addme());
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
