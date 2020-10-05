@@ -11,7 +11,7 @@ import com.seo.Process.ProcessDTO;
 
 
 public class Biotho implements Interface {
-	String website="\"http://boitho.com/addyourlink.htm.en";
+	String website="http://boitho.com/addyourlink.htm.en";
 	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
 		
 		try {

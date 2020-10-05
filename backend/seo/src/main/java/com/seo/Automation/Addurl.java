@@ -8,7 +8,7 @@ import com.seo.Interface.Interface;
 import com.seo.Process.ProcessDTO;
 
 public class Addurl implements Interface {
-	String website="\"http://www.gigablast.com/addurl";
+	String website="http://www.gigablast.com/addurl";
 	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
 		
 		try {

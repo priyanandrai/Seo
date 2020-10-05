@@ -7,7 +7,7 @@ import com.seo.Interface.Interface;
 import com.seo.Process.ProcessDTO;
 
 public class Gigablast implements Interface {
-	String website="\"http://www.gigablast.com/addurl";
+	String website="http://www.gigablast.com/addurl";
 	@Override
 	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) {
 		
