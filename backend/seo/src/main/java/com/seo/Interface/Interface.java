@@ -6,6 +6,6 @@ import com.seo.Process.ProcessDTO;
 
 public interface Interface {
 	
-	public void StartAutomation(ProcessDTO dto , RemoteWebDriver driver);
+	public void StartAutomation(ProcessDTO dto , RemoteWebDriver driver) throws InterruptedException;
 
 }
