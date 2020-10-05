@@ -134,6 +134,8 @@ public class Process implements Callable<ProcessOutput>{
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 				arrayList.add(new Pligg());
 				arrayList.add(new Mozylinks());
+				arrayList.add(new Piggo());
+				arrayList.add(new Diggo());
 			}
 			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
 
