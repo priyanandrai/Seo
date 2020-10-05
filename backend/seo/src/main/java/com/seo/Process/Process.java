@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 
 import com.seo.Automation.*;
+import com.seo.Automation.Bookmarking.*;
 import com.seo.Exception.Seoexception;
 import com.seo.Interface.Interface;
 import com.seo.controller.ApplicationContextHolder;
@@ -131,7 +132,7 @@ public class Process implements Callable<ProcessOutput>{
 				
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
-
+				arrayList.add(new Pligg());
 			}
 			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
 
