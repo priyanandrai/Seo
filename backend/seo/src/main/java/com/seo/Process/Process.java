@@ -105,6 +105,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Sonicrun());
 				arrayList.add(new Gigablast());
 				arrayList.add(new Salouhoteles());
+				arrayList.add(new Addurl());
 				
 			}else if(processDTO2.getTasktype().equalsIgnoreCase(task2)) {
 
