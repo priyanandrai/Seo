@@ -140,6 +140,9 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Social());
 				arrayList.add(new Digg());
 				arrayList.add(new Submission());
+				arrayList.add(new Stumble());
+				arrayList.add(new Links());
+				arrayList.add(new Bookmark());
 			}
 			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
 
