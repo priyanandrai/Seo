@@ -155,6 +155,8 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Qtellnet());
 				arrayList.add(new Tendermeforfree());
 				arrayList.add(new Wholesalefreeclassifiedads());
+				arrayList.add(new Classified4free());
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
