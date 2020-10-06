@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import com.seo.Automation.*;
 import com.seo.Automation.Bookmarking.*;
+import com.seo.Automation.Classified.*;
 import com.seo.Exception.Seoexception;
 import com.seo.Interface.Interface;
 import com.seo.controller.ApplicationContextHolder;
@@ -146,7 +147,14 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Bookmark());
 			}
 			else if (processDTO2.getTasktype().equalsIgnoreCase(task3)) {
-
+				arrayList.add(new Qtellb2btrade());
+				arrayList.add(new Qtellbuyandsell());
+				arrayList.add(new Qtellclassifiedads());
+				arrayList.add(new Qtellexpress());
+				arrayList.add(new Qtellfreeclassifiedads());
+				arrayList.add(new Qtellnet());
+				arrayList.add(new Tendermeforfree());
+				arrayList.add(new Wholesalefreeclassifiedads());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -185,8 +193,8 @@ System.out.println(arrayList.size());
 		ChromeOptions op = new ChromeOptions();
 	       op.setExperimentalOption("useAutomationExtension", false);
 	       op.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-	     return  driver.findElementByClassName("vnc-screen").toString();
-	      // return driver.getSessionId().toString();
+	   
+	       return driver.getSessionId().toString();
 	}
 
 
