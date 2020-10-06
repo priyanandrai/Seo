@@ -170,7 +170,7 @@ System.out.println(arrayList.size());
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("chrome");
 		capabilities.setVersion("84.0");
-		capabilities.setCapability("enableVNC", false);
+		capabilities.setCapability("enableVNC", true);
 		capabilities.setCapability("enableVideo", true);
 		
 		Environment environment = ApplicationContextHolder.getContext().getBean(Environment.class);
