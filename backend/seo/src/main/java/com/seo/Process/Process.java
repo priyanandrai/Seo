@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.undo.AbstractUndoableEdit;
 
 import org.springframework.core.env.Environment;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -184,8 +185,8 @@ System.out.println(arrayList.size());
 		ChromeOptions op = new ChromeOptions();
 	       op.setExperimentalOption("useAutomationExtension", false);
 	       op.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-	       
-	       return driver.getSessionId().toString();
+	     return  driver.findElementByClassName("vnc-screen").toString();
+	      // return driver.getSessionId().toString();
 	}
 
 
