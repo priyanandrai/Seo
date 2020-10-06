@@ -6,6 +6,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 // import "node_modules/video-react/dist/video-react.css"; // import css
 import { Player } from "video-react";
 import ReactPlayer from "react-player";
+  import  VncDisplay  from 'react-vnc-display';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -897,13 +898,14 @@ let url = videourl + visualId + ".mp4";
                     height: "40vh",
                   }}
                 >
-                  <ReactPlayer
+                  {/* <ReactPlayer
                     playing={true}
                     width="100%"
                     height="100%"
                     url={this.state.url}
                     controls={true}
-                  />
+                  /> */}
+                  <VncDisplay url="ws://192.168.0.108:8080/ws/vnc/1460fe91946f45383de39c87f9c47a5e" />
                 </Card>
               </div>
             </Paper>
