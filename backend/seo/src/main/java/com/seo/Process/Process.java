@@ -177,7 +177,6 @@ System.out.println(arrayList.size());
 	
 	
 	private String openBrowser() throws Exception {
-
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("chrome");
 		capabilities.setVersion("84.0");
