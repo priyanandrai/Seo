@@ -31,11 +31,61 @@ public class SearchEngine {
 	private String description;
 	private String password;
 	private String comments;
+	private String state;
+	private String city;
 	
 	
+	
+//	public SearchEngine(Long id, Long userId, String tasktype, String taskstatus, String date, String name,
+//			String emailaddress, String submiturl, String visualId, String title, String keyword, String description,
+//			String password, String comments) {
+//		super();
+//		this.id = id;
+//		this.userId = userId;
+//		this.tasktype = tasktype;
+//		this.taskstatus = taskstatus;
+//		this.date = date;
+//		this.name = name;
+//		this.emailaddress = emailaddress;
+//		this.submiturl = submiturl;
+//		this.visualId = visualId;
+//		this.title = title;
+//		this.keyword = keyword;
+//		this.description = description;
+//		this.password = password;
+//		this.comments = comments;
+//	}
+
+
+	public SearchEngine() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
 	public SearchEngine(Long id, Long userId, String tasktype, String taskstatus, String date, String name,
 			String emailaddress, String submiturl, String visualId, String title, String keyword, String description,
-			String password, String comments) {
+			String password, String comments, String state, String city) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -51,12 +101,8 @@ public class SearchEngine {
 		this.description = description;
 		this.password = password;
 		this.comments = comments;
-	}
-
-
-	public SearchEngine() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.state = state;
+		this.city = city;
 	}
 
 

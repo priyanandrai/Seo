@@ -24,6 +24,25 @@ public class ProcessDTO {
 	private String password;
 	private String comments;
 	private String reportpath;
+	private String state= "Unknown";
+	private String city="Unknown";
+
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	public ProcessDTO(SearchEngine searchengine) {
 		this.id = searchengine.getId();
@@ -40,6 +59,8 @@ public class ProcessDTO {
 		this.description = searchengine.getDescription();
 		this.password = searchengine.getPassword();
 		this.comments = searchengine.getComments();
+		this.state = searchengine.getState();
+		this.city = searchengine.getCity();
 	}
 	
 	public Long getId() {

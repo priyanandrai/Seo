@@ -14,8 +14,7 @@ import org.openqa.selenium.WebElement;
 
 public class Classifiedads implements Interface{
 	String website = "https://www.classifiedads.com/";
-	String state = "UP";
-	String city = "Meerut";
+
 	public void StartAutomation(ProcessDTO dto, RemoteWebDriver driver) throws InterruptedException{
 		try {
 			driver.get(website);
@@ -40,7 +39,7 @@ public class Classifiedads implements Interface{
 			WebElement locat = driver.findElement(By.xpath("//input[@id='location']"));
 			locat.click();
 			locat.clear();
-			locat.sendKeys(state);
+			locat.sendKeys(dto.getState());
 			Thread.sleep(10000);
 
 			// fill the title
@@ -80,7 +79,7 @@ public class Classifiedads implements Interface{
 			WebElement stat = driver.findElement(By.xpath("//input[@name='city']"));
 			stat.click();
 			stat.clear();
-			stat.sendKeys(city);
+			stat.sendKeys(dto.getCity());
 			Thread.sleep(5000);
 
 //			String captchaVal = JOptionPane.showInputDialog("Please enter the captcha value:");
