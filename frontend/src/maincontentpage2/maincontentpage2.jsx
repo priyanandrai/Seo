@@ -905,7 +905,7 @@ let url = videourl + visualId + ".mp4";
                     url={this.state.url}
                     controls={true}
                   /> */}
-                  <VncDisplay url="ws://192.168.0.108:8080/ws/vnc/1460fe91946f45383de39c87f9c47a5e" />
+                  <VncDisplay url="ws://localhost:8000/ws/vnc/9804520e010c8320bad59e7285815139" />
                 </Card>
               </div>
             </Paper>
