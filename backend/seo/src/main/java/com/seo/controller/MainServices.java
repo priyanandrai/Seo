@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
+import com.seo.model.Adminlogin;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
+import com.seo.services.IAdminloginService;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.SearchEngineservice;
@@ -36,6 +38,8 @@ public class MainServices {
 
 	@Autowired
 	ISignUpService iSignUpService;
+	@Autowired
+	IAdminloginService adminloginService;
 	@Autowired
 	SearchEngineservice searchEngineService;
 	@Autowired
@@ -111,6 +115,25 @@ public class MainServices {
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/adminlogin")
+	String view2(@RequestBody Login login) {
+		List<Adminlogin> signup = (List<Adminlogin>) adminloginService.findAll();
+		System.out.println(signup.toString());
+		for (int i = 0; i < signup.size(); i++) {
+			if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
+
+				continue;
+			}
+			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
+					&& signup.get(i).getPassword().equals(login.getPassword())) {
+				return signup.get(i).toString();
+			}
+		}
+		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
+	}
+	
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getprofile")
@@ -136,6 +159,7 @@ public class MainServices {
 			String EmailAddress = searchengine.getEmailaddress();
 			
 			if (searchengine.getTasktype().equalsIgnoreCase(task1)) {
+				System.out.println("searchengine -- 1--");
 				if (searchengine.getName() == null) {
 					return "{\"message\":\" Please enter your name\"}";
 				}
@@ -150,18 +174,20 @@ public class MainServices {
 //				}
 				
 				searchengine.setTaskstatus("Pending");
+				System.out.println("searchengine -- 2--");
 				searchEngineService.savedatail(searchengine);
 				
 				MultiThread multiThread = new MultiThread();
 				ProcessDTO processDTO = new ProcessDTO(searchengine);
 				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
-			
+				System.out.println("searchengine -- 3--");
 					
 				 return "{\"message\":\" Task type started successfully\"}";	
 
 				
 				
 			} else if (searchengine.getTasktype().equalsIgnoreCase(task2)) {
+				System.out.println("task2 -- 1--");
 				if (searchengine.getTitle() == null) {
 					return "{\"message\":\" Please enter the Title\"}";
 				}
@@ -177,10 +203,21 @@ public class MainServices {
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
-				searchengine.setTaskstatus("In Progress");
+				//searchengine.setTaskstatus("In Progress");
+				//searchEngineService.savedatail(searchengine);
+				
+				System.out.println("task2 -- 2--");
+				searchengine.setTaskstatus("Pending");
 				searchEngineService.savedatail(searchengine);
+				
+				MultiThread multiThread = new MultiThread();
+				ProcessDTO processDTO = new ProcessDTO(searchengine);
+				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
+				System.out.println("task2 -- 3--");
 				return "{\"message\":\" Task type started successfully\"}";
 			} else if (searchengine.getTasktype().equalsIgnoreCase(task3)) {
+				
+				System.out.println("task3 -- 1--");
 				if (searchengine.getTitle() == null) {
 					return "{\"message\":\" Please enter the Title\"}";
 				}
@@ -199,11 +236,19 @@ public class MainServices {
 				if (searchengine.getPassword() == null) {
 					return "{\"message\":\" Please enter your email address\"}";
 				}
+			//	MultiThread multiThread = new MultiThread();
+			//	ProcessDTO processDTO = new ProcessDTO(searchengine);
+			//	multiThread.submitTasktoThreadPool(new Process(processDTO), false);
+			//	searchengine.setTaskstatus("In Pending will start this secnario in few time)");
+			//	searchEngineService.savedatail(searchengine);
+				System.out.println("task3 -- 2--");
+				searchengine.setTaskstatus("Pending");
+				searchEngineService.savedatail(searchengine);
+				
 				MultiThread multiThread = new MultiThread();
 				ProcessDTO processDTO = new ProcessDTO(searchengine);
 				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
-				searchengine.setTaskstatus("In Pending (will start this secnario in few time)");
-				searchEngineService.savedatail(searchengine);
+				System.out.println("task3 -- 3--");
 				return "{\"message\":\" Task type started successfully\"}";		
 
 			} else {
@@ -211,6 +256,7 @@ public class MainServices {
 			}
 
 		} catch (Exception e) {
+			System.out.println("task3 -- 4--");
 			return "{\"message\":\"Error in creating task , Please try again \"}";
 		}
 	
