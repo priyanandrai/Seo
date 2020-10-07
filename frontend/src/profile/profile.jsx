@@ -625,11 +625,11 @@ window.location ="/home";
         <br />
 
         <Dialog
-          // onClose={() => {
-          //   this.setState({
-          //     dialogBox: false,
-          //   });
-          // }}
+          onClose={() => {
+            this.setState({
+              dialogBox: false,
+            });
+          }}
           open={this.state.dialogBox}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -648,6 +648,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
+        onClose={() => {
+            this.setState({
+              Playsession: false,
+            });
+          }}
           open={this.state.Playsession}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -758,6 +763,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
+        onClose={() => {
+          this.setState({
+            Playsession1: false,
+          });
+        }}
           open={this.state.Playsession1}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -872,6 +882,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
+        onClose={() => {
+          this.setState({
+            Playsession2: false,
+          });
+        }}
           open={this.state.Playsession2}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -1016,6 +1031,11 @@ window.location ="/home";
         </Dialog>
 
         <Dialog
+         onClose={() => {
+          this.setState({
+            deleteoption: false,
+          });
+        }}
           open={this.state.deleteoption}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"

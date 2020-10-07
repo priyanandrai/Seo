@@ -66,7 +66,7 @@ class Admin extends Component {
             return;
           }
          
-          window.localStorage.setItem("isadminuteLoggedin", true);
+          window.localStorage.setItem("isadminuteLoggedin", "ankur");
        
 		 
           window.location = "adminute-dashboard";

@@ -239,12 +239,12 @@ class Nav extends Component {
   componentWillMount() {
     let id = window.localStorage.getItem("id");
     this.setState({ id: id });
-    if (window.location.pathname == "/adminute-dashboard") {
-      this.setState({ adminGuard: true });
-    }
-    if (window.location.pathname == "/444-profile") {
-      this.setState({ adminprofile: true });
-    }
+    // if (window.location.pathname == "/adminute-dashboard") {
+    //   this.setState({ adminGuard: true });
+    // }
+    // if (window.location.pathname == "/444-profile") {
+    //   this.setState({ adminprofile: true });
+    // }
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
     if (temp == true || temp == "true") {
@@ -617,7 +617,7 @@ class Nav extends Component {
                   {/* ) : null} */}
 
                   <a class="dropdown-item" href="profile">
-                    View Profile
+                    View Profile/History
                   </a>
                   <a class="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
@@ -1101,7 +1101,7 @@ class Nav extends Component {
         <Dialog
           onClose={() => {
             this.setState({
-              dialogBox1: false,
+              dialogBox1: false
             });
           }}
           open={this.state.dialogBox1}
@@ -1292,6 +1292,7 @@ class Nav extends Component {
           />
         </Dialog>
         <Dialog
+        
           open={this.state.UniqueId}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -1310,6 +1311,11 @@ class Nav extends Component {
           </div>
         </Dialog>
         <Dialog
+        onClose={() => {
+          this.setState({
+            AddBalance: false,
+          });
+        }}
           open={this.state.AddBalance}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -1328,6 +1334,11 @@ class Nav extends Component {
           </div>
         </Dialog>
         <Dialog
+         onClose={() => {
+          this.setState({
+            forgotpassdiaglog: false,
+          });
+        }}
           open={this.state.forgotpassdiaglog}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"

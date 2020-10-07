@@ -232,7 +232,7 @@ class Admin_profile extends Component {
   componentWillMount() {
     //let temp = isLoggedIn();
     let temp = window.localStorage.getItem("isadminuteLoggedin");
-if(temp == true || temp =="true"){
+if(temp == "ankur"){
 
 }else{
 window.location ="/adminute-home";

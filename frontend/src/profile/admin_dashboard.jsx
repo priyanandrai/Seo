@@ -31,7 +31,7 @@ class Admin_dashboard extends Component {
   componentWillMount() {
     let temp = window.localStorage.getItem("isadminuteLoggedin");
 
-if(temp == true || temp =="true"){
+if(temp == "ankur"){
 
 }else{
 window.location ="/adminute-home";

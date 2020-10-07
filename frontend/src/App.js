@@ -13,6 +13,7 @@ import Login from "./components/login";
 import { Provider } from "react-redux";
 import Footer from "./components/Footer";
 import Logout from "./logout/logout";
+import Adminheader from "./profile/adminheader";
 
 import {
   BrowserRouter as Router,
@@ -42,7 +43,9 @@ function App() {
     <Router history={BrowserRouter}>
       {/* <Redirect to="/dashboard"/> */}
          <div>
-        <Nav></Nav>
+         {window.localStorage.getItem("isadminuteLoggedin") == "ankur" ?     <Adminheader></Adminheader>:
+        <Nav></Nav>}
+    
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/confirmotp" component={Confirmotp} />
