@@ -48,24 +48,27 @@ class Admin extends Component {
     //   alert("Password must be 8 characters long");
     //   return;
     // }
-alert("i am going to adminlogin")
+
 
     let temp = {
-      mobileNumber: this.state.Name,
+		adminname:this.state.Name,
+      //mobileNumber: this.state.Name,
       password: this.state.pwd,
     };
-    let url = getBaseUrl() + "/login";
+    let url = getBaseUrl() + "/adminutelogin";
     axios
       .post(url, temp)
       .then(
         (response) => {
+			console.log("My admin response ",response);
           if (response.data.message != undefined) {
             alert(response.data.message);
             return;
           }
-          let tmp = response.data;
+         
           window.localStorage.setItem("isadminuteLoggedin", true);
-         alert("I am going to")
+       
+		 
           window.location = "adminute-dashboard";
         },
         (error) => {

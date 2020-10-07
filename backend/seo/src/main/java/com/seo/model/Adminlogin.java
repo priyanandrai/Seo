@@ -12,8 +12,15 @@ public class Adminlogin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String phoneNumber="12345678";
-	String password = "asdf1234";
+	private String phoneNumber;
+	private String adminname;
+	public String getAdminname() {
+		return adminname;
+	}
+	public void setAdminname(String adminname) {
+		this.adminname = adminname;
+	}
+	String password;
 	public long getId() {
 		return id;
 	}
@@ -33,16 +40,20 @@ public class Adminlogin {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Adminlogin(long id, String phoneNumber, String password) {
+	public Adminlogin(long id, String phoneNumber, String password,String adminname) {
 		super();
 		this.id = id;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
+		this.adminname = adminname;
 	}
+	public Adminlogin() {}
 	@Override
 	public String toString() {
-		return "Adminlogin [id=" + id + ", phoneNumber=" + phoneNumber + ", password=" + password + "]";
+		return "Adminlogin [id=" + id + ", phoneNumber=" + phoneNumber + ", adminname=" + adminname + ", password="
+				+ password + "]";
 	}
+
 	
 	
 	

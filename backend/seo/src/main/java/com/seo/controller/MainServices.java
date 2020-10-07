@@ -116,23 +116,55 @@ public class MainServices {
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
 	
+//	@CrossOrigin(origins = "*")
+//	@PostMapping("/adminlogin")
+//	String view2(@RequestBody Login login) {
+//		System.out.println("I am in adminlogin");
+//		System.out.println(login);
+//		
+//		List<Adminlogin> adminlogin = (List<Adminlogin>) adminloginService.findAll();
+//		System.out.println(adminlogin.toString());
+//		for (int i = 0; i < adminlogin.size(); i++) {
+//			if (adminlogin.get(i).getPhoneNumber() == null || adminlogin.get(i).getPassword() == null) {
+//			System.out.println("no found");
+//				continue;
+//			}
+//			if (adminlogin.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
+//					&& adminlogin.get(i).getPassword().equals(login.getPassword())) {
+//				System.out.println("I am in match");
+//				System.out.println("getting phone number "+ adminlogin.get(i).getPhoneNumber());
+//				return adminlogin.get(i).toString();
+//			}
+//		}
+//		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
+//	}
+	
+	
+	
 	@CrossOrigin(origins = "*")
-	@PostMapping("/adminlogin")
+	@PostMapping("/adminutelogin")
 	String view2(@RequestBody Login login) {
-		List<Adminlogin> signup = (List<Adminlogin>) adminloginService.findAll();
-		System.out.println(signup.toString());
-		for (int i = 0; i < signup.size(); i++) {
-			if (signup.get(i).getPhoneNumber() == null || signup.get(i).getPassword() == null) {
+		System.out.println("I am in adminlogin");
+		System.out.println(login);
 
+		List<Adminlogin> adminlogin = (List<Adminlogin>) adminloginService.findAll();
+		System.out.println(adminlogin.toString());
+		for (int i = 0; i < adminlogin.size(); i++) {
+			if (adminlogin.get(i).getAdminname() == null || adminlogin.get(i).getPassword() == null) {
+			System.out.println("no found");
 				continue;
 			}
-			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
-					&& signup.get(i).getPassword().equals(login.getPassword())) {
-				return signup.get(i).toString();
+			if (adminlogin.get(i).getAdminname().equalsIgnoreCase(login.getAdminname())
+					&& adminlogin.get(i).getPassword().equals(login.getPassword())) {
+				System.out.println("I am in match");
+				System.out.println("getting phone number "+ adminlogin.get(i).getAdminname());
+				return adminlogin.get(i).toString();
 			}
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
+	
+	
 	
 
 	@CrossOrigin(origins = "*")
