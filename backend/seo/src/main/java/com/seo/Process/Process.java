@@ -156,6 +156,7 @@ public class Process implements Callable<ProcessOutput>{
 				arrayList.add(new Tendermeforfree());
 				arrayList.add(new Wholesalefreeclassifiedads());
 				arrayList.add(new Classified4free());
+				arrayList.add(new Classifiedads());
 				
 			}
 		} catch (Exception e) {
