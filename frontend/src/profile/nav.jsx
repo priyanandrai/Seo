@@ -49,7 +49,7 @@ class Nav extends Component {
       adminGuard: false,
       forgotpassdiaglog: false,
       adminprofile: false,
-      balance: "30.00SR",
+      balance: "N/A",
       checked: false,
       dialogBox: false,
       dialogBox1: false,

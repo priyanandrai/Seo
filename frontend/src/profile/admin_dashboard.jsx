@@ -29,7 +29,8 @@ class Admin_dashboard extends Component {
     window.location="/adminute-444-profile";
   }
   componentWillMount() {
-    let temp = isLoggedIn();
+    let temp = window.localStorage.getItem("isadminuteLoggedin");
+
 if(temp == true || temp =="true"){
 
 }else{

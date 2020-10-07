@@ -15,6 +15,8 @@ import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "../components/Button";
 import { getAuthData, isLoggedIn } from "../utils";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
 
 class Admin extends Component {
   constructor(props) {
@@ -25,41 +27,70 @@ class Admin extends Component {
     };
   }
   adminlogin = () => {
-    const nameString = "[a-zA-Z]+\\.?";
-    if (this.state.Name.trim()==null || this.state.Name.trim()=="") {
-      alert("Please Enter User Name");
-      return;
-    } else if (this.state.Name.trim().length < 4) {
-      alert("User name must be more than 4 characters.");
-      return;
-    } else if (this.state.Name.trim().length > 20) {
-      alert("User name must not exceed 20 characters.");
-    } else if (!this.state.Name.trim().match(nameString)) {
-      alert("Please enter characters only.");
-      return;
-    }
-    else if (!this.state.Name.trim().match("admin")) {
-      alert("UserName Admin");
-      return;
-    }
-    if (this.state.pwd.length < 8) {
-      alert("Password must be 8 characters long");
-      return;
-    }
-    window.localStorage.setItem("adminlogin",true);
-    window.location = "adminute-dashboard";
+    //const nameString = "[a-zA-Z]+\\.?";
+    // if (this.state.Name.trim()==null || this.state.Name.trim()=="") {
+    //   alert("Please Enter User Name");
+    //   return;
+    // } else if (this.state.Name.trim().length < 4) {
+    //   alert("User name must be more than 4 characters.");
+    //   return;
+    // } else if (this.state.Name.trim().length > 20) {
+    //   alert("User name must not exceed 20 characters.");
+    // } else if (!this.state.Name.trim().match(nameString)) {
+    //   alert("Please enter characters only.");
+    //   return;
+    // }
+    // else if (!this.state.Name.trim().match("admin")) {
+    //   alert("UserName Admin");
+    //   return;
+    // }
+    // if (this.state.pwd.length < 8) {
+    //   alert("Password must be 8 characters long");
+    //   return;
+    // }
+alert("i am going to adminlogin")
+
+    let temp = {
+      mobileNumber: this.state.Name,
+      password: this.state.pwd,
+    };
+    let url = getBaseUrl() + "/login";
+    axios
+      .post(url, temp)
+      .then(
+        (response) => {
+          if (response.data.message != undefined) {
+            alert(response.data.message);
+            return;
+          }
+          let tmp = response.data;
+          window.localStorage.setItem("isadminuteLoggedin", true);
+         alert("I am going to")
+          window.location = "adminute-dashboard";
+        },
+        (error) => {
+          alert(error.response.data.message);
+        }
+      )
+      .catch((e) => {});
+
+
+
+
+ 
+    
   };
-  componentWillMount() {
-    let temp = !isLoggedIn();
-// alert(isLoggedIn());
-if(temp == true || temp =="true"){
+//   componentWillMount() {
+//     let temp = !window.localStorage.getItem("isadminuteLoggedin");
+// // alert(isLoggedIn());
+// if(temp == true || temp =="true"){
  
 
-}else{
-  console.log("user is login and have a session ")
-window.location ="/adminute-dashboard";
-}
-  }
+// }else{
+//   console.log("user is login and have a session ")
+// window.location ="/adminute-dashboard";
+// }
+//   }
 
   render() {
     return (

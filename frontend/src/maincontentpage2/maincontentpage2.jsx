@@ -898,14 +898,14 @@ let url = videourl + visualId + ".mp4";
                     height: "40vh",
                   }}
                 >
-                  {/* <ReactPlayer
+                  <ReactPlayer
                     playing={true}
                     width="100%"
                     height="100%"
                     url={this.state.url}
                     controls={true}
-                  /> */}
-                  <VncDisplay url="ws://localhost:8000/ws/vnc/9804520e010c8320bad59e7285815139" />
+                  />
+                  {/* <VncDisplay url="ws://localhost:8000/ws/vnc/9804520e010c8320bad59e7285815139" /> */}
                 </Card>
               </div>
             </Paper>

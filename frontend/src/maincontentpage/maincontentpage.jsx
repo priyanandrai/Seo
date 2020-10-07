@@ -114,41 +114,10 @@ class Maincontentpage extends React.Component {
           </Grid>
           <br />
           <br />
-          {/* <Container>
-            <Row>
-              <Col></Col>
-              <Col sm={8}>
-                <div className="animate__animated animate__backInUp longcards">
-                  <Card
-                    style={{
-                      width: "72.5rem",
-                      height: "auto",
-                      marginLeft: "-4%",
-                    }}
-                  >
-                    <Card.Img variant="top" src="" />
-                    <Card.Body>
-                      <Card.Title id="headingcards" className="texth">
-                        Get off-page optimization service free of cost{" "}
-                      </Card.Title>
-                      <Card.Text className="headingsss">
-                        We at srcserviceltd providing the off page SEO service
-                        without asking any extra amount, so don't miss the
-                        chance to grab the services to boost the engagement of
-                        your website. Just call us now, and get the best
-                        services from our experts.
-                      </Card.Text>
-                      <Card.Text className="headingsss">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col></Col>
-            </Row>
-          </Container> */}
+         
+        </div>
+        <div>
+          
         </div>
       </div>
     );
