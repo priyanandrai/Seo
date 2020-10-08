@@ -256,6 +256,9 @@ export class Maincontentpage2 extends Component {
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
@@ -355,6 +358,9 @@ export class Maincontentpage2 extends Component {
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
@@ -471,6 +477,9 @@ export class Maincontentpage2 extends Component {
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),

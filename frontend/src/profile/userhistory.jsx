@@ -14,7 +14,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import Input from "../components/Input";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Card } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -24,19 +24,26 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import ReactPlayer from "react-player";
 
 import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
-
 class Userhistory extends Component {
   constructor(props) {
     super(props);
     this.belowlist = this.belowlist.bind(this);
+    this.playvideoid = this.playvideoid.bind(this);
     this.state = {
       deleteoption: false,
-      data:[],
+
+      playvideoid: false,
+      url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
+      data: [],
       columns: [
         {
           name: "DATE",
@@ -134,14 +141,18 @@ class Userhistory extends Component {
       return;
     }
   };
+  playvideoid(visualId, videourl) {
+    // alert(visualId);
+    let url = videourl + visualId + ".mp4";
+    this.setState({ url: url, playvideoid: !this.state.playvideoid });
+  }
 
   componentWillMount() {
     let temp = isLoggedIn();
-if(temp == true || temp =="true"){
-
-}else{
-window.location ="/home";
-}
+    if (temp == true || temp == "true") {
+    } else {
+      window.location = "/home";
+    }
 
     let self = this;
     let url =
@@ -257,7 +268,7 @@ window.location ="/home";
           (key) =>
             (key.visualIdDa = (
               <p
-              title={key.visualId}
+                title={key.visualId}
                 className="reactclick afterplaycolor21"
                 onClick={() => {
                   let a = "http://192.168.0.108:8080/video/";
@@ -276,7 +287,6 @@ window.location ="/home";
       },
       (error) => {}
     );
-    
   }
   handlesubmit = (e) => {
     let url = getBaseUrl() + "/starttask";
@@ -294,6 +304,9 @@ window.location ="/home";
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
@@ -338,13 +351,16 @@ window.location ="/home";
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
       tasktype: "Social Book Marketing",
       date: date,
       submiturl: this.state.msubmiturl,
-       title: this.state.mtitle,
+      title: this.state.mtitle,
       keyword: this.state.mkeyword,
       description: this.state.mdescription,
       comments: this.state.mcomments,
@@ -366,7 +382,6 @@ window.location ="/home";
         });
       }
     );
-    
   };
   handleclick = (e) => {
     let url = getBaseUrl() + "/starttask";
@@ -384,12 +399,15 @@ window.location ="/home";
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
       tasktype: "Classified Submission",
       date: date,
-     
+
       emailaddress: this.state.memailaddress,
       password: this.state.mpassword,
       title: this.state.mtitle,
@@ -415,7 +433,6 @@ window.location ="/home";
         });
       }
     );
-   
   };
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -424,16 +441,10 @@ window.location ="/home";
     window.location.reload();
   };
 
-
   render() {
     return (
       <div className=" mt-5 container">
-         <div className="sadataset">
-        {/* <img
-              className="dataiconsright"
-              src="https://simpleicon.com/wp-content/uploads/refresh.png"
-              onClick={this.refreshclick}
-            /> */}
+        <div className="sadataset">
           <DataTable
             className="datatablehoer"
             title="Your History"
@@ -442,7 +453,6 @@ window.location ="/home";
             pagination={true}
             paginationDefaultPage
             value={this.state.selectedtasktype}
-           
           />
         </div>
         <Dialog
@@ -469,7 +479,7 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
+          onClose={() => {
             this.setState({
               Playsession: false,
             });
@@ -529,16 +539,14 @@ window.location ="/home";
                   }
                   value={this.state.msubmiturl}
                 />
-                   <Form.Label>Comment</Form.Label>
+                <Form.Label>Comment</Form.Label>
                 <Form.Control
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
                   title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ mcomments: e.target.value })}
                   value={this.state.mcomments}
                 />
 
@@ -584,11 +592,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
-          this.setState({
-            Playsession1: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              Playsession1: false,
+            });
+          }}
           open={this.state.Playsession1}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -648,19 +656,17 @@ window.location ="/home";
                   value={this.state.mkeyword}
                   onChange={(e) => this.setState({ mkeyword: e.target.value })}
                 />
-                 <Form.Label>Comment</Form.Label>
+                <Form.Label>Comment</Form.Label>
                 <Form.Control
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
                   title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ mcomments: e.target.value })}
                   value={this.state.mcomments}
                 />
-              
+
                 <div className="d-flex justify-content-end mrrginside2200">
                   <Button
                     variant="contained"
@@ -703,11 +709,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
-          this.setState({
-            Playsession2: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              Playsession2: false,
+            });
+          }}
           open={this.state.Playsession2}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -759,18 +765,18 @@ window.location ="/home";
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
-                   <Form.Label>Comment</Form.Label>
-                <Form.Control
-                  type="Url"
-                  id="Url"
-                  placeholder="Enter your comment"
-                  className="width90"
-                  title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
-                  value={this.state.mcomments}
-                />
+                  <Form.Label>Comment</Form.Label>
+                  <Form.Control
+                    type="Url"
+                    id="Url"
+                    placeholder="Enter your comment"
+                    className="width90"
+                    title={this.state.mcomments}
+                    onChange={(e) =>
+                      this.setState({ mcomments: e.target.value })
+                    }
+                    value={this.state.mcomments}
+                  />
                 </div>
               </Grid>
               <Grid item md={6}>
@@ -852,11 +858,11 @@ window.location ="/home";
         </Dialog>
 
         <Dialog
-         onClose={() => {
-          this.setState({
-            deleteoption: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              deleteoption: false,
+            });
+          }}
           open={this.state.deleteoption}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -905,7 +911,51 @@ window.location ="/home";
             )}
           </div>
         </Dialog>
-     
+        <Dialog
+          onClose={() => {
+            this.setState({
+              playvideoid: false,
+            });
+          }}
+          open={this.state.playvideoid}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div>
+            <Card className="reactplayer">
+              <CardActionArea>
+                <CardContent>
+                  <ReactPlayer
+                    playing={true}
+                    width="100%"
+                    height="100%"
+                    url={this.state.url}
+                    // url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    controls={true}
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </div>
+        </Dialog>
+        <form>
+          <div className="videopop ml-auto mb-auto">
+          <Card className="reactplayer">
+              <CardActionArea>
+                <CardContent>
+                  <ReactPlayer
+                    playing={true}
+                    width="100%"
+                    height="100%"
+                    url={this.state.url}
+                    // url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    controls={true}
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </div>
+        </form>
       </div>
     );
   }

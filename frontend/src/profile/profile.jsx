@@ -325,9 +325,13 @@ window.location ="/home";
     if (day < 10) {
       day = "0" + day;
     }
+    
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
@@ -372,6 +376,9 @@ window.location ="/home";
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),
@@ -418,6 +425,9 @@ window.location ="/home";
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
+    if (min < 10) {
+      min = "0" + min;
+    }
     let date = day + "-" + month + "-" + year + " " + hour + ":" + min;
     let temp = {
       userId: window.localStorage.getItem("id"),

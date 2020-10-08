@@ -2079,4 +2079,15 @@ a.disabled {
   width: 100%;
   height: auto;
 }
+.videopop{
+  width: 40vh;
+  /* float: right; */
+  border: 1px solid #18758d;
+  z-index: 999;
+  position: relative;
+  margin-bottom: 20vh; 
+  border-radius: 10px ;
+  margin-right: 13%;
+
+}
 
