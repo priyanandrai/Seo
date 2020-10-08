@@ -466,11 +466,11 @@ window.location ="/adminute-home";
         </div>
         <div>
           <Dialog
-            // onClose={() => {
-            //   this.setState({
-            //     drilldown: false,
-            //   });
-            // }}
+             onClose={() => {
+              this.setState({
+                drilldown: false,
+              });
+            }}
             open={this.state.drilldown}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"

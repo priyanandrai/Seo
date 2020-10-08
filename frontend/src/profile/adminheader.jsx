@@ -31,6 +31,7 @@ class Adminheader extends Component {
     super(props);
     this.state = {
       isLoggedd:"ankur",
+      adminuteuser:"Amit Rai"
    
     };
   }
@@ -39,6 +40,26 @@ class Adminheader extends Component {
     window.localStorage.setItem("isadminuteLoggedin", "sha");
     window.location = "/adminute-home";
   };
+  componentWillMount(){
+    let id = window.localStorage.getItem("id");
+    this.setState({ id: id });
+    // if (window.location.pathname == "/adminute-dashboard") {
+    //   this.setState({ adminGuard: true });
+    // }
+    // if (window.location.pathname == "/444-profile") {
+    //   this.setState({ adminprofile: true });
+    // }
+    let temp = window.localStorage.getItem("isadminuteLoggedin");
+    // alert(temp)
+    if (temp == true || temp == "true") {
+      let adminuteuser = window.localStorage.getItem("adminuteuser");
+      let newUser = adminuteuser.substring(0, 8);
+      this.setState({
+        isLoggedd: true,
+        adminuteuser: newUser,
+      });
+    }
+  }
  
   
 
@@ -74,8 +95,8 @@ class Adminheader extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  {/* {this.state.user} */}
-                  Dropdown
+                  {this.state.adminuteuser}
+                  
               </a>
               
                 <div

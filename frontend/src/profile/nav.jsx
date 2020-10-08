@@ -1333,7 +1333,7 @@ class Nav extends Component {
             </span>
           </div>
         </Dialog>
-        <Dialog
+        {/* <Dialog
          onClose={() => {
           this.setState({
             forgotpassdiaglog: false,
@@ -1384,7 +1384,7 @@ class Nav extends Component {
               </div>
             </div>
           </div>
-        </Dialog>
+        </Dialog> */}
       </AppBar>
     );
   }
