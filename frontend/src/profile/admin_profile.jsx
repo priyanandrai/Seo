@@ -34,7 +34,7 @@ class Admin_profile extends Component {
 	this.searchprofile= this.searchprofile.bind(this);
     this.state = {
 		
-		uid:"N/A",
+		uid:"",
 		phone:"",
 		pieChartData: [
         { title: "One", value: 10, color: "#E38627" },

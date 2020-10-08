@@ -6,5 +6,7 @@ import com.seo.model.SignUp;
 
 public interface SignupRepository extends CrudRepository<SignUp, Long>{
 
+	SignUp findByPhoneNumber(String mobileNumber);
+
 
 }

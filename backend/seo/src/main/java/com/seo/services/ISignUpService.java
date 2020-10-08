@@ -8,4 +8,7 @@ import com.seo.model.SignUp;
 
 public interface ISignUpService extends CrudRepository<SignUp, Long> {
 
+
+	SignUp findByPhoneNumber(String mobileNumber);
+
 }
