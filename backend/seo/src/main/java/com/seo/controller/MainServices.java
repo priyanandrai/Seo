@@ -391,6 +391,23 @@ public class MainServices {
 		}
 
 	}
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getlatesttask")
+	public List<SearchEngine> getlatesttask(@RequestParam("id") Long id) {
+	
+		try {
+			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findlatestdetail();
+
+			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
+					.collect(Collectors.toList());
+			return list1;
+
+		} catch (Exception e) {
+
+			return null;
+		}
+
+	}
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/submitrequest")

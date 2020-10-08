@@ -24,6 +24,14 @@ public class SearchEngineservice {
 	
 	public List<SearchEngine> findAlldetail() {
 		List<SearchEngine> list =(List<SearchEngine>)this.searchrepository.findAll();
+
+		System.out.println(list);
+		return list;
+	}
+	public List<SearchEngine> findlatestdetail() {
+	
+		List<SearchEngine> list =(List<SearchEngine>)this.searchrepository.findTop5ByOrderByIdDesc();
+		System.out.println(list);
 		return list;
 	}
 
