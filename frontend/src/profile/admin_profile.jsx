@@ -248,11 +248,11 @@ class Admin_profile extends Component {
       .post(url, temp)
       .then(
         (response) => {
-			console.log("My usersearch response ",response);
+			console.log("My usersearch response 1 ",response.data);
 			this.setState({
 				username:response.data.name,
 				unique:response.data.id,
-					mobile:response.data.phonenumber,
+					mobile:response.data.phoneNumber,
 					email:response.data.email,
 					organization:response.data.organisation,
 					profession:response.data.profession,
@@ -345,6 +345,7 @@ window.location ="/adminute-home";
                           label="User Name"
                           autoComplete="off"
                           disabled={this.state.usernameEnable}
+						  value={this.state.username}
                           onChange={(e) => {
                             this.setState({ username: e.target.value });
                           }}
@@ -364,6 +365,7 @@ window.location ="/adminute-home";
                           id="standard-basic"
                           label="Unique ID"
                           disabled={this.state.uniqueEnable}
+						    value={this.state.unique}
                           onChange={(e) => {
                             this.setState({ unique: e.target.value });
                           }}
@@ -426,6 +428,7 @@ window.location ="/adminute-home";
                           label="Email"
                           autoComplete="off"
                           disabled={this.state.emailEnable}
+						  value={this.state.email}
                           onChange={(e) => {
                             this.setState({ email: e.target.value });
                           }}
@@ -444,6 +447,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Mobile No."
+						   value={this.state.mobile}
                           disabled={this.state.mobileEnable}
                           onChange={(e) => {
                             this.setState({ mobile: e.target.value });
@@ -463,6 +467,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Profession"
+						  value={this.state.profession}
                           disabled={this.state.professionEnable}
                           onChange={(e) => {
                             this.setState({ profession: e.target.value });
@@ -482,6 +487,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Organisation"
+						   value={this.state.organization}
                           disabled={this.state.organizationEnable}
                           onChange={(e) => {
                             this.setState({ organization: e.target.value });
@@ -518,11 +524,11 @@ window.location ="/adminute-home";
         </div>
         <div>
           <Dialog
-             onClose={() => {
-              this.setState({
-                drilldown: false,
-              });
-            }}
+            // onClose={() => {
+            //   this.setState({
+            //     drilldown: false,
+            //   });
+            // }}
             open={this.state.drilldown}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
