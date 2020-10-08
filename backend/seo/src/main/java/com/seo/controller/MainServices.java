@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
+import com.seo.dto.Usersearch;
 import com.seo.model.Adminlogin;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
@@ -164,7 +165,24 @@ public class MainServices {
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
 	
+
+	@CrossOrigin(origins = "*")
+	@PostMapping("/searchuserprofile")
+	public String searchuserprofile(@RequestBody Usersearch usersearch) {
+		System.out.println("I am in searchuserprofile ");
+		System.out.println(usersearch);
+		try {
+			Optional<SignUp> signup = this.iSignUpService.findById(usersearch.getUniqueid());
+			System.out.println("I am signing up");
+			System.out.println(signup);
 	
+			return signup.get().toString();
+		} catch (Exception e) {
+
+			return "no data ";
+		}
+		
+	}
 	
 
 	@CrossOrigin(origins = "*")

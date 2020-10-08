@@ -23,12 +23,20 @@ import "react-phone-input-2/lib/semantic-ui.css";
 import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import { getAuthData, isLoggedIn } from "../utils";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
+
+
 
 class Admin_profile extends Component {
   constructor(props) {
     super(props);
+	this.searchprofile= this.searchprofile.bind(this);
     this.state = {
-      pieChartData: [
+		
+		uid:"N/A",
+		phone:"",
+		pieChartData: [
         { title: "One", value: 10, color: "#E38627" },
         { title: "Two", value: 15, color: "#C13C37" },
         { title: "Three", value: 20, color: "#6A2135" },
@@ -229,6 +237,39 @@ class Admin_profile extends Component {
       this.setState({ taskTitle: "Classified Submission" });
     }
   };
+  searchprofile(){
+	 let temp={
+	  uniqueid:this.state.uid,
+	  mobileNumber:this.state.phone,
+	 };
+	 alert(this.state.uid);
+	  let url = getBaseUrl() + "/searchuserprofile";
+    axios
+      .post(url, temp)
+      .then(
+        (response) => {
+			console.log("My usersearch response ",response);
+			this.setState({
+				username:response.data.name,
+				unique:response.data.id,
+					mobile:response.data.phonenumber,
+					email:response.data.email,
+					organization:response.data.organisation,
+					profession:response.data.profession,
+				formshow: !this.state.formshow
+			})
+           },
+        (error) => {
+          alert(error.response.data.message);
+        }
+      )
+      .catch((e) => {});
+	  
+	
+	   
+	  
+  }
+  
   componentWillMount() {
     //let temp = isLoggedIn();
     let temp = window.localStorage.getItem("isadminuteLoggedin");
@@ -249,17 +290,29 @@ window.location ="/adminute-home";
               <Form.Control
                 type="name"
                 id="Name"
+				value={this.state.uid}
                 className="mobileviewset"
-                //   onChange={(e) =>
-                //     this.setState({ Name: e.target.value })
-                //   }
+                   onChange={(e) =>{
+                     this.setState({ uid: e.target.value });
+                   }}
               />
             </div>
           </Grid>
           <Grid item md={6}>
             <div className="uniqueidw1">
               <Form.Label>Mobile No.</Form.Label>
-              <PhoneInput placeholder={"Mobile no. *"} country={"in"} />
+              <PhoneInput placeholder={"Mobile no. *"} country={"in"}
+				value={this.state.phone}
+                      onChange={(e) => {
+                        console.log(e);
+                        if (isNaN(e)) {
+                          return;
+                        }
+                        this.setState({
+                          phone: "+" + e,
+                        });
+                      }}
+			  />
             </div>
             <div>
               {/* <input
@@ -269,9 +322,8 @@ window.location ="/adminute-home";
               /> */}
               <button
                 className="mt-4 searchboxright"
-                onClick={() =>
-                  this.setState({ formshow: !this.state.formshow })
-                }
+				
+                onClick={this.searchprofile}
               >
                 Search
               </button>
