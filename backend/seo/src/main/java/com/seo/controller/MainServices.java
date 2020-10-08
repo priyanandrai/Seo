@@ -174,24 +174,15 @@ public class MainServices {
 		try {
 			if((usersearch.getUniqueid()!=null))
 			{
-				
-				System.out.println("I am search by id");
 				Optional<SignUp> signup = this.iSignUpService.findById(usersearch.getUniqueid());			
-				
-				System.out.println(signup);
-				return signup.get().toString();
-				
-			}else {
-				
-				System.out.println("I am search by phonenumber");
-				SignUp signup=this.iSignUpService.findByPhoneNumber(usersearch.getMobileNumber());
-			
-				System.out.println(" Value of sign up "+signup);
-			System.out.println("Value of signup.toString()"+signup.toString());
+				return signup.get().toString();			
+			}else {	
+				SignUp signup=this.iSignUpService.findByPhoneNumber(usersearch.getMobileNumber());	
 				return signup.toString();
 			}
-					} catch (Exception e) {
-
+			
+			}
+		catch (Exception e) {
 			return "no data ";
 		}
 		
