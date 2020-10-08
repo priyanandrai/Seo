@@ -1,71 +1,42 @@
 import React, { Component } from "react";
 import "./profile.css";
-import Grid from "@material-ui/core/Grid";
+// import "../style/quest.css";
+import DataTable, { createTheme } from "react-data-table-component";
 import Dialog from "@material-ui/core/Dialog";
+import Grid from "@material-ui/core/Grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilAlt,
   faTimes,
   faDownload,
+  faUser,
   faPlay,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import DataTable, { createTheme } from "react-data-table-component";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import axios from "axios";
-import { getBaseUrl } from "../utils";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import { getAuthData, isLoggedIn } from "../utils";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-class Profile extends Component {
+import { getAuthData, isLoggedIn } from "../utils";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
+
+
+class Userhistory extends Component {
   constructor(props) {
     super(props);
     this.belowlist = this.belowlist.bind(this);
     this.state = {
-      organization: "",
       deleteoption: false,
-      progressbar: false,
-      data: [],
-      organizationEnable: true,
-      profession: "N/A",
-      professionEnable: true,
-      emailEnable: true,
-      username: "",
-      email: "",
-      name: "",
-      mid: "",
-      mname: "",
-      msubmiturl: "",
-      memailaddress: "",
-      mtitle: "",
-      mdescription: "",
-      mkeyword: "",
-      mpassword: "",
-      mcomments: "",
-      tasktype: "",
-      submiturl: "",
-      selectedtasktype: "",
-      comments: "",
-      organisation: "N/A",
-      usernameEnable: true,
-      emailaddress: "",
-
-      phoneNumber: "",
-      // profileImg:
-      //   "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
-        profileImg:
-        "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
-      drillDown: "DrillDown",
+      data:[],
       columns: [
         {
           name: "DATE",
@@ -74,7 +45,7 @@ class Profile extends Component {
           left: true,
         },
         {
-          name: "TASK",
+          name: "TASK TYPE",
           selector: "tasktype",
           sortable: true,
           left: true,
@@ -92,6 +63,12 @@ class Profile extends Component {
           left: true,
         },
         {
+          name: "VIDEO",
+          selector: "visualIdDa",
+          sortable: true,
+          left: true,
+        },
+        {
           name: "ACTION",
           selector: "action",
 
@@ -99,36 +76,8 @@ class Profile extends Component {
           right: true,
         },
       ],
-      dialogBox: false,
-      Playsession: false,
     };
   }
-
-  updateState = (state) => {
-    this.setState({ selectedRows: state.selectedRows });
-  };
-  handle = () => {
-    alert("i am clicked");
-  };
-
-  selectTable = () => {
-    alert("selected");
-  };
-
-  editForm = (para) => {
-    if (para == "username") {
-      this.setState({ usernameEnable: false });
-    }
-    if (para == "email") {
-      this.setState({ emailEnable: false });
-    }
-    if (para == "profession") {
-      this.setState({ professionEnable: false });
-    }
-    if (para == "organization") {
-      this.setState({ organizationEnable: false });
-    }
-  };
   deleteoption = () => {
     this.setState({ deleteoption: !this.state.deleteoption });
   };
@@ -304,6 +253,22 @@ window.location ="/home";
               </span>
             ))
         );
+        response.data.map(
+          (key) =>
+            (key.visualIdDa = (
+              <p
+              title={key.visualId}
+                className="reactclick afterplaycolor21"
+                onClick={() => {
+                  let a = "http://192.168.0.108:8080/video/";
+                  // alert(a);
+                  this.playvideoid(key.visualId, a);
+                }}
+              >
+                {key.visualId}
+              </p>
+            ))
+        );
         // alert(response.data.message);
         this.setState({
           data: response.data,
@@ -311,6 +276,7 @@ window.location ="/home";
       },
       (error) => {}
     );
+    
   }
   handlesubmit = (e) => {
     let url = getBaseUrl() + "/starttask";
@@ -458,154 +424,11 @@ window.location ="/home";
     window.location.reload();
   };
 
-  render() {
-    const { profileImg } = this.state;
-    return (
-      <div className="profile-main-div container">
-        <Grid container className="submenu-alignment">
-          <Grid item xs={12} className="gridwidth">
-            <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq" >
-                Save
-              </button>
-              <button
-                type="button"
-                className="bottoncolorq"
-                onClick={this.cancelprofile}
-              >
-                Cancel
-              </button>
-            </div>
-          </Grid>
-          <Grid item md={4}>
-            <div className="mt-5 imagecentermobile">
-              <div className="">
-                {/* <h1 className="heading">Add your Image</h1> */}
-                <div className="profilepicture1 mx-auto d-block">
-                  <img src={profileImg} alt="" id="img" className="img" />
-                </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="image-upload"
-                  id="input"
-                  onChange={this.imageHandler}
-                />
-                <div className="label">
-                  <label className="image-upload" htmlFor="input">
-                    <i className="material-icons"></i>
-                    Upload your Photo
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className=" d-flex mt-4 inputdata11 ">
-              <TextField
-                className="textcolorfont"
-                id="standard-basic"
-                disabled={this.state.usernameEnable}
-                onChange={(e) => {
-                  this.setState({ name: e.target.value });
-                }}
-                value={this.state.name}
-              />
-              <div className="align-self-end p-2">
-                <FontAwesomeIcon
-                  className="afterplaycolor"
-                  icon={faPencilAlt}
-                  onClick={() => {
-                    this.editForm("username");
-                  }}
-                />
-              </div>
-            </div>
 
-            <div className="pt-2 upgrademargin ">
-              <a onClick={this.dialogBox} className="upgradetext">
-                Upgrade to Premium
-              </a>
-            </div>
-          </Grid>
-          <Grid item md={8}>
-            <div className="profile-right">
-              <div className="d-flex">
-                <TextField
-                  className="textcolorfont1"
-                  id="standard-basic"
-                  label="Email"
-                  disabled={this.state.emailEnable}
-                  onChange={(e) => {
-                    this.setState({ email: e.target.value });
-                  }}
-                  value={this.state.email}
-                />
-                <div className="align-self-end p-2">
-                  <FontAwesomeIcon
-                    className="afterplaycolor"
-                    icon={faPencilAlt}
-                    onClick={() => {
-                      this.editForm("email");
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="d-flex mr-4">
-                <TextField
-                  id="standard-basic"
-                  className="mt-1 textcolorfont1"
-                  label="Mobile No."
-                  disabled
-                  value={this.state.phoneNumber}
-                />
-              </div>
-              <div className="d-flex profrssionclick">
-                <TextField
-                  id="standard-basic"
-                  className="mt-1 textcolorfont1"
-                  label="Profession"
-                  disabled={this.state.professionEnable}
-                  onChange={(e) => {
-                    this.setState({ profession: e.target.value });
-                  }}
-                  value={this.state.profession}
-                />
-                <div className="align-self-end p-2">
-                  <FontAwesomeIcon
-                    className="afterplaycolor"
-                    icon={faPencilAlt}
-                    onClick={() => {
-                      this.editForm("profession");
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="d-flex">
-                <TextField
-                  id="standard-basic"
-                  className="mt-1 textcolorfont1"
-                  label="Organisation"
-                  disabled={this.state.organizationEnable}
-                  onChange={(e) => {
-                    this.setState({ organisation: e.target.value });
-                  }}
-                  value={this.state.organisation}
-                />
-                <div className="align-self-end p-2">
-                  <FontAwesomeIcon
-                    className="afterplaycolor"
-                    icon={faPencilAlt}
-                    onClick={() => {
-                      this.editForm("organization");
-                    }}
-                  />
-                </div>
-              </div>
-              <br />
-            </div>
-          </Grid>
-        </Grid>
-        <div className="mt-5 border-top bodercolor"> </div>
-        <div className="sadataset">
+  render() {
+    return (
+      <div className=" mt-5 container">
+         <div className="sadataset">
         {/* <img
               className="dataiconsright"
               src="https://simpleicon.com/wp-content/uploads/refresh.png"
@@ -613,17 +436,15 @@ window.location ="/home";
             /> */}
           <DataTable
             className="datatablehoer"
-            title="Your Latest 5 Session"
+            title="Your History"
             columns={this.state.columns}
             data={this.state.data}
-            // pagination={true}
-            // paginationDefaultPage
+            pagination={true}
+            paginationDefaultPage
             value={this.state.selectedtasktype}
            
           />
         </div>
-        <br />
-
         <Dialog
           onClose={() => {
             this.setState({
@@ -1084,9 +905,10 @@ window.location ="/home";
             )}
           </div>
         </Dialog>
+     
       </div>
     );
   }
 }
 
-export default Profile;
+export default Userhistory;

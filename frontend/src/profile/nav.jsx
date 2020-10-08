@@ -602,12 +602,15 @@ class Nav extends Component {
                   >
                     <b>Unique Id: {this.state.id}</b>
                   </a>
+                  <a class="dropdown-item" href="profile">
+                    View Profile
+                  </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a class="dropdown-item" onClick={this.AddBalance}>
+                  {/* <a class="dropdown-item" onClick={this.AddBalance}>
                     Add Balance
-                  </a>
+                  </a> */}
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
@@ -615,10 +618,10 @@ class Nav extends Component {
                     DashBoard
                   </a>
                   {/* ) : null} */}
-
-                  <a class="dropdown-item" href="profile">
-                    View Profile/History
+                  <a class="dropdown-item" href="history">
+                   View History
                   </a>
+                  
                   <a class="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>

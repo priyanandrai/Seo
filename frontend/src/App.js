@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import Footer from "./components/Footer";
 import Logout from "./logout/logout";
 import Adminheader from "./profile/adminheader";
+import Userhistory from "./profile/userhistory";
 
 import {
   BrowserRouter as Router,
@@ -56,6 +57,7 @@ function App() {
         <Route exact path="/dashboard" component={Maincontentpage2} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
+        <Route exact path="/history" component={Userhistory}  />
         <Route exact path="/adminute-home" component={Admin}  />
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
