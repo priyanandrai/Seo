@@ -242,7 +242,7 @@ class Admin_profile extends Component {
 	  uniqueid:this.state.uid,
 	  mobileNumber:this.state.phone,
 	 };
-	 alert(this.state.uid);
+	
 	  let url = getBaseUrl() + "/searchuserprofile";
     axios
       .post(url, temp)
