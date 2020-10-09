@@ -26,17 +26,14 @@ import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
-
-
 class Admin_profile extends Component {
   constructor(props) {
     super(props);
-	this.searchprofile= this.searchprofile.bind(this);
+    this.searchprofile = this.searchprofile.bind(this);
     this.state = {
-		
-		uid:"",
-		phone:"",
-		pieChartData: [
+      uid: "",
+      phone: "",
+      pieChartData: [
         { title: "One", value: 10, color: "#E38627" },
         { title: "Two", value: 15, color: "#C13C37" },
         { title: "Three", value: 20, color: "#6A2135" },
@@ -237,47 +234,42 @@ class Admin_profile extends Component {
       this.setState({ taskTitle: "Classified Submission" });
     }
   };
-  searchprofile(){
-	 let temp={
-	  uniqueid:this.state.uid,
-	  mobileNumber:this.state.phone,
-	 };
-	
-	  let url = getBaseUrl() + "/searchuserprofile";
+  searchprofile() {
+    let temp = {
+      uniqueid: this.state.uid,
+      mobileNumber: this.state.phone,
+    };
+
+    let url = getBaseUrl() + "/searchuserprofile";
     axios
       .post(url, temp)
       .then(
         (response) => {
-			console.log("My usersearch response 1 ",response.data);
-			this.setState({
-				username:response.data.name,
-				unique:response.data.id,
-					mobile:response.data.phoneNumber,
-					email:response.data.email,
-					organization:response.data.organisation,
-					profession:response.data.profession,
-				formshow: !this.state.formshow
-			})
-           },
+          console.log("My usersearch response 1 ", response.data);
+          this.setState({
+            username: response.data.name,
+            unique: response.data.id,
+            mobile: response.data.phoneNumber,
+            email: response.data.email,
+            organization: response.data.organisation,
+            profession: response.data.profession,
+            formshow: !this.state.formshow,
+          });
+        },
         (error) => {
           alert(error.response.data.message);
         }
       )
       .catch((e) => {});
-	  
-	
-	   
-	  
   }
-  
+
   componentWillMount() {
     //let temp = isLoggedIn();
     let temp = window.localStorage.getItem("isadminuteLoggedin");
-if(temp == "ankur"){
-
-}else{
-window.location ="/adminute-home";
-}
+    if (temp == "ankur") {
+    } else {
+      window.location = "/adminute-home";
+    }
   }
 
   render() {
@@ -290,29 +282,31 @@ window.location ="/adminute-home";
               <Form.Control
                 type="name"
                 id="Name"
-				value={this.state.uid}
+                value={this.state.uid}
                 className="mobileviewset"
-                   onChange={(e) =>{
-                     this.setState({ uid: e.target.value });
-                   }}
+                onChange={(e) => {
+                  this.setState({ uid: e.target.value });
+                }}
               />
             </div>
           </Grid>
           <Grid item md={6}>
             <div className="uniqueidw1">
               <Form.Label>Mobile No.</Form.Label>
-              <PhoneInput placeholder={"Mobile no. *"} country={"in"}
-				value={this.state.phone}
-                      onChange={(e) => {
-                        console.log(e);
-                        if (isNaN(e)) {
-                          return;
-                        }
-                        this.setState({
-                          phone: "+" + e,
-                        });
-                      }}
-			  />
+              <PhoneInput
+                placeholder={"Mobile no. *"}
+                country={"in"}
+                value={this.state.phone}
+                onChange={(e) => {
+                  console.log(e);
+                  if (isNaN(e)) {
+                    return;
+                  }
+                  this.setState({
+                    phone: "+" + e,
+                  });
+                }}
+              />
             </div>
             <div>
               {/* <input
@@ -322,7 +316,6 @@ window.location ="/adminute-home";
               /> */}
               <button
                 className="mt-4 searchboxright"
-				
                 onClick={this.searchprofile}
               >
                 Search
@@ -345,7 +338,7 @@ window.location ="/adminute-home";
                           label="User Name"
                           autoComplete="off"
                           disabled={this.state.usernameEnable}
-						  value={this.state.username}
+                          value={this.state.username}
                           onChange={(e) => {
                             this.setState({ username: e.target.value });
                           }}
@@ -365,7 +358,7 @@ window.location ="/adminute-home";
                           id="standard-basic"
                           label="Unique ID"
                           disabled={this.state.uniqueEnable}
-						    value={this.state.unique}
+                          value={this.state.unique}
                           onChange={(e) => {
                             this.setState({ unique: e.target.value });
                           }}
@@ -428,7 +421,7 @@ window.location ="/adminute-home";
                           label="Email"
                           autoComplete="off"
                           disabled={this.state.emailEnable}
-						  value={this.state.email}
+                          value={this.state.email}
                           onChange={(e) => {
                             this.setState({ email: e.target.value });
                           }}
@@ -447,7 +440,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Mobile No."
-						   value={this.state.mobile}
+                          value={this.state.mobile}
                           disabled={this.state.mobileEnable}
                           onChange={(e) => {
                             this.setState({ mobile: e.target.value });
@@ -467,7 +460,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Profession"
-						  value={this.state.profession}
+                          value={this.state.profession}
                           disabled={this.state.professionEnable}
                           onChange={(e) => {
                             this.setState({ profession: e.target.value });
@@ -487,7 +480,7 @@ window.location ="/adminute-home";
                         <TextField
                           id="standard-basic"
                           label="Organisation"
-						   value={this.state.organization}
+                          value={this.state.organization}
                           disabled={this.state.organizationEnable}
                           onChange={(e) => {
                             this.setState({ organization: e.target.value });
@@ -517,7 +510,8 @@ window.location ="/adminute-home";
                     pagination={true}
                     paginationDefaultPage
                   />
-                </div><br/>
+                </div>
+                <br />
               </div>
             ) : null}
           </form>

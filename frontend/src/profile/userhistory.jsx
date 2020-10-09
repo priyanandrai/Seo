@@ -27,6 +27,11 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ReactPlayer from "react-player";
 
 import { getAuthData, isLoggedIn } from "../utils";
@@ -42,7 +47,8 @@ class Userhistory extends Component {
       deleteoption: false,
 
       playvideoid: false,
-      url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
+      url:"",
+      // url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
       data: [],
       columns: [
         {
@@ -444,7 +450,7 @@ class Userhistory extends Component {
   render() {
     return (
       <div className=" mt-5 container">
-        <div className="sadataset">
+        {/* <div className="sadataset">
           <DataTable
             className="datatablehoer"
             title="Your History"
@@ -454,7 +460,7 @@ class Userhistory extends Component {
             paginationDefaultPage
             value={this.state.selectedtasktype}
           />
-        </div>
+        </div> */}
         <Dialog
           onClose={() => {
             this.setState({
@@ -938,24 +944,35 @@ class Userhistory extends Component {
             </Card>
           </div>
         </Dialog>
-        <form>
-          <div className="videopop ml-auto mb-auto">
-          <Card className="reactplayer">
-              <CardActionArea>
-                <CardContent>
-                  <ReactPlayer
+       <h6 className="historycolor">Your History</h6>
+        {this.state.data.map((key,index) =>(
+            <Accordion >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+                <Typography >{key.date}</Typography>
+                <Typography className="ml-5">{key.tasktype}</Typography>
+                <Typography className="ml-5">{key.taskstatus}</Typography>
+                <Typography className="ml-5">{key.comments}</Typography>
+              <Typography className="ml-5">{key.visualId}</Typography>
+            
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ReactPlayer
                     playing={true}
                     width="100%"
                     height="100%"
-                    url={this.state.url}
-                    // url="https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s"
+                    // url={this.state.url}
+                     url={"http://192.168.0.108:8080/video/"+key.visualId+".mp4"}
                     controls={true}
                   />
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </div>
-        </form>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
       </div>
     );
   }

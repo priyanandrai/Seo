@@ -16,6 +16,7 @@ import Logout from "./logout/logout";
 import Adminheader from "./profile/adminheader";
 import Userhistory from "./profile/userhistory";
 
+
 import {
   BrowserRouter as Router,
   Route,
@@ -24,6 +25,7 @@ import {
   BrowserRouter,
   IndexRoute,
 } from "react-router-dom";
+import Leftpanel  from "./leftpanel/leftpanel";
 import { Maincontentpage2 } from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
@@ -58,6 +60,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/tasks" component={Tasks}  />
         <Route exact path="/history" component={Userhistory}  />
+        <Route exact path="/leftpanel" component={Leftpanel}  />
         <Route exact path="/adminute-home" component={Admin}  />
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
