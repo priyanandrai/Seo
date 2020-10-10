@@ -13,10 +13,15 @@ class Leftpanel extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      panelshow:false,
+    };
   }
    openNav =()=>{
-   document.getElementById("mySidenav").style.width = "250px";
+  //  document.getElementById("mySidenav").style.width = "250px";
+   this.setState({
+    panelshow: !this.state.panelshow
+   })
  }
  
  closeNav=()=>{
@@ -25,6 +30,7 @@ class Leftpanel extends React.Component {
   render() {
     return (
       <div  >
+        {this.state.panelshow ? (
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
             &times;
@@ -34,7 +40,7 @@ class Leftpanel extends React.Component {
           <a href="#">Clients</a>
           <a href="#">Contact</a>
         </div>
-
+          ) : null}
         <span  onClick={this.openNav} className="cursor">
           &#9776; 
         </span>
