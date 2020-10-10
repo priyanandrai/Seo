@@ -2106,6 +2106,7 @@ font-weight: bold;
 }
 .logoss{
   height: 36px;
+  margin-top: -48px;
 }
 
 .paddingbottomcard{
@@ -2115,4 +2116,7 @@ width: 100%;
 
 .userhistorydesighn{
   margin-top: 80px;
+}
+.headerhight{
+  height: 58px;
 }

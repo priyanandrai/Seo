@@ -500,13 +500,13 @@ class Nav extends Component {
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
-  openNav =()=>{
-    document.getElementById("mySidenav").style.width = "250px";
-  }
+  // openNav =()=>{
+  //   document.getElementById("mySidenav").style.width = "250px";
+  // }
   
-  closeNav=()=>{
-    document.getElementById("mySidenav").style.width = "0";
-  }
+  // closeNav=()=>{
+  //   document.getElementById("mySidenav").style.width = "0";
+  // }
 
   render() {
     const navigation_links = [
@@ -566,10 +566,8 @@ class Nav extends Component {
         <Toolbar classname="navigationbar" variant="dense">
       
           {this.state.isLogged == true ? (
-            <div>
-                <span  onClick={this.openNav} className="cursor">
-          &#9776; 
-        </span>
+            <div className="headerhight">
+               <Leftpanel></Leftpanel>
             <a href="/dashboard">
               <img className="logoss ml-3" src={logo} />
             </a> </div>
@@ -1403,7 +1401,7 @@ class Nav extends Component {
             </div>
           </div>
         </Dialog> */}
-        <div id="mySidenav" class="sidenav mt-5">
+        {/* <div id="mySidenav" class="sidenav mt-5">
           <a href="javascript:void(0)" class="closebtn"  onClick={this.closeNav}>
             &times;
           </a>
@@ -1411,7 +1409,7 @@ class Nav extends Component {
           <a href="#">Services</a>
           <a href="#">Clients</a>
           <a href="#">Contact</a>
-        </div>
+        </div> */}
       </AppBar>
     );
   }

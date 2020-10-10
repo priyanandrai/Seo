@@ -966,7 +966,7 @@ class Userhistory extends Component {
             >
               
               <Grid container className="submenu-alignment">
-              <Grid item md={2}><Typography >{key.date}</Typography></Grid>
+              <Grid item md={2}><Typography className="textleftall">{key.date}</Typography></Grid>
               <Grid item md={2}><Typography className="ml-5 textleftall">{key.tasktype}</Typography></Grid>
               <Grid item md={2}><Typography className="ml-5 textleftall">{key.taskstatus}</Typography></Grid>
               <Grid item md={2}><Typography className="ml-5 textleftall">{key.comments}</Typography></Grid>
