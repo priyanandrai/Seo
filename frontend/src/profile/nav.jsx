@@ -567,7 +567,7 @@ class Nav extends Component {
       
           {this.state.isLogged == true ? (
             <div className="headerhight">
-               {/* <Leftpanel></Leftpanel> */}
+               <Leftpanel></Leftpanel>
             <a href="/dashboard">
               <img className="logoss ml-3" src={logo} />
             </a> </div>
