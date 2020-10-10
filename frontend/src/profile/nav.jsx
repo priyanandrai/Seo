@@ -566,15 +566,23 @@ class Nav extends Component {
         <Toolbar classname="navigationbar" variant="dense">
       
           {this.state.isLogged == true ? (
-            <div className="headerhight">
-               <Leftpanel></Leftpanel>
-            <a href="/dashboard">
-              <img className="logoss ml-3" src={logo} />
-            </a> </div>
-          ) : (
-            <a href="/home">
-              <img className="logos" src={logo} />
-            </a>
+           
+          <a href="/dashboard">
+            <img className="logos" src={logo} />
+          </a> 
+        ) : (
+          <a href="/home">
+            <img className="logos" src={logo} />
+          </a>
+          //   <div className="headerhight">
+          //      <Leftpanel></Leftpanel>
+          //   <a href="/dashboard">
+          //     <img className="logoss ml-3" src={logo} />
+          //   </a> </div>
+          // ) : (
+          //   <a href="/home">
+          //     <img className="logos" src={logo} />
+          //   </a>
            
           )}
 
