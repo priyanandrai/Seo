@@ -2092,11 +2092,27 @@ a.disabled {
 }
 
 .historycolor{
-font-size: 16px;
+font-size: 20px;
 color: #005d78;
+font-weight: bold;
 }
 .textleftall{
   text-align: left;
   font-size: 12px !important;
 }
+.textalighnc{
+  text-align: center !important;
+  font-weight: bold;
+}
+.logoss{
+  height: 36px;
+}
 
+.paddingbottomcard{
+margin-bottom: 20px;
+width: 100%;
+}
+
+.userhistorydesighn{
+  margin-top: 80px;
+}

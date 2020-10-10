@@ -24,8 +24,8 @@ class Leftpanel extends React.Component {
  }
   render() {
     return (
-      <div className="mt-5 lrftcolor">
-        <div id="mySidenav" class="sidenav mt-5">
+      <div  id="mySidenav" class="sidenav mt-5">
+        <div>
           <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
             &times;
           </a>

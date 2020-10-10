@@ -449,7 +449,7 @@ class Userhistory extends Component {
 
   render() {
     return (
-      <div className=" mt-5 container">
+      <div className=" container userhistorydesighn">
         {/* <div className="sadataset">
           <DataTable
             className="datatablehoer"
@@ -945,20 +945,35 @@ class Userhistory extends Component {
           </div>
         </Dialog>
        <h6 className="historycolor">Your History</h6>
+       <Grid container className="mt-3" >
+       <Grid item md={2} className="textalighnc">DATE</Grid>
+       <Grid item md={2} className="textalighnc">TASK TYPE</Grid>
+       <Grid item md={2} className="textalighnc">STATUS</Grid>
+       <Grid item md={2} className="textalighnc">COMMENTS</Grid>
+       <Grid item md={2} className="textalighnc">VIDEO</Grid>
+       <Grid item md={2} className="textalighnc">ACTION</Grid>
+       </Grid>
         {this.state.data.map((key,index) =>(
+          <div className="paddingbottomcard">
+          <Card >
+            
+              <CardContent>
             <Accordion >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
+              // expandIcon={<ExpandMoreIcon />}
+              // aria-controls="panel1bh-content"
+              // id="panel1bh-header"
             >
-                <Typography >{key.date}</Typography>
-                <Typography className="ml-5 textleftall">{key.tasktype}</Typography>
-                <Typography className="ml-5 textleftall">{key.taskstatus}</Typography>
-                <Typography className="ml-5 textleftall">{key.comments}</Typography>
-              <Typography className="ml-5 textleftall">{key.visualId}</Typography>
-              <Typography className="ml-5">{key.action}</Typography>
-            
+              
+              <Grid container className="submenu-alignment">
+              <Grid item md={2}><Typography >{key.date}</Typography></Grid>
+              <Grid item md={2}><Typography className="ml-5 textleftall">{key.tasktype}</Typography></Grid>
+              <Grid item md={2}><Typography className="ml-5 textleftall">{key.taskstatus}</Typography></Grid>
+              <Grid item md={2}><Typography className="ml-5 textleftall">{key.comments}</Typography></Grid>
+              <Grid item md={2}><Typography className="ml-5 textleftall">{key.visualId}</Typography></Grid>
+              <Grid item md={2}><Typography className="ml-5">{key.action}</Typography></Grid>
+                 </Grid>
+              
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -973,6 +988,9 @@ class Userhistory extends Component {
               </Typography>
             </AccordionDetails>
           </Accordion>
+          </CardContent>
+              </Card>
+              </div>
         ))}
       </div>
     );

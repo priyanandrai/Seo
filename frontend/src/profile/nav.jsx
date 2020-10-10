@@ -42,6 +42,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 import Logout from "../logout/logout";
+import Leftpanel from "../leftpanel/leftpanel";
 class Nav extends Component {
   constructor(props) {
     super(props);
@@ -499,6 +500,13 @@ class Nav extends Component {
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
+  openNav =()=>{
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  closeNav=()=>{
+    document.getElementById("mySidenav").style.width = "0";
+  }
 
   render() {
     const navigation_links = [
@@ -552,17 +560,24 @@ class Nav extends Component {
       button_status,
     } = this.state;
 
+    
     return (
       <AppBar position="fixed">
         <Toolbar classname="navigationbar" variant="dense">
+      
           {this.state.isLogged == true ? (
+            <div>
+                <span  onClick={this.openNav} className="cursor">
+          &#9776; 
+        </span>
             <a href="/dashboard">
-              <img className="logos" src={logo} />
-            </a>
+              <img className="logoss ml-3" src={logo} />
+            </a> </div>
           ) : (
             <a href="/home">
               <img className="logos" src={logo} />
             </a>
+           
           )}
 
           {this.state.isLogged == true ? (
@@ -1388,6 +1403,15 @@ class Nav extends Component {
             </div>
           </div>
         </Dialog> */}
+        <div id="mySidenav" class="sidenav mt-5">
+          <a href="javascript:void(0)" class="closebtn"  onClick={this.closeNav}>
+            &times;
+          </a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
       </AppBar>
     );
   }
