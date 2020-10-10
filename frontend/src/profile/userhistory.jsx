@@ -953,10 +953,11 @@ class Userhistory extends Component {
               id="panel1bh-header"
             >
                 <Typography >{key.date}</Typography>
-                <Typography className="ml-5">{key.tasktype}</Typography>
-                <Typography className="ml-5">{key.taskstatus}</Typography>
-                <Typography className="ml-5">{key.comments}</Typography>
-              <Typography className="ml-5">{key.visualId}</Typography>
+                <Typography className="ml-5 textleftall">{key.tasktype}</Typography>
+                <Typography className="ml-5 textleftall">{key.taskstatus}</Typography>
+                <Typography className="ml-5 textleftall">{key.comments}</Typography>
+              <Typography className="ml-5 textleftall">{key.visualId}</Typography>
+              <Typography className="ml-5">{key.action}</Typography>
             
             </AccordionSummary>
             <AccordionDetails>

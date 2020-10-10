@@ -2095,4 +2095,8 @@ a.disabled {
 font-size: 16px;
 color: #005d78;
 }
+.textleftall{
+  text-align: left;
+  font-size: 12px !important;
+}
 
