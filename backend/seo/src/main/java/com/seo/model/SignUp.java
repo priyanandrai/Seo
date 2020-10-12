@@ -19,10 +19,19 @@ public class SignUp {
 	private String password;
 	private String profession;
 	private String organisation;
+	private String photoname;
 	
+	public String getPhotoname() {
+		return photoname;
+	}
+
+	public void setPhotoname(String photoname) {
+		this.photoname = photoname;
+	}
+
 	public SignUp(long id, String name, String phoneNumber, String email, String password, String profession,
 			String organisation, String role, boolean loginstatus, String submissionEmailID,
-			String submissionPassword) {
+			String submissionPassword,String photoname) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,6 +44,7 @@ public class SignUp {
 		this.loginstatus = loginstatus;
 		this.submissionEmailID = submissionEmailID;
 		this.submissionPassword = submissionPassword;
+		this.photoname = photoname;
 	}
 
 	private String role;
