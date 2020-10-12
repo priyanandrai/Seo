@@ -60,7 +60,8 @@ class Profile extends Component {
       organisation: "N/A",
       usernameEnable: true,
       emailaddress: "",
-
+      snackbar:false,
+error:"",
       phoneNumber: "",
       // profileImg:
       //   "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
@@ -116,8 +117,10 @@ class Profile extends Component {
 
     axios.put(url, temp).then(
       (response) => {
-        alert(response.data.message);
-
+        this.setState({
+          snackbar: true,
+          error:response.data.message,
+        });
         return;
       },
 
@@ -889,9 +892,8 @@ class Profile extends Component {
               open={this.state.snackbar}
               onClose={this.closeSnackbar}
               message={
-                this.state.error === null
-                  ? this.state.message
-                  : this.state.error
+          
+                this.state.error
               }
               action={
                 <React.Fragment>
@@ -1111,6 +1113,32 @@ class Profile extends Component {
             )}
           </div>
         </Dialog>
+        <div>
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              open={this.state.snackbar}
+              onClose={this.closeSnackbar}
+              message={
+          
+                this.state.error
+              }
+              action={
+                <React.Fragment>
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="warning"
+                    onClick={this.closeSnackbar}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                </React.Fragment>
+              }
+            />
+          </div>
       </div>
     );
   }
