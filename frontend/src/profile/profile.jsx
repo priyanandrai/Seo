@@ -64,7 +64,7 @@ class Profile extends Component {
       phoneNumber: "",
       // profileImg:
       //   "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
-        profileImg:
+      profileImg:
         "https://www.yealink.com.sg/wp-content/uploads/2013/08/YEALINK-UNVEILS-BUSINESS-HD-IP-DECT-PHONE-W52P.jpg",
       drillDown: "DrillDown",
       columns: [
@@ -104,8 +104,7 @@ class Profile extends Component {
       Playsession: false,
     };
   }
-  saveprofile(){
-  
+  saveprofile() {
     let url = getBaseUrl() + "/editprofile";
     let temp = {
       id: window.localStorage.getItem("id"),
@@ -113,22 +112,19 @@ class Profile extends Component {
       email: this.state.email,
       profession: this.state.profession,
       organisation: this.state.organisation,
-      
     };
 
     axios.put(url, temp).then(
       (response) => {
-        // alert(response.data.message);
-        this.setState({});
-        alert("Password Successfully Changed");
+        alert(response.data.message);
 
         return;
       },
 
       (error) => {}
     );
-  };
-  
+  }
+
   updateState = (state) => {
     this.setState({ selectedRows: state.selectedRows });
   };
@@ -213,11 +209,10 @@ class Profile extends Component {
 
   componentWillMount() {
     let temp = isLoggedIn();
-if(temp == true || temp =="true"){
-
-}else{
-window.location ="/home";
-}
+    if (temp == true || temp == "true") {
+    } else {
+      window.location = "/home";
+    }
 
     let self = this;
     let url =
@@ -350,7 +345,7 @@ window.location ="/home";
     if (day < 10) {
       day = "0" + day;
     }
-    
+
     let year = new Date().getFullYear();
     let hour = new Date().getHours();
     let min = new Date().getMinutes();
@@ -410,7 +405,7 @@ window.location ="/home";
       tasktype: "Social Book Marketing",
       date: date,
       submiturl: this.state.msubmiturl,
-       title: this.state.mtitle,
+      title: this.state.mtitle,
       keyword: this.state.mkeyword,
       description: this.state.mdescription,
       comments: this.state.mcomments,
@@ -432,7 +427,6 @@ window.location ="/home";
         });
       }
     );
-    
   };
   handleclick = (e) => {
     let url = getBaseUrl() + "/starttask";
@@ -458,7 +452,7 @@ window.location ="/home";
       userId: window.localStorage.getItem("id"),
       tasktype: "Classified Submission",
       date: date,
-     
+
       emailaddress: this.state.memailaddress,
       password: this.state.mpassword,
       title: this.state.mtitle,
@@ -484,7 +478,6 @@ window.location ="/home";
         });
       }
     );
-   
   };
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -500,7 +493,11 @@ window.location ="/home";
         <Grid container className="submenu-alignment">
           <Grid item xs={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq"  onClick={this.saveprofile} >
+              <button
+                type="button"
+                className="btnmargin bottoncolorq"
+                onClick={this.saveprofile}
+              >
                 Save
               </button>
               <button
@@ -641,7 +638,7 @@ window.location ="/home";
         </Grid>
         <div className="mt-5 border-top bodercolor"> </div>
         <div className="sadataset">
-        {/* <img
+          {/* <img
               className="dataiconsright"
               src="https://simpleicon.com/wp-content/uploads/refresh.png"
               onClick={this.refreshclick}
@@ -654,7 +651,6 @@ window.location ="/home";
             // pagination={true}
             // paginationDefaultPage
             value={this.state.selectedtasktype}
-           
           />
         </div>
         <br />
@@ -683,7 +679,7 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
+          onClose={() => {
             this.setState({
               Playsession: false,
             });
@@ -743,16 +739,14 @@ window.location ="/home";
                   }
                   value={this.state.msubmiturl}
                 />
-                   <Form.Label>Comment</Form.Label>
+                <Form.Label>Comment</Form.Label>
                 <Form.Control
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
                   title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ mcomments: e.target.value })}
                   value={this.state.mcomments}
                 />
 
@@ -798,11 +792,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
-          this.setState({
-            Playsession1: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              Playsession1: false,
+            });
+          }}
           open={this.state.Playsession1}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -862,19 +856,17 @@ window.location ="/home";
                   value={this.state.mkeyword}
                   onChange={(e) => this.setState({ mkeyword: e.target.value })}
                 />
-                 <Form.Label>Comment</Form.Label>
+                <Form.Label>Comment</Form.Label>
                 <Form.Control
                   type="Url"
                   id="Url"
                   placeholder="Enter your comment"
                   className="width90"
                   title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ mcomments: e.target.value })}
                   value={this.state.mcomments}
                 />
-              
+
                 <div className="d-flex justify-content-end mrrginside2200">
                   <Button
                     variant="contained"
@@ -917,11 +909,11 @@ window.location ="/home";
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
-          this.setState({
-            Playsession2: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              Playsession2: false,
+            });
+          }}
           open={this.state.Playsession2}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -973,18 +965,18 @@ window.location ="/home";
                     value={this.state.mtitle}
                     onChange={(e) => this.setState({ mtitle: e.target.value })}
                   />
-                   <Form.Label>Comment</Form.Label>
-                <Form.Control
-                  type="Url"
-                  id="Url"
-                  placeholder="Enter your comment"
-                  className="width90"
-                  title={this.state.mcomments}
-                  onChange={(e) =>
-                    this.setState({ mcomments: e.target.value })
-                  }
-                  value={this.state.mcomments}
-                />
+                  <Form.Label>Comment</Form.Label>
+                  <Form.Control
+                    type="Url"
+                    id="Url"
+                    placeholder="Enter your comment"
+                    className="width90"
+                    title={this.state.mcomments}
+                    onChange={(e) =>
+                      this.setState({ mcomments: e.target.value })
+                    }
+                    value={this.state.mcomments}
+                  />
                 </div>
               </Grid>
               <Grid item md={6}>
@@ -1066,11 +1058,11 @@ window.location ="/home";
         </Dialog>
 
         <Dialog
-         onClose={() => {
-          this.setState({
-            deleteoption: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              deleteoption: false,
+            });
+          }}
           open={this.state.deleteoption}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
