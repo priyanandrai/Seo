@@ -31,6 +31,7 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.belowlist = this.belowlist.bind(this);
+    this.saveprofile = this.saveprofile.bind(this);
     this.state = {
       organization: "",
       deleteoption: false,
@@ -103,7 +104,31 @@ class Profile extends Component {
       Playsession: false,
     };
   }
+  saveprofile(){
+  
+    let url = getBaseUrl() + "/editprofile";
+    let temp = {
+      id: window.localStorage.getItem("id"),
+      name: this.state.name,
+      email: this.state.email,
+      profession: this.state.profession,
+      organisation: this.state.organisation,
+      
+    };
 
+    axios.put(url, temp).then(
+      (response) => {
+        // alert(response.data.message);
+        this.setState({});
+        alert("Password Successfully Changed");
+
+        return;
+      },
+
+      (error) => {}
+    );
+  };
+  
   updateState = (state) => {
     this.setState({ selectedRows: state.selectedRows });
   };
@@ -125,7 +150,7 @@ class Profile extends Component {
     if (para == "profession") {
       this.setState({ professionEnable: false });
     }
-    if (para == "organization") {
+    if (para == "organisation") {
       this.setState({ organizationEnable: false });
     }
   };
@@ -475,7 +500,7 @@ window.location ="/home";
         <Grid container className="submenu-alignment">
           <Grid item xs={12} className="gridwidth">
             <div className="buttonsright22 btnmobile">
-              <button type="button" className="btnmargin bottoncolorq" >
+              <button type="button" className="btnmargin bottoncolorq"  onClick={this.saveprofile} >
                 Save
               </button>
               <button
