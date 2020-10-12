@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Leftpanel from "../leftpanel/leftpanel";
 import Nav from "../profile/nav";
 
-const HOC = (WrappedComponent) => {
+ const HOC = (WrappedComponent) => {
   return class extends Component {
     render() {
       return (
@@ -13,7 +13,7 @@ const HOC = (WrappedComponent) => {
           <Nav></Nav>
           <Leftpanel></Leftpanel>
           <WrappedComponent {...this.props}/>
-          <Footer/>
+          {/* <Footer/> */}
         </Fragment>
       );
     }

@@ -6,6 +6,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
+// import HOC from "../components/HOC";
 import { getAuthData, isLoggedIn } from "../utils";
 
 class Maincontentpage extends React.Component {

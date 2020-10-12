@@ -37,10 +37,10 @@ class Leftpanel extends React.Component {
           <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
             &times;
           </a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <a href="#">Home Page</a>
+          <a href="#">Your Website</a>
+          <a href="#">Traffic Exchange</a>
+          {/* <a href="#">Contact</a> */}
         </div>
            ) : null} 
           <div id="leftmain">

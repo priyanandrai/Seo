@@ -14,6 +14,7 @@ import {
 import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "../components/Button";
+import HOC1 from "../components/HOC1";
 import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
@@ -146,4 +147,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default HOC1(Admin);

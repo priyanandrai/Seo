@@ -22,6 +22,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/semantic-ui.css";
 import DataTable, { createTheme } from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
+import HOC1 from "../components/HOC1";
 import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
@@ -590,4 +591,4 @@ class Admin_profile extends Component {
   }
 }
 
-export default Admin_profile;
+export default HOC1(Admin_profile);

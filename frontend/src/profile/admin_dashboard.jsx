@@ -16,6 +16,7 @@ import Input from "../components/Input";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "../components/Button";
 import TextField from "@material-ui/core/TextField";
+import HOC1 from "../components/HOC1";
 import { getAuthData, isLoggedIn } from "../utils";
 
 class Admin_dashboard extends Component {
@@ -77,4 +78,4 @@ window.location ="/adminute-home";
   }
 }
 
-export default Admin_dashboard;
+export default HOC1(Admin_dashboard);
