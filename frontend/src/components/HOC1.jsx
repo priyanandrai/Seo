@@ -13,7 +13,7 @@ const HOC1 = (WrappedComponent) => {
             <Adminheader></Adminheader>
          
           <WrappedComponent {...this.props}/>
-          <Footer/>
+          {/* <Footer/> */}
         </Fragment>
       );
     }

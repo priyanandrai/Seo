@@ -38,7 +38,7 @@ import axios from "axios";
 import { getBaseUrl } from "../utils";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export class Maincontentpage2 extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.playvideoid = this.playvideoid.bind(this);
@@ -1060,4 +1060,4 @@ let url = videourl + visualId + ".mp4";
   }
 }
 
-export default HOC(Maincontentpage2);
+export default HOC(Dashboard);

@@ -1,15 +1,14 @@
-import React from "react";
-import { Button, Container, Row, Col, Card } from "react-bootstrap";
+import React,  { Component } from "react";
+import {  Card } from "react-bootstrap";
 import "../maincontentpage/main.css";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
-// import HOC from "../components/HOC";
+import HOC from "../components/HOC";
 import { getAuthData, isLoggedIn } from "../utils";
 
-class Maincontentpage extends React.Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -124,4 +123,5 @@ class Maincontentpage extends React.Component {
     );
   }
 }
-export default Maincontentpage;
+
+export default HOC(Home);

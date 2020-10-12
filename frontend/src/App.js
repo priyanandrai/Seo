@@ -27,7 +27,7 @@ import {
   IndexRoute,
 } from "react-router-dom";
 import Leftpanel  from "./leftpanel/leftpanel";
-import { Maincontentpage2 } from "./maincontentpage2/maincontentpage2";
+import  Maincontentpage2  from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
 import { Confirmotp } from "./confirmotp/confirmotp";
