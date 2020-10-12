@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
+import com.seo.dto.ProfileDto;
 import com.seo.dto.Usersearch;
 import com.seo.model.Adminlogin;
 import com.seo.model.SearchEngine;
@@ -194,6 +195,8 @@ public class MainServices {
 	public String getprofile(@RequestParam("id") Long id) {
 		try {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
+			System.out.println(" Signup without tostring "+signup);
+			//System.out.println("Signup without tostring"+signup);
 			return signup.get().toString();
 		} catch (Exception e) {
 
@@ -341,12 +344,34 @@ public class MainServices {
 		}
 
 	}
+	@CrossOrigin(origins = "*")
+	@PutMapping("/editprofile")
+	String editprofile(@RequestBody ProfileDto profile) {
+		
+		Optional<SignUp> signup = this.iSignUpService.findById(profile.getId());
+		SignUp signup1 = signup.get();
+		try {
+			
+				signup1.setName(profile.getName());
+				signup1.setEmail(profile.getEmail());
+				signup1.setProfession(profile.getProfession());
+				signup1.setOrganisation(profile.getOrganisation());
+				
+				iSignUpService.save(signup1);
+				return "{\"message\":\"Password Successfully Changed\"}";
+			
+		} catch (Exception e) {
+
+			return "{\"message\":\"Error in changing password , Please try again \"}";
+		}
+	}
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getinprogresstask")
 	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
 	
 		try {
+			
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 			String taskstatus = "In Progress";
 			String pending= "Pending";
