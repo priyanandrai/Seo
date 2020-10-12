@@ -945,7 +945,7 @@ class Userhistory extends Component {
           </div>
         </Dialog>
        <h6 className="historycolor">Your History</h6>
-       <Grid container className="mt-3" >
+       <Grid container className="mt-3 headerbackground" >
        <Grid item md={2} className="textalighnc">DATE</Grid>
        <Grid item md={2} className="textalighnc">TASK TYPE</Grid>
        <Grid item md={2} className="textalighnc">STATUS</Grid>

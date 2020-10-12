@@ -2115,6 +2115,7 @@ font-weight: bold;
 .textalighnc{
   text-align: center !important;
   font-weight: bold;
+  margin-top: 13px !important;
 }
 .logoss{
   height: 36px;
@@ -2145,4 +2146,10 @@ width: 100%;
     /* padding: 0px;
     margin: 0px; */
   }
+}
+.headerbackground{
+  background-color: #3495a2;
+  color: white;
+  margin-bottom: 7px;
+  height: 50px;
 }
