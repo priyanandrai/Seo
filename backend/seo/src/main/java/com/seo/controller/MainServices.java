@@ -358,7 +358,7 @@ public class MainServices {
 				signup1.setOrganisation(profile.getOrganisation());
 				
 				iSignUpService.save(signup1);
-				return "{\"message\":\"Password Successfully Changed\"}";
+				return "{\"message\":\"Your Profile Successfully Changed\"}";
 			
 		} catch (Exception e) {
 
