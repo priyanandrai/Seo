@@ -7,6 +7,7 @@ import Admin_Dashboard from "./profile/admin_dashboard"
 import Admin_Profile from "./profile/admin_profile"
 import "./App.css";
 import HOC from "./components/HOC";
+import HOC1 from "./components/HOC1";
 import Maincontentpage from "./maincontentpage/maincontentpage";
 import Header from "./components/Header";
 import Login from "./components/login";
@@ -44,11 +45,7 @@ function App() {
     return (
       
     <Router history={BrowserRouter}>
-      {/* <Redirect to="/dashboard"/> */}
-         <div>
-         {window.localStorage.getItem("isadminuteLoggedin") == "ankur" ?     <Adminheader></Adminheader>:
-        <Nav></Nav>}
-    
+
         {/* <Maincontentpage2/> */}
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/confirmotp" component={Confirmotp} />
@@ -64,9 +61,6 @@ function App() {
         <Route exact path="/adminute-home" component={Admin}  />
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
-       
-       
-      </div>
       </Router>
        );
 

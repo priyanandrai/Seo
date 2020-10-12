@@ -19,6 +19,7 @@ class Leftpanel extends React.Component {
   }
    openNav =()=>{
   //  document.getElementById("mySidenav").style.width = "250px";
+  // document.getElementById("leftmain").style.marginLeft = "250px";
    this.setState({
     panelshow: !this.state.panelshow
    })
@@ -26,6 +27,7 @@ class Leftpanel extends React.Component {
  
  closeNav=()=>{
    document.getElementById("mySidenav").style.width = "0";
+   document.getElementById("leftmain").style.marginLeft= "0";
  }
   render() {
     return (
@@ -40,10 +42,12 @@ class Leftpanel extends React.Component {
           <a href="#">Clients</a>
           <a href="#">Contact</a>
         </div>
-          ) : null}
+           ) : null} 
+          <div id="leftmain">
         <span  onClick={this.openNav} className="cursor">
           &#9776; 
         </span>
+        </div>
       </div>
     );
   }

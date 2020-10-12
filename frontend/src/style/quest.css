@@ -2153,3 +2153,7 @@ width: 100%;
   margin-bottom: 7px;
   height: 50px;
 }
+.cardheightset{
+  padding: 1px !important;
+  padding-bottom: 13px !important;
+}

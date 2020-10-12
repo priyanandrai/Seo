@@ -4,6 +4,7 @@ import "./profile.css";
 import DataTable, { createTheme } from "react-data-table-component";
 import Dialog from "@material-ui/core/Dialog";
 import Grid from "@material-ui/core/Grid";
+import HOC from "../components/HOC";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilAlt,
@@ -449,7 +450,7 @@ class Userhistory extends Component {
 
   render() {
     return (
-      <div className=" container userhistorydesighn">
+      <div className=" container-fluid userhistorydesighn">
         {/* <div className="sadataset">
           <DataTable
             className="datatablehoer"
@@ -946,18 +947,18 @@ class Userhistory extends Component {
         </Dialog>
        <h6 className="historycolor">Your History</h6>
        <Grid container className="mt-3 headerbackground" >
-       <Grid item md={2} className="textalighnc">DATE</Grid>
-       <Grid item md={2} className="textalighnc">TASK TYPE</Grid>
-       <Grid item md={2} className="textalighnc">STATUS</Grid>
+       <Grid item md={1} className="textalighnc">DATE</Grid>
+       <Grid item md={3} className="textalighnc">TASK TYPE</Grid>
+       <Grid item md={1} className="textalighnc">STATUS</Grid>
        <Grid item md={2} className="textalighnc">COMMENTS</Grid>
-       <Grid item md={2} className="textalighnc">VIDEO</Grid>
+       <Grid item md={3} className="textalighnc">VIDEO</Grid>
        <Grid item md={2} className="textalighnc">ACTION</Grid>
        </Grid>
         {this.state.data.map((key,index) =>(
           <div className="paddingbottomcard">
           <Card >
             
-              <CardContent>
+              <CardContent className="cardheightset">
             <Accordion >
             <AccordionSummary
               // expandIcon={<ExpandMoreIcon />}
@@ -966,11 +967,11 @@ class Userhistory extends Component {
             >
               
               <Grid container className="submenu-alignment">
-              <Grid item md={2}><Typography className="textleftall">{key.date}</Typography></Grid>
-              <Grid item md={2}><Typography className="ml-5 textleftall">{key.tasktype}</Typography></Grid>
-              <Grid item md={2}><Typography className="ml-5 textleftall">{key.taskstatus}</Typography></Grid>
+              <Grid item md={1}><Typography className="textleftall">{key.date}</Typography></Grid>
+              <Grid item md={3}><Typography className="ml-5 textleftall">{key.tasktype}</Typography></Grid>
+              <Grid item md={1}><Typography className=" textleftall">{key.taskstatus}</Typography></Grid>
               <Grid item md={2}><Typography className="ml-5 textleftall">{key.comments}</Typography></Grid>
-              <Grid item md={2}><Typography className="ml-5 textleftall">{key.visualId}</Typography></Grid>
+              <Grid item md={3}><Typography className="ml-5 textleftall">{key.visualId}</Typography></Grid>
               <Grid item md={2}><Typography className="ml-5">{key.action}</Typography></Grid>
                  </Grid>
               
@@ -997,4 +998,4 @@ class Userhistory extends Component {
   }
 }
 
-export default Userhistory;
+export default HOC(Userhistory);

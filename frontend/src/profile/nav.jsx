@@ -567,22 +567,22 @@ class Nav extends Component {
       
           {this.state.isLogged == true ? (
            
-          <a href="/dashboard">
-            <img className="logos" src={logo} />
-          </a> 
-        ) : (
-          <a href="/home">
-            <img className="logos" src={logo} />
-          </a>
-          //   <div className="headerhight">
-          //      <Leftpanel></Leftpanel>
-          //   <a href="/dashboard">
-          //     <img className="logoss ml-3" src={logo} />
-          //   </a> </div>
-          // ) : (
-          //   <a href="/home">
-          //     <img className="logos" src={logo} />
-          //   </a>
+        //   <a href="/dashboard">
+        //     <img className="logos" src={logo} />
+        //   </a> 
+        // ) : (
+        //   <a href="/home">
+        //     <img className="logos" src={logo} />
+        //   </a>
+            <div className="headerhight">
+               <Leftpanel></Leftpanel>
+            <a href="/dashboard">
+              <img className="logoss ml-3" src={logo} />
+            </a> </div>
+          ) : (
+            <a href="/home">
+              <img className="logos" src={logo} />
+            </a>
            
           )}
 

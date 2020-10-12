@@ -9,6 +9,7 @@ import ReactPlayer from "react-player";
   import  VncDisplay  from 'react-vnc-display';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import HOC from "../components/HOC";
 import Card from "@material-ui/core/Card";
 import Dialog from "@material-ui/core/Dialog";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -604,7 +605,7 @@ let url = videourl + visualId + ".mp4";
 
   render() {
     return (
-      <div className="container">
+      <div className="container" id="#leftmain">
         <Grid container spacing={3} style={{ marginTop: "8%" }}>
           <Grid item md={7}>
             <Paper>
@@ -1059,4 +1060,4 @@ let url = videourl + visualId + ".mp4";
   }
 }
 
-export default Maincontentpage2;
+export default HOC(Maincontentpage2);
