@@ -631,7 +631,7 @@ error:"",
                     className="afterplaycolor"
                     icon={faPencilAlt}
                     onClick={() => {
-                      this.editForm("organization");
+                      this.editForm("organisation");
                     }}
                   />
                 </div>

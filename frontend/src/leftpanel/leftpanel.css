@@ -5,16 +5,17 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  /* padding-top: 60px; */
   margin-top: 59px;
+  border: 1px solid gray;
   
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding:3px 1px 26px 13px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -46,7 +47,27 @@
 .cursor{
   cursor: pointer !important;
  
-  color: red !important;
+  color: darkblue !important;
   display:flex;
   margin-top: 20px;
+}
+.urlcolors{
+  color: cadetblue !important;
+  text-decoration: none !important;
+}
+.urlfontsize{
+  font-size: 15px !important;
+  font-family:century;
+}
+.logowidthhight{
+  width: 15px;
+  height: 15px;
+  /* margin-top: 10px; */
+}
+.homemargin{
+  margin-left: 15px !important;
+}
+
+.iconrightside{
+  padding-left: 10px !important;
 }
