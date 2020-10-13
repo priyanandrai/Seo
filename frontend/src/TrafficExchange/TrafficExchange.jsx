@@ -36,10 +36,11 @@ class TrafficExchange extends React.Component {
   }
   render() {
     return (
-      <div className="mt-5 mb-5 center makecenter">
+      <div className="mt-5">
         <Grid container className="mt-5 submenu-alignment">
-          <Grid item md={12}>
-            <div className="mt-5 uniquediv uniqueidw">
+        <Grid item md={3}></Grid>
+          <Grid item md={6}>
+            <div className="inputwidth">
               <Form.Label>Url</Form.Label>
               <Form.Control
                 type="name"
@@ -53,10 +54,15 @@ class TrafficExchange extends React.Component {
                 }}
               />
             </div>
-            <div className="ms">
+           
+          </Grid>
+          <Grid item md={3}></Grid>
+        </Grid>
+        <div className="buttoncenter mb-5 mt-5">
+             
               <Button
                 variant="contained"
-                className="startbtn  mt-5"
+                className="startbtn"
                 onClick={this.trafficdialog}
                 // onClick={(e) => {
                 //   this.setState = {
@@ -67,8 +73,6 @@ class TrafficExchange extends React.Component {
                 Start
               </Button>
             </div>
-          </Grid>
-        </Grid>
 
         <Dialog
           onClose={() => {

@@ -2,14 +2,19 @@
     width: 40vh;
     height: 40vh;
   }
-.makecenter{
+/* .makecenter{
     margin-left: 30%;
-}
+} */
 .trafficbtn{
     margin-right: 30% !important;
 
 }
-.ms{
+.buttoncenter{
     width:100%;
     text-align: center;
+}
+.inputwidth{
+
+
+    
 }

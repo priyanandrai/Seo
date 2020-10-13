@@ -2154,10 +2154,11 @@ a.disabled {
 }
 .footerin {
  
-  background-color: black;
+  background-color: #111;
   width: 100%;
   height: 45px;
   padding-top: 10px;
+  
 }
 .footerin:hover{
   color: white;
