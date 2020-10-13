@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card,Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Form } from "react-bootstrap";
 
 import Grid from "@material-ui/core/Grid";
 import HOC from "../components/HOC";
@@ -24,21 +24,20 @@ import "./traffic.css";
 class TrafficExchange extends React.Component {
   constructor(props) {
     super(props);
-    this.trafficdialog=this.trafficdialog.bind(this);
+    this.trafficdialog = this.trafficdialog.bind(this);
     this.state = {
-      trafficdialog:false
+      trafficdialog: false,
     };
   }
-  trafficdialog(){
-    this.setState  ({
-      trafficdialog :!this.state.trafficdialog
+  trafficdialog() {
+    this.setState({
+      trafficdialog: !this.state.trafficdialog,
     });
   }
   render() {
     return (
       <div className="mt-5 mb-5 center makecenter">
-     
-     <Grid container className="mt-5 submenu-alignment">
+        <Grid container className="mt-5 submenu-alignment">
           <Grid item md={12}>
             <div className="mt-5 uniquediv uniqueidw">
               <Form.Label>Url</Form.Label>
@@ -49,27 +48,29 @@ class TrafficExchange extends React.Component {
                 className="mobileviewset"
                 onChange={(e) => {
                   this.state = {
-                    trafficdialog:true
+                    trafficdialog: true,
                   };
                 }}
               />
             </div>
-           <div className="ms"> <Button
-                            variant="contained"
-                            className="startbtn btttn mt-5"
-                            onClick={this.trafficdialog}
-                            // onClick={(e) => {
-                            //   this.setState = {
-                            //     trafficdialog:false
-                            //   };
-                            // }}
-                          >
-                            Start
-                          </Button></div>
+            <div className="ms">
+              <Button
+                variant="contained"
+                className="startbtn  mt-5"
+                onClick={this.trafficdialog}
+                // onClick={(e) => {
+                //   this.setState = {
+                //     trafficdialog:false
+                //   };
+                // }}
+              >
+                Start
+              </Button>
+            </div>
           </Grid>
-          </Grid>
-     
-          <Dialog
+        </Grid>
+
+        <Dialog
           onClose={() => {
             this.setState({
               trafficdialog: false,
@@ -79,8 +80,8 @@ class TrafficExchange extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-    <div className="trafficstart">
-    <span
+          <div className="trafficstart">
+            <span
               className="floatright crossbtncolor mt-2"
               onClick={() => {
                 this.setState({
@@ -90,11 +91,8 @@ class TrafficExchange extends React.Component {
             >
               <FontAwesomeIcon icon={faTimes} />{" "}
             </span>
-            <div>
-            Hi I am in dialog box 
-            </div>
-    </div>
-
+            <div>Hi I am in dialog box</div>
+          </div>
         </Dialog>
       </div>
     );

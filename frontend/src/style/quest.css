@@ -1639,7 +1639,7 @@ input:disabled {
     /* background-color: crimson; */
     width: 25px;
     height: 25px;
-}
+  }
   .auth-button {
     margin: 5px;
     border-radius: 5px;
@@ -2067,70 +2067,65 @@ a.disabled {
   width: 20px;
   height: 20px;
 }
-.reactclick :hover{
- 
- background-color: #005d78 !important;
- 
-  
+.reactclick :hover {
+  background-color: #005d78 !important;
 }
-.reactclick{
+.reactclick {
   cursor: pointer !important;
 }
 
-.backtosigh11{
-  color:#005d78 !important ;
+.backtosigh11 {
+  color: #005d78 !important ;
 }
 .afterplaycolor21:active {
   color: white;
   background-color: #18758d;
   width: 100%;
   height: 23px;
-  
 }
-.forgotwidth{
+.forgotwidth {
   width: 100%;
   height: auto;
 }
-.videopop{
+.videopop {
   width: 40vh;
   /* float: right; */
   border: 1px solid #18758d;
   z-index: 999;
   position: relative;
-  margin-bottom: 20vh; 
-  border-radius: 10px ;
+  margin-bottom: 20vh;
+  border-radius: 10px;
   margin-right: 13%;
-
 }
 
-.historycolor{
-font-size: 20px;
-color: #005d78;
-font-weight: bold;
+.historycolor {
+  font-size: 20px;
+  color: #005d78;
+  font-weight: bold;
 }
-.textleftall{
+.textleftall {
   text-align: left;
   font-size: 12px !important;
 }
-.textalighnc{
+.textalighnc {
   text-align: center !important;
   font-weight: bold;
   margin-top: 13px !important;
 }
-.logoss{
+.logoss {
   height: 36px;
   margin-top: -48px;
 }
 
-.paddingbottomcard{
-margin-bottom: 20px;
-width: 100%;
+.paddingbottomcard {
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.userhistorydesighn{
+.userhistorydesighn {
   margin-top: 80px;
 }
-.headerhight{
+.headerhight {
   height: 58px;
 }
 @media only screen and (min-width: 480px) and (max-width: 800px) {
@@ -2147,13 +2142,23 @@ width: 100%;
     margin: 0px; */
   }
 }
-.headerbackground{
+.headerbackground {
   background-color: #3495a2;
   color: white;
   margin-bottom: 7px;
   height: 50px;
 }
-.cardheightset{
+.cardheightset {
   padding: 1px !important;
   padding-bottom: 13px !important;
+}
+.footerin {
+ 
+  background-color: black;
+  width: 100%;
+  height: 45px;
+  padding-top: 10px;
+}
+.footerin:hover{
+  color: white;
 }
