@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Container, Row, Col, Card, Form } from "react-bootstrap";
 
 import Grid from "@material-ui/core/Grid";
@@ -7,9 +7,12 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown } from "react-bootstrap";
 import {
   faPencilAlt,
   faTimes,
@@ -28,70 +31,105 @@ class TrafficExchange extends React.Component {
     this.trafficdialog = this.trafficdialog.bind(this);
     this.state = {
       trafficdialog: false,
+      url: "",
+      warning:"",
+      duration:10,
+      checkbrowser:false,
     };
   }
   trafficdialog() {
-    this.setState({
-      trafficdialog: !this.state.trafficdialog,
-    });
+  
+    if (this.state.url == "") {
+      alert("please enter the URL.");
+      return;
+    } 
+
+    var win = window.open(this.state.url);
+
+    // var win=  window.open("http://srcservicesltd.com/");
+    setTimeout(function () {
+      win.close();
+    }, 10000);
   }
+
+componentWillMount(){
+  //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
+  let tempp= navigator.userAgent.search("Firefox") == -1;
+  
+this.setState({
+checkbrowser:tempp
+})
+}
   render() {
     return (
       <div className="mt-5">
+        <div className=" container">
+          <div className="traffic inputtraffic ">
+            <Form.Label className="leftt mt-3">Enter Url</Form.Label>
+            <Form.Control
+              type="Url"
+              value={this.state.url}
+              className="mt-3"
+              onChange={(e) => {
+                this.setState({
+                  url: e.target.value,
+                });
+              }}
+            />
+          </div>
+          {this.state.checkbrowser==true?   
+             <div className="alertcolor">Fire fox + PC is STRONGLY recommended
+</div>: ""}
       
-      <div className="traffic container">  <Grid className="mt-5">
-      
-         
-            <div className="inputtraffic ">
-              <Form.Label className="leftt mt-3">Enter Url</Form.Label>
-              <Form.Control
-                type="name"
-                id="Name"
-                value={this.state.uid}
-                className="mt-3"
-                onChange={(e) => {
-                  this.state = {
-                    trafficdialog: true,
-                  };
-                }}
-              />   <Form.Label className="leftt mt-3">Enter Time Limit</Form.Label><br/><br/>
-             <Dropdown className="leftt">
-  <Dropdown.Toggle variant="dark" id="dropdown-basic">
-   Time Limit
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-            </div>
+          <div className="timecenter">
+            <span className="mr-4 mt-2">
+              <p>Enter Time Limit</p>
+            </span>{" "}
+            <span>
            
-         
-        
-        </Grid></div>
-     
-        <div className="buttoncenter mb-5 mt-5">
-             
-              <Button
-                variant="contained"
-                className="startbtn"
-                onClick={this.trafficdialog}
-               >
-                Start
-              </Button>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={this.state.duration}
+          onChange={(e)=>{
+            this.setState({
+              duration:e.target.value
+            })
+          }}
+        >
+           <MenuItem value={1}>1 min</MenuItem>
+          <MenuItem value={2}>2 min</MenuItem>
+          <MenuItem value={3}>3 min</MenuItem>
+          <MenuItem value={5}>5 min</MenuItem>
+          <MenuItem value={10}>10 min</MenuItem>
+          <MenuItem value={20}>20 min</MenuItem>
+          <MenuItem value={30}>30 min</MenuItem>
+        </Select>
               
-              <Button
-                variant="contained"
-                className="startbtn ml-5"
-                onClick={this.trafficdialog}
-               >
-               Stop
-              </Button>
-            </div>
+            </span>
+          </div>
+        
+        </div>
 
-        <Dialog
+        <div className="buttoncenter mb-5 mt-5">
+          <Button
+            variant="contained"
+            className="startbtn"
+            onClick={this.trafficdialog}
+          >
+            Start
+          </Button>
+
+          <Button
+            variant="contained"
+            className="startbtn ml-5"
+            // onClick={this.trafficdialog}
+          >
+            Stop
+          </Button>
+        </div>
+
+        {/* <Dialog
           onClose={() => {
             this.setState({
               trafficdialog: false,
@@ -114,7 +152,7 @@ class TrafficExchange extends React.Component {
             </span>
             <div>Hi I am in dialog box</div>
           </div>
-        </Dialog>
+        </Dialog> */}
       </div>
     );
   }

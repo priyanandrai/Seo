@@ -37,16 +37,16 @@ class Leftpanel extends React.Component {
     });
   };
 
-  closeNav = () => {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("leftmain").style.marginLeft = "0";
-  };
+  // closeNav = () => {
+  //   document.getElementById("mySidenav").style.width = "0";
+  //   document.getElementById("leftmain").style.marginLeft = "0";
+  // };
   render() {
     return (
       <div>
         {this.state.panelshow ? (
           <div id="mySidenav" class="sidenav">
-            <Accordion>
+            <Accordion className="mt-3">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1bh-content"
