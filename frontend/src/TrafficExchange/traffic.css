@@ -13,8 +13,16 @@
     width:100%;
     text-align: center;
 }
-.inputwidth{
-
-
-    
+.traffic{
+  
+    text-align: center;
+}
+.inputtraffic{
+    width:100%;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom: 5%;
+}
+.leftt{
+    float: left;
 }
