@@ -8,6 +8,15 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
 import Dialog from "@material-ui/core/Dialog";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPencilAlt,
+  faTimes,
+  faDownload,
+  faUser,
+  faPlay,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import Button from "@material-ui/core/Button";
 import { getAuthData, isLoggedIn } from "../utils";
 import Input from "../components/Input";
@@ -15,14 +24,14 @@ import "./traffic.css";
 class TrafficExchange extends React.Component {
   constructor(props) {
     super(props);
-    this.handlesubmit=this.handlesubmit.bind(this);
+    this.trafficdialog=this.trafficdialog.bind(this);
     this.state = {
       trafficdialog:false
     };
   }
-  handlesubmit(){
-    this.setState = ({
-      trafficdialog:true
+  trafficdialog(){
+    this.setState  ({
+      trafficdialog :!this.state.trafficdialog
     });
   }
   render() {
@@ -48,7 +57,7 @@ class TrafficExchange extends React.Component {
            <div className="ms"> <Button
                             variant="contained"
                             className="startbtn btttn mt-5"
-                            onClick={this.handlesubmit}
+                            onClick={this.trafficdialog}
                             // onClick={(e) => {
                             //   this.setState = {
                             //     trafficdialog:false
@@ -70,7 +79,21 @@ class TrafficExchange extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-    <div className="trafficstart">Hi I am in dialog box </div>
+    <div className="trafficstart">
+    <span
+              className="floatright crossbtncolor mt-2"
+              onClick={() => {
+                this.setState({
+                  trafficdialog: false,
+                });
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+            <div>
+            Hi I am in dialog box 
+            </div>
+    </div>
 
         </Dialog>
       </div>

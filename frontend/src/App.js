@@ -17,6 +17,7 @@ import Logout from "./logout/logout";
 import Adminheader from "./profile/adminheader";
 import Userhistory from "./profile/userhistory";
 import TrafficExchange from "./TrafficExchange/TrafficExchange";
+import Yourwebsite from "./yourwebsite/yourwebsite"
 
 
 import {
@@ -63,6 +64,7 @@ function App() {
         <Route exact path="/adminute-dashboard" component={Admin_Dashboard}  />
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
         <Route exact path="/trafficexchange" component={TrafficExchange}  />
+        <Route exact path="/website" component={Yourwebsite}  />
       </Router>
        );
 

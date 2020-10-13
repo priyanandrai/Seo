@@ -38,8 +38,8 @@ class Leftpanel extends React.Component {
             &times;
           </a>
           <a href="#">Home Page</a>
-          <a href="#">Your Website</a>
-          <a href="#">Traffic Exchange</a>
+          <a href="website">Your Website</a>
+          <a href="trafficexchange">Traffic Exchange</a>
           {/* <a href="#">Contact</a> */}
         </div>
            ) : null} 
