@@ -27,8 +27,9 @@
     float: center;
 }
 .timecenter{
-    text-align: center;
-    display: flex;
+    text-align: center !important;
+  display: flex !important;
+       float:center !important;
 }
 .alertcolor{
     color:red;

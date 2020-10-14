@@ -7,9 +7,9 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dropdown } from "react-bootstrap";
@@ -28,38 +28,40 @@ import "./traffic.css";
 class TrafficExchange extends React.Component {
   constructor(props) {
     super(props);
+    this.trafficdialogend = this.trafficdialogend.bind(this);
     this.trafficdialog = this.trafficdialog.bind(this);
     this.state = {
       trafficdialog: false,
       url: "",
-      warning:"",
-      duration:10,
-      checkbrowser:false,
+      warning: "",
+      duration: 30000,
+      checkbrowser: false,
     };
   }
   trafficdialog() {
-  
     if (this.state.url == "") {
       alert("please enter the URL.");
       return;
-    } 
-
+    }
     var win = window.open(this.state.url);
-
     // var win=  window.open("http://srcservicesltd.com/");
     setTimeout(function () {
       win.close();
-    }, 10000);
+    }, this.state.duration);
   }
 
-componentWillMount(){
-  //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
-  let tempp= navigator.userAgent.search("Firefox") == -1;
-  
-this.setState({
-checkbrowser:tempp
-})
-}
+  trafficdialogend() {
+    window.close(this.state.url);    
+  }
+
+  componentWillMount() {
+    //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
+    let tempp = navigator.userAgent.search("Firefox") == -1;
+
+    this.setState({
+      checkbrowser: tempp,
+    });
+  }
   render() {
     return (
       <div className="mt-5">
@@ -77,38 +79,39 @@ checkbrowser:tempp
               }}
             />
           </div>
-          {this.state.checkbrowser==true?   
-             <div className="alertcolor">Fire fox + PC is STRONGLY recommended
-</div>: ""}
-      
-          <div className="timecenter">
+          {this.state.checkbrowser == true ? (
+            <div className="alertcolor">
+              Fire fox + PC is STRONGLY recommended
+            </div>
+          ) : (
+            ""
+          )}
+
+          <div className="timecenter justify-content-center mt-2">
             <span className="mr-4 mt-2">
               <p>Enter Time Limit</p>
             </span>{" "}
             <span>
-           
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={this.state.duration}
-          onChange={(e)=>{
-            this.setState({
-              duration:e.target.value
-            })
-          }}
-        >
-           <MenuItem value={1}>1 min</MenuItem>
-          <MenuItem value={2}>2 min</MenuItem>
-          <MenuItem value={3}>3 min</MenuItem>
-          <MenuItem value={5}>5 min</MenuItem>
-          <MenuItem value={10}>10 min</MenuItem>
-          <MenuItem value={20}>20 min</MenuItem>
-          <MenuItem value={30}>30 min</MenuItem>
-        </Select>
-              
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={this.state.duration}
+                onChange={(e) => {
+                  this.setState({
+                    duration: e.target.value,
+                  });
+                }}
+              >
+                <MenuItem value={30000}>30 Sec</MenuItem>
+                <MenuItem value={60000}>1 min</MenuItem>
+                <MenuItem value={120000}>2 min</MenuItem>
+                <MenuItem value={180000}>3 min</MenuItem>
+                <MenuItem value={240000}>4 min</MenuItem>
+                <MenuItem value={300000}>5 min</MenuItem>
+               
+              </Select>
             </span>
           </div>
-        
         </div>
 
         <div className="buttoncenter mb-5 mt-5">
@@ -123,7 +126,7 @@ checkbrowser:tempp
           <Button
             variant="contained"
             className="startbtn ml-5"
-            // onClick={this.trafficdialog}
+            onClick={this.trafficdialogend}
           >
             Stop
           </Button>
