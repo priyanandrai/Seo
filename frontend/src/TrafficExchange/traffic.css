@@ -32,6 +32,14 @@
        float:center !important;
 }
 .alertcolor{
-    color:red;
+padding-left: 25%;
+padding-right: 25%;
+    color:white;
     text-align:center;
+}
+.waringcolor{
+    
+    
+    padding: 2% 5% 2%;
+    background-color: #F44336;
 }

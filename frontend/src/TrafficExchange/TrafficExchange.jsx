@@ -95,7 +95,8 @@ class TrafficExchange extends React.Component {
           </div>
           {this.state.checkbrowser == true ? (
             <div className="alertcolor">
-              Fire fox + PC is STRONGLY recommended
+              
+             <p className="waringcolor"> Fire fox + PC is STRONGLY recommended</p>
             </div>
           ) : (
             ""
