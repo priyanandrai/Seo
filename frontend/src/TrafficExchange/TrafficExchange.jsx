@@ -34,8 +34,15 @@ class TrafficExchange extends React.Component {
       trafficdialog: false,
       url: "",
       warning: "",
-      duration: 30000,
+      duration: 10000,
       checkbrowser: false,
+      list: [
+        "http://srcservicesltd.com/",
+        "http://srcservicesltd.com/testing-as-a-services",
+        "http://srcservicesltd.com/development-as-a-services",
+        "https://www.gurukulzone.com/",
+        "https://www.gurukulzone.com/javascript/index.html",
+      ],
     };
   }
   trafficdialog() {
@@ -43,15 +50,22 @@ class TrafficExchange extends React.Component {
       alert("please enter the URL.");
       return;
     }
-    var win = window.open(this.state.url);
-    // var win=  window.open("http://srcservicesltd.com/");
-    setTimeout(function () {
-      win.close();
-    }, this.state.duration);
+
+    console.log("Hii list loop start ");
+    for (let i = 0; i < this.state.list.length; i++) {
+      console.log(this.state.list[i]);
+      var win = window.open(this.state.list[i]);
+      setTimeout(function () {
+        win.close();
+      }, this.state.duration);
+    }
   }
 
   trafficdialogend() {
-    window.close(this.state.url);    
+    window.close();
+    // setTimeout(function () {
+    //   window.close(this.state.url);
+    // }, 1);
   }
 
   componentWillMount() {
@@ -102,13 +116,12 @@ class TrafficExchange extends React.Component {
                   });
                 }}
               >
-                <MenuItem value={30000}>30 Sec</MenuItem>
+                <MenuItem value={10000}>10 Sec</MenuItem>
                 <MenuItem value={60000}>1 min</MenuItem>
                 <MenuItem value={120000}>2 min</MenuItem>
                 <MenuItem value={180000}>3 min</MenuItem>
                 <MenuItem value={240000}>4 min</MenuItem>
                 <MenuItem value={300000}>5 min</MenuItem>
-               
               </Select>
             </span>
           </div>
