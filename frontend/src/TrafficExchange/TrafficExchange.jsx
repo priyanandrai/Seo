@@ -16,6 +16,7 @@ import { Dropdown } from "react-bootstrap";
 import {
   faPencilAlt,
   faTimes,
+  faExclamationTriangle,
   faDownload,
   faUser,
   faPlay,
@@ -95,8 +96,8 @@ class TrafficExchange extends React.Component {
           </div>
           {this.state.checkbrowser == true ? (
             <div className="alertcolor">
-              
-             <p className="waringcolor"> Fire fox + PC is STRONGLY recommended</p>
+             
+             <p className="waringcolor">   <FontAwesomeIcon icon={faExclamationTriangle} className="mr-2" />Fire fox + PC is STRONGLY recommended</p>
             </div>
           ) : (
             ""
