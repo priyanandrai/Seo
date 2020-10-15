@@ -563,7 +563,7 @@ class Nav extends Component {
     
     return (
       <AppBar position="fixed">
-        <Toolbar classname="navigationbar" variant="dense">
+        <Toolbar className="navigationbar" variant="dense">
       
           {this.state.isLogged == true ? (
            
@@ -591,17 +591,17 @@ class Nav extends Component {
               <div className="d-flex">
                 {/* {this.state.adminGuard == false &&
                 this.state.adminprofile == false ? ( */}
-                <a class="nav-link text-dark Balancebold">
+                <a className="nav-link text-dark Balancebold">
                   Balance:
                   <span className="align-middle">{this.state.balance}</span>
                 </a>
                 {/* // ) : null} */}
 
-                <a class="navbar-brand mr-0" href="">
+                <a className="navbar-brand mr-0" href="">
                   <img width="30" height="30" src={login} className="logomin" />
                 </a>
                 <a
-                  class="nav-link dropdown-toggle text-dark dropdownss dropwidth"
+                  className="nav-link dropdown-toggle text-dark dropdownss dropwidth"
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
@@ -612,7 +612,7 @@ class Nav extends Component {
                   {this.state.user}
                 </a>
                 <div
-                  class="dropdown-menu dropdown-menu-right drophover margindrop"
+                  className="dropdown-menu dropdown-menu-right drophover margindrop"
                   aria-labelledby="navbarDropdown"
                 >
                   {/* {this.state.adminGuard == false &&
@@ -623,37 +623,37 @@ class Nav extends Component {
                   >
                     <b>Unique Id: {this.state.id}</b>
                   </a>
-                  <a class="dropdown-item" href="profile">
+                  <a className="dropdown-item" href="profile">
                     View Profile
                   </a>
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  {/* <a class="dropdown-item" onClick={this.AddBalance}>
+                  {/* <a className="dropdown-item" onClick={this.AddBalance}>
                     Add Balance
                   </a> */}
                   {/* ) : null} */}
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a class="dropdown-item" href="dashboard">
+                  <a className="dropdown-item" href="dashboard">
                     DashBoard
                   </a>
                   {/* ) : null} */}
-                  <a class="dropdown-item" href="history">
+                  <a className="dropdown-item" href="history">
                    View History
                   </a>
                   
-                  <a class="dropdown-item" onClick={this.dialogBox1}>
+                  <a className="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a class="dropdown-item" onClick={this.dialogBox2}>
+                  <a className="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
                   {/* ) : null} */}
 
-                  <a class="dropdown-item" onClick={this.logout}>
+                  <a className="dropdown-item" onClick={this.logout}>
                     Logout
                   </a>
                 </div>
@@ -682,21 +682,21 @@ class Nav extends Component {
                      </button>
                       }); */}
                   <a
-                    class="dropdown-item"
+                    className="dropdown-item"
                     href="#"
                     onClick={() => this.openModal("signin")}
                   >
                     Login
                   </a>
                   <a
-                    class="dropdown-item"
+                    className="dropdown-item"
                     href="#"
                     onClick={() => this.openModal("signup")}
                   >
                     Register
                   </a>
                   <a
-                    class="dropdown-item"
+                    className="dropdown-item"
                     href="#"
                     onClick={() => this.openModal("contactus")}
                   >
@@ -1254,7 +1254,7 @@ class Nav extends Component {
                   <fieldset className="inputHome mt-2  ml-3 mr-3 emailwidth">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Email"
                       value={this.state.email}
                       onChange={(e) => {
@@ -1409,8 +1409,8 @@ class Nav extends Component {
             </div>
           </div>
         </Dialog> */}
-        {/* <div id="mySidenav" class="sidenav mt-5">
-          <a href="javascript:void(0)" class="closebtn"  onClick={this.closeNav}>
+        {/* <div id="mySidenav" className="sidenav mt-5">
+          <a href="javascript:void(0)" className="closebtn"  onClick={this.closeNav}>
             &times;
           </a>
           <a href="#">About</a>
