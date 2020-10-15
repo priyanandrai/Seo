@@ -62,8 +62,8 @@ class TrafficExchange extends React.Component {
   }
   render() {
     return (
-      <div className="mt-5">
-        <div className=" container">
+      <div className="mt-5 container">
+        <div>
           <div className="traffic inputtraffic ">
             <Form.Label className="leftt mt-3">Enter Url</Form.Label>
             <Form.Control
