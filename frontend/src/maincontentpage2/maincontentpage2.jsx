@@ -576,7 +576,7 @@ let url = videourl + visualId + ".mp4";
               <p>
                 {" "}
                
-                <span>{key.taskstatus} </span>  {key.taskstatus=="Pending"?"":<span>{loader}</span>}
+                <span>{key.taskstatus} </span>  {key.taskstatus==="Pending"?"":<span>{loader}</span>}
               </p>
             ))
         );

@@ -7,23 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilAlt,
   faTimes,
-  faDownload,
   faAngleDoubleDown,
-  faUser,
-  faPlay,
-  faTrash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-import Input from "../components/Input";
-import { Container, Row, Col, Form } from "react-bootstrap";
-import Button from "../components/Button";
+import { Form } from "react-bootstrap";
 import TextField from "@material-ui/core/TextField";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/semantic-ui.css";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import HOC1 from "../components/HOC1";
-import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
@@ -195,43 +188,43 @@ class Admin_profile extends Component {
   }
   editForm = (para) => {
     // const { username} = this.state
-    if (para == "username") {
+    if (para === "username") {
       this.setState({ usernameEnable: false });
       // if(username == ""){
       //   alert("Please enter name")
       // }
     }
-    if (para == "unique") {
+    if (para === "unique") {
       this.setState({ uniqueEnable: false });
     }
-    if (para == "account") {
+    if (para === "account") {
       this.setState({ accountEnable: false });
     }
-    if (para == "balance") {
+    if (para === "balance") {
       this.setState({ balanceEnable: false });
     }
-    if (para == "email") {
+    if (para === "email") {
       this.setState({ emailEnable: false });
     }
-    if (para == "mobile") {
+    if (para === "mobile") {
       this.setState({ mobileEnable: false });
     }
-    if (para == "profession") {
+    if (para === "profession") {
       this.setState({ professionEnable: false });
     }
-    if (para == "organization") {
+    if (para === "organization") {
       this.setState({ organizationEnable: false });
     }
   };
   drilldown = (para) => {
     this.setState({ drilldown: !this.state.drilldown });
-    if (para == "Search Engine Submission") {
+    if (para === "Search Engine Submission") {
       this.setState({ taskTitle: "Search Engine Submission" });
     }
-    if (para == "Social book marketing") {
+    if (para === "Social book marketing") {
       this.setState({ taskTitle: "Social book marketing" });
     }
-    if (para == "Classified Submission") {
+    if (para === "Classified Submission") {
       this.setState({ taskTitle: "Classified Submission" });
     }
   };
@@ -267,7 +260,7 @@ class Admin_profile extends Component {
   componentWillMount() {
     //let temp = isLoggedIn();
     let temp = window.localStorage.getItem("isadminuteLoggedin");
-    if (temp == "ankur") {
+    if (temp === "ankur") {
     } else {
       window.location = "/adminute-home";
     }
