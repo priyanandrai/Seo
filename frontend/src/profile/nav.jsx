@@ -316,7 +316,7 @@ class Nav extends Component {
       // how_account_dropdown,
       // modal_open,
       modal_type,
-      phone,
+      // phone,
       full_name,
       // email,
       // password,
@@ -581,7 +581,7 @@ class Nav extends Component {
             </a> </div>
           ) : (
             <a href="/home">
-              <img className="logos" src={logo} />
+              <img className="logos" src={logo} alt=""/>
             </a>
            
           )}
@@ -591,16 +591,16 @@ class Nav extends Component {
               <div className="d-flex">
                 {/* {this.state.adminGuard == false &&
                 this.state.adminprofile == false ? ( */}
-                <a className="nav-link text-dark Balancebold">
+                <a href="/#" className="nav-link text-dark Balancebold">
                   Balance:
                   <span className="align-middle">{this.state.balance}</span>
                 </a>
                 {/* // ) : null} */}
 
-                <a className="navbar-brand mr-0" href="">
-                  <img width="30" height="30" src={login} className="logomin" />
+                <a className="navbar-brand mr-0" href="/#">
+                  <img width="30" height="30" src={login} className="logomin" alt="" />
                 </a>
-                <a
+                <a href="/#"
                   className="nav-link dropdown-toggle text-dark dropdownss dropwidth"
                   id="navbarDropdown"
                   role="button"
@@ -617,7 +617,7 @@ class Nav extends Component {
                 >
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a
+                  <a href="/#"
                     // onClick={this.UniqueId}
                     className=" dropdown-item"
                   >
@@ -643,17 +643,17 @@ class Nav extends Component {
                    View History
                   </a>
                   
-                  <a className="dropdown-item" onClick={this.dialogBox1}>
+                  <a  href="/#" className="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a className="dropdown-item" onClick={this.dialogBox2}>
+                  <a  href="/#" className="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
                   {/* ) : null} */}
 
-                  <a className="dropdown-item" onClick={this.logout}>
+                  <a  href="/#" className="dropdown-item" onClick={this.logout}>
                     Logout
                   </a>
                 </div>
@@ -683,21 +683,21 @@ class Nav extends Component {
                       }); */}
                   <a
                     className="dropdown-item"
-                    href="#"
+                    href="/#"
                     onClick={() => this.openModal("signin")}
                   >
                     Login
                   </a>
                   <a
                     className="dropdown-item"
-                    href="#"
+                    href="/#"
                     onClick={() => this.openModal("signup")}
                   >
                     Register
                   </a>
                   <a
                     className="dropdown-item"
-                    href="#"
+                    href="/#"
                     onClick={() => this.openModal("contactus")}
                   >
                     Contact Us
@@ -913,7 +913,7 @@ class Nav extends Component {
                 )}
 
                 <div>
-                  {modal_type != "signup" ? null : (
+                  {modal_type !== "signup" ? null : (
                     <p className="terms3">
                       <input
                         type="checkbox"
@@ -933,11 +933,11 @@ class Nav extends Component {
                       type="submit"
                       value="Sign Up"
                       disabled={
-                        this.state.phone == "" ||
-                        this.state.email == "" ||
-                        this.state.password == "" ||
-                        this.state.full_name == "" ||
-                        this.state.confirm_password == ""
+                        this.state.phone === "" ||
+                        this.state.email === "" ||
+                        this.state.password ==="" ||
+                        this.state.full_name === "" ||
+                        this.state.confirm_password === ""
                       }
                     />
                   )}
@@ -946,7 +946,7 @@ class Nav extends Component {
                       type="submit"
                       value="Sign In"
                       disabled={
-                        this.state.phone == "" || this.state.password == ""
+                        this.state.phone === "" || this.state.password === ""
                       }
                     />
                   )}
@@ -991,7 +991,7 @@ class Nav extends Component {
                       <Button
                         type="submit"
                         value="Send Reset Instructions"
-                        disabled={this.state.email == ""}
+                        disabled={this.state.email === ""}
                       />
                     </div>
                   )}
@@ -1104,10 +1104,10 @@ class Nav extends Component {
                 }}
               />
               <div className="d-flex">
-                <a href="" className="ml-5 mr-auto mt-2 resendotp">
+                <a href="/#" className="ml-5 mr-auto mt-2 resendotp">
                   Try Another Number
                 </a>
-                <a href="" className="mr-5 mt-2 resendotp">
+                <a href="/#" className="mr-5 mt-2 resendotp">
                   Resend OTP
                 </a>
               </div>
