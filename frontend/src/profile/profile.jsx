@@ -557,7 +557,7 @@ error:"",
             </div>
 
             <div className="pt-2 upgrademargin ">
-              <a onClick={this.dialogBox} className="upgradetext">
+              <a  href="/#" onClick={this.dialogBox} className="upgradetext">
                 Upgrade to Premium
               </a>
             </div>
