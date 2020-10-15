@@ -1,21 +1,9 @@
 import React, { Component } from "react";
 import "./profile.css";
 import "../style/quest.css";
-import Dialog from "@material-ui/core/Dialog";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPencilAlt,
-  faTimes,
-  faDownload,
-  faUser,
-  faPlay,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
-import Input from "../components/Input";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Button from "../components/Button";
 import HOC1 from "../components/HOC1";
-import { getAuthData, isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
@@ -24,7 +12,7 @@ class Admin extends Component {
     super(props);
     this.state = {
       Name: "",
-      pwd:"",
+      pwd: "",
     };
   }
   adminlogin = () => {
@@ -50,9 +38,8 @@ class Admin extends Component {
     //   return;
     // }
 
-
     let temp = {
-		adminname:this.state.Name,
+      adminname: this.state.Name,
       //mobileNumber: this.state.Name,
       password: this.state.pwd,
     };
@@ -61,15 +48,14 @@ class Admin extends Component {
       .post(url, temp)
       .then(
         (response) => {
-			console.log("My admin response ",response);
-          if (response.data.message != undefined) {
+          console.log("My admin response ", response);
+          if (response.data.message !== undefined) {
             alert(response.data.message);
             return;
           }
-         
+
           window.localStorage.setItem("isadminuteLoggedin", "ankur");
-       
-		 
+
           window.location = "adminute-dashboard";
         },
         (error) => {
@@ -77,24 +63,17 @@ class Admin extends Component {
         }
       )
       .catch((e) => {});
-
-
-
-
- 
-    
   };
-//   componentWillMount() {
-//     let temp = !window.localStorage.getItem("isadminuteLoggedin");
-// // alert(isLoggedIn());
-// if(temp == true || temp =="true"){
- 
+  //   componentWillMount() {
+  //     let temp = !window.localStorage.getItem("isadminuteLoggedin");
+  // // alert(isLoggedIn());
+  // if(temp == true || temp =="true"){
 
-// }else{
-//   console.log("user is login and have a session ")
-// window.location ="/adminute-dashboard";
-// }
-//   }
+  // }else{
+  //   console.log("user is login and have a session ")
+  // window.location ="/adminute-dashboard";
+  // }
+  //   }
 
   render() {
     return (
@@ -117,9 +96,7 @@ class Admin extends Component {
             placeholder="Enter user name"
             id="Name"
             className="inputwidth"
-              onChange={(e) =>
-                this.setState({ Name: e.target.value })
-              }
+            onChange={(e) => this.setState({ Name: e.target.value })}
           />
         </div>
         <div className="ml-4 mt-4">
@@ -129,9 +106,7 @@ class Admin extends Component {
             placeholder="Enter password"
             id="pwd"
             className="inputwidth"
-              onChange={(e) =>
-                this.setState({ pwd: e.target.value })
-              }
+            onChange={(e) => this.setState({ pwd: e.target.value })}
           />
         </div>
         <div className="mt-4 mb-4">
