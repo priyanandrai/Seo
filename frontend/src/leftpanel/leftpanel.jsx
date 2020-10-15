@@ -1,11 +1,5 @@
 import React from "react";
-import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import "../maincontentpage/main.css";
-import Grid from "@material-ui/core/Grid";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import ReactPlayer from "react-player";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -17,9 +11,8 @@ import logo2 from "../images/logo2.png";
 import logo3 from "../images/logo3.png";
 import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.jpg";
-import { getAuthData, isLoggedIn } from "../utils";
 import "./leftpanel.css";
-import { Traffic } from "@material-ui/icons";
+
 
 class Leftpanel extends React.Component {
   constructor(props) {
@@ -30,17 +23,11 @@ class Leftpanel extends React.Component {
     };
   }
   openNav = () => {
-    //  document.getElementById("mySidenav").style.width = "250px";
-    // document.getElementById("leftmain").style.marginLeft = "250px";
+   
     this.setState({
       panelshow: !this.state.panelshow,
     });
   };
-
-  // closeNav = () => {
-  //   document.getElementById("mySidenav").style.width = "0";
-  //   document.getElementById("leftmain").style.marginLeft = "0";
-  // };
   render() {
     return (
       <div>
@@ -87,7 +74,7 @@ class Leftpanel extends React.Component {
                     </Accordion> */}
                     <div className="d-flex">
                       <span>
-                        <img className="logowidthhight" src={logo2} />
+                        <img className="logowidthhight" src={logo2} alt="" />
                       </span>
                       <span>
                         <a
@@ -100,7 +87,7 @@ class Leftpanel extends React.Component {
                     </div>
                     <div className="d-flex">
                       <span>
-                        <img className="logowidthhight" src={logo3} />
+                        <img className="logowidthhight" src={logo3} alt="" />
                       </span>
                       <span>
                         <a
@@ -113,7 +100,7 @@ class Leftpanel extends React.Component {
                     </div>
                     <div className="d-flex">
                       <span>
-                        <img className="logowidthhight" src={logo4} />
+                        <img className="logowidthhight" src={logo4} alt="" />
                       </span>
 
                       <span>
@@ -124,7 +111,7 @@ class Leftpanel extends React.Component {
                     </div>
                     <div className="d-flex">
                       <span>
-                        <img className="logowidthhight" src={logo5} />
+                        <img className="logowidthhight" src={logo5} alt="" />
                       </span>
 
                       <span>
