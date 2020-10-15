@@ -1,4 +1,62 @@
-.websitecolor{
-    color: red;
-  
+.websitecloro{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    width: 80vh;
+  height: auto;
+  /* border: 1px solid gray; */
+}
+.logoheight{
+    height: 36px;
+}
+.logocenter{
+    text-align: center;
+}
+.fontweighthight{
+    font-weight: bold;
+    font-size: 40px;
+    color: cadetblue;
+}
+.parapadiing{
+    font-family: century;
+    text-align: center;
+
+}
+.button_center{
+    text-align: center;
+}
+.button_color{
+    background-color:#F3F201 ;
+    text-decoration: none !important;
+    outline: none !important;
+    color: black !important;
+}
+.icons_padding{
+    text-align: center;
+    
+}
+.facbook_size{
+    width: 40px;
+}
+.youtube_size{
+    width: 45px;
+}
+.pin_size{
+    width: 40px;
+}
+.notifiy_width{
+    width: 60vh;
+    height: 50vh;
+}
+.facbook_size1{
+    width: 25px;
+}
+.thank_you{
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    color: cadetblue;
+}
+.subscribe_our{
+    text-align: center;
+    font-family: century;
 }
