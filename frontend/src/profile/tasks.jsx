@@ -1,24 +1,8 @@
 import React, { Component } from "react";
 import "./profile.css";
 import Grid from "@material-ui/core/Grid";
-import Dialog from "@material-ui/core/Dialog";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPencilAlt,
-  faTimes,
-  faDownload,
-  faPlay,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
