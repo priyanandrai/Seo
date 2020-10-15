@@ -6,7 +6,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
 import HOC from "../components/HOC";
-import { getAuthData, isLoggedIn } from "../utils";
+import {  isLoggedIn } from "../utils";
 
 class Home extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Home extends Component {
   componentWillMount() {
     let temp = !isLoggedIn();
 
-    if (temp == true || temp == "true") {
+    if (temp === true || temp === "true") {
       // console(isLoggedIn)
     } else {
       window.location = "/dashboard";
