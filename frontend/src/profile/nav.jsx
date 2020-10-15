@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./profile.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/semantic-ui.css";
@@ -9,39 +9,39 @@ import logo from "../images/logo.png";
 import login from "../images/login.png";
 import "../style/quest.css";
 import "../App.css";
-import { NavLink } from "react-router-dom";
-import { animateScroll as scroll } from "react-scroll";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as authActions from "../actions/auth";
-import Confirmotp from "../confirmotp/confirmotp";
+// import { NavLink } from "react-router-dom";
+// import { animateScroll as scroll } from "react-scroll";
+// import { connect } from "react-redux";
+// import { bindActionCreators } from "redux";
+// import * as authActions from "../actions/auth";
+// import Confirmotp from "../confirmotp/confirmotp";
 import axios from "axios";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
 import Input from "../components/Input";
-import Label from "../components/Label";
+// import Label from "../components/Label";
 import Button from "../components/Button";
-import { getAuthData, isLoggedIn } from "../utils";
+// import { getAuthData, isLoggedIn } from "../utils";
 import Dialog from "@material-ui/core/Dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Checkbox from "@material-ui/core/Checkbox";
+// import Checkbox from "@material-ui/core/Checkbox";
 import { getBaseUrl } from "../utils";
 
 import {
-  faWindowClose,
+ 
   faKey,
   faEnvelope,
   faUser,
   faEye,
   faTimes,
   faBars,
-  faPhone,
+  
 } from "@fortawesome/free-solid-svg-icons";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
-import Logout from "../logout/logout";
+// import Logout from "../logout/logout";
 import Leftpanel from "../leftpanel/leftpanel";
 class Nav extends Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class Nav extends Component {
   // }
   submitrequest = () => {
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (this.state.email == "") {
+    if (this.state.email === "") {
       this.setState({
         snackbar: true,
         error: "Enter your Email",
@@ -109,7 +109,7 @@ class Nav extends Component {
       // alert("Please valid Email");
       return;
     }
-    if (this.state.message == "") {
+    if (this.state.message === "") {
       this.setState({
         snackbar: true,
         error: "Enter your message",
@@ -168,7 +168,7 @@ class Nav extends Component {
     this.setState({ dialogBox2: !this.state.dialogBox2 });
   };
   chnagepassword = () => {
-    if (this.state.currentPassword.length == "") {
+    if (this.state.currentPassword.length === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the old password",
@@ -176,7 +176,7 @@ class Nav extends Component {
       // alert("Please enter the old password");
       return;
     }
-    if (this.state.newPassword.length == "") {
+    if (this.state.newPassword.length === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the new password",
@@ -192,7 +192,7 @@ class Nav extends Component {
       // alert("Password must be 8 characters long");
       return;
     }
-    if (this.state.conf_pass.length == "") {
+    if (this.state.conf_pass.length === "") {
       this.setState({
         snackbar: true,
         error: "Please enter Confirm Password ",
@@ -248,7 +248,7 @@ class Nav extends Component {
     // }
     let temp = window.localStorage.getItem("isLoggedIn");
     // alert(temp)
-    if (temp == true || temp == "true") {
+    if (temp === true || temp === "true") {
       let user = window.localStorage.getItem("user");
       let newUser = user.substring(0, 8);
       this.setState({
@@ -276,7 +276,7 @@ class Nav extends Component {
   };
 
   openModal(type) {
-    if (type == "contactus") {
+    if (type === "contactus") {
       window.open("http://srcservicesltd.com/contactus");
       return;
     }
@@ -313,19 +313,19 @@ class Nav extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     const {
-      how_account_dropdown,
-      modal_open,
+      // how_account_dropdown,
+      // modal_open,
       modal_type,
       phone,
       full_name,
-      email,
-      password,
-      confirm_password,
-      checkbox,
+      // email,
+      // password,
+      // confirm_password,
+      // checkbox,
     } = this.state;
 
     if (modal_type === "signup") {
-      if (this.state.phone == undefined || this.state.phone.length < 10) {
+      if (this.state.phone === undefined || this.state.phone.length < 10) {
         // alert("Phone number must be 10 digit");
         this.setState({
           snackbar: true,
@@ -409,7 +409,7 @@ class Nav extends Component {
             //   alert(response.data.message);
             // }else
             // {// }
-            if (response.data.message == undefined) {
+            if (response.data.message === undefined) {
             } else {
               alert(response.data.message);
               return;
@@ -461,11 +461,11 @@ class Nav extends Component {
         .post(url, temp)
         .then(
           (response) => {
-            if (response.data.message != undefined) {
+            if (response.data.message !== undefined) {
               alert(response.data.message);
               return;
             }
-            let tmp = response.data;
+            // let tmp = response.data;
             window.localStorage.setItem("isLoggedIn", true);
             window.localStorage.setItem("user", response.data.name);
             window.localStorage.setItem("id", response.data.id);
@@ -531,7 +531,7 @@ class Nav extends Component {
       console.log("My endpoint name is", data, index);
 
       let temp =
-        window.location.href.indexOf("adminute") == -1 ? (
+        window.location.href.indexOf("adminute") === -1 ? (
           // window.location.pathname != "/adminute" &&
           // window.location.pathname != "/adminute-dashboard" &&
           // window.location.pathname != "/444-profile" ? (
@@ -549,15 +549,15 @@ class Nav extends Component {
       return temp;
     });
     const {
-      show_account_dropdown,
-      modal_open,
+      // show_account_dropdown,
+      // modal_open,
       modal_type,
       full_name,
       email,
       password,
       confirm_password,
-      checkbox,
-      button_status,
+      // checkbox,
+      // button_status,
     } = this.state;
 
     
@@ -565,7 +565,7 @@ class Nav extends Component {
       <AppBar position="fixed">
         <Toolbar className="navigationbar" variant="dense">
       
-          {this.state.isLogged == true ? (
+          {this.state.isLogged === true ? (
            
         //   <a href="/dashboard">
         //     <img className="logos" src={logo} />
@@ -577,7 +577,7 @@ class Nav extends Component {
             <div className="headerhight">
                <Leftpanel></Leftpanel>
             <a href="/dashboard">
-              <img className="logoss ml-3" src={logo} />
+              <img className="logoss ml-3" src={logo} alt="" />
             </a> </div>
           ) : (
             <a href="/home">
@@ -586,7 +586,7 @@ class Nav extends Component {
            
           )}
 
-          {this.state.isLogged == true ? (
+          {this.state.isLogged === true ? (
             <div className="ml-auto">
               <div className="d-flex">
                 {/* {this.state.adminGuard == false &&
