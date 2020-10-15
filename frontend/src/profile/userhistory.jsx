@@ -1,23 +1,19 @@
 import React, { Component } from "react";
 import "./profile.css";
 // import "../style/quest.css";
-import DataTable, { createTheme } from "react-data-table-component";
-import Dialog from "@material-ui/core/Dialog";
+
 import Grid from "@material-ui/core/Grid";
 import HOC from "../components/HOC";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPencilAlt,
-  faTimes,
+ faTimes,
   faDownload,
-  faUser,
-  faPlay,
+   faPlay,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import Input from "../components/Input";
-import { Container, Row, Col, Form, Card } from "react-bootstrap";
+import Dialog from "@material-ui/core/Dialog";
+import { Form, Card } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -26,16 +22,14 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ReactPlayer from "react-player";
 
-import { getAuthData, isLoggedIn } from "../utils";
+import {isLoggedIn } from "../utils";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
@@ -110,7 +104,7 @@ class Userhistory extends Component {
     password,
     comments
   ) => {
-    if (tasktype == "Search Engine Submission") {
+    if (tasktype === "Search Engine Submission") {
       this.setState({
         Playsession: !this.state.Playsession,
         mid: id,
@@ -122,7 +116,7 @@ class Userhistory extends Component {
       return;
     }
 
-    if (tasktype == "Social Book Marketing") {
+    if (tasktype === "Social Book Marketing") {
       this.setState({
         Playsession1: !this.state.Playsession1,
         msubmiturl: submiturl,
@@ -134,7 +128,7 @@ class Userhistory extends Component {
       return;
     }
 
-    if (tasktype == "Classified Submission") {
+    if (tasktype === "Classified Submission") {
       this.setState({
         Playsession2: !this.state.Playsession2,
         memailaddress: emailaddress,
@@ -156,7 +150,7 @@ class Userhistory extends Component {
 
   componentWillMount() {
     let temp = isLoggedIn();
-    if (temp == true || temp == "true") {
+    if (temp === true || temp === "true") {
     } else {
       window.location = "/home";
     }
