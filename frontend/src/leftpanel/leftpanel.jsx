@@ -77,9 +77,9 @@ class Leftpanel extends React.Component {
                         <img className="logowidthhight" src={logo2} alt="" />
                       </span>
                       <span>
-                        <a
+                        <a href="/#"
                           className="urlcolors urlfontsize"
-                          href=""
+                         
                         >
                            SEO Automator
                         </a>
@@ -104,7 +104,7 @@ class Leftpanel extends React.Component {
                       </span>
 
                       <span>
-                        <a className="urlcolors urlfontsize" href="">
+                        <a  href="/#" className="urlcolors urlfontsize" >
                           YouTube Views
                         </a>
                       </span>

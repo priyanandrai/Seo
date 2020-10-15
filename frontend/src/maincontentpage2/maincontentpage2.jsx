@@ -991,7 +991,7 @@ let url = videourl + visualId + ".mp4";
               //   });
               // }}
             >
-              <a className="hrefcolor">
+              <a  href="/#" className="hrefcolor">
                 <FontAwesomeIcon
                   icon={faEye}
                   onClick={() => {
