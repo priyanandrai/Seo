@@ -1,30 +1,13 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Card, Form } from "react-bootstrap";
-
-import Grid from "@material-ui/core/Grid";
+import React from "react";
+import { Form } from "react-bootstrap";
 import HOC from "../components/HOC";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import ReactPlayer from "react-player";
-import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Dialog from "@material-ui/core/Dialog";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dropdown } from "react-bootstrap";
-import {
-  faPencilAlt,
-  faTimes,
-  faExclamationTriangle,
-  faDownload,
-  faUser,
-  faPlay,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Button from "@material-ui/core/Button";
-import { getAuthData, isLoggedIn } from "../utils";
-import Input from "../components/Input";
+
 import "./traffic.css";
 class TrafficExchange extends React.Component {
   constructor(props) {
@@ -47,7 +30,7 @@ class TrafficExchange extends React.Component {
     };
   }
   trafficdialog() {
-    if (this.state.url == "") {
+    if (this.state.url === "") {
       alert("please enter the URL.");
       return;
     }
@@ -71,7 +54,7 @@ class TrafficExchange extends React.Component {
 
   componentWillMount() {
     //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
-    let tempp = navigator.userAgent.search("Firefox") == -1;
+    let tempp = navigator.userAgent.search("Firefox") === -1;
 
     this.setState({
       checkbrowser: tempp,
@@ -94,10 +77,16 @@ class TrafficExchange extends React.Component {
               }}
             />
           </div>
-          {this.state.checkbrowser == true ? (
+          {this.state.checkbrowser === true ? (
             <div className="alertcolor">
-             
-             <p className="waringcolor">   <FontAwesomeIcon icon={faExclamationTriangle} className="mr-2" />Fire fox + PC is STRONGLY recommended</p>
+              <p className="waringcolor">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faExclamationTriangle}
+                  className="mr-2"
+                />
+                Fire fox + PC is STRONGLY recommended
+              </p>
             </div>
           ) : (
             ""
