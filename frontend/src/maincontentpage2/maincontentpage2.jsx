@@ -16,7 +16,7 @@ import {
   faAngleDoubleDown,
   faTimes,
   faEye,
-  faStar,
+
 } from "@fortawesome/free-solid-svg-icons";
 
 import Snackbar from "@material-ui/core/Snackbar";
@@ -175,7 +175,7 @@ class Dashboard extends Component {
 
   handlesubmit = (e) => {
     e.preventDefault();
-    const { name, email, comments } = this.state;
+    const { name} = this.state;
 
     if (name.trim() === "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
@@ -285,7 +285,7 @@ class Dashboard extends Component {
   };
 
   handlesubmission = (e) => {
-    const { submiturl, title, description, keyword, comments } = this.state;
+    const { submiturl, title, description, keyword} = this.state;
 
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
@@ -386,7 +386,7 @@ class Dashboard extends Component {
     );
   };
   handleclick = (e) => {
-    const { name, emailaddress, submiturl, comments } = this.state;
+    const {emailaddress, submiturl} = this.state;
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emailaddress === "") {
@@ -922,7 +922,7 @@ let url = videourl + visualId + ".mp4";
               onClick={()=>{
                 
                 this.getdownlist();}}
-            />
+            alt=""/>
             {/* <button className="dataiconsright" onClick={this.refreshclick}>Refresh</button> */}
             {/* <FontAwesomeIcon className="dataiconsright" icon={faTimes} /> */}
             <DataTable
