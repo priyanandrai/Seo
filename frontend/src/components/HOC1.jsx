@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Leftpanel from "../leftpanel/leftpanel";
+// import Header from "./Header";
+// import Footer from "./Footer";
+// import Leftpanel from "../leftpanel/leftpanel";
 // import Nav from "../profile/nav";
 import Adminheader from "../profile/adminheader";
 
