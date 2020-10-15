@@ -52,7 +52,7 @@ class Leftpanel extends React.Component {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <Typography   className="urlcolors urlfontsize">PRODUCTS</Typography>
+                    <Typography   className="urlcolors urlfontsize">Products</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     {/* <Accordion>

@@ -62,7 +62,7 @@ class TrafficExchange extends React.Component {
   }
   render() {
     return (
-      <div className="mt-5 container">
+      <div className="mt-5 innerdivwidth">
         <div>
           <div className="traffic inputtraffic ">
             <Form.Label className="leftt mt-3">Enter Url</Form.Label>
