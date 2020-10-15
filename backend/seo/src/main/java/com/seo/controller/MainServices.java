@@ -26,9 +26,11 @@ import com.seo.model.Adminlogin;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
+import com.seo.model.Subsribe;
 import com.seo.services.IAdminloginService;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
+import com.seo.services.ISubsribeService;
 import com.seo.services.SearchEngineservice;
 
 
@@ -46,6 +48,9 @@ public class MainServices {
 	SearchEngineservice searchEngineService;
 	@Autowired
 	ISubmitRequestService iSubmitRequestService;
+	
+	@Autowired
+	ISubsribeService iSubscribeService;
 
 	@Autowired
 	private Environment env;
@@ -188,6 +193,7 @@ public class MainServices {
 		}
 		
 	}
+	
 	
 
 	@CrossOrigin(origins = "*")
@@ -468,5 +474,15 @@ public class MainServices {
 		searchEngineService.deleteById(id);
 		return "deleted sucessfully";
 	}
+	
+
+	@CrossOrigin(origins = "*")
+	@PostMapping("/subscribe")
+	public String subscribe(@RequestBody Subsribe Subsribe) {
+		iSubscribeService.save(Subsribe);
+		System.out.println(Subsribe.toString());
+		return "Subsribe sucessfully";
+	}	
+	
 
 }
