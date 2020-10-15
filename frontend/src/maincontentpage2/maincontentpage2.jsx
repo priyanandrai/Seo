@@ -1,26 +1,17 @@
 import React, { Component } from "react";
 import "../maincontentpage/main.css";
 import "../style/quest.css";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Checkbox from "@material-ui/core/Checkbox";
-// import "node_modules/video-react/dist/video-react.css"; // import css
-import { Player } from "video-react";
 import ReactPlayer from "react-player";
-  import  VncDisplay  from 'react-vnc-display';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import HOC from "../components/HOC";
 import Card from "@material-ui/core/Card";
 import Dialog from "@material-ui/core/Dialog";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getAuthData, isLoggedIn } from "../utils";
+import {isLoggedIn } from "../utils";
 import {
   faAngleDoubleDown,
   faTimes,
@@ -31,8 +22,7 @@ import {
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import { makeStyles } from "@material-ui/core/styles";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
@@ -58,7 +48,7 @@ class Dashboard extends Component {
       tasktype: "xyz",
       // visualId: null,
       todaydate: new Date().toISOString(),
-      userId: "",
+      // userId: "",
       userId: "3",
       drilldown: false,
 
@@ -76,7 +66,7 @@ class Dashboard extends Component {
       sbmUrl: "",
       csUrl: "",
       title: "",
-      description: "",
+      // description: "",
       keywords: "",
       emailaddress: "",
       submiturl: "",
@@ -89,7 +79,7 @@ class Dashboard extends Component {
       selectedlist: {},
       comments: "",
       password: "",
-      title: "",
+      // title: "",
       keyword: "",
       urls: "",
       url: "https://www.youtube.com/watch?v=H1uLU9h0k0k&t=68s",
@@ -185,9 +175,9 @@ class Dashboard extends Component {
 
   handlesubmit = (e) => {
     e.preventDefault();
-    const { name, email, sbsUrl, comments } = this.state;
+    const { name, email, comments } = this.state;
 
-    if (name.trim() == "") {
+    if (name.trim() === "") {
       this.setState({ snackbar: true, error: "Please enter  name." });
       return;
     }
@@ -200,7 +190,7 @@ class Dashboard extends Component {
     //   return;
     // }
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (this.state.emailaddress.trim() == "") {
+    if (this.state.emailaddress.trim() === "") {
       this.setState({
         snackbar: true,
         error: "Please enter email Id.",
@@ -215,7 +205,7 @@ class Dashboard extends Component {
     }
 
     const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    if (this.state.submiturl == "") {
+    if (this.state.submiturl === "") {
       this.setState({
         snackbar: true,
         error: "please enter the URL.",
@@ -299,7 +289,7 @@ class Dashboard extends Component {
 
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
-    if (submiturl == "") {
+    if (submiturl === "") {
       this.setState({
         snackbar: true,
         error: "please enter the url",
@@ -313,7 +303,7 @@ class Dashboard extends Component {
 
       return;
     }
-    if (title == "") {
+    if (title === "") {
       this.setState({
         snackbar: true,
         error: "please enter the title",
@@ -321,7 +311,7 @@ class Dashboard extends Component {
 
       return;
     }
-    if (description == "") {
+    if (description === "") {
       this.setState({
         snackbar: true,
         error: "please enter the descruption",
@@ -329,7 +319,7 @@ class Dashboard extends Component {
 
       return;
     }
-    if (keyword == "") {
+    if (keyword === "") {
       this.setState({
         snackbar: true,
         error: "please enter the keywords",
@@ -399,7 +389,7 @@ class Dashboard extends Component {
     const { name, emailaddress, submiturl, comments } = this.state;
 
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (emailaddress == "") {
+    if (emailaddress === "") {
       this.setState({
         snackbar: true,
         error: "Please enter email Id.",
@@ -413,21 +403,21 @@ class Dashboard extends Component {
       return;
     }
 
-    if (this.state.password == "") {
+    if (this.state.password === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the password",
       });
       return;
     }
-    if (this.state.title == "") {
+    if (this.state.title === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the title",
       });
       return;
     }
-    if (this.state.description == "") {
+    if (this.state.description === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the description",
@@ -435,7 +425,7 @@ class Dashboard extends Component {
       return;
     }
     const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    if (this.state.submiturl == "") {
+    if (this.state.submiturl === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the url",
@@ -449,7 +439,7 @@ class Dashboard extends Component {
       return;
     }
 
-    if (this.state.keyword == "") {
+    if (this.state.keyword === "") {
       this.setState({
         snackbar: true,
         error: "Please enter the keywords",
@@ -517,7 +507,7 @@ class Dashboard extends Component {
   componentWillMount() {
     let temp = isLoggedIn();
 
-    if (temp == true || temp == "true") {
+    if (temp === true || temp ==="true") {
 
     } else {
       window.location = "/home";
