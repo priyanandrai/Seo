@@ -14,42 +14,66 @@ class TrafficExchange extends React.Component {
     super(props);
     this.trafficdialogend = this.trafficdialogend.bind(this);
     this.trafficdialog = this.trafficdialog.bind(this);
+    this.openWindow = this.openWindow.bind(this);
+    this.sleep = this.sleep.bind(this);
     this.state = {
       trafficdialog: false,
       url: "",
+      numberofURLopen : 0,
       warning: "",
       duration: 10000,
       checkbrowser: false,
+      windowHandler:[],
       list: [
-        "http://srcservicesltd.com/",
-        "http://srcservicesltd.com/testing-as-a-services",
-        "http://srcservicesltd.com/development-as-a-services",
+        "http://www.facebook.com/",
+        "http://www.facebook.com/",
+        "http://www.facebook.com/",
         "https://www.gurukulzone.com/",
         "https://www.gurukulzone.com/javascript/index.html",
       ],
     };
   }
-  trafficdialog() {
+
+  sleep(milliseconds) {
+    let start = new Date().getTime();
+    for (let i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  }
+
+   trafficdialog() {
     if (this.state.url === "") {
       alert("please enter the URL.");
       return;
     }
+    this.openWindow();
+    setTimeout(() =>{
+      this.openWindow();
+    },this.state.duration);
+  
+  }
 
-    console.log("Hii list loop start ");
-    for (let i = 0; i < this.state.list.length; i++) {
-      console.log(this.state.list[i]);
-      var win = window.open(this.state.list[i]);
-      setTimeout(function () {
-        win.close();
-      }, this.state.duration);
+   openWindow(){
+     let temp = 3;
+     for (let index = 0; index < this.state.windowHandler.length; index++) {
+      this.state.windowHandler[index].close();
+     }
+     let temphandler = [];
+    for (let index = this.state.numberofURLopen; index < this.state.list.length && index < (this.state.numberofURLopen+temp) ; index++) {
+      const element = this.state.list[this.state.numberofURLopen];
+      temphandler.push(window.open(element));
     }
+
+    this.setState({
+      windowHandler:temphandler,
+      numberofURLopen : this.state.numberofURLopen+temp
+    })
+
   }
 
   trafficdialogend() {
-    window.close();
-    // setTimeout(function () {
-    //   window.close(this.state.url);
-    // }, 1);
   }
 
   componentWillMount() {
