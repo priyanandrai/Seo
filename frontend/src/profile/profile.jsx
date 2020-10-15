@@ -10,7 +10,7 @@ import {
   faPlay,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import HOC from "../components/HOC";
@@ -18,15 +18,15 @@ import HOC from "../components/HOC";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import { Container, Row, Col, Form } from "react-bootstrap";
+
+import { Form } from "react-bootstrap";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import { getAuthData, isLoggedIn } from "../utils";
+import { isLoggedIn } from "../utils";
 
 class Profile extends Component {
   constructor(props) {
@@ -141,16 +141,16 @@ error:"",
   };
 
   editForm = (para) => {
-    if (para == "username") {
+    if (para === "username") {
       this.setState({ usernameEnable: false });
     }
-    if (para == "email") {
+    if (para === "email") {
       this.setState({ emailEnable: false });
     }
-    if (para == "profession") {
+    if (para === "profession") {
       this.setState({ professionEnable: false });
     }
-    if (para == "organisation") {
+    if (para === "organisation") {
       this.setState({ organizationEnable: false });
     }
   };
@@ -172,7 +172,7 @@ error:"",
     password,
     comments
   ) => {
-    if (tasktype == "Search Engine Submission") {
+    if (tasktype === "Search Engine Submission") {
       this.setState({
         Playsession: !this.state.Playsession,
         mid: id,
@@ -184,7 +184,7 @@ error:"",
       return;
     }
 
-    if (tasktype == "Social Book Marketing") {
+    if (tasktype === "Social Book Marketing") {
       this.setState({
         Playsession1: !this.state.Playsession1,
         msubmiturl: submiturl,
@@ -196,7 +196,7 @@ error:"",
       return;
     }
 
-    if (tasktype == "Classified Submission") {
+    if (tasktype === "Classified Submission") {
       this.setState({
         Playsession2: !this.state.Playsession2,
         memailaddress: emailaddress,
@@ -213,7 +213,7 @@ error:"",
 
   componentWillMount() {
     let temp = isLoggedIn();
-    if (temp == true || temp == "true") {
+    if (temp === true || temp === "true") {
     } else {
       window.location = "/home";
     }

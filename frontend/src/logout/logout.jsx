@@ -1,26 +1,26 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
 
-export class Logout extends Component {
-  constructor(props) {
-    super(props);
-    this.logout = this.logout.bind(this);
-  }
-  logout() {
-    this.props.logout();
+// export class Logout extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.logout = this.logout.bind(this);
+//   }
+//   logout() {
+//     this.props.logout();
     
-  }
+//   }
 
-  render() {
+//   render() {
 
-    return (
-      <div>
-        <a class="dropdown-item"  onClick={this.logout}>
-          logout
-        </a>
-      </div>
-    );
-  }
-}
+//     return (
+//       <div>
+//         <a class="dropdown-item"  onClick={this.logout}>
+//           logout
+//         </a>
+//       </div>
+//     );
+//   }
+// }
 
-export default Logout;
+// export default Logout;
