@@ -7,6 +7,9 @@
 .Card {
   width: 96%;
 }
+.innerdivwidth{
+  min-height: calc(82vh);
+}
 
 .height {
   width: 60% !important;

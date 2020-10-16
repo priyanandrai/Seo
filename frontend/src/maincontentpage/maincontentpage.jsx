@@ -23,6 +23,10 @@ class Home extends Component {
       window.location = "/dashboard";
     }
   }
+  componentWillUnmount()
+  {
+    console.log("coming here for component willUnmoutn ")
+  }
   render() {
     return (
       <div className="container mainpage-alignment">

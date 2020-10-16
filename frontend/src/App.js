@@ -22,14 +22,7 @@ import { Confirmotp } from "./confirmotp/confirmotp";
 
 
 function App() {
- // if (!isLoggedIn()) {
-    //   return (<Maincontentpage/>)
-    //  }
-    // let tempppp = window.localStorage.getItem("isLoggedIn") ;
-    
  
-    // if (window.localStorage.getItem("isLoggedIn") == "true") {
-      
     return (
       
     <Router history={BrowserRouter}>
@@ -53,21 +46,6 @@ function App() {
         <Route exact path="/website" component={Yourwebsite}  />
       </Router>
        );
-
-// else {
-//   return (
-//     <Router history={BrowserRouter}>
-//     <div>
-//     <Nav></Nav>
-
-//     <Redirect to="/home"/>
-//    <Route exact path="/home" component={Maincontentpage} />
-   
-//     </div>
-//      </Router>
-//   );
-// }
-  
  
 }
 export default App;

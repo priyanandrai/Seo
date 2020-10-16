@@ -444,7 +444,7 @@ class Userhistory extends Component {
 
   render() {
     return (
-      <div className=" container-fluid userhistorydesighn">
+      <div className="container-fluid userhistorydesighn innerdivwidth">
         {/* <div className="sadataset">
           <DataTable
             className="datatablehoer"

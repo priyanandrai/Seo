@@ -64,7 +64,7 @@ body {
 
 .header .headerin {
   width: 95%;
-  max-width: 1200px;
+
   height: 100%;
   padding: 0px;
   margin: 0 auto;
@@ -161,7 +161,7 @@ footer {
 
 footer .footerin {
   width: 95%;
-  max-width: 1200px;
+
   height: 100%;
   margin: 0 auto;
   padding: 0px;
@@ -374,7 +374,7 @@ footer .footerin p a:hover {
 
 #main .content {
   width: 95%;
-  max-width: 1200px;
+
   height: auto;
   margin: 0 auto;
   padding: 30px 0px;
