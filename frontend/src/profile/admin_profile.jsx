@@ -540,7 +540,7 @@ class Admin_profile extends Component {
                 //   });
                 // }}
               >
-                <a  href="/#" className="hrefcolor">
+                <a className="hrefcolor">
                   <FontAwesomeIcon
                     icon={faEye}
                     // onClick={() => {

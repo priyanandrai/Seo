@@ -66,7 +66,7 @@ class Adminheader extends Component {
           
           {window.localStorage.getItem("isadminuteLoggedin") === "ankur" ? (
             <div className="ml-auto">
-                  <a href="/#"
+                  <a 
                   className="nav-link dropdown-toggle text-dark dropdownss dropwidth ml-auto"
                   id="navbarDropdown"
                   role="button"
@@ -88,7 +88,7 @@ class Adminheader extends Component {
                    <a className="dropdown-item" href="adminute-444-profile">
                     View Profile
                   </a>
-                  <a  href="/#" className="dropdown-item" onClick={this.logout}>
+                  <a className="dropdown-item" onClick={this.logout}>
                     Logout
                   </a>
                   

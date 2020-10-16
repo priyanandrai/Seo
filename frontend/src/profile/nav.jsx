@@ -591,16 +591,16 @@ class Nav extends Component {
               <div className="d-flex">
                 {/* {this.state.adminGuard == false &&
                 this.state.adminprofile == false ? ( */}
-                <a href="/#" className="nav-link text-dark Balancebold">
+                <a className="nav-link text-dark Balancebold">
                   Balance:
                   <span className="align-middle">{this.state.balance}</span>
                 </a>
                 {/* // ) : null} */}
 
-                <a className="navbar-brand mr-0" href="/#">
+                <a className="navbar-brand mr-0" >
                   <img width="30" height="30" src={login} className="logomin" alt="" />
                 </a>
-                <a href="/#"
+                <a 
                   className="nav-link dropdown-toggle text-dark dropdownss dropwidth"
                   id="navbarDropdown"
                   role="button"
@@ -617,7 +617,7 @@ class Nav extends Component {
                 >
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a href="/#"
+                  <a 
                     // onClick={this.UniqueId}
                     className=" dropdown-item"
                   >
@@ -643,17 +643,17 @@ class Nav extends Component {
                    View History
                   </a>
                   
-                  <a  href="/#" className="dropdown-item" onClick={this.dialogBox1}>
+                  <a   className="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a  href="/#" className="dropdown-item" onClick={this.dialogBox2}>
+                  <a   className="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
                   {/* ) : null} */}
 
-                  <a  href="/#" className="dropdown-item" onClick={this.logout}>
+                  <a   className="dropdown-item" onClick={this.logout}>
                     Logout
                   </a>
                 </div>
@@ -683,21 +683,21 @@ class Nav extends Component {
                       }); */}
                   <a
                     className="dropdown-item"
-                    href="/#"
+                    
                     onClick={() => this.openModal("signin")}
                   >
                     Login
                   </a>
                   <a
                     className="dropdown-item"
-                    href="/#"
+                 
                     onClick={() => this.openModal("signup")}
                   >
                     Register
                   </a>
                   <a
                     className="dropdown-item"
-                    href="/#"
+                   
                     onClick={() => this.openModal("contactus")}
                   >
                     Contact Us
@@ -1104,10 +1104,10 @@ class Nav extends Component {
                 }}
               />
               <div className="d-flex">
-                <a href="/#" className="ml-5 mr-auto mt-2 resendotp">
+                <a className="ml-5 mr-auto mt-2 resendotp">
                   Try Another Number
                 </a>
-                <a href="/#" className="mr-5 mt-2 resendotp">
+                <a  className="mr-5 mt-2 resendotp">
                   Resend OTP
                 </a>
               </div>
