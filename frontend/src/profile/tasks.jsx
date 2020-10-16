@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import DataTable from "react-data-table-component";
 import { PieChart } from "react-minimal-pie-chart";
 import axios from "axios";
+import HOC from "../components/HOC";
 import { getBaseUrl } from "../utils";
 
 class Tasks extends Component {
@@ -148,5 +149,6 @@ class Tasks extends Component {
     );
   }
 }
+export default HOC(Tasks);
 
-export default Tasks;
+

@@ -253,6 +253,7 @@
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   min-height: calc(82vh);
+  max-width: 100% !important;
   
 }
 .heading{
