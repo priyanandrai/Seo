@@ -12,13 +12,37 @@ public class TrafficExchange {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	private String url;
 
 	private long count_remaining;
 
 	private long count_hit;
+	
 	private String user_id;
 
 	private String user_type;
+	
+	public TrafficExchange() {
+		
+	}
+
+	public TrafficExchange(long id, String url, long count_remaining, long count_hit, String user_id,
+			String user_type) {
+		super();
+		this.id = id;
+		this.url = url;
+		this.count_remaining = count_remaining;
+		this.count_hit = count_hit;
+		this.user_id = user_id;
+		this.user_type = user_type;
+	}
+
+	@Override
+	public String toString() {
+		return "TrafficExchange [id=" + id + ", url=" + url + ", count_remaining=" + count_remaining + ", count_hit="
+				+ count_hit + ", user_id=" + user_id + ", user_type=" + user_type + "]";
+	}
 
 	public long getId() {
 		return id;
@@ -26,6 +50,14 @@ public class TrafficExchange {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public long getCount_remaining() {
@@ -52,8 +84,6 @@ public class TrafficExchange {
 		this.user_id = user_id;
 	}
 
-
-
 	public String getUser_type() {
 		return user_type;
 	}
@@ -62,19 +92,6 @@ public class TrafficExchange {
 		this.user_type = user_type;
 	}
 
-	public TrafficExchange(long id, long count_remaining, long count_hit, String user_id, String user_type) {
-		super();
-		this.id = id;
-		this.count_remaining = count_remaining;
-		this.count_hit = count_hit;
-		this.user_id = user_id;
-		this.user_type = user_type;
-	}
-
-	@Override
-	public String toString() {
-		return "trafficExchange [id=" + id + ", count_remaining=" + count_remaining + ", count_hit=" + count_hit
-				+ ", user_id=" + user_id + ", user_type=" + user_type + "]";
-	}
+	
 
 }

@@ -17,7 +17,7 @@ class TrafficExchange extends React.Component {
     this.trafficdialogend = this.trafficdialogend.bind(this);
     this.trafficdialog = this.trafficdialog.bind(this);
     this.openWindow = this.openWindow.bind(this);
-    this.sleep = this.sleep.bind(this);
+  
     this.state = {
       trafficdialog: false,
       url: "",
@@ -26,24 +26,11 @@ class TrafficExchange extends React.Component {
       duration: 10000,
       checkbrowser: false,
       windowHandler: [],
-      list: [
-        "http://www.facebook.com/",
-        "http://www.facebook.com/",
-        "http://www.facebook.com/",
-        "https://www.gurukulzone.com/",
-        "https://www.gurukulzone.com/javascript/index.html",
-      ],
+      list:[],
     };
   }
 
-  sleep(milliseconds) {
-    let start = new Date().getTime();
-    for (let i = 0; i < 1e7; i++) {
-      if (new Date().getTime() - start > milliseconds) {
-        break;
-      }
-    }
-  }
+
 
   trafficdialog() {
     if (this.state.url === "") {
@@ -55,11 +42,31 @@ class TrafficExchange extends React.Component {
       this.openWindow();
     }, this.state.duration);
 
-    // let url = getBaseUrl() + "/saveUrl";
-    // axios.post(url, this.state).then(
-    //   (response) => {},
-    //   (error) => {}
-    // );
+    let url = getBaseUrl() + "/saveUrl";
+    let temp = {
+      url:this.state.url
+    }
+    axios.post(url, temp).then(
+      (response) => {
+
+      },
+      (error) => {}
+    );
+  }
+  
+  componentDidMount(){
+    alert("I am coming hre ");
+    let url =getBaseUrl() + "/gettrafficlist";
+  axios.get(url).then(
+    (response) => {
+      console.log("I am coming here", response.data);
+      this.setState({
+        list:response.data
+        
+      });
+    },
+    (error) => {}
+  );
   }
 
   openWindow() {
@@ -74,7 +81,7 @@ class TrafficExchange extends React.Component {
       index < this.state.numberofURLopen + temp;
       index++
     ) {
-      const element = this.state.list[this.state.numberofURLopen];
+      const element = this.state.list[this.state.numberofURLopen].url;
       temphandler.push(window.open(element));
     }
 

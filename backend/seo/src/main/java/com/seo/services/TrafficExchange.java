@@ -41,7 +41,7 @@ public class TrafficExchange implements ITrafficExchange {
 	@Override
 	public Iterable<com.seo.model.TrafficExchange> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return trafficExchnageRepository.findAll();
 	}
 
 	@Override

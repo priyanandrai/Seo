@@ -21,6 +21,7 @@ public class TrafficChangeService {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/gettrafficlist")
 	public Iterable<TrafficExchange> gettrafficlist() {
+		System.out.println("I am coming here ");
 		return iTrafficExchange.findAll();
 	}	
 	
