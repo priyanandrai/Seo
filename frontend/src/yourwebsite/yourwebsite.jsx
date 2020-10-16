@@ -114,7 +114,7 @@ class Yourwebsite extends React.Component {
           <span>
             {" "}
             <img
-              className="facbook_size"
+              className="facbook_size Cursor"
               src={logo6}
               alt=""
               onClick={this.facebook}
@@ -123,7 +123,7 @@ class Yourwebsite extends React.Component {
           <span className="ml-4">
             {" "}
             <img
-              className="pin_size"
+              className="pin_size Cursor"
               src={logo7}
               alt=""
               onClick={this.linkdin}
@@ -132,7 +132,7 @@ class Yourwebsite extends React.Component {
           <span className="ml-4">
             {" "}
             <img
-              className="facbook_size1"
+              className="facbook_size1 Cursor"
               src={logo8}
               alt=""
               onClick={this.twitter}
@@ -141,7 +141,7 @@ class Yourwebsite extends React.Component {
           <span className="ml-4">
             {" "}
             <img
-              className="youtube_size"
+              className="youtube_size Cursor"
               src={logo9}
               alt=""
               onClick={this.youtube}
