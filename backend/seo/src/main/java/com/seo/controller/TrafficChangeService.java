@@ -49,7 +49,24 @@ public class TrafficChangeService {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping("/updateCount")
+	@GetMapping("/getclientinformation")
+	public String getclientinformation(@RequestParam(defaultValue = "") String url ) {
+		try {
+			Iterator<TrafficExchange> iterable = iTrafficExchange.findAll().iterator();
+			while(iterable.hasNext()){
+				TrafficExchange trafficExchange2 = iterable.next();
+				if(trafficExchange2.getUrl() != null && trafficExchange2.getUrl().equalsIgnoreCase(url)) {
+					return trafficExchange2.toString();
+				}
+			}
+			return "{\"messgae\":\"No information exist\"}";
+		} catch (Exception e) {
+			return "{\"messgae\":\"Sorry . something worng went worng on your end\"}";
+		}
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/updateCount")
 	public String updateCount(@RequestParam(defaultValue = "") String url ) {
 		try {
 			Iterator<TrafficExchange> iterable = iTrafficExchange.findAll().iterator();
@@ -69,7 +86,7 @@ public class TrafficChangeService {
 	
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping("/updatehit")
+	@GetMapping("/updatehit")
 	public String updatehit(@RequestParam(defaultValue = "") String url ) {
 		try {
 			Iterator<TrafficExchange> iterable = iTrafficExchange.findAll().iterator();

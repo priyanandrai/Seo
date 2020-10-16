@@ -17,7 +17,6 @@ public class TrafficExchange implements ITrafficExchange {
 	@Override
 	public <S extends com.seo.model.TrafficExchange> S save(S entity) {
 		// TODO Auto-generated method stub
-		trafficExchnageRepository.findById(id)
 		return trafficExchnageRepository.save(entity);
 	}
 

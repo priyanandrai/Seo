@@ -20,6 +20,8 @@ class TrafficExchange extends React.Component {
     this.trafficdialogend = this.trafficdialogend.bind(this);
     this.trafficdialog = this.trafficdialog.bind(this);
     this.openWindow = this.openWindow.bind(this);
+    this.getClientData = this.getClientData.bind(this);
+    this.updatecomponentData = this.updatecomponentData.bind(this);
   
     this.state = {
       trafficdialog: false,
@@ -33,7 +35,16 @@ class TrafficExchange extends React.Component {
     };
   }
 
-
+  getClientData(){
+    let url =getBaseUrl() + "/getclientinformation?url="+window.localStorage.getItem("ClientUrl");
+    axios.get(url).then(
+      (response) => {
+         console.log("I am coming here", response.data);
+   
+      },
+      (error) => {}
+    );
+  }
 
   trafficdialog() {
     if (this.state.url === "") {
@@ -44,6 +55,8 @@ class TrafficExchange extends React.Component {
       
       return;
     }
+    window.localStorage.setItem("ClientUrl",this.state.url)
+    this.getClientData();
     this.openWindow();
     setTimeout(() => {
       this.openWindow();
@@ -60,9 +73,18 @@ class TrafficExchange extends React.Component {
       (error) => {}
     );
   }
-  
+  updatecomponentData(){
+    if(window.localStorage.getItem("ClientUrl") != undefined){
+      alert("I am cominr here")
+      this.setState({
+        url:window.localStorage.getItem("ClientUrl")
+      })
+    }
+  }
   componentDidMount(){
-    // alert("I am coming hre ");
+    this.updatecomponentData();
+    this.getClientData();
+    
     let url =getBaseUrl() + "/gettrafficlist";
   axios.get(url).then(
     (response) => {
