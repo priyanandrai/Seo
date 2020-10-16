@@ -146,7 +146,7 @@ class Leftpanel extends React.Component {
         // </div>
         null}
         <div id="leftmain">
-          <span onClick={this.openNav} className="cursor">
+          <span onClick={this.openNav} className="cursor1">
             &#9776;
           </span>
         </div>
