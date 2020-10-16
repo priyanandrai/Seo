@@ -1,5 +1,5 @@
 .websitecloro{
-    margin-top: 5%;
+    margin-top: 70px;
     margin-bottom: 2%;
     width: 80vh;
   height: auto;
@@ -60,4 +60,29 @@
 .subscribe_our{
     text-align: center;
     font-family: century;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .websitecloro{
+        margin-top: 100px !important;
+        margin-bottom: 2%;
+        width: auto;
+      height: auto;
+      /* border: 1px solid gray; */
+    }
+    .fontweighthight {
+        font-weight: bold;
+        font-size: 29px !important;
+        color: cadetblue;
+        font-family: century;
+    }
+    .parapadiing {
+        font-family: century;
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .input_media{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }

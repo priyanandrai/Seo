@@ -96,7 +96,7 @@ class Yourwebsite extends React.Component {
           We are almost there! If you want to get notified when the tool goes
           live,subscribe to our mailing list!
         </p>
-        <div className="mt-5">
+        <div className="mt-5 input_media">
           <Form.Control
             type="name"
             placeholder="Email Address"

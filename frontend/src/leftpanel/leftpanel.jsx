@@ -15,7 +15,6 @@ import logo10 from "../images/logo10.jpg";
 import logo11 from "../images/logo11.png";
 import "./leftpanel.css";
 
-
 class Leftpanel extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,6 @@ class Leftpanel extends React.Component {
     };
   }
   openNav = () => {
-   
     this.setState({
       panelshow: !this.state.panelshow,
     });
@@ -42,25 +40,27 @@ class Leftpanel extends React.Component {
                 id="panel1bh-header"
               >
                 <FontAwesomeIcon className="urlcolors" icon={faHome} />
-                <Typography className="urlcolors homemargin urlfontsize">Home</Typography>
+                <Typography className="urlcolors homemargin urlfontsize">
+                  Home
+                </Typography>
               </AccordionSummary>
-              <AccordionDetails>
-               
-              </AccordionDetails>
+              <AccordionDetails></AccordionDetails>
             </Accordion>
             <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                  >
-                    <span>
-                        <img className="logowidthhight" src={logo11} alt="" />
-                      </span>
-                    <Typography   className="urlcolors homemargin urlfontsize">Products</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {/* <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <span>
+                  <img className="logowidthhight" src={logo11} alt="" />
+                </span>
+                <Typography className="urlcolors homemargin urlfontsize">
+                  Products
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                {/* <Accordion>
                       <AccordionSummary
                       className="iconrightside"
                         expandIcon={<ExpandMoreIcon />}
@@ -77,73 +77,61 @@ class Leftpanel extends React.Component {
                         <Typography></Typography>
                       </AccordionDetails>
                     </Accordion> */}
-                    <div className="d-flex">
-                      <span>
-                        <img className="logowidthhight" src={logo2} alt="" />
-                      </span>
-                      <span>
-                        <a href="dashboard"
-                          className="urlcolors urlfontsize"
-                         
-                        >
-                           SEO Automator
-                        </a>
-                      </span>
-                    </div>
-                    <div className="d-flex">
-                      <span>
-                        <img className="logowidthhight" src={logo3} alt="" />
-                      </span>
-                      <span>
-                        <a
-                          className="urlcolors urlfontsize"
-                          href="trafficexchange"
-                        >
-                          Traffic Exchange
-                        </a>
-                      </span>
-                    </div>
-                    <div className="d-flex">
-                      <span>
-                        <img className="logowidthhight" src={logo4} alt="" />
-                      </span>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo2} alt="" />
+                  </span>
+                  <span>
+                    <a href="dashboard" className="urlcolors urlfontsize">
+                      SEO Automator
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo3} alt="" />
+                  </span>
+                  <span>
+                    <a className="urlcolors urlfontsize" href="trafficexchange">
+                      Traffic Exchange
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo4} alt="" />
+                  </span>
 
-                      <span>
-                        <a  href="website" className="urlcolors urlfontsize" >
-                          YouTube Views
-                        </a>
-                      </span>
-                    </div>
-                    <div className="d-flex">
-                      <span>
-                        <img className="logowidthhight" src={logo5} alt="" />
-                      </span>
+                  <span>
+                    <a href="website" className="urlcolors urlfontsize">
+                      YouTube Views
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo5} alt="" />
+                  </span>
 
-                      <span>
-                        <a className="urlcolors urlfontsize" href="website">
-                          Social Media Manager
-                        </a>
-                      </span>
+                  <span>
+                    <a className="urlcolors urlfontsize" href="website">
+                      Social Media Manager
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
 
-                    </div>
-                    <div className="d-flex">
-                      <span>
-                        <img className="logowidthhight" src={logo10} alt="" />
-                      </span>
-
-                      <span>
-                        <a className="urlcolors urlfontsize" href="website">
-                        Website Analysis 
-                        </a>
-                      </span>
-
-                    </div>
-                  
-                    
-
-                  
-                  </AccordionDetails>
-                </Accordion>
+                  <span>
+                    <a className="urlcolors urlfontsize" href="website">
+                      Website Analysis
+                    </a>
+                  </span>
+                </div>
+              </AccordionDetails>
+            </Accordion>
           </div>
         ) : // <div id="mySidenav" class="sidenav">
         //   <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
