@@ -133,11 +133,11 @@ error:"",
     this.setState({ selectedRows: state.selectedRows });
   };
   handle = () => {
-    alert("i am clicked");
+    // alert("i am clicked");
   };
 
   selectTable = () => {
-    alert("selected");
+    // alert("selected");
   };
 
   editForm = (para) => {
