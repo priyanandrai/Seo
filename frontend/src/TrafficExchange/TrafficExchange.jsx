@@ -55,11 +55,11 @@ class TrafficExchange extends React.Component {
   }
   
   componentDidMount(){
-    alert("I am coming hre ");
+    // alert("I am coming hre ");
     let url =getBaseUrl() + "/gettrafficlist";
   axios.get(url).then(
     (response) => {
-      console.log("I am coming here", response.data);
+      // console.log("I am coming here", response.data);
       this.setState({
         list:response.data
         

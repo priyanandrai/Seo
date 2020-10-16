@@ -11,6 +11,8 @@ import logo2 from "../images/logo2.png";
 import logo3 from "../images/logo3.png";
 import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.jpg";
+import logo10 from "../images/logo10.jpg";
+import logo11 from "../images/logo11.png";
 import "./leftpanel.css";
 
 
@@ -52,7 +54,10 @@ class Leftpanel extends React.Component {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <Typography   className="urlcolors urlfontsize">Products</Typography>
+                    <span>
+                        <img className="logowidthhight" src={logo11} alt="" />
+                      </span>
+                    <Typography   className="urlcolors homemargin urlfontsize">Products</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     {/* <Accordion>
@@ -121,13 +126,20 @@ class Leftpanel extends React.Component {
                       </span>
 
                     </div>
-                    <div>
-                    <span>
+                    <div className="d-flex">
+                      <span>
+                        <img className="logowidthhight" src={logo10} alt="" />
+                      </span>
+
+                      <span>
                         <a className="urlcolors urlfontsize" href="website">
-                          website analysis 
+                        Website Analysis 
                         </a>
                       </span>
+
                     </div>
+                  
+                    
 
                   
                   </AccordionDetails>
