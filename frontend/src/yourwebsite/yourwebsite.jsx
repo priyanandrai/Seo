@@ -52,7 +52,11 @@ class Yourwebsite extends React.Component {
         (response) => {
           if (response.data.message == undefined) {
           } else {
-            alert(response.data.message);
+            this.setState({
+              snackbar: true,
+              error: response.data.message,
+            });
+            // alert(response.data.message);
           }
           this.setState({
             notifiy: !this.state.notifiy,
@@ -60,7 +64,11 @@ class Yourwebsite extends React.Component {
           });
         },
         (error) => {
-          alert(error.response.data.message);
+          this.setState({
+            snackbar: true,
+            error: error.response.data.message,
+          });
+          // alert(error.response.data.message);
         }
       )
       .catch((e) => {});

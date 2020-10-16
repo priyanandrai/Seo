@@ -128,8 +128,11 @@ class Nav extends Component {
     axios.post(url, temp).then(
       (response) => {
         // alert(response.data.message);
-        this.setState({});
-        alert("Request Successfully Submit");
+        this.setState({
+          snackbar: true,
+        error: "Request Successfully Submit",
+        });
+        // alert("Request Successfully Submit");
 
         return;
       },
@@ -218,8 +221,11 @@ class Nav extends Component {
     axios.put(url, temp).then(
       (response) => {
         // alert(response.data.message);
-        this.setState({});
-        alert("Password Successfully Changed");
+        this.setState({
+          snackbar: true,
+          error: "Password Successfully Changed",
+        });
+        // alert("Password Successfully Changed");
 
         return;
       },
@@ -411,7 +417,11 @@ class Nav extends Component {
             // {// }
             if (response.data.message === undefined) {
             } else {
-              alert(response.data.message);
+              this.setState({
+                snackbar: true,
+                error: response.data.message,
+              });
+              // alert(response.data.message);
               return;
             }
             this.setState({
@@ -421,11 +431,19 @@ class Nav extends Component {
             window.localStorage.setItem("id", response.data.id);
             window.localStorage.setItem("isLoggedIn", true);
             window.location = "/dashboard";
-            alert("Thank you for Regisrtion");
+            this.setState({
+              snackbar: true,
+              error: "Thank you for Regisrtion",
+            });
+            // alert("Thank you for Regisrtion");
             this.setState({ dialogBox: !this.state.dialogBox });
           },
           (error) => {
-            alert(error.response.data.message);
+            this.setState({
+              snackbar: true,
+              error: error.response.data.message,
+            });
+            // alert(error.response.data.message);
           }
         )
         .catch((e) => {});
