@@ -60,23 +60,7 @@ class Leftpanel extends React.Component {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                {/* <Accordion>
-                      <AccordionSummary
-                      className="iconrightside"
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                      >
-                        <img className="logowidthhight " src={logo2} />
-
-                        <a className="urlcolors urlfontsize" href="">
-                          SEO Automator
-                        </a>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography></Typography>
-                      </AccordionDetails>
-                    </Accordion> */}
+               
                 <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo2} alt="" />
@@ -133,17 +117,7 @@ class Leftpanel extends React.Component {
               </AccordionDetails>
             </Accordion>
           </div>
-        ) : // <div id="mySidenav" class="sidenav">
-        //   <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
-        //     &times;
-        //   </a>
-        //   <a className="urlcolors" href="#">SEO Automator</a>
-        //   <a className="urlcolors" href="trafficexchange">Traffic Exchange</a>
-        //   <a className="urlcolors" href="trafficexchange">YouTube Views</a>
-        //   <a className="urlcolors" href="website">Social Media Manager</a>
-
-        //   {/* <a href="#">Contact</a> */}
-        // </div>
+        ) : 
         null}
         <div id="leftmain">
           <span onClick={this.openNav} className="cursor1">

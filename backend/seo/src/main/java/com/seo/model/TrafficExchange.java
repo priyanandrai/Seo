@@ -40,8 +40,8 @@ public class TrafficExchange {
 
 	@Override
 	public String toString() {
-		return "TrafficExchange [id=" + id + ", url=" + url + ", count_remaining=" + count_remaining + ", count_hit="
-				+ count_hit + ", user_id=" + user_id + ", user_type=" + user_type + "]";
+		return "{\"id\":" + id + ", \"url\":\"" + url + "\", \"count_remaining \": \"" + count_remaining + " \",  \"count_hit \": \""
+				+ count_hit + " \",  \"user_id \": \"" + user_id + " \", \" user_type \": \"" + user_type + " \"}";
 	}
 
 	public long getId() {
