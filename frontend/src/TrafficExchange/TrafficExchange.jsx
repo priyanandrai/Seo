@@ -9,6 +9,9 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 import "./traffic.css";
 class TrafficExchange extends React.Component {
@@ -34,7 +37,11 @@ class TrafficExchange extends React.Component {
 
   trafficdialog() {
     if (this.state.url === "") {
-      alert("please enter the URL.");
+      this.setState({
+        snackbar: true,
+        error: "please enter the URL.",
+      });
+      
       return;
     }
     this.openWindow();
@@ -101,12 +108,15 @@ class TrafficExchange extends React.Component {
       checkbrowser: tempp,
     });
   }
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
   render() {
     return (
       <div className="mt-5 innerdivwidth">
         <div>
           <div className="traffic inputtraffic ">
-            <Form.Label className="leftt mt-3">Enter Url</Form.Label>
+            <Form.Label className="leftt mt-3">ENTER URL</Form.Label>
             <Form.Control
               type="Url"
               value={this.state.url}
@@ -201,6 +211,31 @@ class TrafficExchange extends React.Component {
             <div>Hi I am in dialog box</div>
           </div>
         </Dialog> */}
+        <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
       </div>
     );
   }

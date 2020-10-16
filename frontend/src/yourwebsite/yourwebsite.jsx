@@ -34,14 +34,14 @@ class Yourwebsite extends React.Component {
         snackbar: true,
         error: "Please Enter your E-mail Id",
       });
-      // alert("Please Enter your E-mail Id");
+      
       return;
     } else if (!this.state.email.match(regexex)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid E-mail Id.",
       });
-      // alert("please enter a valid E-mail Id.");
+     
 
       return;
     }

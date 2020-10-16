@@ -25,6 +25,10 @@
 }
 .leftt{
     float: center;
+    font-family: century;
+    color: cadetblue;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 .timecenter{
     text-align: center !important;
