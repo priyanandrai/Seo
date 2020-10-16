@@ -7,6 +7,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
 
 import "./traffic.css";
 class TrafficExchange extends React.Component {
@@ -19,11 +21,11 @@ class TrafficExchange extends React.Component {
     this.state = {
       trafficdialog: false,
       url: "",
-      numberofURLopen : 0,
+      numberofURLopen: 0,
       warning: "",
       duration: 10000,
       checkbrowser: false,
-      windowHandler:[],
+      windowHandler: [],
       list: [
         "http://www.facebook.com/",
         "http://www.facebook.com/",
@@ -37,44 +39,52 @@ class TrafficExchange extends React.Component {
   sleep(milliseconds) {
     let start = new Date().getTime();
     for (let i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
+      if (new Date().getTime() - start > milliseconds) {
         break;
       }
     }
   }
 
-   trafficdialog() {
+  trafficdialog() {
     if (this.state.url === "") {
       alert("please enter the URL.");
       return;
     }
     this.openWindow();
-    setTimeout(() =>{
+    setTimeout(() => {
       this.openWindow();
-    },this.state.duration);
-  
+    }, this.state.duration);
+
+    // let url = getBaseUrl() + "/saveUrl";
+    // axios.post(url, this.state).then(
+    //   (response) => {},
+    //   (error) => {}
+    // );
   }
 
-   openWindow(){
-     let temp = 3;
-     for (let index = 0; index < this.state.windowHandler.length; index++) {
+  openWindow() {
+    let temp = 3;
+    for (let index = 0; index < this.state.windowHandler.length; index++) {
       this.state.windowHandler[index].close();
-     }
-     let temphandler = [];
-    for (let index = this.state.numberofURLopen; index < this.state.list.length && index < (this.state.numberofURLopen+temp) ; index++) {
+    }
+    let temphandler = [];
+    for (
+      let index = this.state.numberofURLopen;
+      index < this.state.list.length &&
+      index < this.state.numberofURLopen + temp;
+      index++
+    ) {
       const element = this.state.list[this.state.numberofURLopen];
       temphandler.push(window.open(element));
     }
 
     this.setState({
-      windowHandler:temphandler,
-      numberofURLopen : this.state.numberofURLopen+temp
-    })
-
+      windowHandler: temphandler,
+      numberofURLopen: this.state.numberofURLopen + temp,
+    });
   }
 
-  trafficdialogend() {
-  }
+  trafficdialogend() {}
 
   componentWillMount() {
     //let tempp= navigator.userAgent.indexOf("Firfox") == -1;

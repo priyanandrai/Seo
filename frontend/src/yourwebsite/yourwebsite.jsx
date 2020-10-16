@@ -11,14 +11,18 @@ import logo7 from "../images/logo7.png";
 import logo8 from "../images/logo8.jpg";
 import logo9 from "../images/logo9.png";
 import Dialog from "@material-ui/core/Dialog";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+
 class Yourwebsite extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email:"",
+      email: "",
       notifiy: false,
       // facebook:"https://www.facebook.com/SeemaRaiConsultancyServices"
     };
@@ -26,10 +30,18 @@ class Yourwebsite extends React.Component {
   notifiy = () => {
     const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.email.trim() === "") {
-      alert("Please Enter your email Id");
+      this.setState({
+        snackbar: true,
+        error: "Please Enter your E-mail Id",
+      });
+      // alert("Please Enter your E-mail Id");
       return;
     } else if (!this.state.email.match(regexex)) {
-      alert("please enter a valid email Id.");
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid E-mail Id.",
+      });
+      // alert("please enter a valid E-mail Id.");
 
       return;
     }
@@ -38,20 +50,22 @@ class Yourwebsite extends React.Component {
       .post(url, this.state)
       .then(
         (response) => {
-
+          if (response.data.message == undefined) {
+          } else {
+            alert(response.data.message);
+          }
           this.setState({
-               notifiy:!this.state.notifiy
-           })
-
-        
+            notifiy: !this.state.notifiy,
+            email: "",
+          });
         },
         (error) => {
-         
+          alert(error.response.data.message);
         }
       )
-     
-  
-    // 
+      .catch((e) => {});
+
+    //
   };
   facebook = () => {
     window.open("https://www.facebook.com/SeemaRaiConsultancyServices");
@@ -67,13 +81,16 @@ class Yourwebsite extends React.Component {
   twitter = () => {
     window.open(" https://twitter.com/SRConsultancyS1   ");
   };
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
 
   render() {
     return (
       <div className="websitecloro ml-auto mr-auto">
         <div className="logocenter">
           <img className="logoheight" src={logo} alt="" />
-          <p className="fontweighthight">We are coming soon</p>
+          <p className="fontweighthight">We are Coming Soon</p>
         </div>
         <p className="parapadiing">
           We are almost there! If you want to get notified when the tool goes
@@ -84,7 +101,7 @@ class Yourwebsite extends React.Component {
             type="name"
             placeholder="Email Address"
             id="Name"
-      value={this.state.email}
+            value={this.state.email}
             onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
@@ -160,6 +177,31 @@ class Yourwebsite extends React.Component {
               </div>
             </div>
           </Dialog>
+        </div>
+        <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            open={this.state.snackbar}
+            onClose={this.closeSnackbar}
+            message={
+              this.state.error === null ? this.state.message : this.state.error
+            }
+            action={
+              <React.Fragment>
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="warning"
+                  onClick={this.closeSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
         </div>
       </div>
     );

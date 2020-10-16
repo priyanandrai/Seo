@@ -479,7 +479,17 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@PostMapping("/subscribe")
 	public String subscribe(@RequestBody Subsribe Subsribe) {
-		iSubscribeService.save(Subsribe);
+		try {
+			Iterator<Subsribe> iterable = iSubscribeService.findAll().iterator();
+			while (iterable.hasNext()) {
+				Subsribe subsribe = iterable.next();
+				if (subsribe.getEmail().equalsIgnoreCase(subsribe.getEmail())) {
+					return "{\"message\":\"E-mail already exist \"}";
+				}
+			} iSubscribeService.save(Subsribe);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(Subsribe.toString());
 		return "Subsribe sucessfully";
 	}	
