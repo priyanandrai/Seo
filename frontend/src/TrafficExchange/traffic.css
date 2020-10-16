@@ -48,3 +48,11 @@ padding-right: 25%;
     padding: 2% 5% 2%;
     background-color: #F44336;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .alertcolor {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+        color: white;
+        text-align: center;
+    }
+}

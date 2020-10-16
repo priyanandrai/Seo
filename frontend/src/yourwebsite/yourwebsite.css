@@ -86,3 +86,23 @@
         margin-right: 10%;
     }
 }
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+    .input_media{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .parapadiing {
+        font-family: century;
+        text-align: center;
+        margin-left: 10%;
+        font-size: 25px;
+        margin-right: 10%;
+    }
+    .websitecloro{
+        margin-top: 100px !important;
+        margin-bottom: 2%;
+        width: auto;
+      height: auto;
+      /* border: 1px solid gray; */
+    }
+}

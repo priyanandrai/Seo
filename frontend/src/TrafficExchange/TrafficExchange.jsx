@@ -120,6 +120,7 @@ class TrafficExchange extends React.Component {
             <Form.Control
               type="Url"
               value={this.state.url}
+              placeholder="Enter Url"
               className="mt-3"
               onChange={(e) => {
                 this.setState({
