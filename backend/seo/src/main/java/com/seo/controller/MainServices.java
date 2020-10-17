@@ -23,6 +23,7 @@ import com.seo.dto.Login;
 import com.seo.dto.ProfileDto;
 import com.seo.dto.Usersearch;
 import com.seo.model.Adminlogin;
+import com.seo.model.Contactus;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
@@ -51,7 +52,8 @@ public class MainServices {
 	
 	@Autowired
 	ISubsribeService iSubscribeService;
-
+	@Autowired
+	ISubsribeService iContactus;
 	@Autowired
 	private Environment env;
 
@@ -494,5 +496,22 @@ public class MainServices {
 		return "Subsribe sucessfully";
 	}	
 	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/contactus")
+	public String contactus(@RequestBody Contactus Contactus) {
+		try {
+			Iterator<Subsribe> iterable = iContactus.findAll().iterator();
+			while (iterable.hasNext()) {
+				Contactus contactus = iterable.next();
+//				if (subsribe.getEmail().equalsIgnoreCase(subsribe.getEmail())) {
+//					return "{\"message\":\"E-mail already exist \"}";
+//				}
+			} iContactus.saveAll(Contactus);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(Contactus.toString());
+		return "Subsribe sucessfully";
+	}	
 
 }
