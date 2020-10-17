@@ -89,7 +89,7 @@ class Leftpanel extends React.Component {
 
                   <span>
                     <a href="website" className="urlcolors urlfontsize">
-                      YouTube Views
+                      YouTube Views /Likes
                     </a>
                   </span>
                 </div>
@@ -100,7 +100,7 @@ class Leftpanel extends React.Component {
 
                   <span>
                     <a href="website" className="urlcolors urlfontsize">
-                      Facebook Views
+                      Facebook Views /Likes
                     </a>
                   </span>
                 </div>
