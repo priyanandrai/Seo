@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import logo2 from "../images/logo2.png";
 import logo3 from "../images/logo3.png";
+import logo6 from "../images/logo6.jpg";
 import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.jpg";
 import logo10 from "../images/logo10.jpg";
@@ -94,6 +95,17 @@ class Leftpanel extends React.Component {
                 </div>
                 <div className="d-flex">
                   <span>
+                    <img className="logowidthhight" src={logo6} alt="" />
+                  </span>
+
+                  <span>
+                    <a href="website" className="urlcolors urlfontsize">
+                      Facebook Views
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
                     <img className="logowidthhight" src={logo5} alt="" />
                   </span>
 
@@ -111,6 +123,87 @@ class Leftpanel extends React.Component {
                   <span>
                     <a className="urlcolors urlfontsize" href="website">
                       Website Analysis
+                    </a>
+                  </span>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <span>
+                  <img className="logowidthhight" src={logo10} alt="" />
+                </span>
+                <Typography className="urlcolors homemargin urlfontsize">
+                 Website Analytics
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+               
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+                  <span>
+                    <a href="website" className="urlcolors urlfontsize">
+                     File 1
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+                  <span>
+                    <a className="urlcolors urlfontsize" href="website">
+                     File 2
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+
+                  <span>
+                    <a href="website" className="urlcolors urlfontsize">
+                    File 3
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+
+                  <span>
+                    <a href="website" className="urlcolors urlfontsize">
+                      File 4
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+
+                  <span>
+                    <a className="urlcolors urlfontsize" href="website">
+                   File 5
+                    </a>
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span>
+                    <img className="logowidthhight" src={logo10} alt="" />
+                  </span>
+
+                  <span>
+                    <a className="urlcolors urlfontsize" href="website">
+                     File 6
                     </a>
                   </span>
                 </div>
