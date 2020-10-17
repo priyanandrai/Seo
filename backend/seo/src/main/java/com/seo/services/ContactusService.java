@@ -2,14 +2,23 @@ package com.seo.services;
 
 import java.util.Optional;
 
-import com.seo.model.Contactus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class ContactusService implements IContactusService{
+import com.seo.model.Contactus;
+import com.seo.repository.ContactusRepository;
+import com.seo.repository.SubsribeRepository;
+
+@Service
+public class ContactusService implements IContactusSrevice{
+	
+	@Autowired
+	private ContactusRepository contactusRepository;
 
 	@Override
 	public <S extends Contactus> S save(S entity) {
 		// TODO Auto-generated method stub
-		return null;
+		return contactusRepository.save(entity);
 	}
 
 	@Override

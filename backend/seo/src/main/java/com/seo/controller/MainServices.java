@@ -29,6 +29,7 @@ import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
 import com.seo.model.Subsribe;
 import com.seo.services.IAdminloginService;
+import com.seo.services.IContactusSrevice;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.ISubsribeService;
@@ -53,7 +54,7 @@ public class MainServices {
 	@Autowired
 	ISubsribeService iSubscribeService;
 	@Autowired
-	ISubsribeService iContactus;
+	IContactusSrevice iContactus;
 	@Autowired
 	private Environment env;
 
@@ -500,13 +501,7 @@ public class MainServices {
 	@PostMapping("/contactus")
 	public String contactus(@RequestBody Contactus Contactus) {
 		try {
-			Iterator<Subsribe> iterable = iContactus.findAll().iterator();
-			while (iterable.hasNext()) {
-				Contactus contactus = iterable.next();
-//				if (subsribe.getEmail().equalsIgnoreCase(subsribe.getEmail())) {
-//					return "{\"message\":\"E-mail already exist \"}";
-//				}
-			} iContactus.saveAll(Contactus);
+			 iContactus.save( Contactus);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
