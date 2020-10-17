@@ -506,7 +506,7 @@ public class MainServices {
 			e.printStackTrace();
 		}
 		System.out.println(Contactus.toString());
-		return "Subsribe sucessfully";
+		return "Thank You !";
 	}	
 
 }
