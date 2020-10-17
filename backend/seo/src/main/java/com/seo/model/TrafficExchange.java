@@ -14,6 +14,8 @@ public class TrafficExchange {
 	private long id;
 	
 	private String url;
+	
+	private String email;
 
 	private long count_remaining;
 
@@ -27,11 +29,12 @@ public class TrafficExchange {
 		
 	}
 
-	public TrafficExchange(long id, String url, long count_remaining, long count_hit, String user_id,
+	public TrafficExchange(long id, String url, String email, long count_remaining, long count_hit, String user_id,
 			String user_type) {
 		super();
 		this.id = id;
 		this.url = url;
+		this.email = email;
 		this.count_remaining = count_remaining;
 		this.count_hit = count_hit;
 		this.user_id = user_id;
@@ -40,8 +43,9 @@ public class TrafficExchange {
 
 	@Override
 	public String toString() {
-		return "{\"id\":" + id + ", \"url\":\"" + url + "\", \"count_remaining\": \"" + count_remaining + " \",  \"count_hit\": \""
-				+ count_hit + " \",  \"user_id \": \"" + user_id + " \", \" user_type \": \"" + user_type + " \"}";
+		return "TrafficExchange [id=" + id + ", url=" + url + ", email=" + email + ", count_remaining="
+				+ count_remaining + ", count_hit=" + count_hit + ", user_id=" + user_id + ", user_type=" + user_type
+				+ "]";
 	}
 
 	public long getId() {
@@ -58,6 +62,14 @@ public class TrafficExchange {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public long getCount_remaining() {
@@ -91,6 +103,8 @@ public class TrafficExchange {
 	public void setUser_type(String user_type) {
 		this.user_type = user_type;
 	}
+
+	
 
 	
 

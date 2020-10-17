@@ -115,17 +115,7 @@ class Leftpanel extends React.Component {
                     </a>
                   </span>
                 </div>
-                <div className="d-flex">
-                  <span>
-                    <img className="logowidthhight" src={logo10} alt="" />
-                  </span>
-
-                  <span>
-                    <a className="urlcolors urlfontsize" href="website">
-                      Website Analysis
-                    </a>
-                  </span>
-                </div>
+                
               </AccordionDetails>
             </Accordion>
             <Accordion>
