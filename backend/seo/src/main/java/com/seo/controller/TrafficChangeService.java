@@ -92,6 +92,8 @@ public class TrafficChangeService {
 			Iterator<TrafficExchange> iterable = iTrafficExchange.findAll().iterator();
 			while(iterable.hasNext()){
 				TrafficExchange trafficExchange2 = iterable.next();
+				System.out.println("trafficExchange2.getUrl() "+ trafficExchange2.getUrl());
+				System.out.println("url "+ url);
 				if(trafficExchange2.getUrl() != null && trafficExchange2.getUrl().equalsIgnoreCase(url)) {
 					 trafficExchange2.setCount_hit(trafficExchange2.getCount_hit()+1);
 					 trafficExchange2.setCount_remaining(trafficExchange2.getCount_remaining()-1);

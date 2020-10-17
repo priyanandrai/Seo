@@ -22,11 +22,12 @@ class TrafficExchange extends React.Component {
     this.openWindow = this.openWindow.bind(this);
     this.getClientData = this.getClientData.bind(this);
     this.updatecomponentData = this.updatecomponentData.bind(this);
-  
+    this.updatecountForBoth = this.updatecountForBoth.bind(this);
+
     this.state = {
-      urllhit:[],
-      count_hit:"N/A",
-      count_remaining:"N/A",
+      urllhit: [],
+      count_hit: "N/A",
+      count_remaining: "N/A",
       trafficdialog: false,
       url: "",
       numberofURLopen: 0,
@@ -34,25 +35,32 @@ class TrafficExchange extends React.Component {
       duration: 10000,
       checkbrowser: false,
       windowHandler: [],
-      list:[],
+      list: [],
     };
   }
 
-  getClientData(){
+  updatecountForBoth(name){
     let self = this;
-    let url =getBaseUrl() + "/getclientinformation?url="+window.localStorage.getItem("ClientUrl");
+    let url = getBaseUrl() + "/updatehit?url=" + name;
+    axios.get(url).then((response) => {},(error) => {});
+
+     url = getBaseUrl() + "/updateCount?url=" + this.state.url;
+    axios.get(url).then((response) => {
+      this.getClientData();
+    },(error) => {});
+    
+  }
+  getClientData() {
+    let self = this;
+    let url = getBaseUrl() + "/getclientinformation?url=" + window.localStorage.getItem("ClientUrl");
     axios.get(url).then(
       (response) => {
         self.setState({
-          // urllhit:response.data
-          count_hit:response.data.count_hit,
-          count_remaining:response.data.count_remaining,
-          
+          count_hit: response.data.count_hit,
+          count_remaining: response.data.count_remaining,
         })
-         console.log("I am coming here", response.data);
-   
       },
-      (error) => {}
+      (error) => { }
     );
   }
 
@@ -62,10 +70,10 @@ class TrafficExchange extends React.Component {
         snackbar: true,
         error: "please enter the URL.",
       });
-      
+
       return;
     }
-    window.localStorage.setItem("ClientUrl",this.state.url)
+    window.localStorage.setItem("ClientUrl", this.state.url)
     this.getClientData();
     this.openWindow();
     setTimeout(() => {
@@ -74,63 +82,79 @@ class TrafficExchange extends React.Component {
 
     let url = getBaseUrl() + "/saveUrl";
     let temp = {
-      url:this.state.url
+      url: this.state.url
     }
     axios.post(url, temp).then(
       (response) => {
 
       },
-      (error) => {}
+      (error) => { }
     );
   }
-  updatecomponentData(){
-    if(window.localStorage.getItem("ClientUrl") != undefined){
-      // alert("I am cominr here")
+  updatecomponentData() {
+    if (window.localStorage.getItem("ClientUrl") != undefined) {
       this.setState({
-        url:window.localStorage.getItem("ClientUrl")
+        url: window.localStorage.getItem("ClientUrl")
       })
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     this.updatecomponentData();
     this.getClientData();
-    
-    let url =getBaseUrl() + "/gettrafficlist";
-  axios.get(url).then(
-    (response) => {
-      // console.log("I am coming here", response.data);
-      this.setState({
-        list:response.data
-        
-      });
-    },
-    (error) => {}
-  );
+
+    let url = getBaseUrl() + "/gettrafficlist";
+    axios.get(url).then(
+      (response) => {
+        this.setState({
+          list: response.data
+
+        });
+      },
+      (error) => { }
+    );
   }
 
   openWindow() {
     let temp = 3;
-    for (let index = 0; index < this.state.windowHandler.length; index++) {
-      this.state.windowHandler[index].close();
+    for (let index1 = 0; index1 < this.state.windowHandler.length; index1++) {
+      this.updatecountForBoth(this.state.windowHandler[index1].name);
+      this.state.windowHandler[index1].window.close();
     }
     let temphandler = [];
+
     for (
       let index = this.state.numberofURLopen;
       index < this.state.list.length &&
-      index < this.state.numberofURLopen + temp;
+      index < (this.state.numberofURLopen + temp);
       index++
     ) {
-      const element = this.state.list[this.state.numberofURLopen].url;
-      temphandler.push(window.open(element));
+      let element = this.state.list[index].url;
+
+      if(this.state.list[index].count_remaining <=0){
+        let temp = "need to send email for user that his hit become Zero " +   element ;
+        alert(temp);
+      }
+   
+      if(element == this.state.url ||  this.state.list[index].count_remaining <= 0 ){
+        continue;
+      }else{
+      temphandler.push({ "window": window.open(element), "name": element });
+      }
     }
 
+    if (this.state.list.length > (this.state.numberofURLopen + temp)) {
+      setTimeout(() => {
+        this.openWindow();
+      }, this.state.duration);
+    }
     this.setState({
       windowHandler: temphandler,
       numberofURLopen: this.state.numberofURLopen + temp,
     });
+
   }
 
-  trafficdialogend() {}
+  trafficdialogend() { }
 
   componentWillMount() {
     //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
@@ -173,8 +197,8 @@ class TrafficExchange extends React.Component {
               </p>
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           <div className="timecenter justify-content-center mt-2">
             <span className="mr-4 mt-2">
@@ -269,16 +293,16 @@ class TrafficExchange extends React.Component {
             }
           />
         </div>
-        
+
         <div className="ml-5 count_hit">
-            Count Hit ={this.state.count_hit}
+          Count Hit ={this.state.count_hit}
         </div>
-        
+
         <div className="ml-5 mt-2 count_hit">
           Count Remaining ={this.state.count_remaining}
         </div>
-        
-      
+
+
       </div>
     );
   }
