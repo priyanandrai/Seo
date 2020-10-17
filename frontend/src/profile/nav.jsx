@@ -28,14 +28,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getBaseUrl } from "../utils";
 
 import {
- 
   faKey,
   faEnvelope,
   faUser,
   faEye,
   faTimes,
   faBars,
-  
 } from "@fortawesome/free-solid-svg-icons";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -130,7 +128,7 @@ class Nav extends Component {
         // alert(response.data.message);
         this.setState({
           snackbar: true,
-        error: "Request Successfully Submit",
+          error: "Request Successfully Submit",
         });
         // alert("Request Successfully Submit");
 
@@ -521,7 +519,7 @@ class Nav extends Component {
   // openNav =()=>{
   //   document.getElementById("mySidenav").style.width = "250px";
   // }
-  
+
   // closeNav=()=>{
   //   document.getElementById("mySidenav").style.width = "0";
   // }
@@ -553,6 +551,7 @@ class Nav extends Component {
           // window.location.pathname != "/adminute" &&
           // window.location.pathname != "/adminute-dashboard" &&
           // window.location.pathname != "/444-profile" ? (
+
           <button
             id={data.title}
             className="auth-button"
@@ -578,30 +577,27 @@ class Nav extends Component {
       // button_status,
     } = this.state;
 
-    
     return (
       <AppBar position="fixed">
         <Toolbar className="navigationbar" variant="dense">
-      
           {this.state.isLogged === true ? (
-           
-        //   <a href="/dashboard">
-        //     <img className="logos" src={logo} />
-        //   </a> 
-        // ) : (
-        //   <a href="/home">
-        //     <img className="logos" src={logo} />
-        //   </a>
+            //   <a href="/dashboard">
+            //     <img className="logos" src={logo} />
+            //   </a>
+            // ) : (
+            //   <a href="/home">
+            //     <img className="logos" src={logo} />
+            //   </a>
             <div className="headerhight">
-               <Leftpanel></Leftpanel>
-            <a href="/dashboard">
-              <img className="logoss ml-3" src={logo} alt="" />
-            </a> </div>
+              <Leftpanel></Leftpanel>
+              <a href="/dashboard">
+                <img className="logoss ml-3" src={logo} alt="" />
+              </a>{" "}
+            </div>
           ) : (
             <a href="/home">
-              <img className="logos" src={logo} alt=""/>
+              <img className="logos" src={logo} alt="" />
             </a>
-           
           )}
 
           {this.state.isLogged === true ? (
@@ -615,10 +611,16 @@ class Nav extends Component {
                 </a>
                 {/* // ) : null} */}
 
-                <a className="navbar-brand mr-0" >
-                  <img width="30" height="30" src={login} className="logomin" alt="" />
+                <a className="navbar-brand mr-0">
+                  <img
+                    width="30"
+                    height="30"
+                    src={login}
+                    className="logomin"
+                    alt=""
+                  />
                 </a>
-                <a 
+                <a
                   className="nav-link dropdown-toggle text-dark dropdownss dropwidth"
                   id="navbarDropdown"
                   role="button"
@@ -635,7 +637,7 @@ class Nav extends Component {
                 >
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a 
+                  <a
                     // onClick={this.UniqueId}
                     className=" dropdown-item"
                   >
@@ -658,20 +660,20 @@ class Nav extends Component {
                   </a>
                   {/* ) : null} */}
                   <a className="dropdown-item" href="history">
-                   View History
+                    View History
                   </a>
-                  
-                  <a   className="dropdown-item" onClick={this.dialogBox1}>
+
+                  <a className="dropdown-item" onClick={this.dialogBox1}>
                     Change Password
                   </a>
                   {/* {this.state.adminGuard == false &&
                   this.state.adminprofile == false ? ( */}
-                  <a   className="dropdown-item" onClick={this.dialogBox2}>
+                  <a className="dropdown-item" onClick={this.dialogBox2}>
                     Submit Request
                   </a>
                   {/* ) : null} */}
 
-                  <a   className="dropdown-item" onClick={this.logout}>
+                  <a className="dropdown-item" onClick={this.logout}>
                     Logout
                   </a>
                 </div>
@@ -679,6 +681,10 @@ class Nav extends Component {
             </div>
           ) : (
             <div className="navLinks">
+              
+              <a className="traffic_exchangecolor mr-3" href="trafficexchange">
+                Traffic Exchange
+              </a>
               {navigation_links_list}
               <FontAwesomeIcon
                 icon={faBars}
@@ -699,23 +705,24 @@ class Nav extends Component {
                        {data.title}
                      </button>
                       }); */}
+
+                  <a href="trafficexchange" className="dropdown-item">
+                    Traffic Exchange
+                  </a>
                   <a
                     className="dropdown-item"
-                    
                     onClick={() => this.openModal("signin")}
                   >
                     Login
                   </a>
                   <a
                     className="dropdown-item"
-                 
                     onClick={() => this.openModal("signup")}
                   >
                     Register
                   </a>
                   <a
                     className="dropdown-item"
-                   
                     onClick={() => this.openModal("contactus")}
                   >
                     Contact Us
@@ -953,7 +960,7 @@ class Nav extends Component {
                       disabled={
                         this.state.phone === "" ||
                         this.state.email === "" ||
-                        this.state.password ==="" ||
+                        this.state.password === "" ||
                         this.state.full_name === "" ||
                         this.state.confirm_password === ""
                       }
@@ -1125,9 +1132,7 @@ class Nav extends Component {
                 <a className="ml-5 mr-auto mt-2 resendotp">
                   Try Another Number
                 </a>
-                <a  className="mr-5 mt-2 resendotp">
-                  Resend OTP
-                </a>
+                <a className="mr-5 mt-2 resendotp">Resend OTP</a>
               </div>
               <button
                 className="btn btn-secondary mx-auto d-block mt-2"
@@ -1143,7 +1148,7 @@ class Nav extends Component {
         <Dialog
           onClose={() => {
             this.setState({
-              dialogBox1: false
+              dialogBox1: false,
             });
           }}
           open={this.state.dialogBox1}
@@ -1334,7 +1339,6 @@ class Nav extends Component {
           />
         </Dialog>
         <Dialog
-        
           open={this.state.UniqueId}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -1353,11 +1357,11 @@ class Nav extends Component {
           </div>
         </Dialog>
         <Dialog
-        onClose={() => {
-          this.setState({
-            AddBalance: false,
-          });
-        }}
+          onClose={() => {
+            this.setState({
+              AddBalance: false,
+            });
+          }}
           open={this.state.AddBalance}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"

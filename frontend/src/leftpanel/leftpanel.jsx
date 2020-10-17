@@ -34,11 +34,11 @@ class Leftpanel extends React.Component {
       <div>
         {this.state.panelshow ? (
           <div id="mySidenav" class="sidenav">
-            <Accordion className="mt-3">
+            <Accordion className="mt-3 mb-3">
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1bh-content"
-                id="panel1bh-header"
+                // expandIcon={<ExpandMoreIcon />}
+                // aria-controls="panel1bh-content"
+                // id="panel1bh-header"
               >
                 <FontAwesomeIcon className="urlcolors" icon={faHome} />
                 <Typography className="urlcolors homemargin urlfontsize">

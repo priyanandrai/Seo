@@ -1618,6 +1618,13 @@ input:disabled {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .traffic_exchangecolor{
+    outline: none !important;
+    text-decoration: none !important;
+    color: cadetblue !important;
+    font-family: century;
+    display: none;
+  }
   #auth-modal {
     /* width: 100%;
     height: 100%;
@@ -2165,4 +2172,10 @@ a.disabled {
 }
 .footerin:hover{
   color: white;
+}
+.traffic_exchangecolor{
+  outline: none !important;
+  text-decoration: none !important;
+  color: cadetblue !important;
+  font-family: century;
 }
