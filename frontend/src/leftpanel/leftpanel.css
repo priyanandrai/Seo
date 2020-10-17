@@ -13,6 +13,10 @@
   border: 1px solid gray;
   
 }
+.cursor1:hover +.sidenav{
+  display: block;
+  
+}
 
 .sidenav a {
   padding:3px 1px 26px 13px;

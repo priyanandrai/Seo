@@ -24,6 +24,9 @@ class TrafficExchange extends React.Component {
     this.updatecomponentData = this.updatecomponentData.bind(this);
   
     this.state = {
+      urllhit:[],
+      count_hit:"N/A",
+      count_remaining:"N/A",
       trafficdialog: false,
       url: "",
       numberofURLopen: 0,
@@ -36,9 +39,16 @@ class TrafficExchange extends React.Component {
   }
 
   getClientData(){
+    let self = this;
     let url =getBaseUrl() + "/getclientinformation?url="+window.localStorage.getItem("ClientUrl");
     axios.get(url).then(
       (response) => {
+        self.setState({
+          // urllhit:response.data
+          count_hit:response.data.count_hit,
+          count_remaining:response.data.count_remaining,
+          
+        })
          console.log("I am coming here", response.data);
    
       },
@@ -75,7 +85,7 @@ class TrafficExchange extends React.Component {
   }
   updatecomponentData(){
     if(window.localStorage.getItem("ClientUrl") != undefined){
-      alert("I am cominr here")
+      // alert("I am cominr here")
       this.setState({
         url:window.localStorage.getItem("ClientUrl")
       })
@@ -259,6 +269,16 @@ class TrafficExchange extends React.Component {
             }
           />
         </div>
+        
+        <div className="ml-5 count_hit">
+            Count Hit ={this.state.count_hit}
+        </div>
+        
+        <div className="ml-5 mt-2 count_hit">
+          Count Remaining ={this.state.count_remaining}
+        </div>
+        
+      
       </div>
     );
   }
