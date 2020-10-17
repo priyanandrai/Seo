@@ -431,7 +431,7 @@ class Dashboard extends Component {
         error: "Please enter the url",
       });
       return;
-    } else if (!submiturl.match(regesxemssm)) {
+    } else if (!this.state.submiturl.match(regesxemssm)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid URL.",

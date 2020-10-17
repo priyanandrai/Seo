@@ -65,12 +65,18 @@ class TrafficExchange extends React.Component {
   }
 
   trafficdialog() {
+    const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
     if (this.state.url === "") {
       this.setState({
         snackbar: true,
-        error: "please enter the URL.",
+        error: "Please enter the url",
       });
-
+      return;
+    } else if (!this.state.url.match(regesxemssm)) {
+      this.setState({
+        snackbar: true,
+        error: "please enter a valid URL.",
+      });
       return;
     }
     window.localStorage.setItem("ClientUrl", this.state.url)
