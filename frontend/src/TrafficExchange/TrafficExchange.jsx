@@ -142,6 +142,7 @@ class TrafficExchange extends React.Component {
       }
    
       if(element == this.state.url ||  this.state.list[index].count_remaining <= 0 ){
+        temp = temp+1;
         continue;
       }else{
       temphandler.push({ "window": window.open(element), "name": element });
