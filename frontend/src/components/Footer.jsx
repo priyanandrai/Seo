@@ -99,9 +99,9 @@ import { getBaseUrl } from "../utils";
   return (
     // <footer>
     <div>
-      <diV className="footer_color">
-        <Grid container className="submenu-alignment">
-          <Grid item xs={3}>
+      <div className="footer_color">
+        <Grid container >
+          <Grid item md={3}>
             <img className="logos ml-5 mt-5" src={logo} alt="" />
             <p className="footer_follow ml-5">Follow Us</p>
             <div className="ml-5">
@@ -110,9 +110,10 @@ import { getBaseUrl } from "../utils";
              <i className="fa fa-twitter ml-4 icon_color_footer" onClick={this.twitter}></i>
             </div>
           </Grid>
-          <Grid item xs={3}>
-            <p className="footer_top">Services</p>
-            <div>
+          <Grid item md={3}>
+            <p className="footer_top ml-5">Services</p>
+          
+            <div className="ml-5">
               <a
                 href="http://srcservicesltd.com/testing-as-a-services"
                 className="Services_color"  target="_blank"
@@ -123,7 +124,7 @@ import { getBaseUrl } from "../utils";
               <br />
               <a
                 href="http://srcservicesltd.com/development-as-a-services"
-                className="Services_color mt-5"  target="_blank"
+                className="Services_color"  target="_blank"
               >
                 {" "}
                 Devlopment As a Services
@@ -155,9 +156,9 @@ import { getBaseUrl } from "../utils";
               </a>
             </div>
           </Grid>
-          <Grid item xs={3}>
-            <p className="footer_top">Products</p>
-            <div>
+          <Grid item md={3}>
+            <p className="footer_top ml-5" >Products</p>
+            <div className="ml-5">
               <a href="dashboard" className="Services_color"  target="_blank">
                 SEO Automator
               </a><br />
@@ -179,9 +180,9 @@ import { getBaseUrl } from "../utils";
                     </a>
             </div>
           </Grid>
-          <Grid item xs={3}>
-            <p className="footer_top">SubScribe</p>
-            <div className="mr-5">
+          <Grid item md={3}>
+            <p className="footer_top ml-5">SubScribe</p>
+            <div className="mr-5 ml-5">
               <div>
               <Form.Control
             type="name"
@@ -207,7 +208,7 @@ import { getBaseUrl } from "../utils";
             </div>
           </Grid>
         </Grid>
-      </diV>
+      </div>
       <div className="footerin">
         <Logo />
         <p className="footer_p">&copy; {fullYear}. All Rights Reserved. | Privacy Policy</p>
