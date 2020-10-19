@@ -10,48 +10,45 @@ import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 
-
 // const Footer = () => {
-//  
-  class Footer extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        name:"",
-        email:"",
-        submit:false,
-      };
+//
+class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: "",
+      email: "",
+      submit: false,
+    };
+  }
+  submit = () => {
+    if (this.state.name.trim() === "") {
+      this.setState({ snackbar: true, error: "Please enter  name." });
+      return;
     }
-    submit = () =>{
-      if (this.state.name.trim() === "") {
-        this.setState({ snackbar: true, 
-          error: "Please enter  name." });
-          return;
-      }
-      
-      const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    const regexex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.email.trim() === "") {
       this.setState({
         snackbar: true,
         error: "Please Enter your E-mail Id",
       });
-      
+
       return;
     } else if (!this.state.email.match(regexex)) {
       this.setState({
         snackbar: true,
         error: "please enter a valid E-mail Id.",
       });
-     
 
       return;
     }
     let url = getBaseUrl() + "/subscribe";
-    let temp={
+    let temp = {
       name: this.state.name,
-      email:this.state.email,
-    }
+      email: this.state.email,
+    };
     axios
       .post(url, temp)
       .then(
@@ -66,7 +63,7 @@ import { getBaseUrl } from "../utils";
           }
           this.setState({
             notifiy: !this.state.notifiy,
-            name:"",
+            name: "",
             email: "",
           });
         },
@@ -81,142 +78,162 @@ import { getBaseUrl } from "../utils";
       .catch((e) => {});
 
     //
-    }
-    facebook = () =>{
-      window.open("https://www.facebook.com/SeemaRaiConsultancyServices");
-    }
-    linkdin = () =>{
-      window.open("https://www.linkedin.com/company/seema-india-private-limited/?viewAsMember=true");
-    }
-    twitter = () => {
-      window.open("https://twitter.com/SRConsultancyS1");
-    }
-    closeSnackbar = () => {
-      this.setState({ snackbar: false });
-    };
-    render() {
-      const fullYear = new Date().getFullYear();
-  return (
-    // <footer>
-    <div>
-      <div className="footer_color">
-        <Grid container >
-          <Grid item md={3}>
-            <img className="logos ml-5 mt-5" src={logo} alt="" />
-            <p className="footer_follow ml-5">Follow Us</p>
-            <div className="ml-5">
-              <i className="fa fa-facebook icon_color_footer" onClick={this.facebook}></i>
-            <i className="fa fa-linkedin ml-4 icon_color_footer" onClick={this.linkdin}></i>
-             <i className="fa fa-twitter ml-4 icon_color_footer" onClick={this.twitter}></i>
-            </div>
-          </Grid>
-          <Grid item md={3}>
-            <p className="footer_top ml-5">Services</p>
-            <div className="ml-5 border-top bodercolor11"> </div>
-          
-            <div className="ml-5 mt-3">
-              <a
-                href="http://srcservicesltd.com/testing-as-a-services"
-                className="Services_color"  target="_blank"
-              >
-                Testing As a Services
-              </a>
-              <br />
-              <br />
-              <a
-                href="http://srcservicesltd.com/development-as-a-services"
-                className="Services_color"  target="_blank"
-              >
-                {" "}
-                Devlopment As a Services
-              </a>
-              <br />
-              <br />
-              <a
-                href="http://srcservicesltd.com/support-as-a-services"
-                className="Services_color"  target="_blank"
-              >
-                {" "}
-                Support As a Services
-              </a>
-              <br />
-              <br />
-              <a
-                href="http://srcservicesltd.com/manpower-as-a-services"
-                className="Services_color"  target="_blank"
-              >
-                Manpower As a Services
-              </a>
-              <br />
-              <br />
-              <a
-                href="http://srcservicesltd.com/devOps-as-a-services"
-                className="Services_color"  target="_blank"
-              >
-                DevOps As a Services
-              </a>
-            </div>
-          </Grid>
-          <Grid item md={3}>
-            <p className="footer_top ml-5" >Products</p>
-            <div className="ml-5 border-top bodercolor11"> </div>
-            <div className="ml-5 mt-3">
-              <a href="dashboard" className="Services_color"  target="_blank">
-                SEO Automator
-              </a><br />
-              <br />
-              <a className="Services_color" href="trafficexchange"  target="_blank">
-                      Traffic Exchange
-                    </a><br />
-              <br />
-                    <a href="website" className="Services_color"  target="_blank">
-                      YouTube Views /Likes
-                    </a><br />
-              <br />
-                    <a href="website" className="Services_color"  target="_blank">
-                      Facebook Views /Likes
-                    </a><br />
-              <br />
-                    <a className="Services_color" href="website"  target="_blank">
-                      Social Media Manager
-                    </a>
-            </div>
-          </Grid>
-          <Grid item md={3}>
-            <p className="footer_top ml-5">SubScribe</p>
-            <div className="ml-5 border-top bodercolor1122"> </div>
-            <div className="mr-5 ml-5 mt-3">
-              <div>
-              <Form.Control
-            type="name"
-            placeholder="Name"
-            id="Name"
-            value={this.state.name}
-            onChange={(e) => this.setState({ name: e.target.value })}
-          />
-              </div>
-              <div className="mt-4">
-            <Form.Control
-            type="name"
-            placeholder="Email Address"
-            id="Name"
-            value={this.state.email}
-            onChange={(e) => this.setState({ email: e.target.value })}
-          /></div>
-          <div className="mt-3">
-          <button className="footer-btn_color" onClick={this.submit} >
-          Submit
-          </button>
-          </div>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-      <div className="footerin">
-        <Logo />
-        <p className="footer_p">&copy; {fullYear}. All Rights Reserved. | Privacy Policy</p>
-      </div>
+  };
+
+  closeSnackbar = () => {
+    this.setState({ snackbar: false });
+  };
+  render() {
+    const fullYear = new Date().getFullYear();
+    return (
+      // <footer>
       <div>
+        <div className="footer_color">
+          <Grid container>
+            <Grid item md={3}>
+              <img className="logos ml-5 mt-5" src={logo} alt="" />
+              <p className="footer_follow ml-5">Follow Us</p>
+              <div className="ml-5">
+                <a
+                  href="https://www.facebook.com/SeemaRaiConsultancyServices"
+                  target="_blank"
+                >
+                  <i className="fa fa-facebook icon_color_footer"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/seema-india-private-limited/?viewAsMember=true"
+                  target="_blank"
+                >
+                  <i className="fa fa-linkedin ml-4 icon_color_footer"></i>
+                </a>
+                <a href="https://twitter.com/SRConsultancyS1" target="_blank">
+                  <i className="fa fa-twitter ml-4 icon_color_footer"></i>
+                </a>
+              </div>
+            </Grid>
+            <Grid item md={3}>
+              <p className="footer_top ml-5">Services</p>
+              <div className="ml-5 border-top bodercolor11"> </div>
+
+              <div className="ml-5 mt-3">
+                <a
+                  href="http://srcservicesltd.com/testing-as-a-services"
+                  className="Services_color"
+                  target="_blank"
+                >
+                  Testing As a Services
+                </a>
+                <br />
+                <br />
+                <a
+                  href="http://srcservicesltd.com/development-as-a-services"
+                  className="Services_color"
+                  target="_blank"
+                >
+                  {" "}
+                  Devlopment As a Services
+                </a>
+                <br />
+                <br />
+                <a
+                  href="http://srcservicesltd.com/support-as-a-services"
+                  className="Services_color"
+                  target="_blank"
+                >
+                  {" "}
+                  Support As a Services
+                </a>
+                <br />
+                <br />
+                <a
+                  href="http://srcservicesltd.com/manpower-as-a-services"
+                  className="Services_color"
+                  target="_blank"
+                >
+                  Manpower As a Services
+                </a>
+                <br />
+                <br />
+                <a
+                  href="http://srcservicesltd.com/devOps-as-a-services"
+                  className="Services_color"
+                  target="_blank"
+                >
+                  DevOps As a Services
+                </a>
+              </div>
+            </Grid>
+            <Grid item md={3}>
+              <p className="footer_top ml-5">Products</p>
+              <div className="ml-5 border-top bodercolor11"> </div>
+              <div className="ml-5 mt-3">
+                <a href="dashboard" className="Services_color" target="_blank">
+                  SEO Automator
+                </a>
+                <br />
+                <br />
+                <a
+                  className="Services_color"
+                  href="trafficexchange"
+                  target="_blank"
+                >
+                  Traffic Exchange
+                </a>
+                <br />
+                <br />
+                <a href="website" className="Services_color" target="_blank">
+                  YouTube Views /Likes
+                </a>
+                <br />
+                <br />
+                <a href="website" className="Services_color" target="_blank">
+                  Facebook Views /Likes
+                </a>
+                <br />
+                <br />
+                <a className="Services_color" href="website" target="_blank">
+                  Social Media Manager
+                </a>
+              </div>
+            </Grid>
+            <Grid item md={3}>
+              <p className="footer_top ml-5">SubScribe</p>
+              <div className="ml-5 border-top bodercolor1122"> </div>
+              <div className="mr-5 ml-5 mt-3">
+                <div>
+                  <Form.Control
+                    type="name"
+                    placeholder="Name"
+                    id="Name"
+                    value={this.state.name}
+                    onChange={(e) => this.setState({ name: e.target.value })}
+                  />
+                </div>
+                <div className="mt-4">
+                  <Form.Control
+                    type="name"
+                    placeholder="Email Address"
+                    id="Name"
+                    value={this.state.email}
+                    onChange={(e) => this.setState({ email: e.target.value })}
+                  />
+                </div>
+                <div className="mt-3">
+                  <button className="footer-btn_color" onClick={this.submit}>
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+        <div className="footerin">
+          <Logo />
+          <p className="footer_p">
+            &copy; {fullYear}. All Rights Reserved. | Privacy Policy
+          </p>
+        </div>
+        <div>
           <Snackbar
             anchorOrigin={{
               vertical: "bottom",
@@ -241,10 +258,10 @@ import { getBaseUrl } from "../utils";
             }
           />
         </div>
-    </div>
-    // </footer>
-  );
-    }
-};
+      </div>
+      // </footer>
+    );
+  }
+}
 
 export default Footer;
