@@ -2168,14 +2168,49 @@ a.disabled {
   width: 100%;
   height: 45px;
   padding-top: 10px;
+  color: white;
   
 }
-.footerin:hover{
-  color: white;
-}
+
 .traffic_exchangecolor{
   outline: none !important;
   text-decoration: none !important;
   color: cadetblue !important;
   font-family: century;
+}
+.footer_color{
+  /* width: 100%;
+  height: 50vh; */
+  background-color: black;
+}
+.footer_top{
+  color: white;
+  font-size: 25px;
+  font-family: century;
+  margin-top: 25px;
+  font-weight: bold;
+}
+.Services_color{
+  color: white !important;
+  font-family: century;
+  /* text-decoration: none !important; */
+  
+}
+.footer-btn_color{
+  background-color: #D35400 !important;
+  text-decoration: none !important;
+  outline: none !important;
+
+}
+.footer_follow{
+ margin-top: 25%;
+ color: white;
+ font-family: century;
+}
+.icon_color_footer{
+  color: white;
+  font-size: 25px;
+}
+.footer_p{
+  text-align: center;
 }

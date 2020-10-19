@@ -483,13 +483,14 @@ public class MainServices {
 	@PostMapping("/subscribe")
 	public String subscribe(@RequestBody Subsribe Subsribe) {
 		try {
-			Iterator<Subsribe> iterable = iSubscribeService.findAll().iterator();
-			while (iterable.hasNext()) {
-				Subsribe subsribe = iterable.next();
-				if (subsribe.getEmail().equalsIgnoreCase(subsribe.getEmail())) {
-					return "{\"message\":\"E-mail already exist \"}";
-				}
-			} iSubscribeService.save(Subsribe);
+//			Iterator<Subsribe> iterable = iSubscribeService.findAll().iterator();
+//			while (iterable.hasNext()) {
+//				Subsribe subsribe = iterable.next();
+//				if (subsribe.getEmail().equalsIgnoreCase(subsribe.getEmail())) {
+//					return "{\"message\":\"E-mail already exist \"}";
+//				}
+//			} 
+			iSubscribeService.save(Subsribe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
