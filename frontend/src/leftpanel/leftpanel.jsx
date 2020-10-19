@@ -89,11 +89,11 @@ class Leftpanel extends React.Component {
 
                   <span>
                     <a href="website" className="urlcolors urlfontsize">
-                      YouTube Views /Likes
+                      YouTube Views 
                     </a>
                   </span>
                 </div>
-                <div className="d-flex">
+                {/* <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo6} alt="" />
                   </span>
@@ -103,7 +103,7 @@ class Leftpanel extends React.Component {
                       Facebook Views /Likes
                     </a>
                   </span>
-                </div>
+                </div> */}
                 <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo5} alt="" />
@@ -133,7 +133,7 @@ class Leftpanel extends React.Component {
               </AccordionSummary>
               <AccordionDetails>
                
-                <div className="d-flex">
+                {/* <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo10} alt="" />
                   </span>
@@ -196,7 +196,7 @@ class Leftpanel extends React.Component {
                      File 6
                     </a>
                   </span>
-                </div>
+                </div> */}
               </AccordionDetails>
             </Accordion>
           </div>

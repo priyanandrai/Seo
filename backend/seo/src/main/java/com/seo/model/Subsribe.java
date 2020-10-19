@@ -23,7 +23,7 @@ public class Subsribe {
 	}
 	@Override
 	public String toString() {
-		return "Subsribe [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return  "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"email\":\"" + email + "\"}";
 	}
 	public long getId() {
 		return id;
