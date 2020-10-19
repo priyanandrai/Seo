@@ -112,8 +112,9 @@ import { getBaseUrl } from "../utils";
           </Grid>
           <Grid item md={3}>
             <p className="footer_top ml-5">Services</p>
+            <div className="ml-5 border-top bodercolor11"> </div>
           
-            <div className="ml-5">
+            <div className="ml-5 mt-3">
               <a
                 href="http://srcservicesltd.com/testing-as-a-services"
                 className="Services_color"  target="_blank"
@@ -158,7 +159,8 @@ import { getBaseUrl } from "../utils";
           </Grid>
           <Grid item md={3}>
             <p className="footer_top ml-5" >Products</p>
-            <div className="ml-5">
+            <div className="ml-5 border-top bodercolor11"> </div>
+            <div className="ml-5 mt-3">
               <a href="dashboard" className="Services_color"  target="_blank">
                 SEO Automator
               </a><br />
@@ -182,7 +184,8 @@ import { getBaseUrl } from "../utils";
           </Grid>
           <Grid item md={3}>
             <p className="footer_top ml-5">SubScribe</p>
-            <div className="mr-5 ml-5">
+            <div className="ml-5 border-top bodercolor1122"> </div>
+            <div className="mr-5 ml-5 mt-3">
               <div>
               <Form.Control
             type="name"

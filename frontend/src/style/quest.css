@@ -2201,6 +2201,7 @@ a.disabled {
   font-family: century;
   margin-top: 25px;
   font-weight: bold;
+  margin-bottom: 0rem !important;
 }
 .Services_color{
   color: white !important;
@@ -2226,5 +2227,13 @@ a.disabled {
 .footer_p{
   text-align: center;
   margin-bottom: 0rem !important;
+}
+.bodercolor11 {
+  color: cadetblue;
+  width: 30%;
+}
+.bodercolor1122{
+  color: cadetblue;
+  width: 37%;
 }
 
