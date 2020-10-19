@@ -112,10 +112,10 @@ class Footer extends React.Component {
               </div>
             </Grid>
             <Grid item md={3}>
-              <p className="footer_top ml-5">Services</p>
-              <div className="ml-5 border-top bodercolor11"> </div>
+              <p className="footer_top ml-5"><u>Services</u></p>
+              {/* <div className="ml-5 border-top bodercolor11"> </div> */}
 
-              <div className="ml-5 mt-3">
+              <div className="ml-5 mt-2">
                 <a
                   href="http://srcservicesltd.com/testing-as-a-services"
                   className="Services_color"
@@ -124,27 +124,27 @@ class Footer extends React.Component {
                   Testing As a Services
                 </a>
                 <br />
-                <br />
+               
                 <a
                   href="http://srcservicesltd.com/development-as-a-services"
                   className="Services_color"
                   target="_blank"
                 >
-                  {" "}
+              
                   Devlopment As a Services
                 </a>
                 <br />
-                <br />
+              
                 <a
                   href="http://srcservicesltd.com/support-as-a-services"
                   className="Services_color"
                   target="_blank"
                 >
-                  {" "}
+              
                   Support As a Services
                 </a>
                 <br />
-                <br />
+             
                 <a
                   href="http://srcservicesltd.com/manpower-as-a-services"
                   className="Services_color"
@@ -153,7 +153,7 @@ class Footer extends React.Component {
                   Manpower As a Services
                 </a>
                 <br />
-                <br />
+               
                 <a
                   href="http://srcservicesltd.com/devOps-as-a-services"
                   className="Services_color"
@@ -164,14 +164,14 @@ class Footer extends React.Component {
               </div>
             </Grid>
             <Grid item md={3}>
-              <p className="footer_top ml-5">Products</p>
-              <div className="ml-5 border-top bodercolor11"> </div>
-              <div className="ml-5 mt-3">
+              <p className="footer_top ml-5"><u>Products</u></p>
+              {/* <div className="ml-5 border-top bodercolor11"> </div> */}
+              <div className="ml-5 mt-2">
                 <a href="dashboard" className="Services_color" target="_blank">
                   SEO Automator
                 </a>
                 <br />
-                <br />
+               
                 <a
                   className="Services_color"
                   href="trafficexchange"
@@ -180,28 +180,29 @@ class Footer extends React.Component {
                   Traffic Exchange
                 </a>
                 <br />
-                <br />
+              
                 <a href="website" className="Services_color" target="_blank">
                   YouTube Views /Likes
                 </a>
                 <br />
-                <br />
+               
                 <a href="website" className="Services_color" target="_blank">
                   Facebook Views /Likes
                 </a>
                 <br />
-                <br />
+            
                 <a className="Services_color" href="website" target="_blank">
                   Social Media Manager
                 </a>
               </div>
             </Grid>
             <Grid item md={3}>
-              <p className="footer_top ml-5">SubScribe</p>
-              <div className="ml-5 border-top bodercolor1122"> </div>
-              <div className="mr-5 ml-5 mt-3">
+              <p className="footer_top ml-5"><u>SubScribe</u></p>
+              {/* <div className="ml-5 border-top bodercolor1122"> </div> */}
+              <div className="mr-5 ml-5 mt-2">
                 <div>
                   <Form.Control
+                  className="footer_input"
                     type="name"
                     placeholder="Name"
                     id="Name"
@@ -209,8 +210,9 @@ class Footer extends React.Component {
                     onChange={(e) => this.setState({ name: e.target.value })}
                   />
                 </div>
-                <div className="mt-4">
+                <div className="mt-3">
                   <Form.Control
+                   className="footer_input"
                     type="name"
                     placeholder="Email Address"
                     id="Name"

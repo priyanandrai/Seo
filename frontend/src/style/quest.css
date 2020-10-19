@@ -2174,7 +2174,7 @@ a.disabled {
 }
 .footerin {
  
-  background-color: #111;
+  background-color:black;
   width: 100%;
   height: 45px;
   padding-top: 10px;
@@ -2192,12 +2192,12 @@ a.disabled {
 .footer_color{
   /* width: 100%;
   height: 50vh; */
-  background-color: black;
+  background-color: #111;
   padding-bottom: 2%;
 }
 .footer_top{
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   font-family: century;
   margin-top: 25px;
   font-weight: bold;
@@ -2213,10 +2213,12 @@ a.disabled {
   background-color: #D35400 !important;
   text-decoration: none !important;
   outline: none !important;
+  height: 30px !important;
+  padding: 3px 25px !important;
 
 }
 .footer_follow{
- margin-top: 25%;
+ margin-top: 10%;
  color: white;
  font-family: century;
 }
@@ -2234,6 +2236,9 @@ a.disabled {
 }
 .bodercolor1122{
   color: cadetblue;
-  width: 37%;
+  width: 30%;
+}
+.footer_input{
+  height: 30px !important;
 }
 
