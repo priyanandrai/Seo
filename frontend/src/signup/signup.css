@@ -1,0 +1,66 @@
+.Sighup_color{
+   width: 80vh;
+   height: auto;
+   border: 2px solid cadetblue;
+   margin-top: 50px;
+   margin-bottom: 30px;
+   border-radius: 10px;
+}
+.signup_head{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: cadetblue;
+    font-family: century;
+}
+.signup_phone input{
+    width: 90% !important;
+    height: 8vh !important;
+}
+.signup_name {
+    width: 82% !important;
+    height: 7vh !important; 
+}
+.signup_email{
+    font-size: large;
+    color: #13708c;
+    float: right;
+    /* margin-left: 10px; */
+    vertical-align: middle !important;
+}
+.signup_accept{
+    color: cadetblue;
+}
+.btn_signupdsiable{
+    /* width: 64vh !important;
+
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none !important;
+    color: #ffffff;
+    outline: 0px;
+    cursor: pointer;
+    padding: 15px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 0px;
+    border-radius: 6px;
+   
+    display: block; */
+}
+.btn_signup{
+    width: 64vh !important;
+    background-color: #13708c;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none !important;
+    color: #ffffff;
+    outline: 0px;
+    cursor: pointer;
+    padding: 15px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 0px;
+    border-radius: 6px;
+    display: block;
+}

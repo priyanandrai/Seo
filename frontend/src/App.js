@@ -9,7 +9,8 @@ import Maincontentpage from "./maincontentpage/maincontentpage";
 import Logout from "./logout/logout";
 import Userhistory from "./profile/userhistory";
 import TrafficExchange from "./TrafficExchange/TrafficExchange";
-import Yourwebsite from "./yourwebsite/yourwebsite"
+import Yourwebsite from "./yourwebsite/yourwebsite";
+import Signup from "./signup/signup";
 import {
   BrowserRouter as Router,
   Route,
@@ -44,6 +45,7 @@ function App() {
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
         <Route exact path="/trafficexchange" component={TrafficExchange}  />
         <Route exact path="/welcome" component={Yourwebsite}  />
+        <Route exact path="/signup-Required" component={Signup}  />
       </Router>
        );
  
