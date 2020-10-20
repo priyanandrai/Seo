@@ -166,9 +166,9 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="Sighup_color ml-auto mr-auto">
+      <div className="Sighup_color ml-auto mr-auto phone_view">
         <p className="signup_head">SIGN UP</p>
-        <fieldset className="ml-5 signup_phone">
+        <fieldset className="margin_leftp signup_phone">
           <PhoneInput
             className=""
             placeholder={"Mobile no. *"}
@@ -187,7 +187,7 @@ class Signup extends React.Component {
             }}
           />
         </fieldset>
-        <fieldset className="inputHome ml-5 mt-4 signup_name">
+        <fieldset className="inputHome margin_leftp mt-4 signup_name">
           <FontAwesomeIcon icon={faUser} className="signup-icon" />
           {/* fa-lg m-2 align-middle text-danger */}
           <Input
@@ -202,7 +202,7 @@ class Signup extends React.Component {
             //   onChange={this.handelOnChange}
           />
         </fieldset>
-        <fieldset className="inputHome ml-5 mt-4 signup_name">
+        <fieldset className="inputHome margin_leftp mt-4 signup_name">
           <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
           <Input
             className="bodernull111 pl-4 pt-2"
@@ -216,7 +216,7 @@ class Signup extends React.Component {
             //   onChange={this.handelOnChange}
           />
         </fieldset>
-        <fieldset className="inputHome ml-5 mt-4 signup_name">
+        <fieldset className="inputHome margin_leftp mt-4 signup_name">
           <FontAwesomeIcon icon={faKey} className="signup-icon" />
           <Input
             id="myInput"
@@ -236,7 +236,7 @@ class Signup extends React.Component {
             onClick={this.myFunction}
           />
         </fieldset>
-        <fieldset className="inputHome ml-5 mt-4 signup_name">
+        <fieldset className="inputHome margin_leftp mt-4 signup_name">
           <FontAwesomeIcon icon={faKey} className="signup-icon" />
           <Input
             id="myInput1"
@@ -269,7 +269,7 @@ class Signup extends React.Component {
           />{" "}
           I accept terms & condition{" "}
         </p>
-        <div className="ml-5">
+        <div className="margin_leftp">
           <Button
             className="btn_signup"
             type="submit"
@@ -284,7 +284,7 @@ class Signup extends React.Component {
             // onClick={() => this.openModal("signin")}
             title="Sign In"
           >
-            Please Click on Login
+            Sign in
           </span>
         </p>
         <div>
