@@ -88,7 +88,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a href="website" className="urlcolors urlfontsize">
+                    <a href="welcome" className="urlcolors urlfontsize">
                       YouTube Views 
                     </a>
                   </span>
@@ -99,7 +99,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a href="website" className="urlcolors urlfontsize">
+                    <a href="welcome" className="urlcolors urlfontsize">
                       Facebook Views /Likes
                     </a>
                   </span>
@@ -110,7 +110,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a className="urlcolors urlfontsize" href="website">
+                    <a className="urlcolors urlfontsize" href="welcome">
                       Social Media Manager
                     </a>
                   </span>
@@ -138,7 +138,7 @@ class Leftpanel extends React.Component {
                     <img className="logowidthhight" src={logo10} alt="" />
                   </span>
                   <span>
-                    <a href="website" className="urlcolors urlfontsize">
+                    <a href="welcome" className="urlcolors urlfontsize">
                      File 1
                     </a>
                   </span>
@@ -148,7 +148,7 @@ class Leftpanel extends React.Component {
                     <img className="logowidthhight" src={logo10} alt="" />
                   </span>
                   <span>
-                    <a className="urlcolors urlfontsize" href="website">
+                    <a className="urlcolors urlfontsize" href="welcome">
                      File 2
                     </a>
                   </span>
@@ -159,7 +159,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a href="website" className="urlcolors urlfontsize">
+                    <a href="welcome" className="urlcolors urlfontsize">
                     File 3
                     </a>
                   </span>
@@ -170,7 +170,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a href="website" className="urlcolors urlfontsize">
+                    <a href="welcome" className="urlcolors urlfontsize">
                       File 4
                     </a>
                   </span>
@@ -181,7 +181,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a className="urlcolors urlfontsize" href="website">
+                    <a className="urlcolors urlfontsize" href="welcome">
                    File 5
                     </a>
                   </span>
@@ -192,7 +192,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a className="urlcolors urlfontsize" href="website">
+                    <a className="urlcolors urlfontsize" href="welcome">
                      File 6
                     </a>
                   </span>

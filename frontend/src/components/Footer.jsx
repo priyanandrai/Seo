@@ -181,17 +181,17 @@ class Footer extends React.Component {
                 </a>
                 <br />
               
-                <a href="website" className="Services_color" target="_blank">
+                <a href="welcome" className="Services_color" target="_blank">
                   YouTube Views /Likes
                 </a>
                 <br />
                
-                <a href="website" className="Services_color" target="_blank">
+                <a href="welcome" className="Services_color" target="_blank">
                   Facebook Views /Likes
                 </a>
                 <br />
             
-                <a className="Services_color" href="website" target="_blank">
+                <a className="Services_color" href="welcome" target="_blank">
                   Social Media Manager
                 </a>
               </div>

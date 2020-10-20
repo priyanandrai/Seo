@@ -14,9 +14,11 @@ class Home extends Component {
 
     this.state = {};
   }
+ 
+
   componentWillMount() {
     let temp = !isLoggedIn();
-
+   
     if (temp === true || temp === "true") {
       // console(isLoggedIn)
     } else {
