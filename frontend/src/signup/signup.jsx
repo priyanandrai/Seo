@@ -191,7 +191,7 @@ class Signup extends React.Component {
           <FontAwesomeIcon icon={faUser} className="signup-icon" />
           {/* fa-lg m-2 align-middle text-danger */}
           <Input
-            className="bodernull111 pl-4 pt-2"
+            className="bodernull111 pl-4 pt-1"
             type="text"
             name="full_name"
             placeholder="Full Name"
@@ -205,7 +205,7 @@ class Signup extends React.Component {
         <fieldset className="inputHome margin_leftp mt-4 signup_name">
           <FontAwesomeIcon icon={faEnvelope} className="signup-icon" />
           <Input
-            className="bodernull111 pl-4 pt-2"
+            className="bodernull111 pl-4 pt-1"
             type="text"
             name="email"
             placeholder="Email ID"
@@ -220,7 +220,7 @@ class Signup extends React.Component {
           <FontAwesomeIcon icon={faKey} className="signup-icon" />
           <Input
             id="myInput"
-            className="bodernull111 pl-4 pt-2"
+            className="bodernull111 pl-4 pt-1"
             type="password"
             name="password"
             placeholder="password"
@@ -240,7 +240,7 @@ class Signup extends React.Component {
           <FontAwesomeIcon icon={faKey} className="signup-icon" />
           <Input
             id="myInput1"
-            className="bodernull111  pl-4 pt-2"
+            className="bodernull111  pl-4 pt-1"
             type="password"
             name="confirm_password"
             placeholder="Confirm Password"

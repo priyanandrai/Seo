@@ -108,3 +108,21 @@
         height: 6vh !important;
     }
 }
+@media only screen and (min-width: 481px) and (max-width: 1050px) {
+    .btn_signup {
+        width: 90% !important;
+        background-color: #13708c;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none !important;
+        color: #ffffff;
+        outline: 0px;
+        cursor: pointer;
+        padding: 10px 0px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 0px;
+        border-radius: 6px;
+        display: block;
+    }
+}
