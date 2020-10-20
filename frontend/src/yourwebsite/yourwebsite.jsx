@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 import { Form } from "react-bootstrap";
 import HOC from "../components/HOC";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes,faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import "./yourwebsite.css";
 import logo6 from "../images/logo6.jpg";
 import logo7 from "../images/logo7.png";
@@ -180,8 +180,11 @@ class Yourwebsite extends React.Component {
                 <FontAwesomeIcon icon={faTimes} />{" "}
               </span>
               <div className="mt-5">
-                <p className="thank_you">Thank You </p>
-                <p className="subscribe_our">To Subscribe our mailing list!</p>
+                <div className="click_icon">
+                <FontAwesomeIcon className="right_iconpop" icon={faCheckCircle} />
+                </div>
+                <p className="thank_you">Thank You !</p>
+                <p className="ml-5 mr-5 subscribe_our">If You have any questions Please call us at<b> +91 - 8882933729</b></p>
               </div>
             </div>
           </Dialog>

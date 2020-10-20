@@ -12,9 +12,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DataTable from "react-data-table-component";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import HOC from "../components/HOC";
 
+import HOC from "../components/HOC";
+import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";

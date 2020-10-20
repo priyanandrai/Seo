@@ -52,10 +52,11 @@
     width: 25px;
 }
 .thank_you{
-    font-weight: bold;
-    font-size: 50px;
+    font-weight: 900;
+    font-size: 30px;
+    font-family: century;
     text-align: center;
-    color: cadetblue;
+    /* color: cadetblue; */
 }
 .subscribe_our{
     text-align: center;
@@ -108,4 +109,12 @@
 }
 .cursor{
     cursor: pointer;
+}
+.click_icon{
+    text-align: center;
+   
+}
+.right_iconpop{
+    font-size: 40px;
+    color: #1AD871 !important;
 }
