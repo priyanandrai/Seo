@@ -1,12 +1,17 @@
-import React,  { Component } from "react";
-import {  Card } from "react-bootstrap";
+import React, { Component } from "react";
+import { Card } from "react-bootstrap";
 import "../maincontentpage/main.css";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import ReactPlayer from "react-player";
 import HOC from "../components/HOC";
-import {  isLoggedIn } from "../utils";
+import { isLoggedIn } from "../utils";
+import home from "../images/home.jpg";
+import logo2 from "../images/logo2.png";
+import logo3 from "../images/logo3.png";
+import logo4 from "../images/logo4.jpg";
+import logo5 from "../images/logo5.jpg";
 
 class Home extends Component {
   constructor(props) {
@@ -14,25 +19,84 @@ class Home extends Component {
 
     this.state = {};
   }
- 
 
   componentWillMount() {
     let temp = !isLoggedIn();
-   
+
     if (temp === true || temp === "true") {
       // console(isLoggedIn)
     } else {
       window.location = "/dashboard";
     }
   }
-  componentWillUnmount()
-  {
-    console.log("coming here for component willUnmoutn ")
+  componentWillUnmount() {
+    console.log("coming here for component willUnmoutn ");
+  }
+  seoautomater =() => {
+    window.location="signup-required";
+  }
+  trafficexchange = () => {
+    window.location="trafficexchange";
   }
   render() {
     return (
-      <div className="container mainpage-alignment">
-        <Grid container className="submenu-alignment">
+      <div className="">
+        <div>
+          <img className="home_page" src={home} alt="" />
+        </div>
+        <div className="second_colorbg">
+        <div className=" mb-3 home_backcolor">
+          <Grid container className="">
+            <Grid item md={4}>
+              <div className="home_grid mx-auto mt-5" onClick={this.seoautomater}>
+                <p className="home_seo"> SEO Automator</p>
+                <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+                <div className="home_icon1">
+                <img className="home_img" src={logo2} alt="" />
+                </div>
+              </div>
+            </Grid>
+            <Grid item md={4}>
+              <div className="home_grid ml-3 mt-5" onClick={this.trafficexchange}>
+              <p className="home_seo">   Traffic Exchange</p>
+              <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+              <div className="home_icon1">
+              <img className="home_img" src={logo3} alt="" />
+                </div>
+              </div>
+            </Grid>
+            <Grid item md={4}>
+              <div className="home_grid ml-3 mt-5" onClick={this.seoautomater}>
+              <p className="home_seo"> YouTube Views </p>
+              <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+              <div className="home_icon1">
+              <img className="home_img" src={logo4} alt="" />
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+        </div>
+        <div className=" mb-3">
+          <Grid container className="submenu-alignment">
+            <Grid item md={4}>
+              <div className="home_grid ml-5">
+                <p className="home_seo"> Social Media Manager</p>
+                <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+                <div className="home_icon1">
+                <img className="home_img" src={logo5} alt="" />
+                </div>
+              </div>
+            </Grid>
+            <Grid item md={4}>
+            
+            </Grid>
+            <Grid item md={4}>
+             
+            </Grid>
+          </Grid>
+        </div>
+        {/* <Grid container className="submenu-alignment">
           <Grid item md={7}>
             <div className="animate__animated animate__backInLeft animate__delay-10s left-main-section">
               <h2 className="main-title-heading">
@@ -63,19 +127,7 @@ class Home extends Component {
               <Card className="reactplayer">
                 <CardActionArea>
                   <CardContent>
-                    {/* <h3 className="main-title-heading">Video online</h3>
-                    <div className="main-title-text">
-                      <p>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content. Some quick
-                        example text to build on the card title and make up the
-                        bulk of the card's content.
-                      </p>
-                      <p>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                    </div> */}
+                 
                     <ReactPlayer
                       playing={true}
                       width="100%"
@@ -124,7 +176,7 @@ class Home extends Component {
         </div>
         <div>
           
-        </div>
+        </div> */}
       </div>
     );
   }
