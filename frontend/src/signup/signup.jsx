@@ -259,7 +259,7 @@ class Signup extends React.Component {
           />
         </fieldset>
 
-        <p className="ml-5 mt-3 signup_accept">
+        <p className="margin_leftp mt-3 signup_accept">
           <input
             type="checkbox"
             defaultChecked={this.state.checked}

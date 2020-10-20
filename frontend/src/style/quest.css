@@ -2134,7 +2134,7 @@ a.disabled {
 }
 .logoss {
   height: 36px;
-  margin-top: -48px;
+  margin-top: -56px;
 }
 
 .paddingbottomcard {
@@ -2146,7 +2146,7 @@ a.disabled {
   margin-top: 80px;
 }
 .headerhight {
-  height: 58px;
+  height: 48px;
 }
 @media only screen and (min-width: 480px) and (max-width: 800px) {
   #auth-modal {

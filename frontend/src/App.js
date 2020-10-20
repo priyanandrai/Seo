@@ -45,7 +45,7 @@ function App() {
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
         <Route exact path="/trafficexchange" component={TrafficExchange}  />
         <Route exact path="/welcome" component={Yourwebsite}  />
-        <Route exact path="/signup-Required" component={Signup}  />
+        <Route exact path="/signup-required" component={Signup}  />
       </Router>
        );
  
