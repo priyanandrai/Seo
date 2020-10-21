@@ -162,6 +162,8 @@ body{
 }
 
 /* Ankur Css For Home page ----------- */
+
+
 .home_page{
   width: 100%;
   height: 100vh;
@@ -196,8 +198,9 @@ text-align: center;
 .home_backcolor{
 
   margin-left: 15% ;
-  margin-right:15%;
+  margin-right:12%;
 }
 .second_colorbg{
   background-color: #F6F6F6;
 }
+

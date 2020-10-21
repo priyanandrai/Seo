@@ -45,10 +45,10 @@ class Home extends Component {
           <img className="home_page" src={home} alt="" />
         </div>
         <div className="second_colorbg">
-        <div className=" mb-3 home_backcolor">
+        <div className=" home_backcolor">
           <Grid container className="">
             <Grid item md={4}>
-              <div className="home_grid mx-auto mt-5" onClick={this.seoautomater}>
+              <div className="home_grid  mt-5" onClick={this.seoautomater}>
                 <p className="home_seo"> SEO Automator</p>
                 <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
                 <div className="home_icon1">
@@ -57,7 +57,7 @@ class Home extends Component {
               </div>
             </Grid>
             <Grid item md={4}>
-              <div className="home_grid ml-3 mt-5" onClick={this.trafficexchange}>
+              <div className="home_grid mt-5" onClick={this.trafficexchange}>
               <p className="home_seo">   Traffic Exchange</p>
               <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
               <div className="home_icon1">
@@ -66,7 +66,7 @@ class Home extends Component {
               </div>
             </Grid>
             <Grid item md={4}>
-              <div className="home_grid ml-3 mt-5" onClick={this.seoautomater}>
+              <div className="home_grid mt-5" onClick={this.seoautomater}>
               <p className="home_seo"> YouTube Views </p>
               <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
               <div className="home_icon1">
@@ -76,11 +76,11 @@ class Home extends Component {
             </Grid>
           </Grid>
         </div>
-        </div>
-        <div className=" mb-3">
-          <Grid container className="submenu-alignment">
+       
+        <div className=" home_backcolor">
+          <Grid container className="">
             <Grid item md={4}>
-              <div className="home_grid ml-5">
+              <div className="home_grid" onClick={this.seoautomater}>
                 <p className="home_seo"> Social Media Manager</p>
                 <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
                 <div className="home_icon1">
@@ -95,6 +95,7 @@ class Home extends Component {
              
             </Grid>
           </Grid>
+        </div>
         </div>
         {/* <Grid container className="submenu-alignment">
           <Grid item md={7}>

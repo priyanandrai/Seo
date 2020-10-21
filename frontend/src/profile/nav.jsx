@@ -682,9 +682,9 @@ class Nav extends Component {
           ) : (
             <div className="navLinks">
               
-              <a className="traffic_exchangecolor mr-3" href="trafficexchange">
+              {/* <a className="traffic_exchangecolor mr-3" href="trafficexchange">
                 Traffic Exchange
-              </a>
+              </a> */}
               {navigation_links_list}
               <FontAwesomeIcon
                 icon={faBars}
@@ -706,9 +706,9 @@ class Nav extends Component {
                      </button>
                       }); */}
 
-                  <a href="trafficexchange" className="dropdown-item">
+                  {/* <a href="trafficexchange" className="dropdown-item">
                     Traffic Exchange
-                  </a>
+                  </a> */}
                   <a
                     className="dropdown-item"
                     onClick={() => this.openModal("signin")}
