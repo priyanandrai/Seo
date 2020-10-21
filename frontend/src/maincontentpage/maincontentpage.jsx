@@ -79,7 +79,7 @@ class Home extends Component {
           </Grid>
         </div>
        
-        <div className=" home_backcolor">
+        <div className=" home_backcolor pb-5">
           <Grid container className="">
             <Grid item md={4}>
               <div className="home_grid mt-5" onClick={this.seoautomater}>

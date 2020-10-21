@@ -79,10 +79,26 @@ class Signup extends React.Component {
 
       return;
     }
+    if (this.state.password =="") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter the password",
+      });
+
+      return;
+    }
     if (this.state.password.length < 8) {
       this.setState({
         snackbar: true,
         error: "Password must be 8 characters long",
+      });
+
+      return;
+    }
+    if (this.state.confirm_password =="") {
+      this.setState({
+        snackbar: true,
+        error: "Please enter the confirm_password",
       });
 
       return;
