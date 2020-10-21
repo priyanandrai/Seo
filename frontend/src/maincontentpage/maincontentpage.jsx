@@ -42,11 +42,12 @@ class Home extends Component {
     return (
       <div className="">
         <div>
-          <img className="home_page" src={home} alt="" />
+          <img className="home_page img-fluid" src={home} alt="" />
         </div>
        
         <div className="second_colorbg">
-      
+          <div className="Img_content">
+      <p>SEEMA RAI CONSULTANCY SERVICES</p></div>
         <div className=" home_backcolor">
           <Grid container className="">
             <Grid item md={4}>
