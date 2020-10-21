@@ -495,7 +495,8 @@ public class MainServices {
 			e.printStackTrace();
 		}
 		System.out.println(Subsribe.toString());
-		return "Subsribe sucessfully";
+		return "{\"message\":\"Subsribe sucessfully\"}";
+		
 	}	
 	
 	@CrossOrigin(origins = "*")
