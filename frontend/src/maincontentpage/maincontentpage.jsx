@@ -47,7 +47,7 @@ class Home extends Component {
        
         <div className="second_colorbg">
           <div className="Img_content">
-      <p>SEEMA RAI CONSULTANCY SERVICES</p></div>
+      <p className="over_image">SEEMA RAI CONSULTANCY SERVICES</p></div>
         <div className=" home_backcolor">
           <Grid container className="">
             <Grid item md={4}>
