@@ -212,4 +212,14 @@ text-align: center;
     padding-top: 100vh;
 }
 }
+@media only screen  and (max-width: 990px) {
+  .home_backcolor{
 
+    padding-left: 25% !important;
+    padding-right: 12% !important;
+    background-color: #F6F6F6;
+  }
+  .second_colorbg {
+    padding-top: 100vh;
+}
+}
