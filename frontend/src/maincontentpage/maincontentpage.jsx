@@ -52,8 +52,8 @@ class Home extends Component {
           <Grid container className="">
             <Grid item md={4}>
               <div className="home_grid  mt-5" onClick={this.seoautomater}>
-                <p className="home_seo"> SEO Automator</p>
-                <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+                <p className="home_seo">Free SEO Automator</p>
+                <p className="home_content ml-3 mr-3">Seo Automator will help you to automate your day to day activites.<br/>Like Serach Engine Submission,Social Book Marketing,Classified Submission</p>
                 <div className="home_icon1">
                 <img className="home_img" src={logo2} alt="" />
                 </div>
@@ -61,8 +61,9 @@ class Home extends Component {
             </Grid>
             <Grid item md={4}>
               <div className="home_grid mt-5" onClick={this.trafficexchange}>
-              <p className="home_seo">   Traffic Exchange</p>
-              <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+              <p className="home_seo">Free Traffic Exchange</p>
+              <p className="home_content ml-3 mr-3"> Free Website Traffic Exchange
+              The best way to get website traffic to your website.</p>
               <div className="home_icon1">
               <img className="home_img" src={logo3} alt="" />
                 </div>
@@ -70,8 +71,8 @@ class Home extends Component {
             </Grid>
             <Grid item md={4}>
               <div className="home_grid mt-5" onClick={this.seoautomater}>
-              <p className="home_seo"> YouTube Views </p>
-              <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+              <p className="home_seo">Free YouTube Views </p>
+              <p className="home_content ml-3 mr-3">SRCS for Youtube will help you to grow YouTube channels and increase YouTube views quickly.</p>
               <div className="home_icon1">
               <img className="home_img" src={logo4} alt="" />
                 </div>
@@ -84,8 +85,8 @@ class Home extends Component {
           <Grid container className="">
             <Grid item md={4}>
               <div className="home_grid mt-5" onClick={this.seoautomater}>
-                <p className="home_seo"> Social Media Manager</p>
-                <p className="home_content ml-3 mr-3">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</p>
+                <p className="home_seo">Free Social Media Manager</p>
+                <p className="home_content ml-3 mr-3">Let us help you create a fully customized niche social network website with AI-based activity feed, multiple post types, and powerful apps.</p>
                 <div className="home_icon1">
                 <img className="home_img" src={logo5} alt="" />
                 </div>
