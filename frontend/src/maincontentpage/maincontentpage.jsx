@@ -44,7 +44,9 @@ class Home extends Component {
         <div>
           <img className="home_page" src={home} alt="" />
         </div>
+       
         <div className="second_colorbg">
+      
         <div className=" home_backcolor">
           <Grid container className="">
             <Grid item md={4}>
