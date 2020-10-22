@@ -55,6 +55,20 @@ padding-right: 25%;
         color: white;
         text-align: center;
     }
+    .total_count {
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: black !important;
+        font-size: 15px;
+        padding-left: 10%;
+    }
+    .inputtraffic {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 6% !important;
+    }
 }
 .count_hit{
     
@@ -73,11 +87,11 @@ padding-right: 25%;
     text-align: center;
     color:#33BC9C ;
 }
-.trafiic_count{
+/* .trafiic_count{
     padding-left: 10%;
     padding-right: 10%;
     
-}
+} */
 .traffic_head{
     text-align: center;
 }
