@@ -209,7 +209,7 @@ class TrafficExchange extends React.Component {
           </p>
         </div>
         <div className="trafiic_count">
-          <Grid container className="mt-5">
+          <Grid container className="mt-5 pt-3">
             <Grid item md={4}>
               <div className="count_hit" >
                 <p className="total_count">Total Count</p>
@@ -239,7 +239,7 @@ class TrafficExchange extends React.Component {
             type="Url"
             value={this.state.url}
             placeholder="Enter Url"
-            className="mt-3"
+            className="mt-4"
             onChange={(e) => {
               this.setState({
                 url: e.target.value,

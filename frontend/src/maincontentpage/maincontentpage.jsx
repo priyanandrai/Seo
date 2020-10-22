@@ -78,7 +78,7 @@ class Home extends Component {
                 </div></a>
               </Grid>
               <Grid item md={4}>
-              <a className="a_tag_color" href="website">
+              <a className="a_tag_color" href="welcome">
                 <div className="home_grid mt-5">
                   <p className="home_seo">Free YouTube Views </p>
                   <p className="home_content ml-3 mr-3">
@@ -96,7 +96,7 @@ class Home extends Component {
           <div className=" home_backcolor pb-5">
             <Grid container className="">
               <Grid item md={4}>
-              <a className="a_tag_color" href="website">
+              <a className="a_tag_color" href="welcome">
                 <div className="home_grid mt-5" >
                   <p className="home_seo">Free Social Media Manager</p>
                   <p className="home_content ml-3 mr-3">
@@ -110,7 +110,7 @@ class Home extends Component {
                 </div></a>
               </Grid>
               <Grid item md={4}>
-              <a className="a_tag_color" href="website">
+              <a className="a_tag_color" href="welcome">
                 <div className="home_grid mt-5" >
                   <p className="home_seo">Free Website Analytics</p>
                   <p className="home_content ml-3 mr-3">
