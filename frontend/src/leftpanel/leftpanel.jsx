@@ -11,8 +11,8 @@ import logo2 from "../images/logo2.png";
 import logo3 from "../images/logo3.png";
 import logo6 from "../images/logo6.jpg";
 import logo4 from "../images/logo4.jpg";
-import logo5 from "../images/logo5.jpg";
-import logo10 from "../images/logo10.jpg";
+import logo5 from "../images/logo5.png";
+import logo10 from "../images/logo10.png";
 import logo11 from "../images/logo11.png";
 import "./leftpanel.css";
 
