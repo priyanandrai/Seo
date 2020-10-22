@@ -69,12 +69,33 @@ padding-right: 25%;
         padding-right: 10%;
         padding-bottom: 6% !important;
     }
+    .traffic_web {
+        font-weight: bold;
+        font-size: 22px !important;
+        text-transform: uppercase;
+        font-family: century;
+        color: #33BC9C;
+    }
+    .traffic_rank {
+        font-family: century;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .trafiic_count{
+        /* border: 1px solid gray; */
+        margin-left: 4% !important;
+        margin-right: 4% !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /* padding-left: 10%;
+        padding-right: 10%; */
+        
+    }
 }
 .count_hit{
     
-    height: 20vh;
-    /* width: 50%;
-    border: 1px solid black; */
+    height: auto;
+    /* width: 50%;*/
+    /* border: 1px solid black;  */
 
 }
 .total_count{
@@ -87,11 +108,15 @@ padding-right: 25%;
     text-align: center;
     color:#33BC9C ;
 }
-/* .trafiic_count{
-    padding-left: 10%;
-    padding-right: 10%;
+.trafiic_count{
+    /* border: 1px solid gray; */
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* padding-left: 10%;
+    padding-right: 10%; */
     
-} */
+}
 .traffic_head{
     text-align: center;
 }
