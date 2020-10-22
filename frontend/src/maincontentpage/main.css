@@ -252,3 +252,8 @@ text-align: center;
   }
  
 }
+.a_tag_color{
+  text-decoration: none !important;
+  color: black !important;
+  outline: none !important;
+}

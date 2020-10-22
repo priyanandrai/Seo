@@ -33,83 +33,99 @@ class Home extends Component {
   componentWillUnmount() {
     console.log("coming here for component willUnmoutn ");
   }
-  seoautomater =() => {
-    window.location="signup-required";
-  }
-  youtube = () => {
-    window.location="welcome"
-  }
-  trafficexchange = () => {
-    window.location="trafficexchange";
-  }
+ 
   render() {
     return (
       <div className="">
         <div>
           <img className="home_page img-fluid" src={home} alt="" />
         </div>
-       
+
         <div className="second_colorbg">
           <div className="Img_content">
-      <p className="over_image">SEEMA RAI CONSULTANCY SERVICES</p></div>
-        <div className=" home_backcolor">
-          <Grid container className="">
-            <Grid item md={4}>
-              <div className="home_grid  mt-5" onClick={this.seoautomater}>
-                <p className="home_seo">Free SEO Automator</p>
-                <p className="home_content ml-3 mr-3">Seo Automator will help you to automate your day to day activites.<br/>Like Serach Engine Submission,Social Book Marketing,Classified Submission</p>
-                <div className="home_icon1">
-                <img className="home_img" src={logo2} alt="" />
-                </div>
-              </div>
+            <p className="over_image">SEEMA RAI CONSULTANCY SERVICES</p>
+          </div>
+          <div className=" home_backcolor">
+            <Grid container className="">
+              <Grid item md={4}>
+                <a className="a_tag_color" href="signup-required">
+                <div className="home_grid  mt-5" >
+                  <p className="home_seo">Free SEO Automator</p>
+                  <p className="home_content ml-3 mr-3">
+                    Seo Automator will help you to automate your day to day
+                    activites.
+                    <br />
+                    Like Serach Engine Submission,Social Book
+                    Marketing,Classified Submission.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo2} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
+              <Grid item md={4}>
+              <a className="a_tag_color" href="trafficexchange">
+                <div className="home_grid mt-5">
+                  <p className="home_seo">Free Traffic Exchange</p>
+                  <p className="home_content ml-3 mr-3">
+                    {" "}
+                    Free Website Traffic Exchange The best way to get website
+                    traffic to your website.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo3} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
+              <Grid item md={4}>
+              <a className="a_tag_color" href="website">
+                <div className="home_grid mt-5">
+                  <p className="home_seo">Free YouTube Views </p>
+                  <p className="home_content ml-3 mr-3">
+                    SRCS for Youtube will help you to grow YouTube channels and
+                    increase YouTube views quickly.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo4} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
             </Grid>
-            <Grid item md={4}>
-              <div className="home_grid mt-5" onClick={this.trafficexchange}>
-              <p className="home_seo">Free Traffic Exchange</p>
-              <p className="home_content ml-3 mr-3"> Free Website Traffic Exchange
-              The best way to get website traffic to your website.</p>
-              <div className="home_icon1">
-              <img className="home_img" src={logo3} alt="" />
-                </div>
-              </div>
+          </div>
+
+          <div className=" home_backcolor pb-5">
+            <Grid container className="">
+              <Grid item md={4}>
+              <a className="a_tag_color" href="website">
+                <div className="home_grid mt-5" >
+                  <p className="home_seo">Free Social Media Manager</p>
+                  <p className="home_content ml-3 mr-3">
+                    Let us help you create a fully customized niche social
+                    network website with AI-based activity feed, multiple post
+                    types, and powerful apps.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo5} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
+              <Grid item md={4}>
+              <a className="a_tag_color" href="website">
+                <div className="home_grid mt-5" >
+                  <p className="home_seo">Free Website Analytics</p>
+                  <p className="home_content ml-3 mr-3">
+                    Let us help you create a fully customized niche social
+                    network website with AI-based activity feed, multiple post
+                    types, and powerful apps.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo10} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
+              <Grid item md={4}></Grid>
             </Grid>
-            <Grid item md={4}>
-              <div className="home_grid mt-5" onClick={this.youtube}>
-              <p className="home_seo">Free YouTube Views </p>
-              <p className="home_content ml-3 mr-3">SRCS for Youtube will help you to grow YouTube channels and increase YouTube views quickly.</p>
-              <div className="home_icon1">
-              <img className="home_img" src={logo4} alt="" />
-                </div>
-              </div>
-            </Grid>
-          </Grid>
-        </div>
-       
-        <div className=" home_backcolor pb-5">
-          <Grid container className="">
-            <Grid item md={4}>
-              <div className="home_grid mt-5" onClick={this.youtube}>
-                <p className="home_seo">Free Social Media Manager</p>
-                <p className="home_content ml-3 mr-3">Let us help you create a fully customized niche social network website with AI-based activity feed, multiple post types, and powerful apps.</p>
-                <div className="home_icon1">
-                <img className="home_img" src={logo5} alt="" />
-                </div>
-              </div>
-            </Grid>
-            <Grid item md={4}>
-            <div className="home_grid mt-5" onClick={this.youtube}>
-                <p className="home_seo">Free Website Analytics</p>
-                <p className="home_content ml-3 mr-3">Let us help you create a fully customized niche social network website with AI-based activity feed, multiple post types, and powerful apps.</p>
-                <div className="home_icon1">
-                <img className="home_img" src={logo10} alt="" />
-                </div>
-              </div>
-            </Grid>
-            <Grid item md={4}>
-             
-            </Grid>
-          </Grid>
-        </div>
+          </div>
         </div>
         {/* <Grid container className="submenu-alignment">
           <Grid item md={7}>

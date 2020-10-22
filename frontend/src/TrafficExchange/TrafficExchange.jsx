@@ -39,28 +39,36 @@ class TrafficExchange extends React.Component {
     };
   }
 
-  updatecountForBoth(name){
+  updatecountForBoth(name) {
     let self = this;
     let url = getBaseUrl() + "/updatehit?url=" + name;
-    axios.get(url).then((response) => {},(error) => {});
+    axios.get(url).then(
+      (response) => {},
+      (error) => {}
+    );
 
-     url = getBaseUrl() + "/updateCount?url=" + this.state.url;
-    axios.get(url).then((response) => {
-      this.getClientData();
-    },(error) => {});
-    
+    url = getBaseUrl() + "/updateCount?url=" + this.state.url;
+    axios.get(url).then(
+      (response) => {
+        this.getClientData();
+      },
+      (error) => {}
+    );
   }
   getClientData() {
     let self = this;
-    let url = getBaseUrl() + "/getclientinformation?url=" + window.localStorage.getItem("ClientUrl");
+    let url =
+      getBaseUrl() +
+      "/getclientinformation?url=" +
+      window.localStorage.getItem("ClientUrl");
     axios.get(url).then(
       (response) => {
         self.setState({
           count_hit: response.data.count_hit,
           count_remaining: response.data.count_remaining,
-        })
+        });
       },
-      (error) => { }
+      (error) => {}
     );
   }
 
@@ -79,7 +87,7 @@ class TrafficExchange extends React.Component {
       });
       return;
     }
-    window.localStorage.setItem("ClientUrl", this.state.url)
+    window.localStorage.setItem("ClientUrl", this.state.url);
     this.getClientData();
     this.openWindow();
     setTimeout(() => {
@@ -88,20 +96,18 @@ class TrafficExchange extends React.Component {
 
     let url = getBaseUrl() + "/saveUrl";
     let temp = {
-      url: this.state.url
-    }
+      url: this.state.url,
+    };
     axios.post(url, temp).then(
-      (response) => {
-
-      },
-      (error) => { }
+      (response) => {},
+      (error) => {}
     );
   }
   updatecomponentData() {
     if (window.localStorage.getItem("ClientUrl") != undefined) {
       this.setState({
-        url: window.localStorage.getItem("ClientUrl")
-      })
+        url: window.localStorage.getItem("ClientUrl"),
+      });
     }
   }
   componentDidMount() {
@@ -112,11 +118,10 @@ class TrafficExchange extends React.Component {
     axios.get(url).then(
       (response) => {
         this.setState({
-          list: response.data
-
+          list: response.data,
         });
       },
-      (error) => { }
+      (error) => {}
     );
   }
 
@@ -131,25 +136,29 @@ class TrafficExchange extends React.Component {
     for (
       let index = this.state.numberofURLopen;
       index < this.state.list.length &&
-      index < (this.state.numberofURLopen + temp);
+      index < this.state.numberofURLopen + temp;
       index++
     ) {
       let element = this.state.list[index].url;
 
-      if(this.state.list[index].count_remaining <=0){
-        let temp = "need to send email for user that his hit become Zero " +   element ;
+      if (this.state.list[index].count_remaining <= 0) {
+        let temp =
+          "need to send email for user that his hit become Zero " + element;
         alert(temp);
       }
-   
-      if(element == this.state.url ||  this.state.list[index].count_remaining <= 0 ){
-        temp = temp+1;
+
+      if (
+        element == this.state.url ||
+        this.state.list[index].count_remaining <= 0
+      ) {
+        temp = temp + 1;
         continue;
-      }else{
-      temphandler.push({ "window": window.open(element), "name": element });
+      } else {
+        temphandler.push({ window: window.open(element), name: element });
       }
     }
 
-    if (this.state.list.length > (this.state.numberofURLopen + temp)) {
+    if (this.state.list.length > this.state.numberofURLopen + temp) {
       setTimeout(() => {
         this.openWindow();
       }, this.state.duration);
@@ -158,10 +167,9 @@ class TrafficExchange extends React.Component {
       windowHandler: temphandler,
       numberofURLopen: this.state.numberofURLopen + temp,
     });
-
   }
 
-  trafficdialogend() { }
+  trafficdialogend() {}
 
   componentWillMount() {
     //let tempp= navigator.userAgent.indexOf("Firfox") == -1;
@@ -178,6 +186,15 @@ class TrafficExchange extends React.Component {
     return (
       <div className="mt-5 innerdivwidth">
         <div>
+          <div className="traffic_head">
+            <p className="traffic_web">A Free Website Traffic Exchange </p>
+            <p className="traffic_rank">
+              The best way to get website traffic to your website. Increase your
+              <br /> rankings using the most trusted auto-surf traffic exchange
+              service on
+              <br /> the planet.
+            </p>
+          </div>
           <div className="traffic inputtraffic ">
             <Form.Label className="leftt mt-3">ENTER URL</Form.Label>
             <Form.Control
@@ -204,8 +221,8 @@ class TrafficExchange extends React.Component {
               </p>
             </div>
           ) : (
-              ""
-            )}
+            ""
+          )}
 
           <div className="timecenter justify-content-center mt-2">
             <span className="mr-4 mt-2">
@@ -301,15 +318,11 @@ class TrafficExchange extends React.Component {
           />
         </div>
 
-        <div className="ml-5 count_hit">
-          Count Hit ={this.state.count_hit}
-        </div>
+        <div className="ml-5 count_hit">Count Hit ={this.state.count_hit}</div>
 
         <div className="ml-5 mt-2 count_hit">
           Count Remaining ={this.state.count_remaining}
         </div>
-
-
       </div>
     );
   }

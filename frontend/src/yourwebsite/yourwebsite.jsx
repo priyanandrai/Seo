@@ -75,20 +75,7 @@ class Yourwebsite extends React.Component {
 
     //
   };
-  facebook = () => {
-    window.open("https://www.facebook.com/SeemaRaiConsultancyServices");
-  };
-  linkdin = () => {
-    window.open(
-      "https://www.linkedin.com/company/seema-india-private-limited/?viewAsMember=true"
-    );
-  };
-  youtube = () => {
-    window.open(" https://www.youtube.com/channel/UClTbdAlVj4Mp8zlOFVB9jDw");
-  };
-  twitter = () => {
-    window.open(" https://twitter.com/SRConsultancyS1   ");
-  };
+  
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
@@ -121,39 +108,43 @@ class Yourwebsite extends React.Component {
         <div className="icons_padding mt-5">
           <span>
             {" "}
+            <a href="https://www.facebook.com/SeemaRaiConsultancyServices" target="_blank">
             <img
               className="facbook_size cursor"
               src={logo6}
               alt=""
-              onClick={this.facebook}
-            />
+           
+            /></a>
           </span>
           <span className="ml-4">
             {" "}
+            <a href="https://www.linkedin.com/company/seema-india-private-limited/?viewAsMember=true" target="_blank">
             <img
               className="pin_size cursor"
               src={logo7}
               alt=""
-              onClick={this.linkdin}
-            />
+          
+            /></a>
           </span>
           <span className="ml-4">
             {" "}
+            <a href="https://twitter.com/SRConsultancyS1 " target="_blank">
             <img
               className="facbook_size1 cursor"
               src={logo8}
               alt=""
-              onClick={this.twitter}
-            />
+            
+            /></a>
           </span>
           <span className="ml-4">
             {" "}
+            <a href="https://www.youtube.com/channel/UClTbdAlVj4Mp8zlOFVB9jDw" target="_blank">
             <img
               className="youtube_size cursor"
               src={logo9}
               alt=""
-              onClick={this.youtube}
-            />
+             
+            /></a>
           </span>
         </div>
         <div>
