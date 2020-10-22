@@ -77,8 +77,8 @@ class TrafficExchange extends React.Component {
           count_hit: response.data.count_hit,
           count_remaining: response.data.count_remaining,
         });
-        var count_hit =JSON.parse(this.state.count_hit) ;
-        var count_remaining =JSON.parse(this.state.count_remaining) ;
+        var count_hit =JSON.parse(this.state.count_hit==undefined ? "" :this.state.count_hit) ;
+        var count_remaining =JSON.parse(this.state.count_remaining==undefined ? "":this.state.count_remaining) ;
         var total_count = count_hit + count_remaining;
         this.setState({ total_count: total_count });
       },
