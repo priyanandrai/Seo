@@ -12,6 +12,7 @@ import { getBaseUrl } from "../utils";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import Grid from "@material-ui/core/Grid";
 
 import "./traffic.css";
 class TrafficExchange extends React.Component {
@@ -23,9 +24,11 @@ class TrafficExchange extends React.Component {
     this.getClientData = this.getClientData.bind(this);
     this.updatecomponentData = this.updatecomponentData.bind(this);
     this.updatecountForBoth = this.updatecountForBoth.bind(this);
+    // this.counting = this.counting.bind(this);
 
     this.state = {
       urllhit: [],
+      total_count: "N/A",
       count_hit: "N/A",
       count_remaining: "N/A",
       trafficdialog: false,
@@ -38,6 +41,12 @@ class TrafficExchange extends React.Component {
       list: [],
     };
   }
+  // counting = () => {
+  //   var count_hit =JSON.parse(this.state.count_hit) ;
+  //   var count_remaining =JSON.parse(this.state.count_remaining) ;
+  //   var total_count = count_hit + count_remaining;
+  //   this.setState({ total_count: total_count });
+  // };
 
   updatecountForBoth(name) {
     let self = this;
@@ -56,6 +65,7 @@ class TrafficExchange extends React.Component {
     );
   }
   getClientData() {
+
     let self = this;
     let url =
       getBaseUrl() +
@@ -67,6 +77,10 @@ class TrafficExchange extends React.Component {
           count_hit: response.data.count_hit,
           count_remaining: response.data.count_remaining,
         });
+        var count_hit =JSON.parse(this.state.count_hit) ;
+        var count_remaining =JSON.parse(this.state.count_remaining) ;
+        var total_count = count_hit + count_remaining;
+        this.setState({ total_count: total_count });
       },
       (error) => {}
     );
@@ -185,72 +199,92 @@ class TrafficExchange extends React.Component {
   render() {
     return (
       <div className="mt-5 innerdivwidth">
-        <div>
-          <div className="traffic_head">
-            <p className="traffic_web">A Free Website Traffic Exchange </p>
-            <p className="traffic_rank">
-              The best way to get website traffic to your website. Increase your
-              <br /> rankings using the most trusted auto-surf traffic exchange
-              service on
-              <br /> the planet.
+        <div className="traffic_head">
+          <p className="traffic_web">A Free Website Traffic Exchange </p>
+          <p className="traffic_rank">
+            The best way to get website traffic to your website. Increase your
+            <br /> rankings using the most trusted auto-surf traffic exchange
+            service on
+            <br /> the planet.
+          </p>
+        </div>
+        <div className="trafiic_count">
+          <Grid container className="mt-5">
+            <Grid item md={4}>
+              <div className="count_hit" >
+                <p className="total_count">Total Count</p>
+                <p className="hit_counting">{this.state.total_count}</p>
+
+                {/* Total Count ={this.state.count_remaining}{this.state.count_hit} */}
+              </div>
+            </Grid>
+            <Grid item md={4}>
+              <div className="count_hit">
+                <p className="total_count">Count Hit</p>
+                <p className="hit_counting">{this.state.count_hit} </p>
+                {/* Count Remaining ={this.state.count_remaining} */}
+              </div>
+            </Grid>
+            <Grid item md={4}>
+              <div className=" count_hit">
+                <p className="total_count">Count Remaining</p>
+                <p className="hit_counting">{this.state.count_remaining}</p>
+                {/* Count Hit ={this.state.count_hit} */}
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+        <div className="traffic inputtraffic ">
+          <Form.Control
+            type="Url"
+            value={this.state.url}
+            placeholder="Enter Url"
+            className="mt-3"
+            onChange={(e) => {
+              this.setState({
+                url: e.target.value,
+              });
+            }}
+          />
+        </div>
+        {this.state.checkbrowser === true ? (
+          <div className="alertcolor">
+            <p className="waringcolor">
+              {" "}
+              <FontAwesomeIcon icon={faExclamationTriangle} className="mr-2" />
+              Fire fox + PC is STRONGLY recommended
             </p>
           </div>
-          <div className="traffic inputtraffic ">
-            <Form.Label className="leftt mt-3">ENTER URL</Form.Label>
-            <Form.Control
-              type="Url"
-              value={this.state.url}
-              placeholder="Enter Url"
-              className="mt-3"
+        ) : (
+          ""
+        )}
+
+        <div className="timecenter justify-content-center mt-2">
+          <span className="mr-4 mt-2">
+            <p>Enter Time Limit</p>
+          </span>{" "}
+          <span>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={this.state.duration}
               onChange={(e) => {
                 this.setState({
-                  url: e.target.value,
+                  duration: e.target.value,
                 });
               }}
-            />
-          </div>
-          {this.state.checkbrowser === true ? (
-            <div className="alertcolor">
-              <p className="waringcolor">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faExclamationTriangle}
-                  className="mr-2"
-                />
-                Fire fox + PC is STRONGLY recommended
-              </p>
-            </div>
-          ) : (
-            ""
-          )}
-
-          <div className="timecenter justify-content-center mt-2">
-            <span className="mr-4 mt-2">
-              <p>Enter Time Limit</p>
-            </span>{" "}
-            <span>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={this.state.duration}
-                onChange={(e) => {
-                  this.setState({
-                    duration: e.target.value,
-                  });
-                }}
-              >
-                <MenuItem value={10000}>10 Sec</MenuItem>
-                <MenuItem value={60000}>1 min</MenuItem>
-                <MenuItem value={120000}>2 min</MenuItem>
-                <MenuItem value={180000}>3 min</MenuItem>
-                <MenuItem value={240000}>4 min</MenuItem>
-                <MenuItem value={300000}>5 min</MenuItem>
-              </Select>
-            </span>
-          </div>
+            >
+              <MenuItem value={10000}>10 Sec</MenuItem>
+              <MenuItem value={60000}>1 min</MenuItem>
+              <MenuItem value={120000}>2 min</MenuItem>
+              <MenuItem value={180000}>3 min</MenuItem>
+              <MenuItem value={240000}>4 min</MenuItem>
+              <MenuItem value={300000}>5 min</MenuItem>
+            </Select>
+          </span>
         </div>
 
-        <div className="buttoncenter mb-5 mt-5">
+        <div className="buttoncenter mb-5 mt-2">
           <Button
             variant="contained"
             className="startbtn"
@@ -316,12 +350,6 @@ class TrafficExchange extends React.Component {
               </React.Fragment>
             }
           />
-        </div>
-
-        <div className="ml-5 count_hit">Count Hit ={this.state.count_hit}</div>
-
-        <div className="ml-5 mt-2 count_hit">
-          Count Remaining ={this.state.count_remaining}
         </div>
       </div>
     );

@@ -18,10 +18,10 @@
     text-align: center;
 }
 .inputtraffic{
-    width:100%;
-    padding-left:5%;
-    padding-right:5%;
-    padding-bottom: 5%;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
 }
 .leftt{
     float: center;
@@ -57,8 +57,26 @@ padding-right: 25%;
     }
 }
 .count_hit{
-    font-family: century;
+    
+    height: 20vh;
+    /* width: 50%;
+    border: 1px solid black; */
+
+}
+.total_count{
+    text-align: center;
     font-weight: bold;
+    text-transform: uppercase;
+    color: black !important;
+}
+.hit_counting{
+    text-align: center;
+    color:#33BC9C ;
+}
+.trafiic_count{
+    padding-left: 10%;
+    padding-right: 10%;
+    
 }
 .traffic_head{
     text-align: center;
