@@ -12,6 +12,7 @@ import logo2 from "../images/logo2.png";
 import logo3 from "../images/logo3.png";
 import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.jpg";
+import logo10 from "../images/logo10.jpg";
 
 class Home extends Component {
   constructor(props) {
@@ -34,6 +35,9 @@ class Home extends Component {
   }
   seoautomater =() => {
     window.location="signup-required";
+  }
+  youtube = () => {
+    window.location="welcome"
   }
   trafficexchange = () => {
     window.location="trafficexchange";
@@ -70,7 +74,7 @@ class Home extends Component {
               </div>
             </Grid>
             <Grid item md={4}>
-              <div className="home_grid mt-5" onClick={this.seoautomater}>
+              <div className="home_grid mt-5" onClick={this.youtube}>
               <p className="home_seo">Free YouTube Views </p>
               <p className="home_content ml-3 mr-3">SRCS for Youtube will help you to grow YouTube channels and increase YouTube views quickly.</p>
               <div className="home_icon1">
@@ -84,7 +88,7 @@ class Home extends Component {
         <div className=" home_backcolor pb-5">
           <Grid container className="">
             <Grid item md={4}>
-              <div className="home_grid mt-5" onClick={this.seoautomater}>
+              <div className="home_grid mt-5" onClick={this.youtube}>
                 <p className="home_seo">Free Social Media Manager</p>
                 <p className="home_content ml-3 mr-3">Let us help you create a fully customized niche social network website with AI-based activity feed, multiple post types, and powerful apps.</p>
                 <div className="home_icon1">
@@ -93,7 +97,13 @@ class Home extends Component {
               </div>
             </Grid>
             <Grid item md={4}>
-            
+            <div className="home_grid mt-5" onClick={this.youtube}>
+                <p className="home_seo">Free Website Analytics</p>
+                <p className="home_content ml-3 mr-3">Let us help you create a fully customized niche social network website with AI-based activity feed, multiple post types, and powerful apps.</p>
+                <div className="home_icon1">
+                <img className="home_img" src={logo10} alt="" />
+                </div>
+              </div>
             </Grid>
             <Grid item md={4}>
              
