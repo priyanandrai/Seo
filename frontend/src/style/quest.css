@@ -2249,9 +2249,16 @@ a.disabled {
     max-width: 33.333333%;
     flex-basis: 33.333333%;
 }
+.total_count {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black !important;
 }
 
-@media (min-width: 360px)
+}
+
+@media (min-width: 320px)
 {
 .grid_content {
     flex-grow: 0;
