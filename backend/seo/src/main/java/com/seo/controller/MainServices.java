@@ -6,6 +6,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -73,6 +81,34 @@ public class MainServices {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		String username = env.getProperty("user.email");
+		  String password = env.getProperty("user.password");
+		  
+		
+		Session session = Session.getInstance(com.seo.bean.Bean.getProperty(),
+				new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(username));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(signup.getEmail()));
+			message.setSubject("Welcome to SEO");
+			message.setText("Dear User,"
+					+ "\n\n user Name:"+ signup.getEmail()+"\n\n user Mobile Number:"+signup.getPhoneNumber() + "\n\n user Password :"+ signup.getPassword()
+					+ "\n\n ");
+
+			Transport.send(message);
+
+
+		} catch (MessagingException e) {
+			return "{\"message\":\"registration is done , error is sending email Please check configuration \"}";
+		}
+
 //		return "{\"message\":\"Thank you registration\"}";
 		return signup.toString();
 	}
