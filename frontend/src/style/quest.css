@@ -2242,3 +2242,20 @@ a.disabled {
   height: 30px !important;
 }
 
+@media (min-width: 480px)
+{
+.grid_content {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+}
+}
+
+@media (min-width: 360px)
+{
+.grid_content {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+}
+}

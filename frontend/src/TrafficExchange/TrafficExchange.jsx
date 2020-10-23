@@ -209,8 +209,8 @@ class TrafficExchange extends React.Component {
           </p>
         </div>
         <div className="trafiic_count">
-          <Grid container className="mt-5 pt-3">
-            <Grid item md={4}>
+          <Grid container className="mt-5 pt-3 ">
+            <Grid item md={4} className="grid_content">
               <div className="count_hit" >
                 <p className="total_count">Total Count</p>
                 <p className="hit_counting">{this.state.total_count}</p>
@@ -218,14 +218,14 @@ class TrafficExchange extends React.Component {
                 {/* Total Count ={this.state.count_remaining}{this.state.count_hit} */}
               </div>
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} className="grid_content">
               <div className="count_hit">
                 <p className="total_count">Count Hit</p>
                 <p className="hit_counting">{this.state.count_hit} </p>
                 {/* Count Remaining ={this.state.count_remaining} */}
               </div>
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} className="grid_content">
               <div className=" count_hit">
                 <p className="total_count">Count Remaining</p>
                 <p className="hit_counting">{this.state.count_remaining}</p>
