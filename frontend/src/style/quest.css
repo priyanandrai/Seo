@@ -2242,27 +2242,3 @@ a.disabled {
   height: 30px !important;
 }
 
-@media (min-width: 480px)
-{
-.grid_content {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-}
-.total_count {
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: black !important;
-}
-
-}
-
-@media (min-width: 320px)
-{
-.grid_content {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-}
-}
