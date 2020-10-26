@@ -31,8 +31,8 @@ class Youtube extends React.Component {
     this.state = {
         urllhit: [],
         total_count: "0",
-        count_hit: "0",
-        count_remaining: "0",
+        archieved_views: "0",
+        remaining_balance_views: "0",
         trafficdialog: false,
         url: "",
         numberofURLopen: 0,
@@ -45,13 +45,13 @@ class Youtube extends React.Component {
   }
   updatecountForBoth(name) {
     let self = this;
-    let url = getBaseUrl() + "/updatehit?url=" + name;
+    let url = getBaseUrl() + "/updatearchivedviews?url=" + name;
     axios.get(url).then(
       (response) => {},
       (error) => {}
     );
 
-    url = getBaseUrl() + "/updateCount?url=" + this.state.url;
+    url = getBaseUrl() + "/updateCountviews?url=" + this.state.url;
     axios.get(url).then(
       (response) => {
         this.getClientData();
@@ -72,7 +72,7 @@ class Youtube extends React.Component {
     let self = this;
     let url =
       getBaseUrl() +
-      "/getclientinformation?url=" +
+      "/getpersoninformation?url=" +
       window.localStorage.getItem("ClientUrl");
     axios.get(url).then(
       (response) => {
@@ -82,30 +82,30 @@ class Youtube extends React.Component {
         // var total_count = count_hit + count_remaining;
         // self.setState({ total_count: total_count });
         self.setState({
-          count_hit: response.data.count_hit,
-          count_remaining: response.data.count_remaining,
+            archieved_views: response.data.archieved_views,
+          remaining_balance_views: response.data.remaining_balance_views,
         
         });
         // alert(this.state.count_hit);
-        var count_hit =0;
-        if(this.state.count_hit==undefined) 
+        var archieved_views =0;
+        if(this.state.archieved_views==undefined) 
         {
          this.setState({
-        count_hit:0,
+            archieved_views:0,
          });
         }
         
         // alert(count_hit);
-        var count_remaining =0;
-        if(this.state.count_remaining==undefined)
+        var remaining_balance_views =0;
+        if(this.state.remaining_balance_views==undefined)
         {
          this.setState({
-          count_remaining:0,
+            remaining_balance_views:0,
          });
         }
         // var count_remaining =JSON.parse(this.state.count_remaining==undefined ? "":this.state.count_remaining) ;
         // console.log(count_remaining);
-        var total_count = JSON.parse(this.state.count_hit) +JSON.parse(this.state.count_remaining);
+        var total_count = JSON.parse(this.state.archieved_views) +JSON.parse(this.state.remaining_balance_views);
         this.setState({ total_count: total_count });
         
       },
@@ -135,7 +135,7 @@ class Youtube extends React.Component {
       this.openWindow();
     }, this.state.duration);
 
-    let url = getBaseUrl() + "/saveUrl";
+    let url = getBaseUrl() + "/saveyoutubeUrl";
     let temp = {
       url: this.state.url,
     };
@@ -155,7 +155,7 @@ class Youtube extends React.Component {
     this.updatecomponentData();
     this.getClientData();
 
-    let url = getBaseUrl() + "/gettrafficlist";
+    let url = getBaseUrl() + "/getyoutubelist";
     axios.get(url).then(
       (response) => {
         this.setState({
@@ -182,7 +182,7 @@ class Youtube extends React.Component {
     ) {
       let element = this.state.list[index].url;
 
-      if (this.state.list[index].count_remaining <= 0) {
+      if (this.state.list[index].remaining_balance_views <= 0) {
         // let temp =
         //   "need to send email for user that his hit become Zero " + element;
         // alert(temp);
@@ -190,7 +190,7 @@ class Youtube extends React.Component {
 
       if (
         element == this.state.url ||
-        this.state.list[index].count_remaining <= 0
+        this.state.list[index].remaining_balance_views <= 0
       ) {
         temp = temp + 1;
         continue;
@@ -246,14 +246,14 @@ class Youtube extends React.Component {
             <Grid item md={4} className="grid_content">
               <div className="count_hit">
                 <p className="total_count">achieved Views</p>
-                <p className="hit_counting">{this.state.count_hit} </p>
+                <p className="hit_counting">{this.state.archieved_views} </p>
                 {/* Count Remaining ={this.state.count_remaining} */}
               </div>
             </Grid>
             <Grid item md={4} className="grid_content">
               <div className=" count_hit">
                 <p className="total_count">Remaining Balance Views</p>
-                <p className="hit_counting">{this.state.count_remaining}</p>
+                <p className="hit_counting">{this.state.remaining_balance_views}</p>
                 {/* Count Hit ={this.state.count_hit} */}
               </div>
             </Grid>
