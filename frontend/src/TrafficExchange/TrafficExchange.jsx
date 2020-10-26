@@ -28,9 +28,9 @@ class TrafficExchange extends React.Component {
 
     this.state = {
       urllhit: [],
-      total_count: "N/A",
-      count_hit: "N/A",
-      count_remaining: "N/A",
+      total_count: "0",
+      count_hit: "0",
+      count_remaining: "0",
       trafficdialog: false,
       url: "",
       numberofURLopen: 0,
@@ -156,9 +156,9 @@ class TrafficExchange extends React.Component {
       let element = this.state.list[index].url;
 
       if (this.state.list[index].count_remaining <= 0) {
-        let temp =
-          "need to send email for user that his hit become Zero " + element;
-        alert(temp);
+        // let temp =
+        //   "need to send email for user that his hit become Zero " + element;
+        // alert(temp);
       }
 
       if (
