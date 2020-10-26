@@ -10,6 +10,8 @@ import Logout from "./logout/logout";
 import Userhistory from "./profile/userhistory";
 import TrafficExchange from "./TrafficExchange/TrafficExchange";
 import Yourwebsite from "./yourwebsite/yourwebsite";
+import Youtube from "./youtubeview/youtubeview";
+import Youtubeplayer from "./youtubeview/youtubeplayer"
 import Signup from "./signup/signup";
 import {
   BrowserRouter as Router,
@@ -45,6 +47,8 @@ function App() {
         <Route exact path="/adminute-444-profile" component={Admin_Profile}  />
         <Route exact path="/trafficexchange" component={TrafficExchange}  />
         <Route exact path="/welcome" component={Yourwebsite}  />
+        <Route exact path="/youtube_views" component={Youtube}  />
+        <Route exact path="/youtube_player" component={Youtubeplayer}  />
         <Route exact path="/signup-required" component={Signup}  />
       </Router>
        );

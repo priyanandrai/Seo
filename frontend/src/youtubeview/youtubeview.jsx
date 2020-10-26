@@ -1,6 +1,9 @@
 import React from "react";
-import { Form } from "react-bootstrap";
 import HOC from "../components/HOC";
+import { Form } from "react-bootstrap";
+
+
+
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -13,9 +16,10 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Grid from "@material-ui/core/Grid";
+import "./youtube.css";
 
-import "./traffic.css";
-class TrafficExchange extends React.Component {
+
+class Youtube extends React.Component {
   constructor(props) {
     super(props);
     this.trafficdialogend = this.trafficdialogend.bind(this);
@@ -24,27 +28,21 @@ class TrafficExchange extends React.Component {
     this.getClientData = this.getClientData.bind(this);
     this.updatecomponentData = this.updatecomponentData.bind(this);
     this.updatecountForBoth = this.updatecountForBoth.bind(this);
-    // this.totalcount=this.totalcount.bind(this);
-
-    // this.counting = this.counting.bind(this);
-
     this.state = {
-      urllhit: [],
-      total_count: "0",
-      count_hit: "0",
-      count_remaining: "0",
-      trafficdialog: false,
-      url: "",
-      numberofURLopen: 0,
-      warning: "",
-      duration: 10000,
-      checkbrowser: false,
-      windowHandler: [],
-      list: [],
+        urllhit: [],
+        total_count: "0",
+        count_hit: "0",
+        count_remaining: "0",
+        trafficdialog: false,
+        url: "",
+        numberofURLopen: 0,
+        warning: "",
+        duration: 10000,
+        checkbrowser: false,
+        windowHandler: [],
+        list: []
     };
   }
- 
-
   updatecountForBoth(name) {
     let self = this;
     let url = getBaseUrl() + "/updatehit?url=" + name;
@@ -109,14 +107,14 @@ class TrafficExchange extends React.Component {
         // console.log(count_remaining);
         var total_count = JSON.parse(this.state.count_hit) +JSON.parse(this.state.count_remaining);
         this.setState({ total_count: total_count });
-        // window.location.reload();
+        
       },
       (error) => {}
     );
   }
 
   trafficdialog() {
-    const regesxemssm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    const regesxemssm = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
     if (this.state.url === "") {
       this.setState({
         snackbar: true,
@@ -126,7 +124,7 @@ class TrafficExchange extends React.Component {
     } else if (!this.state.url.match(regesxemssm)) {
       this.setState({
         snackbar: true,
-        error: "please enter a valid URL.",
+        error: "please enter Only Youtube Urls.",
       });
       return;
     }
@@ -142,11 +140,7 @@ class TrafficExchange extends React.Component {
       url: this.state.url,
     };
     axios.post(url, temp).then(
-      
-      (response) => {
-        // window.location.reload();
-      },
-
+      (response) => {},
       (error) => {}
     );
   }
@@ -229,23 +223,21 @@ class TrafficExchange extends React.Component {
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
+
   render() {
     return (
-      <div className="mt-5 innerdivwidth">
+        <div className="mt-5 innerdivwidth">
         <div className="traffic_head">
-          <p className="traffic_web">A Free Website Traffic Exchange </p>
+          <p className="traffic_web">A Free Youtube Views </p>
           <p className="traffic_rank">
-            The best way to get website traffic to your website. Increase your
-            <br /> rankings using the most trusted auto-surf traffic exchange
-            service on
-            <br /> the planet.
+          SRCS for Youtube will help you to grow YouTube channels <br/> and increase YouTube views quickly.
           </p>
         </div>
         <div className="trafiic_count">
           <Grid container className="mt-5 pt-3 ">
             <Grid item md={4} className="grid_content">
               <div className="count_hit" >
-                <p className="total_count">Total Count</p>
+                <p className="total_count">Target Views</p>
                 <p className="hit_counting">{this.state.total_count}</p>
 
                 {/* Total Count ={this.state.count_remaining}{this.state.count_hit} */}
@@ -253,14 +245,14 @@ class TrafficExchange extends React.Component {
             </Grid>
             <Grid item md={4} className="grid_content">
               <div className="count_hit">
-                <p className="total_count">Count Hit</p>
+                <p className="total_count">achieved Views</p>
                 <p className="hit_counting">{this.state.count_hit} </p>
                 {/* Count Remaining ={this.state.count_remaining} */}
               </div>
             </Grid>
             <Grid item md={4} className="grid_content">
               <div className=" count_hit">
-                <p className="total_count">Count Remaining</p>
+                <p className="total_count">Remaining Balance Views</p>
                 <p className="hit_counting">{this.state.count_remaining}</p>
                 {/* Count Hit ={this.state.count_hit} */}
               </div>
@@ -388,4 +380,4 @@ class TrafficExchange extends React.Component {
     );
   }
 }
-export default HOC(TrafficExchange);
+export default HOC(Youtube);

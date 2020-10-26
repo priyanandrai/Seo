@@ -78,7 +78,7 @@ class Home extends Component {
                 </div></a>
               </Grid>
               <Grid item md={4}>
-              <a className="a_tag_color" href="welcome">
+              <a className="a_tag_color" href="youtube_views">
                 <div className="home_grid mt-5">
                   <p className="home_seo">Free YouTube Views </p>
                   <p className="home_content ml-3 mr-3">
