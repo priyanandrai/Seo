@@ -90,7 +90,7 @@ class TrafficExchange extends React.Component {
         });
         // alert(this.state.count_hit);
         var count_hit =0;
-        if(JSON.parse(this.state.count_hit==undefined)) 
+        if(this.state.count_hit==undefined) 
         {
          this.setState({
         count_hit:0,
@@ -99,7 +99,7 @@ class TrafficExchange extends React.Component {
         
         // alert(count_hit);
         var count_remaining =0;
-        if(JSON.parse(this.state.count_remaining==undefined)) 
+        if(this.state.count_remaining==undefined)
         {
          this.setState({
           count_remaining:0,
