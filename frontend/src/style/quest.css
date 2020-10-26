@@ -1628,6 +1628,10 @@ input:disabled {
     width: 100%;
     
   }
+  .logoss {
+    height: 25px !important;
+    margin-top: -56px;
+  }
   .traffic_exchangecolor{
     outline: none !important;
     text-decoration: none !important;
@@ -1842,6 +1846,12 @@ input:disabled {
     line-height: 90px;
     cursor: pointer;
   }
+
+  .logoss {
+    height: 20px !important;
+    margin-top: -56px;
+  }
+
 }
 
 /* iPads (portrait and landscape) ----------- */
