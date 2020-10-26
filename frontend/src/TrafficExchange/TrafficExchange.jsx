@@ -24,6 +24,8 @@ class TrafficExchange extends React.Component {
     this.getClientData = this.getClientData.bind(this);
     this.updatecomponentData = this.updatecomponentData.bind(this);
     this.updatecountForBoth = this.updatecountForBoth.bind(this);
+    // this.totalcount=this.totalcount.bind(this);
+
     // this.counting = this.counting.bind(this);
 
     this.state = {
@@ -41,12 +43,7 @@ class TrafficExchange extends React.Component {
       list: [],
     };
   }
-  // counting = () => {
-  //   var count_hit =JSON.parse(this.state.count_hit) ;
-  //   var count_remaining =JSON.parse(this.state.count_remaining) ;
-  //   var total_count = count_hit + count_remaining;
-  //   this.setState({ total_count: total_count });
-  // };
+ 
 
   updatecountForBoth(name) {
     let self = this;
@@ -64,6 +61,14 @@ class TrafficExchange extends React.Component {
       (error) => {}
     );
   }
+
+// totalcount(){
+//   var count_hit =JSON.parse(this.state.count_hit) ;
+//     var count_remaining =JSON.parse(this.state.count_remaining) ;
+//          var total_count = count_hit + count_remaining;
+//          this.setState({ total_count: total_count });
+// }
+
   getClientData() {
 
     let self = this;
@@ -73,14 +78,38 @@ class TrafficExchange extends React.Component {
       window.localStorage.getItem("ClientUrl");
     axios.get(url).then(
       (response) => {
+        // self.totalcount();
+        //   var count_hit =JSON.parse(this.state.count_hit==undefined ? "" :this.state.count_hit) ;
+        // var count_remaining =JSON.parse(this.state.count_remaining==undefined ? "":this.state.count_remaining) ;
+        // var total_count = count_hit + count_remaining;
+        // self.setState({ total_count: total_count });
         self.setState({
           count_hit: response.data.count_hit,
           count_remaining: response.data.count_remaining,
+        
         });
-        var count_hit =JSON.parse(this.state.count_hit==undefined ? "" :this.state.count_hit) ;
-        var count_remaining =JSON.parse(this.state.count_remaining==undefined ? "":this.state.count_remaining) ;
-        var total_count = count_hit + count_remaining;
+        // alert(this.state.count_hit);
+        var count_hit =0;
+        if(JSON.parse(this.state.count_hit==undefined)) 
+        {
+         this.setState({
+        count_hit:0,
+         });
+        }
+        
+        // alert(count_hit);
+        var count_remaining =0;
+        if(JSON.parse(this.state.count_remaining==undefined)) 
+        {
+         this.setState({
+          count_remaining:0,
+         });
+        }
+        // var count_remaining =JSON.parse(this.state.count_remaining==undefined ? "":this.state.count_remaining) ;
+        // console.log(count_remaining);
+        var total_count = JSON.parse(this.state.count_hit) +JSON.parse(this.state.count_remaining);
         this.setState({ total_count: total_count });
+        
       },
       (error) => {}
     );
