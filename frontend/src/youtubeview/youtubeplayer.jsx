@@ -2,6 +2,8 @@ import React from "react";
 import HOC from "../components/HOC";
 import Card from "@material-ui/core/Card";
 import ReactPlayer from "react-player";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
 import "./youtube.css";
 
 
@@ -10,13 +12,23 @@ class Youtubeplayer extends React.Component {
     super(props);
     
     this.state = {
-      url:"",
+      list:[],
     };
   }
   componentWillMount(){
-    this.setState({
-      url: window.localStorage.getItem("ClientUrl")
-    })
+
+    let url = getBaseUrl() + "/getyoutubelist";
+    axios.get(url).then(
+      (response) => {
+        this.setState({
+          list: response.data,
+        });
+      },
+      (error) => {}
+    );
+    // this.setState({
+    //   url: window.localStorage.getItem("ClientUrl")
+    // })
     
   }
   
@@ -31,13 +43,14 @@ class Youtubeplayer extends React.Component {
                     width: "100%",
                     height: "80vh",
                   }}>
+                    {this.state.list.map((value)=>(
                   <ReactPlayer
                     playing={true}
                     width="100%"
                     height="80vh"
-                    url={this.state.url}
+                    url={value.url}
                     controls={true}
-                  />
+                  />))}
                   {/* <VncDisplay url="ws://localhost:8000/ws/vnc/9804520e010c8320bad59e7285815139" /> */}
                 </Card>
               </div>

@@ -3,7 +3,7 @@ import HOC from "../components/HOC";
 import { Form } from "react-bootstrap";
 
 
-
+import logo20 from "../images/logo20.png";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -141,7 +141,7 @@ class Youtube extends React.Component {
     };
     axios.post(url, temp).then(
       (response) => {
-        // window.open("youtube_player");
+        window.open("youtube_player");
       },
     
       (error) => {}
@@ -170,7 +170,7 @@ class Youtube extends React.Component {
   }
 
   openWindow() {
-    let temp = 3;
+    let temp = 1;
     for (let index1 = 0; index1 < this.state.windowHandler.length; index1++) {
       this.updatecountForBoth(this.state.windowHandler[index1].name);
       this.state.windowHandler[index1].window.close();
@@ -229,12 +229,21 @@ class Youtube extends React.Component {
 
   render() {
     return (
-        <div className="mt-5 innerdivwidth">
-        <div className="traffic_head">
-          <p className="traffic_web">A Free Youtube Views </p>
-          <p className="traffic_rank">
+        <div className=" innerdivwidth">
+          <div className="youtube_first">  <p className="youtube_head">A Free Youtube Views </p>
+          <p className="youtube_para">
           SRCS for Youtube will help you to grow YouTube channels <br/> and increase YouTube views quickly.
           </p>
+          <img
+              className="youtube_img mx-auto d-block"
+              src={logo20}
+              alt=""
+          
+            /></div>
+          {/* <div></div> */}
+        <div className="traffic_head youtube_margin">
+        
+          
         </div>
         <div className="trafiic_count">
           <Grid container className="mt-5 pt-3 ">
