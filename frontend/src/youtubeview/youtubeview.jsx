@@ -141,7 +141,7 @@ class Youtube extends React.Component {
     };
     axios.post(url, temp).then(
       (response) => {
-        window.open("youtube_player");
+        // window.open("youtube_player");
       },
     
       (error) => {}
@@ -170,7 +170,7 @@ class Youtube extends React.Component {
   }
 
   openWindow() {
-    let temp = 1;
+    let temp = 3;
     for (let index1 = 0; index1 < this.state.windowHandler.length; index1++) {
       this.updatecountForBoth(this.state.windowHandler[index1].name);
       this.state.windowHandler[index1].window.close();
