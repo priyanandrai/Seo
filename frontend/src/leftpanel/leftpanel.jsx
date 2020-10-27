@@ -88,7 +88,7 @@ class Leftpanel extends React.Component {
                   </span>
 
                   <span>
-                    <a href="welcome" className="urlcolors urlfontsize">
+                    <a href="youtube_views" className="urlcolors urlfontsize">
                       YouTube Views 
                     </a>
                   </span>
