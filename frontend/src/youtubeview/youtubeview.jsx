@@ -275,7 +275,7 @@ class Youtube extends React.Component {
             }}
           />
         </div>
-        {this.state.checkbrowser === true ? (
+        {/* {this.state.checkbrowser === true ? (
           <div className="alertcolor">
             <p className="waringcolor">
               {" "}
@@ -285,9 +285,9 @@ class Youtube extends React.Component {
           </div>
         ) : (
           ""
-        )}
+        )} */}
 
-        <div className="timecenter justify-content-center mt-2">
+        {/* <div className="timecenter justify-content-center mt-2">
           <span className="mr-4 mt-2">
             <p>Enter Time Limit</p>
           </span>{" "}
@@ -310,7 +310,7 @@ class Youtube extends React.Component {
               <MenuItem value={300000}>5 min</MenuItem>
             </Select>
           </span>
-        </div>
+        </div> */}
 
         <div className="buttoncenter mb-5 mt-1">
           <Button
@@ -318,16 +318,16 @@ class Youtube extends React.Component {
             className="startbtn"
             onClick={this.trafficdialog}
           >
-            Start
+            Submit
           </Button>
 
-          <Button
+          {/* <Button
             variant="contained"
             className="startbtn ml-5"
             onClick={this.trafficdialogend}
           >
             Stop
-          </Button>
+          </Button> */}
         </div>
 
         {/* <Dialog
