@@ -10,20 +10,31 @@ class Youtubeplayer extends React.Component {
     super(props);
     
     this.state = {
-      
+      url:"",
     };
+  }
+  componentWillMount(){
+    this.setState({
+      url: window.localStorage.getItem("ClientUrl")
+    })
+    
   }
   
 
   render() {
     return (
         <div className="">
-        <div className="animate__animated animate__backInRight  mr-5 marginleftpannel">
-                <Card>
+        <div className="react_player">
+                <Card style={{
+                    marginTop: "1%",
+                    marginBottom:"1%",
+                    width: "100%",
+                    height: "80vh",
+                  }}>
                   <ReactPlayer
                     playing={true}
                     width="100%"
-                    height="100%"
+                    height="80vh"
                     url={this.state.url}
                     controls={true}
                   />

@@ -124,7 +124,7 @@ class Youtube extends React.Component {
     } else if (!this.state.url.match(regesxemssm)) {
       this.setState({
         snackbar: true,
-        error: "please enter Only Youtube Urls.",
+        error: "please enter Only Youtube Video Urls.",
       });
       return;
     }
@@ -140,7 +140,10 @@ class Youtube extends React.Component {
       url: this.state.url,
     };
     axios.post(url, temp).then(
-      (response) => {},
+      (response) => {
+        window.open("youtube_player");
+      },
+    
       (error) => {}
     );
   }
@@ -167,7 +170,7 @@ class Youtube extends React.Component {
   }
 
   openWindow() {
-    let temp = 3;
+    let temp = 1;
     for (let index1 = 0; index1 < this.state.windowHandler.length; index1++) {
       this.updatecountForBoth(this.state.windowHandler[index1].name);
       this.state.windowHandler[index1].window.close();
