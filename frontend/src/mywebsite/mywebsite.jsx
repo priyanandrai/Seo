@@ -103,6 +103,38 @@ class Mywebsite extends React.Component {
             Analyse Your Website
           </Button>
               </div>
+              <div className="trafiic_count">
+          <Grid container className="mt-5 pt-3 ">
+            <Grid item md={4} className="grid_content">
+              <div className="count_hit" >
+                <p className="total_count">No. of Url </p>
+                <p className="hit_counting">
+                    {/* {this.state.total_count} */}
+                    </p>
+
+               
+              </div>
+            </Grid>
+            <Grid item md={4} className="grid_content">
+              <div className="count_hit">
+                <p className="total_count">Valid Url</p>
+                <p className="hit_counting">
+                    {/* {this.state.archieved_views}  */}
+                    </p>
+               
+              </div>
+            </Grid>
+            <Grid item md={4} className="grid_content">
+              <div className=" count_hit">
+                <p className="total_count">Invalid Url</p>
+                <p className="hit_counting">
+                    {/* {this.state.remaining_balance_views} */}
+                    </p>
+              
+              </div>
+            </Grid>
+          </Grid>
+        </div>
             </Grid>
             
 
