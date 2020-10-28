@@ -109,4 +109,12 @@
     .youtube_margin {
         margin-top:15% !important;
     }
+    .youtube_para {
+        text-align: center;
+        color: white;
+        font-family: century;
+        font-size: 27px !important;
+    }
+
+
 }
