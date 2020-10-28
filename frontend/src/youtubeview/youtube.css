@@ -88,3 +88,18 @@
         margin-top:25% !important;
     }
 }
+@media only screen and (min-width: 691px) and (max-width: 800px) {
+    .youtube_margin {
+        margin-top:23% !important;
+    }
+}
+@media only screen and (min-width: 801px) and (max-width: 1000px) {
+    .youtube_margin {
+        margin-top:18% !important;
+    }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+    .youtube_margin {
+        margin-top:15% !important;
+    }
+}
