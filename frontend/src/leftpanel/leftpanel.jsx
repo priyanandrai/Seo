@@ -14,6 +14,7 @@ import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.png";
 import logo10 from "../images/logo10.png";
 import logo11 from "../images/logo11.png";
+import photo from "../images/photo.jpg";
 import "./leftpanel.css";
 
 class Leftpanel extends React.Component {
@@ -135,7 +136,7 @@ class Leftpanel extends React.Component {
                
                  <div className="d-flex">
                   <span>
-                    <img className="logowidthhight" src={logo10} alt="" />
+                    <img className="logowidthhight" src={photo} alt="" />
                   </span>
                   <span>
                     <a href="my-website" className="urlcolors urlfontsize">
