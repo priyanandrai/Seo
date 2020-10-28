@@ -32,12 +32,14 @@ import com.seo.dto.ProfileDto;
 import com.seo.dto.Usersearch;
 import com.seo.model.Adminlogin;
 import com.seo.model.Contactus;
+import com.seo.model.Mywebsite;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
 import com.seo.model.Subsribe;
 import com.seo.services.IAdminloginService;
 import com.seo.services.IContactusSrevice;
+import com.seo.services.IMywebsiteService;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.ISubsribeService;
@@ -63,6 +65,10 @@ public class MainServices {
 	ISubsribeService iSubscribeService;
 	@Autowired
 	IContactusSrevice iContactus;
+	
+	@Autowired
+	IMywebsiteService iMywebsiteService;
+	 
 	@Autowired
 	private Environment env;
 
@@ -546,5 +552,14 @@ public class MainServices {
 		System.out.println(Contactus.toString());
 		return "Thank You !";
 	}	
+	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/mywebsite")
+	public String mywebsite(@RequestBody Mywebsite mywebsite) {
+		iMywebsiteService.save(mywebsite);
+		System.out.println(mywebsite.toString());
+		return "Mywebsite url is added sucessfully";
+	}
 
 }
