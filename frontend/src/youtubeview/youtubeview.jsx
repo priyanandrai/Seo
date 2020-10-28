@@ -230,7 +230,7 @@ class Youtube extends React.Component {
   render() {
     return (
         <div className=" innerdivwidth">
-          <div className="youtube_first">  <p className="youtube_head">A Free Youtube Views </p>
+          <div className="youtube_first">  <p className="youtube_head">A Free YouTube Views </p>
           <p className="youtube_para">
           SRCS for Youtube will help you to grow YouTube channels <br/> and increase YouTube views quickly.
           </p>

@@ -133,16 +133,17 @@ class Leftpanel extends React.Component {
               </AccordionSummary>
               <AccordionDetails>
                
-                {/* <div className="d-flex">
+                 <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo10} alt="" />
                   </span>
                   <span>
-                    <a href="welcome" className="urlcolors urlfontsize">
-                     File 1
+                    <a href="my-website" className="urlcolors urlfontsize">
+                    My Website
                     </a>
                   </span>
                 </div>
+                {/*
                 <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo10} alt="" />

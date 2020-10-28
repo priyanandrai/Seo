@@ -1,0 +1,19 @@
+.mywebsite_btn{
+    text-align: right;
+}
+.mywebsite_startbtn{
+    background-color:#F3F201 !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+.right_iframe{
+  
+}
+.iframe_width{
+    width: 70%;
+    height: 50vh;
+    margin-left: 15%;
+    margin-top: 10%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+}

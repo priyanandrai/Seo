@@ -559,7 +559,8 @@ public class MainServices {
 	public String mywebsite(@RequestBody Mywebsite mywebsite) {
 		iMywebsiteService.save(mywebsite);
 		System.out.println(mywebsite.toString());
-		return "Mywebsite url is added sucessfully";
+		return "{\"message\":\"Url is added sucessfully\"}";
+		
 	}
 
 }

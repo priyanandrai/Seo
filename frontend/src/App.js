@@ -11,7 +11,8 @@ import Userhistory from "./profile/userhistory";
 import TrafficExchange from "./TrafficExchange/TrafficExchange";
 import Yourwebsite from "./yourwebsite/yourwebsite";
 import Youtube from "./youtubeview/youtubeview";
-import Youtubeplayer from "./youtubeview/youtubeplayer"
+import Youtubeplayer from "./youtubeview/youtubeplayer";
+import Mywebsite from "./mywebsite/mywebsite";
 import Signup from "./signup/signup";
 import {
   BrowserRouter as Router,
@@ -50,6 +51,7 @@ function App() {
         <Route exact path="/youtube_views" component={Youtube}  />
         <Route exact path="/youtube_player" component={Youtubeplayer}  />
         <Route exact path="/signup-required" component={Signup}  />
+        <Route exact path="/my-website" component={Mywebsite}  />
       </Router>
        );
  
