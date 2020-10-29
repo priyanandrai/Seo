@@ -76,26 +76,27 @@ class Mywebsite extends React.Component {
       <div>
         <Grid className=" mywebsite_container">
           <Grid item md={6}>
-            <div className="mt-5 mb-5 ml-5 mr-5">
-              <Form.Label>Enter Url</Form.Label>
+            <div className="d-flex">
+            <div className="mt-5  ml-5">
+              {/* <Form.Label>Enter Url</Form.Label> */}
               <Form.Control
                 type="name"
                 placeholder="Enter url"
                 id="Name"
-                className=""
+                className="myweb_input"
                 value={this.state.url}
                 onChange={(e) => this.setState({ url: e.target.value })}
               />
             </div>
-            <div className="mywebsite_btn">
+            <div className="mywebsite_btn mt-5">
               <Button
                 variant="contained"
-                className="mywebsite_startbtn mb-3 mr-5"
+                className="mywebsite_startbtn"
                 onClick={this.MywebsiteUrl}
               >
                 Analyse Your Website
               </Button>
-            </div>
+            </div></div>
             {/* <div className="trafiic_count"> */}
             <div className="all_cards">
             <Grid container className="three_card">
