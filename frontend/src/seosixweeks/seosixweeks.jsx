@@ -25,7 +25,7 @@ class Seosixweeks extends React.Component{
         return(
             <div>
             <div className="heading-center">
-                        <p className="mt-5 headingwidth">SEO in 6 Weeks</p>
+                        <p className="mt-5 headingwidth">SEO in 7 Weeks</p>
                         <p className="para-content">SEO is based on planning and actually doing the work day in, day out. 
                             An SEO report is the analysis of<br/> this planning and work combo, in order to 
                             see the effects produced.</p>
@@ -247,20 +247,21 @@ class Seosixweeks extends React.Component{
           attained links or natural links directly improve the name of an internet site and wherever it ranks on 
           Google and alternative search engines.</p></span>
           </div>
-      </Typography>
-    </AccordionDetails>
-  </Accordion>
-  </Card>
-  </div> 
-  </Grid>
-            {/* <div>
+          
             <p className="weeks-heading-formatting">Time to finish off</p>
             <p>SEO is long term work which provides the most effective results once taken care of on a daily basis. 
                 although it needs work, it always pays off, since most of the web site traffic comes from organic search.</p>
                 <p>If handling the total SEO package appears an excessive amount of at just the once, begin from 
                     shaping the keywords. Also, investment in quality content takes you an extended approach.</p>
                     <p>Do you need help with optimizing your websites? Get in touch with our team of specialists.</p>
-            </div> */}
+            
+      </Typography>
+    </AccordionDetails>
+  </Accordion>
+  </Card>
+  </div> 
+  </Grid>
+            
   </Grid>
 </div>
         )
