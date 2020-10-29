@@ -23,7 +23,7 @@ import  Maincontentpage2  from "./maincontentpage2/maincontentpage2";
 import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
 import { Confirmotp } from "./confirmotp/confirmotp";
-
+import Mywebsiteseoreport from "./mywebsiteseoreport/mywebsiteseoreport";
 
 function App() {
  
@@ -52,6 +52,7 @@ function App() {
         <Route exact path="/youtube_player" component={Youtubeplayer}  />
         <Route exact path="/signup-required" component={Signup}  />
         <Route exact path="/my-website" component={Mywebsite}  />
+        <Route exact path="/my-website-seo-report" component={Mywebsiteseoreport}  />
       </Router>
        );
  

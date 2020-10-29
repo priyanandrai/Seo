@@ -1,0 +1,14 @@
+.heading-center{
+    text-align: center !important;
+}
+.headingwidth{
+    font-weight: bold;
+    font-size: 50px;
+    color: #33BC9C;
+    font-family: century;
+}
+.para-content{
+    font-weight: bold;
+    font-family: century;
+    font-size:20px;
+}

@@ -15,6 +15,7 @@ import logo5 from "../images/logo5.png";
 import logo10 from "../images/logo10.png";
 import logo11 from "../images/logo11.png";
 import photo from "../images/photo.jpg";
+import favicon1 from "../images/favicon1.jpg";
 import "./leftpanel.css";
 
 class Leftpanel extends React.Component {
@@ -144,28 +145,30 @@ class Leftpanel extends React.Component {
                     </a>
                   </span>
                 </div>
-                {/*
+                
                 <div className="d-flex">
                   <span>
-                    <img className="logowidthhight" src={logo10} alt="" />
+                    <img className="logowidthhight" src={favicon1} alt="" />
                   </span>
                   <span>
-                    <a className="urlcolors urlfontsize" href="welcome">
-                     File 2
+                    <a className="urlcolors urlfontsize" href="my-website-seo-report">
+                    My Webite SEO Report
                     </a>
                   </span>
                 </div>
+                
                 <div className="d-flex">
                   <span>
-                    <img className="logowidthhight" src={logo10} alt="" />
+                    <img className="logowidthhight" src={favicon1} alt="" />
                   </span>
 
                   <span>
                     <a href="welcome" className="urlcolors urlfontsize">
-                    File 3
+                    SEO in 6 Weeks
                     </a>
                   </span>
                 </div>
+                {/*
                 <div className="d-flex">
                   <span>
                     <img className="logowidthhight" src={logo10} alt="" />
