@@ -164,7 +164,7 @@ class Leftpanel extends React.Component {
 
                   <span>
                     <a href="seo-six-weeks" className="urlcolors urlfontsize">
-                    SEO in 6 Weeks
+                    SEO in 7 Weeks
                     </a>
                   </span>
                 </div>
