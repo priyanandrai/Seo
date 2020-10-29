@@ -53,7 +53,7 @@ function App() {
         <Route exact path="/signup-required" component={Signup}  />
         <Route exact path="/my-website" component={Mywebsite}  />
         <Route exact path="/my-website-seo-report" component={Mywebsiteseoreport}  />
-        <Route exact path="/seo-six-weeks" component={Seosixweeks}  />
+        <Route exact path="/seo-seven-weeks" component={Seosixweeks}  />
       </Router>
        );
  
