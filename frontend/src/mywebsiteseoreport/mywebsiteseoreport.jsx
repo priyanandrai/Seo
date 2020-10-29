@@ -7,7 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Form, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 class Mywebsiteseoreport extends React.Component{
     constructor(props){
         super(props);

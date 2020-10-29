@@ -24,7 +24,7 @@ import { SubmitRequest } from "./submitRequest/submitRequest";
 import { Changepassword } from "./changepassword/changepassword";
 import { Confirmotp } from "./confirmotp/confirmotp";
 import Mywebsiteseoreport from "./mywebsiteseoreport/mywebsiteseoreport";
-
+import Seosixweeks from "./seosixweeks/seosixweeks";
 function App() {
  
     return (
@@ -53,6 +53,7 @@ function App() {
         <Route exact path="/signup-required" component={Signup}  />
         <Route exact path="/my-website" component={Mywebsite}  />
         <Route exact path="/my-website-seo-report" component={Mywebsiteseoreport}  />
+        <Route exact path="/seo-six-weeks" component={Seosixweeks}  />
       </Router>
        );
  
