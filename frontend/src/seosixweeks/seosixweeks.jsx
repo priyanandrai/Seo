@@ -46,12 +46,17 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
        <p className="weeks-heading-formatting"> Research & Competitor Analysis</p>
-       <ul type="radio" className="list-formt">
-           <li>1. The primary step is to outline the baseline.</li>
-           <li>2. Wherever will your web site stand on organic ranking at present?</li>
-           <li>3. Then analyze your web site and your Competitor. </li>
-           <li>4. Scan your website for SEO errors.</li>
-           <li>5. Fixing these errors can build your web site a lot of search engine friendly and build </li>
+       
+       <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> The primary step is to outline the baseline.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> Wherever will your web site stand on organic ranking at present?</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> Then analyze your web site and your Competitor.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> Scan your website for SEO errors.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> Fixing these errors can build your web site a lot of search engine friendly and build.</p></span></div>
           <p className="keyword-format">It easier for you to rank for your keywords.</p>
           <ol type="1">
               <li>a. Keyword analysis </li>
@@ -61,7 +66,7 @@ class Seosixweeks extends React.Component{
               <li>e. Verify Your Barrier to Entry and Strategy</li>
           </ol>
 
-       </ul>
+     
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -82,14 +87,19 @@ class Seosixweeks extends React.Component{
       <Typography>
       <p className="weeks-heading-formatting"> Relevant Keywords Research</p>
       <p>After the primary section, </p>
-      <ul>
-          <li>1. It’s time to begin thinking of your keywords. </li>
-          <li>2. You must analyze relevant keywords and so use those results to set up and build your high-quality content.</li>
-          <li>3. How to notice these keywords? Initially, you must do keyword analysis. To implement the analysis you should:</li>
-          <li>4. Define relevant topics which are related to your business</li>
-          <li>5. By checking search volumes of keywords and analyze competitors</li>
-          <li>6. Rely on your findings and begin coming up with your content</li>
-      </ul>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It’s time to begin thinking of your keywords.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">You must analyze relevant keywords and so use those results to set up and build your high-quality content.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">How to notice these keywords? Initially, you must do keyword analysis. To implement the analysis you should:</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">Define relevant topics which are related to your business.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">By checking search volumes of keywords and analyze competitors.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">Rely on your findings and begin coming up with your content.</p></span></div>
+     
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -107,18 +117,22 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
       <p className="weeks-heading-formatting">Optimizing On-page issue</p>
-      <ul>
-          <li>1. On-page SEO is the follow of optimizing individual sites so as to rank higher and earn a lot of relevant traffic in search engines. </li>
-          <li>2. On-page refers to each the content and hypertext mark-up language ASCII text file of a page that may be optimized, as against off-page SEO that refers to links and alternative external signals.</li>
-          <li>3. On-page SEO (also called “on-site SEO”) is the following of optimizing website content for search engines and users. Common on-page SEO practices embody optimizing title tags, content, internal links and URLs.</li>
-          <ul>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">On-page SEO is the follow of optimizing individual sites so as to rank higher and earn a lot of relevant traffic in search engines. </p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">On-page refers to each the content and hypertext mark-up language ASCII text file of a page that may be optimized, as against off-page SEO 
+      that refers to links and alternative external signals.</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> On-page SEO (also called “on-site SEO”) is the following of optimizing website content for search engines and users.
+       Common on-page SEO practices embody optimizing title tags, content, internal links and URLs.</p></span></div>
+         
               <li>  a. Title Tag</li>
               <li>  b. Meta Description</li>
               <li>  c. Internal Links</li>
               <li>  d. Header Tags </li>
               <li>  e. Image Name & ALT Tags </li>
-          </ul>
-      </ul>
+          
+      
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -136,18 +150,25 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
       <p className="weeks-heading-formatting">Link Profile and Developing the Domain Authority</p>
-      <p>Links matter! Take advantage of the links that may race you higher in Google searches. The most 
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">
+      Links matter! Take advantage of the links that may race you higher in Google searches. The most 
           valuable links are so-called inbound links (or backlinks), which means that some other website 
           that has high authority uses your webpage links in their content and website.
-          </p>
-      <p>How do links affect search engine visibility?</p>
-      <p>High authority sites are reliable, popular, and they rank high in search engines. When these kinds of 
-          sites use your page links, it will also increase your authority and ranking in Google.</p>
-      <p>In other words, Inbound links are like ”votes” which 
-              have a real impact on your domain authority. This is definitely a rising trend</p>
-     <p>It is also recommended to link to different parts within one website since 
+          </p></span>
+          </div>
+          <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">How do links affect search engine visibility?</p></span></div>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">High authority sites are reliable, popular, and they rank high in search engines. When these kinds of 
+          sites use your page links, it will also increase your authority and ranking in Google.</p></span></div>
+          <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">In other words, Inbound links are like ”votes” which 
+              have a real impact on your domain authority. This is definitely a rising trend</p></span></div>
+              <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It is also recommended to link to different parts within one website since 
          this can increase the dwell time and improve the user experience by offering relevant 
-         related content and engaging CTAs.</p>
+         related content and engaging CTAs.</p></span></div>
       </Typography>
     </AccordionDetails>
   </Accordion>
