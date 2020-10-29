@@ -12,3 +12,35 @@
     font-family: century;
     font-size:20px;
 }
+@media only screen and (min-width: 500px) and (max-width: 600px) {
+    .headingwidth1 {
+        font-weight: bold;
+        font-size: 42px;
+        color: #33BC9C;
+        font-family: century;
+    } 
+}
+@media only screen and (min-width: 400px) and (max-width: 499px) {
+    .headingwidth1 {
+        font-weight: bold;
+        font-size: 35px;
+        color: #33BC9C;
+        font-family: century;
+    } 
+}
+@media only screen and (min-width: 350px) and (max-width: 399px) {
+    .headingwidth1 {
+        font-weight: bold;
+        font-size: 30px;
+        color: #33BC9C;
+        font-family: century;
+    } 
+}
+@media only screen and (min-width: 300px) and (max-width: 349px) {
+    .headingwidth1 {
+        font-weight: bold;
+        font-size: 25px;
+        color: #33BC9C;
+        font-family: century;
+    } 
+}
