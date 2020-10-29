@@ -1,3 +1,18 @@
+.heading-center1{
+    text-align: center !important;
+}
+.headingwidth{
+    font-weight: bold;
+    font-size: 50px;
+    color: #33BC9C;
+    font-family: century;
+}
+.para-content1{
+    font-weight: bold;
+    font-family: century;
+    font-size:20px;
+}
+
 .weeks-heading-formatting{
     font-weight: bold;
     font-size: 20px;
@@ -25,13 +40,14 @@
         color: #33BC9C;
         font-family: century;
     }
-    .para-content {
-    font-weight: bold;
-    font-family: century;
-    font-size: 20px;
-    text-align: justify;
-    margin-left: 5%;
     
-    margin-right: 5%;
+
 }
+@media only screen and (min-width: 800px) and (max-width: 999px) {
+    .para-content1 {
+        font-weight: bold;
+        font-family: century;
+        font-size: 16px;
+    }
+
 }

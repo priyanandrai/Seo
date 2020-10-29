@@ -24,12 +24,13 @@ class Seosixweeks extends React.Component{
     render(){
         return(
             <div>
-            <div className="heading-center">
+            <div className="heading-center1">
                         <p className="mt-5 headingwidth">SEO in 7 Weeks</p>
-                        <p className="para-content">SEO is based on planning and actually doing the work day in, day out. 
+                        
+            </div>
+            <p className="para-content1 heading-center1">SEO is based on planning and actually doing the work day in, day out. 
                             An SEO report is the analysis of<br/> this planning and work combo, in order to 
                             see the effects produced.</p>
-            </div>
            <Grid  container>
           
         <Grid  item md={12}>
