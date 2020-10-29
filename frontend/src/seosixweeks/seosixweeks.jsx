@@ -34,8 +34,8 @@ class Seosixweeks extends React.Component{
           
         <Grid  item md={12}>
            <div className="ml-5 mr-5">     
-        <Card>
-           <Accordion>
+        <Card >
+           <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel1a-content"
@@ -135,8 +135,19 @@ class Seosixweeks extends React.Component{
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-        sit amet blandit leo lobortis eget.
+      <p className="weeks-heading-formatting">Link Profile and Developing the Domain Authority</p>
+      <p>Links matter! Take advantage of the links that may race you higher in Google searches. The most 
+          valuable links are so-called inbound links (or backlinks), which means that some other website 
+          that has high authority uses your webpage links in their content and website.
+          </p>
+      <p>How do links affect search engine visibility?</p>
+      <p>High authority sites are reliable, popular, and they rank high in search engines. When these kinds of 
+          sites use your page links, it will also increase your authority and ranking in Google.</p>
+      <p>In other words, Inbound links are like ”votes” which 
+              have a real impact on your domain authority. This is definitely a rising trend</p>
+     <p>It is also recommended to link to different parts within one website since 
+         this can increase the dwell time and improve the user experience by offering relevant 
+         related content and engaging CTAs.</p>
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -153,14 +164,20 @@ class Seosixweeks extends React.Component{
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-        sit amet blandit leo lobortis eget.
+      <p className="weeks-heading-formatting">Advance Content Marketing: Content is king</p>
+      <p>It’s a reality, however it’s still true. Though succeeding at SEO involves several factors, content is 
+          that key and has the most important influence on organic ranking.</p>
+        <p>Creating quality content is that the most significant factor 
+            you'll be able to do to optimize your website's look in organic search results.</p>
+            <p>Defining the relevant keywords is that the opening in making a pursuit 
+                engine optimized website content. By victimization the keywords and building
+                 your themes around them can produce content that provides answers to Google searches.</p>
       </Typography>
     </AccordionDetails>
   </Accordion>
   </Card>
   
-    <Card  className="mt-3 mb-5">
+    <Card  className="mt-3">
   <Accordion>
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
@@ -171,8 +188,34 @@ class Seosixweeks extends React.Component{
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-        sit amet blandit leo lobortis eget.
+      <p className="weeks-heading-formatting">Analysis Traffic</p>
+      <p>You can’t scale your marketing until you know what’s working and what’s not. 
+          By getting your tracking all set up correctly you’ll
+           be able to see the traffic sources, content, and keywords that are driving revenue.</p>
+      </Typography>
+    </AccordionDetails>
+  </Accordion>
+  </Card>
+
+  <Card  className="mt-3 mb-5">
+  <Accordion>
+    <AccordionSummary
+      expandIcon={<ExpandMoreIcon />}
+      aria-controls="panel2a-content"
+      id="panel2a-header"
+    >
+      <Typography>Week 7</Typography>
+    </AccordionSummary>
+    <AccordionDetails>
+      <Typography>
+      <p className="weeks-heading-formatting">Brand Visibility & Get Social Shares</p>
+      <p>We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
+          authority. Even while not an on the spot influence on SEO, a decent social media strategy will increase 
+          your overall complete visibility. It helps customers perceive what price your complete provides and the 
+          way it caters to your target market’s wants, at the same time redirecting users to your web site and 
+          increasing referral traffic. a decent social media selling strategy helps you earn organic links. Organically 
+          attained links or natural links directly improve the name of an internet site and wherever it ranks on 
+          Google and alternative search engines.</p>
       </Typography>
     </AccordionDetails>
   </Accordion>
