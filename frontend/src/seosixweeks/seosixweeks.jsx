@@ -239,7 +239,7 @@ class Seosixweeks extends React.Component{
       <Typography className="pl-5 pt-3">
       <p className="weeks-heading-formatting">Brand Visibility & Get Social Shares</p>
     <div  className="d-flex">
-      <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
+      <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3 text-justify">We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
           authority. Even while not an on the spot influence on SEO, a decent social media strategy will increase 
           your overall complete visibility. It helps customers perceive what price your complete provides and the 
           way it caters to your target market’s wants, at the same time redirecting users to your web site and 
@@ -253,7 +253,14 @@ class Seosixweeks extends React.Component{
   </Card>
   </div> 
   </Grid>
-  
+            {/* <div>
+            <p className="weeks-heading-formatting">Time to finish off</p>
+            <p>SEO is long term work which provides the most effective results once taken care of on a daily basis. 
+                although it needs work, it always pays off, since most of the web site traffic comes from organic search.</p>
+                <p>If handling the total SEO package appears an excessive amount of at just the once, begin from 
+                    shaping the keywords. Also, investment in quality content takes you an extended approach.</p>
+                    <p>Do you need help with optimizing your websites? Get in touch with our team of specialists.</p>
+            </div> */}
   </Grid>
 </div>
         )
