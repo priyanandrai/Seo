@@ -41,7 +41,7 @@ class Seosixweeks extends React.Component{
       aria-controls="panel1a-content"
       id="panel1a-header"
     >
-      <Typography >Week 1</Typography>
+      <Typography className="color-white-content">Week 1</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -70,13 +70,13 @@ class Seosixweeks extends React.Component{
       
   
     <Card  className="mt-3">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 2</Typography>
+      <Typography className="color-white-content">Week 2</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -96,13 +96,13 @@ class Seosixweeks extends React.Component{
   </Card>
  
     <Card  className=" mt-3">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 3</Typography>
+      <Typography className="color-white-content">Week 3</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -125,13 +125,13 @@ class Seosixweeks extends React.Component{
   </Card>
   
     <Card  className=" mt-3">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 4</Typography>
+      <Typography className="color-white-content">Week 4</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -154,13 +154,13 @@ class Seosixweeks extends React.Component{
   </Card>
   
     <Card  className="mt-3">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 5</Typography>
+      <Typography className="color-white-content">Week 5</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -178,13 +178,13 @@ class Seosixweeks extends React.Component{
   </Card>
   
     <Card  className="mt-3">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 6</Typography>
+      <Typography className="color-white-content">Week 6</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
@@ -198,13 +198,13 @@ class Seosixweeks extends React.Component{
   </Card>
 
   <Card  className="mt-3 mb-5">
-  <Accordion>
+  <Accordion className="cardbackground">
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel2a-content"
       id="panel2a-header"
     >
-      <Typography>Week 7</Typography>
+      <Typography className="color-white-content">Week 7</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <Typography>

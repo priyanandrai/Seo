@@ -12,5 +12,9 @@
 }
 .cardbackground{
     background-color: lightgray!important;
-    color:#fff !important;
+   
+}
+.color-white-content{
+    color:crimson !important;
+    font-weight: bold !important;
 }
