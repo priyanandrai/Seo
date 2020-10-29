@@ -25,7 +25,7 @@ class Mywebsiteseoreport extends React.Component{
         return(
             <div>
                 <div className="heading-center">
-                            <p className="mt-5 headingwidth">My Webite SEO Report</p>
+                            <p className="mt-5 headingwidth">My Website SEO Report</p>
                             <p className="para-content">SEO is based on planning and actually doing the work day in, day out. 
                                 An SEO report is the analysis of<br/> this planning and work combo, in order to 
                                 see the effects produced.</p>
