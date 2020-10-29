@@ -9,11 +9,11 @@
 }
 
 .iframe_width{
-    width: 70%;
+    width: 100%;
     height: calc(80vh);
     /* margin-left: 15%; */
     margin-top: 10%;
-    margin-right: 2%;
+    margin-right: 3%;
     margin-bottom: 2%;
 }
 .mywebsite_container {
@@ -40,6 +40,10 @@ box-sizing: border-box;
     font-weight: bold;
     font-family: century;
     
+}
+.input_button{
+    margin-left: 12%;
+    margin-right: 10%;
 }
 .all_cards{
     margin-left: 5%;
@@ -75,9 +79,9 @@ box-sizing: border-box;
 .bg_color9{
     background-color: #BAEEF9 !important;
 }
-.myweb_input{
+/* .myweb_input{
     width: 50% !important;
-}
+} */
 @media only screen and (min-width: 320px) and (max-width: 600px) {
     .mywebsite_container {
         width: 100%;
@@ -94,5 +98,12 @@ box-sizing: border-box;
         height: 22vh !important;
         border: 1px solid gray;
         margin-top: 5%;
+    }
+    .mywebsite_startbtn {
+        background-color: #33BC9C !important;
+        text-decoration: none !important;
+        outline: none !important;
+        font-size: 12px;
+        font-size: 8px !important;
     }
 }

@@ -33,26 +33,24 @@ class Mywebsite extends React.Component {
     if (this.state.url.trim() === "") {
       this.setState({
         snackbar: true,
-        error: "Please Enter your Url",
+        error: "please enter the URL.",
       });
-
       return;
-    } else if (!this.state.url.match(regesxm)) {
+    }  if (!this.state.url.match(regesxm)) {
       this.setState({
         snackbar: true,
-        error: "please enter a valid Url .",
+        error: "please enter a valid  URL.",
       });
-
       return;
     }
 
-    let url = getBaseUrl() + "/mywebsite";
+    let url1 = getBaseUrl() + "/mywebsite";
     let temp = {
       url: this.state.url,
       user_id: window.localStorage.getItem("id"),
     };
     axios
-      .post(url, temp)
+      .post(url1, temp)
       .then(
         (response) => {
           this.setState({
@@ -76,8 +74,8 @@ class Mywebsite extends React.Component {
       <div>
         <Grid className=" mywebsite_container">
           <Grid item md={6}>
-            <div className="d-flex">
-            <div className="mt-5  ml-5">
+            <div className="d-flex input_button">
+            <div className="mt-5">
               {/* <Form.Label>Enter Url</Form.Label> */}
               <Form.Control
                 type="name"
@@ -88,7 +86,7 @@ class Mywebsite extends React.Component {
                 onChange={(e) => this.setState({ url: e.target.value })}
               />
             </div>
-            <div className="mywebsite_btn mt-5">
+            <div className="mywebsite_btn mt-5 ml-5">
               <Button
                 variant="contained"
                 className="mywebsite_startbtn"
