@@ -165,7 +165,7 @@ class Seosixweeks extends React.Component{
           sites use your page links, it will also increase your authority and ranking in Google.</p></span></div>
           <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">In other words, Inbound links are like ”votes” which 
-              have a real impact on your domain authority. This is definitely a rising trend</p></span></div>
+              have a real impact on your domain authority. This is definitely a rising trend.</p></span></div>
               <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It is also recommended to link to different parts within one website since 
          this can increase the dwell time and improve the user experience by offering relevant 
