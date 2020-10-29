@@ -44,7 +44,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 1</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3 ">
        <p className="weeks-heading-formatting"> Research & Competitor Analysis</p>
        <div >
        <div  className="d-flex">
@@ -84,7 +84,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 2</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3 ">
       <p className="weeks-heading-formatting"> Relevant Keywords Research</p>
       <p>After the primary section, </p>
       <div  className="d-flex">
@@ -115,7 +115,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 3</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3 ">
       <p className="weeks-heading-formatting">Optimizing On-page issue</p>
       <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">On-page SEO is the follow of optimizing individual sites so as to rank higher and earn a lot of relevant traffic in search engines. </p></span></div>
@@ -148,7 +148,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 4</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3">
       <p className="weeks-heading-formatting">Link Profile and Developing the Domain Authority</p>
       <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">
@@ -184,7 +184,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 5</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3 ">
       <p className="weeks-heading-formatting">Advance Content Marketing: Content is king</p>
       <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It’s a reality, however it’s still true. Though succeeding at SEO involves several factors, content is 
@@ -214,7 +214,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 6</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3 ">
       <p className="weeks-heading-formatting">Analysis Traffic</p>
       <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> You can’t scale your marketing until you know what’s working and what’s not. 
@@ -236,7 +236,7 @@ class Seosixweeks extends React.Component{
       <Typography className="color-white-content">Week 7</Typography>
     </AccordionSummary>
     <AccordionDetails className="bg-light">
-      <Typography className="pl-5 pt-3 pr-5">
+      <Typography className="pl-5 pt-3">
       <p className="weeks-heading-formatting">Brand Visibility & Get Social Shares</p>
     <div  className="d-flex">
       <span><i className="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
