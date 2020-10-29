@@ -80,8 +80,16 @@ class Seosixweeks extends React.Component{
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-        sit amet blandit leo lobortis eget.
+      <p className="weeks-heading-formatting"> Relevant Keywords Research</p>
+      <p>After the primary section, </p>
+      <ul>
+          <li>1. It’s time to begin thinking of your keywords. </li>
+          <li>2. You must analyze relevant keywords and so use those results to set up and build your high-quality content.</li>
+          <li>3. How to notice these keywords? Initially, you must do keyword analysis. To implement the analysis you should:</li>
+          <li>4. Define relevant topics which are related to your business</li>
+          <li>5. By checking search volumes of keywords and analyze competitors</li>
+          <li>6. Rely on your findings and begin coming up with your content</li>
+      </ul>
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -98,8 +106,19 @@ class Seosixweeks extends React.Component{
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-        sit amet blandit leo lobortis eget.
+      <p className="weeks-heading-formatting">Optimizing On-page issue</p>
+      <ul>
+          <li>1. On-page SEO is the follow of optimizing individual sites so as to rank higher and earn a lot of relevant traffic in search engines. </li>
+          <li>2. On-page refers to each the content and hypertext mark-up language ASCII text file of a page that may be optimized, as against off-page SEO that refers to links and alternative external signals.</li>
+          <li>3. On-page SEO (also called “on-site SEO”) is the following of optimizing website content for search engines and users. Common on-page SEO practices embody optimizing title tags, content, internal links and URLs.</li>
+          <ul>
+              <li>  a. Title Tag</li>
+              <li>  b. Meta Description</li>
+              <li>  c. Internal Links</li>
+              <li>  d. Header Tags </li>
+              <li>  e. Image Name & ALT Tags </li>
+          </ul>
+      </ul>
       </Typography>
     </AccordionDetails>
   </Accordion>
