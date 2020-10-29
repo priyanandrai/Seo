@@ -165,13 +165,15 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
       <p className="weeks-heading-formatting">Advance Content Marketing: Content is king</p>
-      <p>It’s a reality, however it’s still true. Though succeeding at SEO involves several factors, content is 
-          that key and has the most important influence on organic ranking.</p>
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It’s a reality, however it’s still true. Though succeeding at SEO involves several factors, content is 
+          that key and has the most important influence on organic ranking.</p></span>
         <p>Creating quality content is that the most significant factor 
             you'll be able to do to optimize your website's look in organic search results.</p>
             <p>Defining the relevant keywords is that the opening in making a pursuit 
                 engine optimized website content. By victimization the keywords and building
                  your themes around them can produce content that provides answers to Google searches.</p>
+                 </div>
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -189,9 +191,11 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
       <p className="weeks-heading-formatting">Analysis Traffic</p>
-      <p>You can’t scale your marketing until you know what’s working and what’s not. 
+      <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> You can’t scale your marketing until you know what’s working and what’s not. 
           By getting your tracking all set up correctly you’ll
-           be able to see the traffic sources, content, and keywords that are driving revenue.</p>
+           be able to see the traffic sources, content, and keywords that are driving revenue.</p></span>
+        </div>
       </Typography>
     </AccordionDetails>
   </Accordion>
@@ -209,13 +213,15 @@ class Seosixweeks extends React.Component{
     <AccordionDetails>
       <Typography>
       <p className="weeks-heading-formatting">Brand Visibility & Get Social Shares</p>
-      <p>We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
+    <div  className="d-flex">
+      <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">We all apprehend that link-building could be a crucial component that contains a nice impact on web site 
           authority. Even while not an on the spot influence on SEO, a decent social media strategy will increase 
           your overall complete visibility. It helps customers perceive what price your complete provides and the 
           way it caters to your target market’s wants, at the same time redirecting users to your web site and 
           increasing referral traffic. a decent social media selling strategy helps you earn organic links. Organically 
           attained links or natural links directly improve the name of an internet site and wherever it ranks on 
-          Google and alternative search engines.</p>
+          Google and alternative search engines.</p></span>
+          </div>
       </Typography>
     </AccordionDetails>
   </Accordion>
