@@ -11,7 +11,7 @@
 }
 .iframe_width{
     width: 70%;
-    height: calc(50vh);
+    height: calc(80vh);
     margin-left: 15%;
     margin-top: 10%;
     margin-right: 15%;
@@ -37,7 +37,7 @@ box-sizing: border-box;
 }
 .gridfirst{
     text-align: center;
-    color: #33BC9C;
+    color: crimson;
     font-weight: bold;
     font-family: century;
     
@@ -48,6 +48,33 @@ box-sizing: border-box;
 }
 .three_card{
     margin-top: 3%;
+}
+.bg_color1{
+    background-color:#FEC669 !important ;
+}
+.bg_color2{
+    background-color: #FD7C80 !important;
+}
+.bg_color3{
+    background-color: #00E65F !important;
+}
+.bg_color4{
+    background-color:#FE6500 !important ;
+}
+.bg_color5{
+    background-color: #FC0859 !important;
+}
+.bg_color6{
+    background-color:#A45CFE !important ;
+}
+.bg_color7{
+    background-color:#85FE93 !important ;
+}
+.bg_color8{
+    background-color: #D451A2 !important;
+}
+.bg_color9{
+    background-color: #BAEEF9 !important;
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
     .mywebsite_container {

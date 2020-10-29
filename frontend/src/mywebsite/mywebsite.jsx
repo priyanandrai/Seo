@@ -101,7 +101,7 @@ class Mywebsite extends React.Component {
             <Grid container className="three_card">
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-dark">
+                  <Card className="my_web bg_color1">
                    <p className="gridfirst">one</p>
                   </Card>
               </a>
@@ -109,14 +109,14 @@ class Mywebsite extends React.Component {
 
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-success">
+                  <Card className="my_web bg_color2">
                   <p className="gridfirst">Two</p>
                   </Card>
                 </a>
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-primary">
+                  <Card className="my_web bg_color3">
                   <p className="gridfirst">Three</p>
                   </Card>
                </a>
@@ -125,7 +125,7 @@ class Mywebsite extends React.Component {
             <Grid container className="three_card">
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-danger">
+                  <Card className="my_web bg_color4">
                   <p className="gridfirst">Four</p>
                   </Card>
               </a>
@@ -133,14 +133,14 @@ class Mywebsite extends React.Component {
 
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-info">
+                  <Card className="my_web bg_color5">
                   <p className="gridfirst">Five</p>
                   </Card>
                </a>
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web ">
+                  <Card className="my_web bg_color6">
                   <p className="gridfirst">Six</p>
                   </Card>
                </a>
@@ -149,7 +149,7 @@ class Mywebsite extends React.Component {
             <Grid container className="three_card mb-3">
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-warning">
+                  <Card className="my_web bg_color7">
                   <p className="gridfirst">Seven</p>
                   </Card>
               </a>
@@ -157,14 +157,14 @@ class Mywebsite extends React.Component {
 
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web ">
+                  <Card className="my_web bg_color8">
                   <p className="gridfirst">Eight</p>
                   </Card>
                </a>
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-                  <Card className="my_web bg-secondary">
+                  <Card className="my_web bg_color9">
                   <p className="gridfirst">Nine</p>
                   </Card>
                </a>
