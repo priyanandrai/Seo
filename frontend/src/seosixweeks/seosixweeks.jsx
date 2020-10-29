@@ -168,11 +168,15 @@ class Seosixweeks extends React.Component{
       <div  className="d-flex">
       <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">It’s a reality, however it’s still true. Though succeeding at SEO involves several factors, content is 
           that key and has the most important influence on organic ranking.</p></span>
-        <p>Creating quality content is that the most significant factor 
-            you'll be able to do to optimize your website's look in organic search results.</p>
-            <p>Defining the relevant keywords is that the opening in making a pursuit 
+          </div>
+          <div  className="d-flex">
+          <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3"> Creating quality content is that the most significant factor 
+            you'll be able to do to optimize your website's look in organic search results.</p></span>
+            </div>
+            <div  className="d-flex">
+            <span><i class="fa fa-check-circle text-primary"></i></span><span><p className="ml-3">Defining the relevant keywords is that the opening in making a pursuit 
                 engine optimized website content. By victimization the keywords and building
-                 your themes around them can produce content that provides answers to Google searches.</p>
+                 your themes around them can produce content that provides answers to Google searches.</p></span>
                  </div>
       </Typography>
     </AccordionDetails>
