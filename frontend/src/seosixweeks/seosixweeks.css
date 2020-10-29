@@ -18,3 +18,20 @@
     color:crimson !important;
     font-weight: bold !important;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .headingwidth {
+        font-weight: bold;
+        font-size: 40px !important;
+        color: #33BC9C;
+        font-family: century;
+    }
+    .para-content {
+    font-weight: bold;
+    font-family: century;
+    font-size: 20px;
+    text-align: justify;
+    margin-left: 5%;
+    
+    margin-right: 5%;
+}
+}
