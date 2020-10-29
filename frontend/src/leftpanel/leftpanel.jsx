@@ -152,7 +152,7 @@ class Leftpanel extends React.Component {
                   </span>
                   <span>
                     <a className="urlcolors urlfontsize" href="my-website-seo-report">
-                    My Webite SEO Report
+                    My Website SEO Report
                     </a>
                   </span>
                 </div>
