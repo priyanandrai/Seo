@@ -125,7 +125,7 @@ class Mywebsiteseoreport extends React.Component {
                 </Accordion>
               </Card>
 
-              <Card className="mt-3 mb-5">
+              <Card className="mt-3">
                 <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -144,7 +144,7 @@ class Mywebsiteseoreport extends React.Component {
                 </Accordion>
               </Card>
 
-              <Card className="mt-3">
+              <Card className="mt-3 mb-5">
                 <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
