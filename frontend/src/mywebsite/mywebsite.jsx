@@ -98,11 +98,11 @@ class Mywebsite extends React.Component {
             {/* <div className="trafiic_count"> */}
             <div className="all_cards">
             <Grid container className="three_card">
-              
-              <Grid item md={4} className="ml-5 my_gridone">
+             
+              <Grid item md={4} className="ml-5 my_gridone" >
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
-                  <Card className="my_web bg_color1">
+              <div className="boder_radious" id="draggable">
+                  <Card className="my_web bg_color1"  >
                    <p className="gridfirst">one</p>
                   </Card> </div>
               </a>
@@ -110,7 +110,7 @@ class Mywebsite extends React.Component {
              
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable1">
                   <Card className="my_web bg_color2">
                   <p className="gridfirst">Two</p>
                   </Card></div>
@@ -118,7 +118,7 @@ class Mywebsite extends React.Component {
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable2">
                   <Card className="my_web bg_color3">
                   <p className="gridfirst">Three</p>
                   </Card></div>
@@ -128,7 +128,7 @@ class Mywebsite extends React.Component {
             <Grid container className="three_card">
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable3">
                   <Card className="my_web bg_color4">
                   <p className="gridfirst">Four</p>
                   </Card></div>
@@ -137,7 +137,7 @@ class Mywebsite extends React.Component {
 
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable4">
                   <Card className="my_web bg_color5">
                   <p className="gridfirst">Five</p>
                   </Card></div>
@@ -145,7 +145,7 @@ class Mywebsite extends React.Component {
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable5">
                   <Card className="my_web bg_color6">
                   <p className="gridfirst">Six</p>
                   </Card></div>
@@ -155,7 +155,7 @@ class Mywebsite extends React.Component {
             <Grid container className="three_card mb-3">
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable6">
                   <Card className="my_web bg_color7">
                   <p className="gridfirst">Seven</p>
                   </Card></div>
@@ -164,7 +164,7 @@ class Mywebsite extends React.Component {
 
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable7">
                   <Card className="my_web bg_color8">
                   <p className="gridfirst">Eight</p>
                   </Card></div>
@@ -172,7 +172,7 @@ class Mywebsite extends React.Component {
               </Grid>
               <Grid item md={4} className="ml-5 my_gridone">
               <a className="a_tag_color" href="welcome">
-              <div className="boder_radious">
+              <div className="boder_radious" id="draggable8">
                   <Card className="my_web bg_color9">
                   <p className="gridfirst">Nine</p>
                   </Card>
