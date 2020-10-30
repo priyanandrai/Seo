@@ -411,7 +411,7 @@ class Youtube extends React.Component {
                     width="100%"
                     height="40vh"
                     url={item.url}
-                    controls={true}
+                    // controls={true}
                   />
                  
                 </Card>
