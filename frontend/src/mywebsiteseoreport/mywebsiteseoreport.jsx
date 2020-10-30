@@ -31,15 +31,15 @@ class Mywebsiteseoreport extends React.Component {
           <Grid item md={12}>
             <div className="ml-5 mr-5">
               <Card>
-                <Accordion>
+                <Accordion className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Website Traffic</Typography>
+                    <Typography className="color-white-content">Website Traffic</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -50,15 +50,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className="mt-3">
-                <Accordion>
+                <Accordion className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Search Summary</Typography>
+                    <Typography className="color-white-content">Search Summary</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -69,15 +69,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className=" mt-3">
-                <Accordion>
+                <Accordion className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Backlink Summary</Typography>
+                    <Typography className="color-white-content">Backlink Summary</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -88,15 +88,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className=" mt-3">
-                <Accordion>
+                <Accordion className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Organic Search</Typography>
+                    <Typography className="color-white-content">Organic Search</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -107,15 +107,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className="mt-3">
-                <Accordion>
+                <Accordion  className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Traffic Source</Typography>
+                    <Typography className="color-white-content">Traffic Source</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -126,15 +126,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className="mt-3">
-                <Accordion>
+                <Accordion  className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Device Report</Typography>
+                    <Typography className="color-white-content">Device Report</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
@@ -145,15 +145,15 @@ class Mywebsiteseoreport extends React.Component {
               </Card>
 
               <Card className="mt-3 mb-5">
-                <Accordion>
+                <Accordion  className="cardbackground">
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Site Health</Typography>
+                    <Typography className="color-white-content">Site Health</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails className="bg-light">
                     <Typography>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse malesuada lacus ex, sit amet blandit leo
