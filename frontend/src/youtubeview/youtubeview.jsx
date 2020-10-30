@@ -391,7 +391,7 @@ class Youtube extends React.Component {
             }
           />
         </div>
-        <div>
+        <div className="container yuotube_heiw">
           <div className="yotube_cont">
         
         {this.state.list.map((item)=>(

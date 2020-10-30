@@ -135,9 +135,15 @@
     /* height: 10vh; */
 }
 .yotube_cont{
+    
     display: flex;
     flex-wrap: wrap;
 }
 .react_you_second{
     padding-left: 5%;
+}
+.yuotube_heiw{
+    width: 100%;
+    height: 50vh;
+    overflow: scroll;
 }
