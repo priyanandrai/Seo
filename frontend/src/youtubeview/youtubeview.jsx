@@ -16,6 +16,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import ReactPlayer from "react-player";
 import "./youtube.css";
 
 
@@ -40,7 +42,8 @@ class Youtube extends React.Component {
         duration: 10000,
         checkbrowser: false,
         windowHandler: [],
-        list: []
+        list: [],
+        vdeos:["sss","sss","sss","sss","sss","sss"],
     };
   }
   updatecountForBoth(name) {
@@ -141,7 +144,7 @@ class Youtube extends React.Component {
     };
     axios.post(url, temp).then(
       (response) => {
-        window.open("youtube_player");
+        // window.open("youtube_player");
       },
     
       (error) => {}
@@ -198,7 +201,7 @@ class Youtube extends React.Component {
         temp = temp + 1;
         continue;
       } else {
-        temphandler.push({ window: window.open(element), name: element });
+        // temphandler.push({ window: window.open(element), name: element });
       }
     }
 
@@ -387,6 +390,37 @@ class Youtube extends React.Component {
               </React.Fragment>
             }
           />
+        </div>
+        <div>
+          <div className="yotube_cont">
+        
+        {this.state.list.map((item)=>(
+        <div className="react_youtube">
+        <div className="react_you_second">
+                <Card style={{
+                    marginTop: "1%",
+                    marginBottom:"1%",
+                    // marginLeft:"4%",
+                    // marginRight:"4%",
+                    width: "100%",
+                    height: "40vh",
+                  }}>
+                   
+                  <ReactPlayer
+                    playing={true}
+                    width="100%"
+                    height="40vh"
+                    url={item.url}
+                    controls={true}
+                  />
+                 
+                </Card>
+              </div>
+              </div>))}
+            
+             
+
+          </div>
         </div>
       </div>
     );
