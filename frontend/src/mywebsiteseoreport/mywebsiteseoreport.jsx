@@ -37,7 +37,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Accordion 1</Typography>
+                    <Typography>Website Traffic</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -56,7 +56,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Accordion 2</Typography>
+                    <Typography>Search Summary</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -75,7 +75,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Accordion 3</Typography>
+                    <Typography>Backlink Summary</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -94,7 +94,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Accordion 4</Typography>
+                    <Typography>Organic Search</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -113,7 +113,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Accordion 5</Typography>
+                    <Typography>Traffic Source</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -132,7 +132,7 @@ class Mywebsiteseoreport extends React.Component {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Accordion 6</Typography>
+                    <Typography>Device Report</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -143,6 +143,28 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionDetails>
                 </Accordion>
               </Card>
+
+              <Card className="mt-3">
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                  >
+                    <Typography>Site Health</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse malesuada lacus ex, sit amet blandit leo
+                      lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              </Card>
+
+
+
             </div>
           </Grid>
         </Grid>
