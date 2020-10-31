@@ -30,6 +30,7 @@ import com.seo.dto.ChangePassword;
 import com.seo.dto.Login;
 import com.seo.dto.ProfileDto;
 import com.seo.dto.Usersearch;
+import com.seo.model.Activity;
 import com.seo.model.Adminlogin;
 import com.seo.model.Contactus;
 import com.seo.model.Mywebsite;
@@ -37,6 +38,7 @@ import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
 import com.seo.model.Subsribe;
+import com.seo.services.IActivityService;
 import com.seo.services.IAdminloginService;
 import com.seo.services.IContactusSrevice;
 import com.seo.services.IMywebsiteService;
@@ -69,6 +71,9 @@ public class MainServices {
 	@Autowired
 	IMywebsiteService iMywebsiteService;
 	 
+	@Autowired
+	IActivityService iActivityService;
+	
 	@Autowired
 	private Environment env;
 
@@ -562,5 +567,14 @@ public class MainServices {
 		return "{\"message\":\"Url is added sucessfully\"}";
 		
 	}
-
+	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/activity")
+	public String activity(@RequestBody Activity activity) {
+		iActivityService.save(activity);
+		System.out.println(activity.toString());
+		return "Activity is added sucessfully";
+		
+	}
 }
