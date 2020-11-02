@@ -36,6 +36,7 @@ class Activity extends React.Component{
                     <p className="text-center heading-Website-activity">Website Activity</p>
                     
                 </div>
+                {this.state.activitylist.map((value)=>(
           <Card className="grid-width-format mt-3">
         <Grid container > 
                     
@@ -43,38 +44,31 @@ class Activity extends React.Component{
 
                         <div className="div-width">
                             
-                            <p className="heading-activity text-center">UserName</p>
-                            {this.state.activitylist.map((value)=>(
-                            <p className="text-center">{value.username}</p>
-                            ))}
+                            <p className="heading-activity text-center pt-3">{value.username}</p>
+                           
                        </div>
                     </Grid>
                     <Grid item md={3}>
                         <div className="div-width">
-                    <p className="heading-activity text-center">User ID</p>
-                    {this.state.activitylist.map((value)=>(
-                            <p className="text-center">{value.user_id}</p>
-                            ))}
+                    <p className="heading-activity text-center pt-3">{value.user_id}</p>
+                   
                     </div>
                     </Grid>
                     <Grid item md={3}>
                         <div className="div-width">
-                    <p className="heading-activity text-center">Time</p>
-                    {this.state.activitylist.map((value)=>(
-                            <p className="text-center">{value.time}</p>
-                            ))}
+                    <p className="heading-activity text-center pt-3">{value.time}</p>
+                    
                     </div>
                     </Grid>
                     <Grid item md={3}>
                     <div className="div-width" >
-                    <p className="heading-activity text-center">Action</p>
-                    {this.state.activitylist.map((value)=>(
-                            <p className="text-center">{value.activity}</p>
-                            ))}
+                    <p className="heading-activity text-center pt-3">{value.activity}</p>
+                    
                     </div>
                     </Grid>
           </Grid>
           </Card>
+                ))}
                 </div>
         )
     }

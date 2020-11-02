@@ -167,8 +167,20 @@ public class MainServices {
 			}
 			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
 					&& signup.get(i).getPassword().equals(login.getPassword())) {
+				Activity activity = new Activity();
+				activity.setTime(System.currentTimeMillis()+"");
+				activity.setUsername(signup.get(i).getName());
+				activity.setUser_id(signup.get(i).getId()+"");
+				activity.setActivity("USer login");
+				iActivityService.save(activity);
 				return signup.get(i).toString();
 			}
+		}
+		try {
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
@@ -569,15 +581,15 @@ public class MainServices {
 	}
 	
 	
-	@CrossOrigin(origins = "*")
-	@PostMapping("/activity")
-	public String activity(@RequestBody Activity activity) {
-		iActivityService.save(activity);
-		System.out.println(activity.toString());
-		return "Activity is added sucessfully";
-		
-	}
-	
+//	@CrossOrigin(origins = "*")
+//	@PostMapping("/activity")
+//	public String activity(@RequestBody Activity activity) {
+//		iActivityService.save(activity);
+//		System.out.println(activity.toString());
+//		return "Activity is added sucessfully";
+//		
+//	}
+//	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/activitylist")
 	public Iterable<Activity> activitylist() {
