@@ -577,4 +577,10 @@ public class MainServices {
 		return "Activity is added sucessfully";
 		
 	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/activitylist")
+	public Iterable<Activity> activitylist() {
+		return iActivityService.findAll();
+	}	
 }
