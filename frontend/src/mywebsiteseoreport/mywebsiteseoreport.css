@@ -3,14 +3,14 @@
 }
 .headingwidth1{
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
     color: #18758d;
     font-family: century;
 }
 .para-content{
     font-weight: bold;
     font-family: century;
-    font-size:20px;
+    font-size:17px;
 }
 @media only screen and (min-width: 500px) and (max-width: 600px) {
     .headingwidth1 {
