@@ -41,9 +41,59 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -60,9 +110,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -79,9 +178,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -98,9 +246,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -117,9 +314,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -136,9 +382,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -155,9 +450,58 @@ class Mywebsiteseoreport extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails className="bg-light">
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
+                    <Grid container className="seo_report">
+             
+             <Grid item md={2} className="ml-5 my_gridone" >
+             <a className="a_tag_color" href="welcome">
+             <div className="boder_radious" id="draggable">
+                 <Card className="my_web bg_color1"  >
+                  <p className="gridfirst">one</p>
+                 </Card> </div>
+             </a>
+             </Grid>
+             <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable1">
+                  <Card className="my_web bg_color2">
+                  <p className="gridfirst">Two</p>
+                  </Card></div>
+                </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable2">
+                  <Card className="my_web bg_color3">
+                  <p className="gridfirst">Three</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable3">
+                  <Card className="my_web bg_color4">
+                  <p className="gridfirst">Four</p>
+                  </Card></div>
+              </a>
+              </Grid>
+
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable4">
+                  <Card className="my_web bg_color5">
+                  <p className="gridfirst">Five</p>
+                  </Card></div>
+               </a>
+              </Grid>
+              <Grid item md={2} className="ml-5 my_gridone">
+              <a className="a_tag_color" href="welcome">
+              <div className="boder_radious" id="draggable5">
+                  <Card className="my_web bg_color6">
+                  <p className="gridfirst">Six</p>
+                  </Card></div>
+               </a>
+              </Grid>
+             </Grid>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
