@@ -135,6 +135,12 @@ public class MainServices {
 					continue;
 				}
 				if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())) {
+					Activity activity = new Activity();
+					activity.setTime(System.currentTimeMillis()+"");
+					activity.setUsername(signup.get(i).getName());
+					activity.setUser_id(signup.get(i).getId()+"");
+					activity.setActivity("forgot password");
+					iActivityService.save(activity);
 					return "{\"message\":\"Please check your Phone for OTP\"}";
 				}
 			}
@@ -263,7 +269,9 @@ public class MainServices {
 	public String getprofile(@RequestParam("id") Long id) {
 		try {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
+			
 			System.out.println(" Signup without tostring "+signup);
+			
 			//System.out.println("Signup without tostring"+signup);
 			return signup.get().toString();
 		} catch (Exception e) {
@@ -399,6 +407,12 @@ public class MainServices {
 
 			if (signup1.getPassword().equals(changepassword.getCurrentPassword())) {
 				signup1.setPassword(changepassword.getNewPassword());
+				Activity activity = new Activity();
+				activity.setTime(System.currentTimeMillis()+"");
+				activity.setUsername(signup.get().getName());
+				activity.setUser_id(signup.get().getId()+"");
+				activity.setActivity("password changed");
+				iActivityService.save(activity);
 				iSignUpService.save(signup1);
 				return "{\"message\":\"Password Successfully Changed\"}";
 			} else {
