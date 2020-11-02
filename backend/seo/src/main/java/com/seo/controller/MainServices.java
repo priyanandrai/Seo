@@ -438,7 +438,12 @@ public class MainServices {
 				signup1.setEmail(profile.getEmail());
 				signup1.setProfession(profile.getProfession());
 				signup1.setOrganisation(profile.getOrganisation());
-				
+				Activity activity = new Activity();
+				activity.setTime(System.currentTimeMillis()+"");
+				activity.setUsername(signup.get().getName());
+				activity.setUser_id(signup.get().getId()+"");
+				activity.setActivity("profile edited");
+				iActivityService.save(activity);
 				iSignUpService.save(signup1);
 				return "{\"message\":\"Your Profile Successfully Changed\"}";
 			
