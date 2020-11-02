@@ -56,7 +56,7 @@ class Activity extends React.Component{
                     </Grid>
                     <Grid item md={3}>
                         <div className="div-width">
-                    <p className="heading-activity text-center pt-3">{value.time}</p>
+                    <p className="heading-activity text-center pt-3">{new Date(value.time)}</p>
                     
                     </div>
                     </Grid>

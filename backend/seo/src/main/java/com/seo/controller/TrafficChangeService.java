@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.seo.Websiteanalytic.GetDataForWebSite;
 import com.seo.model.SignUp;
 import com.seo.model.Subsribe;
 import com.seo.model.TrafficExchange;
@@ -102,6 +103,23 @@ public class TrafficChangeService {
 				}
 			}
 			return "{\"messgae\":\"Count Updated Sucessfully\"}";
+		} catch (Exception e) {
+			return "{\"messgae\":\"Sorry . something worng went worng on your end\"}";
+		}
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/fetchdataforstatic")
+	public String fetchdataforstatic(@RequestParam(defaultValue = "") String url, @RequestParam(defaultValue = "") String type) {
+		try {
+
+			GetDataForWebSite dataForWebSite = new GetDataForWebSite();
+			try {
+				return dataForWebSite.getDataFormServer(url, type);
+			} catch (Exception e) {
+				return "{\"messgae\":\"Sorry . something worng went worng on your end\"}";
+			}
+		
 		} catch (Exception e) {
 			return "{\"messgae\":\"Sorry . something worng went worng on your end\"}";
 		}

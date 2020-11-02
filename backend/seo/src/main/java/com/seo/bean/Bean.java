@@ -18,14 +18,23 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Bean {
 	
-	
+	public static JSONObject ConvertXmlToJSON(String XML_String) {
+		  try {
+	           return XML.toJSONObject(XML_String);
+	        } catch (Exception je) {
+	            System.out.println(je.toString());
+	            return null ;
+	        }
+	}
 
 	public static ArrayList<String> getAreaOfAsssment(String Type){
 		
