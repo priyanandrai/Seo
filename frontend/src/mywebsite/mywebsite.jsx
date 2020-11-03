@@ -82,21 +82,21 @@ class Mywebsite extends React.Component {
     this.getrankingdata();
   }
   MywebsiteUrl() {
-    const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    if (this.state.url.trim() === "") {
-      this.setState({
-        snackbar: true,
-        error: "please enter the URL.",
-      });
-      return;
-    }
-    if (!this.state.url.match(regesxm)) {
-      this.setState({
-        snackbar: true,
-        error: "please enter a valid  URL.",
-      });
-      return;
-    }
+    // const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    // if (this.state.url.trim() === "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "please enter the URL.",
+    //   });
+    //   return;
+    // }
+    // if (!this.state.url.match(regesxm)) {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "please enter a valid  URL.",
+    //   });
+    //   return;
+    // }
 
     let url1 = getBaseUrl() + "/mywebsite";
     let temp = {

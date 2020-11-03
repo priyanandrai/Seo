@@ -13,6 +13,7 @@ import Yourwebsite from "./yourwebsite/yourwebsite";
 import Youtube from "./youtubeview/youtubeview";
 import Youtubeplayer from "./youtubeview/youtubeplayer";
 import Mywebsite from "./mywebsite/mywebsite";
+import Timestamp_converter from "./timestamp/timestamp_converter";
 import Signup from "./signup/signup";
 import {
   BrowserRouter as Router,
@@ -56,6 +57,7 @@ function App() {
         <Route exact path="/my-website-seo-report" component={Mywebsiteseoreport}  />
         <Route exact path="/seo-seven-weeks" component={Seosixweeks} />
         <Route exact path="/admin-activity" component={Activity}/>
+        <Route exact path="/timestamp-converter" component={ Timestamp_converter}/>
       </Router>
        );
  

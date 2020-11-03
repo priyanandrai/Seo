@@ -1,0 +1,29 @@
+.time_stamp{
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+.time_width{
+    
+    /* width: 100%^ !important; */
+}
+.timestamp_btn{
+    text-align: center;
+}
+.timestamp_btn_color{
+    background-color:#33BC9C !important;
+    outline: none !important;
+    text-decoration: none !important;
+}
+.time_stamp_para{
+    text-align: center;
+    font-family: century;
+    font-weight: bold;
+    margin-top: 5%;
+    font-size: 30px;
+    color:#33BC9C ;
+}
+.time_convert{
+    font-family: century;
+    font-weight: bold;
+}
