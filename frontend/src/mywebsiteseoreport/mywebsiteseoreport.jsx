@@ -94,7 +94,7 @@ class Mywebsiteseoreport extends React.Component {
                </a>
               </Grid>
             
-              <Grid item md={4} className="ml-5 my_gridone">
+              <Grid item md={4} className=" my_gridone">
               <a className="a_tag_color" href="welcome">
               <div className="boder_radious" id="draggable6">
                   <Card className="my_web bg_color7">

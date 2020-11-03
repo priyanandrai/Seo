@@ -110,6 +110,20 @@ box-sizing: border-box;
 .boder_radious{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.global_rank{
+    text-align:center;
+    margin-bottom: 0px !important;
+}
+.global_ranking{
+    text-align: center;
+    color: red;
+    margin-bottom: 0px !important;
+}
+.global_ranking1{
+    text-align: center;
+    color: green;
+    margin-bottom: 0px !important;
+}
 /* #mydiv {
     position: absolute;
     z-index: 9;
