@@ -23,10 +23,57 @@ this.datetotimestamp=this.datetotimestamp.bind(this);
       timestap:"N/A",
       datetotime:"N/A",
       dateupdate:"",
+      timestamp: 1578162600000
     };
   }
   Timestamptodate(){
-   
+    if (this.state.timestamp === "") {
+        this.setState({
+          snackbar: true,
+          error: "please insert date",
+        });
+        return;
+      }
+      // if (this.state.timestamp === timestamp) {
+      //   this.setState({
+      //     snackbar: true,
+      //     error: "dsfsd",
+      //   });
+      //   return;
+      // }
+    // let btnGet = document.getElementById('timebutton');
+    let result = document.getElementById('resulttime');
+     
+    //1/5/2020
+  let temp =this.state.timestamp;
+     
+    // btnGet.addEventListener('click', () => {
+        let dateObj = new Date(temp);
+     
+        let month = dateObj.getMonth() + 1;
+        if (month < 10) {
+          month = "0" + month;
+        }
+        let year = dateObj.getFullYear();
+        let date = dateObj.getDate();
+        if (date < 10) {
+          date = "0" + date;
+        }
+        let hour = dateObj.getHours();
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+        let min =dateObj.getMinutes();
+        if (min < 10) {
+          min = "0" + min;
+        }
+        let sec =dateObj.getSeconds();
+        if (sec < 10) {
+          sec = "0" + sec;
+        }
+     
+        result.innerText = `${month}-${date}-${year}`+" "+`${hour}:${min}:${sec}`;
+    // });
   }
   // componentDidMount(){
 
@@ -36,9 +83,9 @@ this.datetotimestamp=this.datetotimestamp.bind(this);
   // }
   datetotimestamp(){
 
-    alert("Hii")
-    let a=this.state.dateupdate;
-     alert(a)
+    // alert("Hii")
+    // let a=this.state.dateupdate;
+    //  alert(a)
 
 //     var dateString = a,
 //     dateTimeParts = dateString.split(' '),
@@ -95,12 +142,12 @@ this.datetotimestamp=this.datetotimestamp.bind(this);
             placeholder="Time stamp"
             id="Name"
             className="time_width"
-            // value={this.state.url}
-            // onChange={(e) => this.setState({ url: e.target.value })}
+            value={this.state.timestamp}
+            onChange={(e) => this.setState({ timestamp: e.target.value })}
           />
         </div>
         <div className="timestamp_btn mb-5">
-          <Button
+          <Button id="timebutton"
             variant="contained"
             className="timestamp_btn_color"
             onClick={this.Timestamptodate}
@@ -109,7 +156,7 @@ this.datetotimestamp=this.datetotimestamp.bind(this);
           </Button>
         </div>
         <div className="ml-5">
-         <p>{this.state.timestap}</p>
+         <p id="resulttime">{this.state.timestap}</p>
         </div>
         </Grid>
         <Grid item md={6}>
