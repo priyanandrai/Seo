@@ -36,3 +36,9 @@
 .year_span_width{
     width: 20% !important;
 }
+.time_milisecond{
+    font-family: century;
+    font-weight: bold;
+    color: mediumvioletred;
+
+}

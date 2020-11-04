@@ -84,9 +84,22 @@ class Timestamp_converter extends React.Component {
     //   });
     //   return;
     // }
-    let today = new Date(this.state.dateupdate);
+    let today = new Date(
+     
+        this.state.dateupdate1 +
+        " " +
+        this.state.dateupdate2 +
+        " " +
+        this.state.dateupdate3 +
+        " " +
+        this.state.dateupdate4 +
+        ":" +
+        this.state.dateupdate5 +
+        ":" +
+        this.state.dateupdate6
+    );
     let timestamp = today.valueOf();
-    console.log(timestamp, "Today");
+    console.log(today, "Today");
     this.setState({
       timestamp1: timestamp.toString(),
     });
@@ -125,7 +138,7 @@ class Timestamp_converter extends React.Component {
         </p>
         <Grid className=" mywebsite_container">
           <Grid item md={6}>
-            <div className="time_stamp mt-5 mb-5">
+            <div className="time_stamp mt-4 mb-5">
               <p className="time_convert">Convert timestamp to date</p>
               <Form.Control
                 type="name"
@@ -145,15 +158,17 @@ class Timestamp_converter extends React.Component {
                 className="timestamp_btn_color"
                 onClick={this.Timestamptodate}
               >
-                Converter
+                Convert to Human Date
               </Button>
             </div>
             <div className="ml-5">
-              <p id="resulttime">{this.state.timestap}</p>
+              <p id="resulttime" className="time_milisecond">
+                Your time zone : {this.state.timestap}
+              </p>
             </div>
           </Grid>
           <Grid item md={6}>
-            <div className="time_stamp mt-5 mb-5">
+            <div className="time_stamp mb-5">
               <p className="time_convert">Convert date to timestamp</p>
               <div className="d-flex">
                 <span className="year_span_width">
@@ -255,11 +270,13 @@ class Timestamp_converter extends React.Component {
                 className="timestamp_btn_color"
                 onClick={this.datetotimestamp}
               >
-                Converter
+                Convert to Timestamp
               </Button>
             </div>
             <div>
-              <p>{this.state.timestamp1}</p>
+              <p className="time_milisecond">
+                Timestamp in milliseconds : {this.state.timestamp1}
+              </p>
             </div>
           </Grid>
         </Grid>
