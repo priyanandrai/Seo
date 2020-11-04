@@ -27,3 +27,12 @@
     font-family: century;
     font-weight: bold;
 }
+.year_width{
+    width: 10vh !important;
+}
+.year_width1{
+    width: 8vh !important;
+}
+.year_span_width{
+    width: 20% !important;
+}
