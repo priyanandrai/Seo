@@ -3,6 +3,11 @@
     margin-right: 25%;
     
 }
+.time_stamp1{
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
 .time_width{
     
     /* width: 100%^ !important; */
@@ -39,9 +44,29 @@
 .time_milisecond{
     font-family: century;
     font-weight: bold;
-    color: mediumvioletred;
+    color: #33BC9C;
 
 }
 .sect_width{
     border: 1px solid gray;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .time_stamp_para{
+        text-align: center;
+        font-family: century;
+        font-weight: bold;
+        margin-top: 5%;
+        font-size: 25px !important;
+        color:#33BC9C ;
+    }
+    .time_convert {
+        font-family: century;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .time_stamp1{
+        margin-left: 5% !important;
+        /* margin-right: 5% !important; */
+        
+    }
 }

@@ -23,9 +23,11 @@ class Timestamp_converter extends React.Component {
     this.datetotimestamp = this.datetotimestamp.bind(this);
     this.state = {
       // timestap: "N/A",
-      humandate: "N/A",
+      humandate: "",
       datetotime: "N/A",
-      inputtimestamp: "",
+      inputtimestamp: 1,
+      gmtdate:"",
+      relativetime:"",
       dateupdate: "",
       dateupdate1: "",
       dateupdate2: "",
@@ -33,8 +35,8 @@ class Timestamp_converter extends React.Component {
       dateupdate4: "",
       dateupdate5: "",
       dateupdate6: "",
-      timestamp1: "N/A",
-      timestamp: 1578162600000,
+      timestamp1: "",
+      // timestamp: 1578162600000,
     };
   }
   Timestamptodate() {
@@ -45,10 +47,15 @@ class Timestamp_converter extends React.Component {
       });
       return;
     }
-    var d = new Date(this.state.inputtimestamp);
+    let number = this.state.inputtimestamp;
+
+    let d = new Date(parseInt(number));
+
     this.setState({
-      humandate: d,
+      humandate: d.toString(),
+      gmtdate:d.toUTCString(),
     });
+console.log(new Date()-d)
 
     // let result = document.getElementById("resulttime");
 
@@ -91,35 +98,36 @@ class Timestamp_converter extends React.Component {
       });
       return;
     }
-    if(this.state.dateupdate2 >12){
+
+    if (this.state.dateupdate2 > 12) {
       this.setState({
         snackbar: true,
         error: "Invalid Month",
       });
       return;
     }
-    if(this.state.dateupdate3 >31){
+    if (this.state.dateupdate3 > 31) {
       this.setState({
         snackbar: true,
         error: "Invalid Date",
       });
       return;
     }
-    if(this.state.dateupdate4 >24){
+    if (this.state.dateupdate4 > 24) {
       this.setState({
         snackbar: true,
         error: "Invalid Hour",
       });
       return;
     }
-    if(this.state.dateupdate5 >60){
+    if (this.state.dateupdate5 > 60) {
       this.setState({
         snackbar: true,
         error: "Invalid Minutes",
       });
       return;
     }
-    if(this.state.dateupdate6 >60){
+    if (this.state.dateupdate6 > 60) {
       this.setState({
         snackbar: true,
         error: "Invalid Second",
@@ -171,6 +179,7 @@ class Timestamp_converter extends React.Component {
     if (sec < 10) {
       sec = "0" + sec;
     }
+
     return (
       <div>
         <p className="time_stamp_para">
@@ -182,18 +191,21 @@ class Timestamp_converter extends React.Component {
             <div className="time_stamp mt-4 mb-5">
               <p className="time_convert">Convert timestamp to date</p>
               <Form.Control
-                type="name"
+                type="number"
                 placeholder="Time stamp"
                 id="Name"
                 className="time_width"
                 autoComplete="Off"
                 value={this.state.inputtimestamp}
-                onChange={(e) =>
-                  this.setState({ inputtimestamp: e.target.value })
-                }
+                onChange={(e) => {
+                  if (isNaN(e.target.value)) {
+                    return;
+                  }
+                  this.setState({ inputtimestamp: e.target.value });
+                }}
               />
             </div>
-            <div className="timestamp_btn mb-5">
+            <div className="timestamp_btn">
               <Button
                 id="timebutton"
                 variant="contained"
@@ -203,14 +215,20 @@ class Timestamp_converter extends React.Component {
                 Convert to Human Date
               </Button>
             </div>
-            <div className="ml-5">
+            <div className="ml-5 mt-3">
+              <div className="d-flex">
               <p className="time_milisecond">
-                Your time zone : {this.state.humandate}
+                Your time zone 
               </p>
+              <p className="ml-2">: {this.state.humandate}</p></div>
+              <div className="d-flex">
+              <p className="time_milisecond">GMT</p>
+              <p className="gmt_right">: {this.state.gmtdate}</p></div>
+              {/* <p>Relative:{this.state.relativetime}</p> */}
             </div>
           </Grid>
           <Grid item md={6}>
-            <div className="time_stamp mb-5">
+            <div className="time_stamp1 mb-5">
               <p className="time_convert">Convert date to timestamp</p>
               <div className="d-flex">
                 <span className="year_span_width">
@@ -263,13 +281,13 @@ class Timestamp_converter extends React.Component {
                     className="year_width1"
                     autoComplete="Off"
                     value={this.state.dateupdate2}
-                    onChange={(e) =>{
+                    onChange={(e) => {
                       if (isNaN(e.target.value)) {
                         return;
                       }
-                   
-                      this.setState({ dateupdate2: e.target.value })
-                    } }
+
+                      this.setState({ dateupdate2: e.target.value });
+                    }}
                   />
                 </span>
                 <span className="year_span_width ml-1">
@@ -283,12 +301,11 @@ class Timestamp_converter extends React.Component {
                     className="year_width1"
                     autoComplete="Off"
                     value={this.state.dateupdate3}
-                    onChange={(e) =>{
-
+                    onChange={(e) => {
                       if (isNaN(e.target.value)) {
                         return;
                       }
-                      this.setState({ dateupdate3: e.target.value })
+                      this.setState({ dateupdate3: e.target.value });
                     }}
                   />
                 </span>
@@ -303,13 +320,13 @@ class Timestamp_converter extends React.Component {
                     className="year_width1"
                     autoComplete="Off"
                     value={this.state.dateupdate4}
-                    onChange={(e) =>{
+                    onChange={(e) => {
                       if (isNaN(e.target.value)) {
                         return;
                       }
-                   
-                      this.setState({ dateupdate4: e.target.value })
-                    } }
+
+                      this.setState({ dateupdate4: e.target.value });
+                    }}
                   />
                 </span>
                 <span className="year_span_width ml-1">
@@ -323,12 +340,12 @@ class Timestamp_converter extends React.Component {
                     className="year_width1"
                     autoComplete="Off"
                     value={this.state.dateupdate5}
-                    onChange={(e) =>{
+                    onChange={(e) => {
                       if (isNaN(e.target.value)) {
                         return;
                       }
-                    
-                      this.setState({ dateupdate5: e.target.value })
+
+                      this.setState({ dateupdate5: e.target.value });
                     }}
                   />
                 </span>
@@ -343,18 +360,18 @@ class Timestamp_converter extends React.Component {
                     className="year_width1"
                     autoComplete="Off"
                     value={this.state.dateupdate6}
-                    onChange={(e) =>{
+                    onChange={(e) => {
                       if (isNaN(e.target.value)) {
                         return;
                       }
-                   
-                      this.setState({ dateupdate6: e.target.value })
-                    } }
+
+                      this.setState({ dateupdate6: e.target.value });
+                    }}
                   />
                 </span>
               </div>
             </div>
-            <div className="timestamp_btn mb-5">
+            <div className="timestamp_btn">
               <Button
                 variant="contained"
                 className="timestamp_btn_color"
@@ -364,7 +381,7 @@ class Timestamp_converter extends React.Component {
               </Button>
             </div>
             <div>
-              <p className="time_milisecond">
+              <p className="time_milisecond mt-1">
                 Timestamp in milliseconds : {this.state.timestamp1}
               </p>
             </div>
