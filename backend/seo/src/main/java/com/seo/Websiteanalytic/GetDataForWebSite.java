@@ -35,7 +35,9 @@ public class GetDataForWebSite {
 				return "{\"message\",\"Please provide Parameter\"}";
 			}else {
 				String data_from_Api =  getDatafromUrl(url+data);
+				System.out.println("data_from_Api   "+ data_from_Api);
 				JSONObject jsonObject = Bean.ConvertXmlToJSON(data_from_Api);
+				System.out.println("dtaa from url  "+ jsonObject);
 				if(jsonObject == null) {
 					return null;
 				}else {
@@ -46,7 +48,9 @@ public class GetDataForWebSite {
 			
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw e;
+			return null;
 		}
 		
 	}

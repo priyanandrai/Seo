@@ -29,6 +29,7 @@ public class Bean {
 	
 	public static JSONObject ConvertXmlToJSON(String XML_String) {
 		  try {
+			  System.out.println("XML_String    "+ XML_String);
 	           return XML.toJSONObject(XML_String);
 	        } catch (Exception je) {
 	            System.out.println(je.toString());
