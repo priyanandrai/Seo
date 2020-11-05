@@ -13,6 +13,8 @@ import Button from "@material-ui/core/Button";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import "./timpstamp-converter.css";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 class Timestamp_converter extends React.Component {
   constructor(props) {
@@ -20,7 +22,8 @@ class Timestamp_converter extends React.Component {
     this.Timestamptodate = this.Timestamptodate.bind(this);
     this.datetotimestamp = this.datetotimestamp.bind(this);
     this.state = {
-      timestap: "N/A",
+      // timestap: "N/A",
+      humandate: "N/A",
       datetotime: "N/A",
       inputtimestamp: "",
       dateupdate: "",
@@ -42,51 +45,89 @@ class Timestamp_converter extends React.Component {
       });
       return;
     }
+    var d = new Date(this.state.inputtimestamp);
+    this.setState({
+      humandate: d,
+    });
 
-    let result = document.getElementById("resulttime");
+    // let result = document.getElementById("resulttime");
 
-    let temp = this.state.timestamp;
+    // let temp = this.state.timestamp;
 
-    let dateObj = new Date(temp);
+    // let dateObj = new Date(temp);
 
-    let month = dateObj.getMonth() + 1;
-    if (month < 10) {
-      month = "0" + month;
-    }
-    let year = dateObj.getFullYear();
-    let date = dateObj.getDate();
-    if (date < 10) {
-      date = "0" + date;
-    }
-    let hour = dateObj.getHours();
-    if (hour < 10) {
-      hour = "0" + hour;
-    }
-    let min = dateObj.getMinutes();
-    if (min < 10) {
-      min = "0" + min;
-    }
-    let sec = dateObj.getSeconds();
-    if (sec < 10) {
-      sec = "0" + sec;
-    }
+    // let month = dateObj.getMonth() + 1;
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
+    // let year = dateObj.getFullYear();
+    // let date = dateObj.getDate();
+    // if (date < 10) {
+    //   date = "0" + date;
+    // }
+    // let hour = dateObj.getHours();
+    // if (hour < 10) {
+    //   hour = "0" + hour;
+    // }
+    // let min = dateObj.getMinutes();
+    // if (min < 10) {
+    //   min = "0" + min;
+    // }
+    // let sec = dateObj.getSeconds();
+    // if (sec < 10) {
+    //   sec = "0" + sec;
+    // }
 
-    result.innerText =
-      `${month}-${date}-${year}` + " " + `${hour}:${min}:${sec}`;
+    // result.innerText =
+    //   `${month}-${date}-${year}` + " " + `${hour}:${min}:${sec}`;
     // });
   }
   componentDidMount() {}
   datetotimestamp() {
-    // if (this.state.dateupdate === "") {
-    //   this.setState({
-    //     snackbar: true,
-    //     error: "please insert Date and Time",
-    //   });
-    //   return;
-    // }
+    if (this.state.dateupdate1 === "") {
+      this.setState({
+        snackbar: true,
+        error: "please insert Date and Time",
+      });
+      return;
+    }
+    if(this.state.dateupdate2 >12){
+      this.setState({
+        snackbar: true,
+        error: "Invalid Month",
+      });
+      return;
+    }
+    if(this.state.dateupdate3 >31){
+      this.setState({
+        snackbar: true,
+        error: "Invalid Date",
+      });
+      return;
+    }
+    if(this.state.dateupdate4 >24){
+      this.setState({
+        snackbar: true,
+        error: "Invalid Hour",
+      });
+      return;
+    }
+    if(this.state.dateupdate5 >60){
+      this.setState({
+        snackbar: true,
+        error: "Invalid Minutes",
+      });
+      return;
+    }
+    if(this.state.dateupdate6 >60){
+      this.setState({
+        snackbar: true,
+        error: "Invalid Second",
+      });
+      return;
+    }
     let today = new Date(
-     
-        this.state.dateupdate1 +
+      this.state.dateupdate1 +
         " " +
         this.state.dateupdate2 +
         " " +
@@ -145,6 +186,7 @@ class Timestamp_converter extends React.Component {
                 placeholder="Time stamp"
                 id="Name"
                 className="time_width"
+                autoComplete="Off"
                 value={this.state.inputtimestamp}
                 onChange={(e) =>
                   this.setState({ inputtimestamp: e.target.value })
@@ -162,8 +204,8 @@ class Timestamp_converter extends React.Component {
               </Button>
             </div>
             <div className="ml-5">
-              <p id="resulttime" className="time_milisecond">
-                Your time zone : {this.state.timestap}
+              <p className="time_milisecond">
+                Your time zone : {this.state.humandate}
               </p>
             </div>
           </Grid>
@@ -174,95 +216,143 @@ class Timestamp_converter extends React.Component {
                 <span className="year_span_width">
                   <Form.Label>Year</Form.Label>
                   <Form.Control
+                    maxlength="4"
                     type="name"
                     id="Name"
                     className="year_width"
+                    autoComplete="Off"
                     placeholder={fullYear}
                     value={this.state.dateupdate1}
-                    onChange={(e) =>
-                      this.setState({ dateupdate1: e.target.value })
-                    }
+                    onChange={(e) => {
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
+                      this.setState({ dateupdate1: e.target.value });
+                    }}
                   />
                 </span>
                 <span className="year_span_width ml-1">
                   <Form.Label>Mon</Form.Label>
+                  {/* <div className="sect_width">
+                  <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={this.state.dateupdate2}
+                    onChange={(e) =>
+                      this.setState({ dateupdate2: e.target.value })}
+            >
+              <MenuItem value={10000}>01</MenuItem>
+              <MenuItem value={60000}>02</MenuItem>
+              <MenuItem value={120000}>03</MenuItem>
+              <MenuItem value={180000}>04</MenuItem>
+              <MenuItem value={240000}>05</MenuItem>
+              <MenuItem value={300000}>06</MenuItem>
+              <MenuItem value={300000}>07</MenuItem>
+              <MenuItem value={300000}>08</MenuItem>
+              <MenuItem value={300000}>09</MenuItem>
+              <MenuItem value={300000}>10</MenuItem>
+              <MenuItem value={300000}>11</MenuItem>
+              <MenuItem value={300000}>12</MenuItem>
+            </Select></div> */}
 
                   <Form.Control
+                    maxlength="2"
                     type="name"
                     placeholder={month}
                     id="Name"
                     className="year_width1"
+                    autoComplete="Off"
                     value={this.state.dateupdate2}
-                    onChange={(e) =>
+                    onChange={(e) =>{
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
+                   
                       this.setState({ dateupdate2: e.target.value })
-                    }
+                    } }
                   />
                 </span>
                 <span className="year_span_width ml-1">
                   <Form.Label>Date</Form.Label>
 
                   <Form.Control
+                    maxlength="2"
                     type="name"
                     placeholder={date}
                     id="Name"
                     className="year_width1"
+                    autoComplete="Off"
                     value={this.state.dateupdate3}
-                    onChange={(e) =>
+                    onChange={(e) =>{
+
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
                       this.setState({ dateupdate3: e.target.value })
-                    }
+                    }}
                   />
                 </span>
                 <span className="year_span_width ml-1">
                   <Form.Label>Hr</Form.Label>
 
                   <Form.Control
+                    maxlength="2"
                     type="name"
                     placeholder={hours}
                     id="Name"
                     className="year_width1"
+                    autoComplete="Off"
                     value={this.state.dateupdate4}
-                    onChange={(e) =>
+                    onChange={(e) =>{
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
+                   
                       this.setState({ dateupdate4: e.target.value })
-                    }
+                    } }
                   />
                 </span>
                 <span className="year_span_width ml-1">
                   <Form.Label>Min</Form.Label>
 
                   <Form.Control
+                    maxlength="2"
                     type="name"
                     placeholder={min}
                     id="Name"
                     className="year_width1"
+                    autoComplete="Off"
                     value={this.state.dateupdate5}
-                    onChange={(e) =>
+                    onChange={(e) =>{
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
+                    
                       this.setState({ dateupdate5: e.target.value })
-                    }
+                    }}
                   />
                 </span>
                 <span className="year_span_width ml-1">
                   <Form.Label>Sec</Form.Label>
 
                   <Form.Control
+                    maxlength="2"
                     type="name"
                     placeholder={sec}
                     id="Name"
                     className="year_width1"
+                    autoComplete="Off"
                     value={this.state.dateupdate6}
-                    onChange={(e) =>
+                    onChange={(e) =>{
+                      if (isNaN(e.target.value)) {
+                        return;
+                      }
+                   
                       this.setState({ dateupdate6: e.target.value })
-                    }
+                    } }
                   />
                 </span>
               </div>
-              {/* <Form.Control
-                type="name"
-                placeholder="Time stamp"
-                id="Name"
-                className="time_width"
-                value={this.state.dateupdate}
-                onChange={(e) => this.setState({ dateupdate: e.target.value })}
-              /> */}
             </div>
             <div className="timestamp_btn mb-5">
               <Button
