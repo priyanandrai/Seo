@@ -27,6 +27,7 @@ import { Confirmotp } from "./confirmotp/confirmotp";
 import Mywebsiteseoreport from "./mywebsiteseoreport/mywebsiteseoreport";
 import Seosixweeks from "./seosixweeks/seosixweeks";
 import Activity from "./acitivity/activity";
+import Email_extractor from "./emailextractor/email_extractor";
 function App() {
  
     return (
@@ -58,6 +59,7 @@ function App() {
         <Route exact path="/seo-seven-weeks" component={Seosixweeks} />
         <Route exact path="/admin-activity" component={Activity}/>
         <Route exact path="/timestamp-converter" component={ Timestamp_converter}/>
+        <Route exact path="/bulk-email-extractor" component={ Email_extractor}/>
       </Router>
        );
  
