@@ -52,9 +52,7 @@ class Email_extractor extends React.Component {
     this.setState({
       emailoutput: this.state.searchquery,
     });
-  }
-  selectalloption() {
-    // this.setState({
+      // this.setState({
     //   check:!this.state.check,
     //   check1:!this.state.check1,
     //   check2:!this.state.check2,
@@ -72,6 +70,26 @@ class Email_extractor extends React.Component {
     console.log(this.state.searchquery5, "seacrh 5");
     console.log(this.state.searchquery6, "seacrh 6");
     console.log(this.state.searchquery7, "seacrh 7");
+  }
+  selectalloption() {
+    // this.setState({
+    //   check:!this.state.check,
+    //   check1:!this.state.check1,
+    //   check2:!this.state.check2,
+    //   check3:!this.state.check3,
+    //   check4:!this.state.check4,
+    //   check5:!this.state.check5,
+    //   check6:!this.state.check6,
+    //   check7:!this.state.check7
+    // })
+    // console.log(this.state.searchquery0, "seacrh 0");
+    // console.log(this.state.searchquery1, "seacrh 1");
+    // console.log(this.state.searchquery2, "seacrh 2");
+    // console.log(this.state.searchquery3, "seacrh 3");
+    // console.log(this.state.searchquery4, "seacrh 4");
+    // console.log(this.state.searchquery5, "seacrh 5");
+    // console.log(this.state.searchquery6, "seacrh 6");
+    // console.log(this.state.searchquery7, "seacrh 7");
   }
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -98,7 +116,7 @@ class Email_extractor extends React.Component {
                     }
                   />
                 </div> </div>
-                <p className="select_engine mt-5">Select Search Engine</p>
+                <u className="select_engine mt-3">Select Search Engine</u>
 
                 <div className="first_checkbox ">
                   <span>
@@ -120,18 +138,13 @@ class Email_extractor extends React.Component {
                             type="radio"
                             name="radio"
                             className="radio_font"
-                          />
-                          {/* <Checkbox
-                       
-                      //  checked={this.state.check}
+                             //  checked={this.state.check}
                           value={this.state.searchquery0}
                           onChange={(e) =>
                             this.setState({ searchquery0: e.target.value })
                          }
-                          
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          />
+                         
                         </span>
                         <span className="ml-3">Google.Com</span>
                       </div>
@@ -139,18 +152,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                  // checked={this.state.check1}
-                          style={{}}
-                             value={this.state.searchquery1}
-                  onChange={(e) =>
-                    this.setState({ searchquery1: e.target.value })
-                 }
-                      
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          <input type="radio" name="radio"
+                           // checked={this.state.check1}
+                           style={{}}
+                           value={this.state.searchquery1}
+                onChange={(e) =>
+                  this.setState({ searchquery1: e.target.value })
+               }
+                           />
+                         
                         </span>
                         <span className="ml-3">Ask Me.Com</span>
                       </div>
@@ -160,18 +170,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                      //  checked={this.state.check2}
-                          style={{}}
-                             value={this.state.searchquery2}
-                  onChange={(e) =>
-                    this.setState({ searchquery2: e.target.value })
-                 }
-                      
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          <input type="radio" name="radio" 
+                            //  checked={this.state.check2}
+                            style={{}}
+                            value={this.state.searchquery2}
+                 onChange={(e) =>
+                   this.setState({ searchquery2: e.target.value })
+                }
+                          />
+                         
                         </span>
                         <span className="ml-3">Yahoo.Com</span>
                       </div>
@@ -179,17 +186,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                      //  checked={this.state.check3}
-                          style={{}}
-                             value={this.state.searchquery3}
-                  onChange={(e) =>
-                    this.setState({ searchquery3: e.target.value })
-                 }
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          <input type="radio" name="radio"
+                           //  checked={this.state.check3}
+                           style={{}}
+                           value={this.state.searchquery3}
+                onChange={(e) =>
+                  this.setState({ searchquery3: e.target.value })
+               }
+                          />
+                         
                         </span>
                         <span className="ml-3">Bing.Com</span>
                       </div>
@@ -199,18 +204,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                    //  checked={this.state.check4}
-                          style={{}}
-                             value={this.state.searchquery4}
-                  onChange={(e) =>
-                    this.setState({ searchquery4: e.target.value })
-                 }
+                          <input type="radio" name="radio"
+                           //  checked={this.state.check4}
+                           style={{}}
+                           value={this.state.searchquery4}
+                onChange={(e) =>
+                  this.setState({ searchquery4: e.target.value })
+               }
+                          />
                          
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
                         </span>
                         <span className="ml-3">Baidu</span>
                       </div>
@@ -218,18 +220,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                        // checked={this.state.check5}
-                          style={{}}
+                          <input type="radio" name="radio"
+                             // checked={this.state.check5}
+                             style={{}}
                              value={this.state.searchquery5}
                   onChange={(e) =>
                     this.setState({ searchquery5: e.target.value })
                  }
-                      
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          />
+                         
                         </span>
                         <span className="ml-3">Yandex</span>
                       </div>
@@ -239,18 +238,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                        // checked={this.state.check6}
-                          style={{}}
-                          value={this.state.searchquery6}
-                          onChange={(e) =>
-                            this.setState({ searchquery6: e.target.value })
-                         }
-                         
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          <input type="radio" name="radio"
+                           // checked={this.state.check6}
+                           style={{}}
+                           value={this.state.searchquery6}
+                           onChange={(e) =>
+                             this.setState({ searchquery6: e.target.value })
+                          }
+                          />
+                          
                         </span>
                         <span className="ml-3">Duck duckgo</span>
                       </div>
@@ -258,18 +254,15 @@ class Email_extractor extends React.Component {
                     <Grid item md={6}>
                       <div className="left_first_check ml-4">
                         <span>
-                          <input type="radio" name="radio" />
-                          {/* <Checkbox
-                      // checked={this.state.check7}
-                          style={{}}
-                          value={this.state.searchquery7}
-                          onChange={(e) =>
-                            this.setState({ searchquery7: e.target.value })
-                         }
-                        
-                          color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                        /> */}
+                          <input type="radio" name="radio" 
+                           // checked={this.state.check7}
+                           style={{}}
+                           value={this.state.searchquery7}
+                           onChange={(e) =>
+                             this.setState({ searchquery7: e.target.value })
+                          }
+                          />
+                         
                         </span>
                         <span className="ml-3">Yippy Search</span>
                       </div>
