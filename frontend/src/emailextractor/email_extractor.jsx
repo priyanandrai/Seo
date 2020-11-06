@@ -18,31 +18,30 @@ import "./email_extractor.css";
 class Email_extractor extends React.Component {
   constructor(props) {
     super(props);
-this.emailextractor = this.emailextractor.bind(this);
-this.selectalloption = this.selectalloption.bind(this);
+    this.emailextractor = this.emailextractor.bind(this);
+    this.selectalloption = this.selectalloption.bind(this);
     this.state = {
-      searchquery:"",
-      searchquery0:"false",
-      check:false,
-      check1:false,
-      check2:false,
-      check3:false,
-      check4:false,
-      check5:false,
-      check6:false,
-      check7:false,
-
-      searchquery1:"",
-      searchquery2:"",
-      searchquery3:"",
-      searchquery4:"",
-      searchquery5:"",
-      searchquery6:"",
-      searchquery7:"",
-      
+      searchquery: "",
+      searchquery0: "false",
+      check: false,
+      check1: false,
+      check2: false,
+      check3: false,
+      check4: false,
+      check5: false,
+      check6: false,
+      check7: false,
+      emailoutput: "",
+      searchquery1: "",
+      searchquery2: "",
+      searchquery3: "",
+      searchquery4: "",
+      searchquery5: "",
+      searchquery6: "",
+      searchquery7: "",
     };
   }
-  emailextractor(){
+  emailextractor() {
     if (this.state.searchquery === "") {
       this.setState({
         snackbar: true,
@@ -50,9 +49,11 @@ this.selectalloption = this.selectalloption.bind(this);
       });
       return;
     }
+    this.setState({
+      emailoutput: this.state.searchquery,
+    });
   }
-  selectalloption(){
-  
+  selectalloption() {
     // this.setState({
     //   check:!this.state.check,
     //   check1:!this.state.check1,
@@ -63,15 +64,14 @@ this.selectalloption = this.selectalloption.bind(this);
     //   check6:!this.state.check6,
     //   check7:!this.state.check7
     // })
-    console.log(this.state.searchquery0,"seacrh 0")
-    console.log(this.state.searchquery1,"seacrh 1")
-    console.log(this.state.searchquery2,"seacrh 2")
-    console.log(this.state.searchquery3,"seacrh 3")
-    console.log(this.state.searchquery4,"seacrh 4")
-    console.log(this.state.searchquery5,"seacrh 5")
-    console.log(this.state.searchquery6,"seacrh 6")
-    console.log(this.state.searchquery7,"seacrh 7")
-   
+    console.log(this.state.searchquery0, "seacrh 0");
+    console.log(this.state.searchquery1, "seacrh 1");
+    console.log(this.state.searchquery2, "seacrh 2");
+    console.log(this.state.searchquery3, "seacrh 3");
+    console.log(this.state.searchquery4, "seacrh 4");
+    console.log(this.state.searchquery5, "seacrh 5");
+    console.log(this.state.searchquery6, "seacrh 6");
+    console.log(this.state.searchquery7, "seacrh 7");
   }
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -92,20 +92,19 @@ this.selectalloption = this.selectalloption.bind(this);
                     id="Name"
                     className=""
                     autoComplete="off"
-                      value={this.state.searchquery}
-                      onChange={(e) =>
-                        this.setState({ searchquery: e.target.value })
-                     }
+                    value={this.state.searchquery}
+                    onChange={(e) =>
+                      this.setState({ searchquery: e.target.value })
+                    }
                   />
                 </div>
                 <p className="select_engine mt-5">Select Search Engine</p>
-                <form>
-                <div className="first_checkbox " >
+
+                <div className="first_checkbox ">
                   <span>
-                 
                     <Checkbox
-                  onClick={this.selectalloption}
-                  disabled={true}
+                      onClick={this.selectalloption}
+                      disabled={true}
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
                     />
@@ -113,12 +112,16 @@ this.selectalloption = this.selectalloption.bind(this);
                   <span>Select All</span>
                 </div>
                 <div>
-                <Grid className=" mywebsite_container">
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                     <input type="radio" name="radio"className="radio_font" />
-                        {/* <Checkbox
+                  <Grid className=" mywebsite_container">
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input
+                            type="radio"
+                            name="radio"
+                            className="radio_font"
+                          />
+                          {/* <Checkbox
                        
                       //  checked={this.state.check}
                           value={this.state.searchquery0}
@@ -129,15 +132,15 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Google.Com</span>
-                    </div>
-                  </Grid>
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                        </span>
+                        <span className="ml-3">Google.Com</span>
+                      </div>
+                    </Grid>
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                   // checked={this.state.check1}
                           style={{}}
                              value={this.state.searchquery1}
@@ -148,17 +151,17 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Ask Me.Com</span>
-                    </div>
+                        </span>
+                        <span className="ml-3">Ask Me.Com</span>
+                      </div>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid className=" mywebsite_container">
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                  <Grid className=" mywebsite_container">
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                       //  checked={this.state.check2}
                           style={{}}
                              value={this.state.searchquery2}
@@ -169,15 +172,15 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Yahoo.Com</span>
-                    </div>
-                  </Grid>
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                        </span>
+                        <span className="ml-3">Yahoo.Com</span>
+                      </div>
+                    </Grid>
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                       //  checked={this.state.check3}
                           style={{}}
                              value={this.state.searchquery3}
@@ -187,17 +190,17 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Bing.Com</span>
-                    </div>
+                        </span>
+                        <span className="ml-3">Bing.Com</span>
+                      </div>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid className=" mywebsite_container">
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                  <Grid className=" mywebsite_container">
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                     //  checked={this.state.check4}
                           style={{}}
                              value={this.state.searchquery4}
@@ -208,15 +211,15 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Baidu</span>
-                    </div>
-                  </Grid>
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                        </span>
+                        <span className="ml-3">Baidu</span>
+                      </div>
+                    </Grid>
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                         // checked={this.state.check5}
                           style={{}}
                              value={this.state.searchquery5}
@@ -227,17 +230,17 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Yandex</span>
-                    </div>
+                        </span>
+                        <span className="ml-3">Yandex</span>
+                      </div>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid className=" mywebsite_container">
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                  <Grid className=" mywebsite_container">
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                         // checked={this.state.check6}
                           style={{}}
                           value={this.state.searchquery6}
@@ -248,15 +251,15 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Duck duckgo</span>
-                    </div>
-                  </Grid>
-                  <Grid item md={6}>
-                    <div className="left_first_check ml-4">
-                      <span>
-                      <input type="radio" name="radio"/>
-                        {/* <Checkbox
+                        </span>
+                        <span className="ml-3">Duck duckgo</span>
+                      </div>
+                    </Grid>
+                    <Grid item md={6}>
+                      <div className="left_first_check ml-4">
+                        <span>
+                          <input type="radio" name="radio" />
+                          {/* <Checkbox
                       // checked={this.state.check7}
                           style={{}}
                           value={this.state.searchquery7}
@@ -267,20 +270,28 @@ this.selectalloption = this.selectalloption.bind(this);
                           color="primary"
                           inputProps={{ "aria-label": "secondary checkbox" }}
                         /> */}
-                      </span>
-                      <span className="ml-3">Yippy Search</span>
-                    </div>
+                        </span>
+                        <span className="ml-3">Yippy Search</span>
+                      </div>
+                    </Grid>
                   </Grid>
-                </Grid></div></form>
-              <div className="check_button_start">
-                <button className="start_check_color" onClick={this.emailextractor}>Start</button>
-              </div>
+                </div>
+                <div className="check_button_start">
+                  <button
+                    className="start_check_color"
+                    onClick={this.emailextractor}
+                  >
+                    Start
+                  </button>
+                </div>
               </div>
             </Grid>
             <Grid item md={6}>
               <div className="email_output mt-5 mb-5">
                 <p className="extarct_mail">Output :</p>
-                <textarea className="input_textarea"></textarea>
+                <textarea className="input_textarea">
+                  {this.state.emailoutput}
+                </textarea>
               </div>
             </Grid>
           </Grid>

@@ -148,7 +148,7 @@ console.log(new Date()-d)
         this.state.dateupdate6
     );
     let timestamp = today.valueOf();
-    console.log(today, "Today");
+   
     this.setState({
       timestamp1: timestamp.toString(),
     });
