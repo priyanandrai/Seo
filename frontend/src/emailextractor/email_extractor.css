@@ -18,3 +18,24 @@
 .extarct_mail{
     font-weight: bold;
 }
+.first_checkbox{
+justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.left_first_check{
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+}
+.check_button_start{
+    text-align: right;
+    margin-right: 7%;
+   
+}
+.start_check_color{
+    background-color: black !important;
+    outline: none !important;
+    text-decoration: none !important;
+    border-radius: 7%;
+}
