@@ -39,3 +39,6 @@ justify-content: center;
     text-decoration: none !important;
     border-radius: 7%;
 }
+.radio_font{
+    font-size: 20px !important;
+}
