@@ -53,11 +53,14 @@ justify-content: center;
     font-family: century;
     color: #33BC9C;
 }
+.input_label{
+    margin-bottom: 0px !important;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px){
     .bulk_email_font{
         text-align: center;
         margin-top: 3%;
-        font-size: 30px;
+        font-size: 30px !important;
         font-weight: bold;
         font-family: century;
         color: #33BC9C;

@@ -89,9 +89,9 @@ class Email_extractor extends React.Component {
       .then(
         (response) => {
           this.setState({
-         
-            snackbar: true,
-            error: response.data.message,
+            emailoutput:response.data.Emails,
+            // snackbar: true,
+            // error: response.data.message,
           });
 
        
@@ -102,9 +102,9 @@ class Email_extractor extends React.Component {
       )
       .catch((e) => {});
 
-    this.setState({
-      emailoutput: this.state.searchquery,
-    });
+    // this.setState({
+    //   emailoutput:response.data.Emails,
+    // });
  
     
 
@@ -169,6 +169,7 @@ class Email_extractor extends React.Component {
                           <input
                             type="radio"
                             name="radio"
+                            id="sel"
                             className="radio_font"
                             value=""
                             onChange={(e)=>{
@@ -185,13 +186,14 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Google.Com</span>
+                        <label className="ml-3 input_label" for="sel">Google.Com</label>
                       </div>
                     </Grid>
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
+                           id="sel1"
                           value=""
                           onChange={(e)=>{
                              
@@ -207,7 +209,8 @@ class Email_extractor extends React.Component {
                            />
                          
                         </span>
-                        <span className="ml-3">Ask Me.Com</span>
+                        <label className="ml-3 input_label" for="sel1">Ask Me.Com</label>
+                       
                       </div>
                     </Grid>
                   </Grid>
@@ -216,6 +219,7 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio" 
+                           id="sel2"
                           value=""
                           onChange={(e)=>{
                              
@@ -231,13 +235,15 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Yahoo.Com</span>
+                        <label className="ml-3 input_label" for="sel2">Yahoo.Com</label>
+                        
                       </div>
                     </Grid>
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
+                           id="sel3"
                           value=""
                           onChange={(e)=>{
                              
@@ -253,7 +259,8 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Bing.Com</span>
+                        <label className="ml-3 input_label" for="sel3">Bing.Com</label>
+                        
                       </div>
                     </Grid>
                   </Grid>
@@ -262,6 +269,7 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
+                           id="sel4"
                           value=""
                           onChange={(e)=>{
                              
@@ -277,13 +285,15 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Baidu</span>
+                        <label className="ml-3 input_label" for="sel4">Baidu</label>
+                       
                       </div>
                     </Grid>
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
+                           id="sel5"
                           value=""
                           onChange={(e)=>{
                              
@@ -299,7 +309,8 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Yandex</span>
+                        <label className="ml-3 input_label" for="sel5">Yandex</label>
+                       
                       </div>
                     </Grid>
                   </Grid>
@@ -308,6 +319,7 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
+                           id="sel6"
                           value=""
                           onChange={(e)=>{
                              
@@ -323,13 +335,15 @@ class Email_extractor extends React.Component {
                           />
                           
                         </span>
-                        <span className="ml-3">Duck duckgo</span>
+                        <label className="ml-3 input_label" for="sel6">Duck duckgo</label>
+                        
                       </div>
                     </Grid>
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio" 
+                           id="sel7"
                           value=""
                           onChange={(e)=>{
                              
@@ -345,7 +359,8 @@ class Email_extractor extends React.Component {
                           />
                          
                         </span>
-                        <span className="ml-3">Yippy Search</span>
+                        <label className="ml-3 input_label" for="sel7">Yippy Search</label>
+                      
                       </div>
                     </Grid>
                   </Grid>
