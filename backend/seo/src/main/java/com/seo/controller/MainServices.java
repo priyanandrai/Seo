@@ -33,6 +33,7 @@ import com.seo.dto.Usersearch;
 import com.seo.model.Activity;
 import com.seo.model.Adminlogin;
 import com.seo.model.Contactus;
+import com.seo.model.Emailextractor;
 import com.seo.model.Mywebsite;
 import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
@@ -41,6 +42,7 @@ import com.seo.model.Subsribe;
 import com.seo.services.IActivityService;
 import com.seo.services.IAdminloginService;
 import com.seo.services.IContactusSrevice;
+import com.seo.services.IEmailextractorService;
 import com.seo.services.IMywebsiteService;
 import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
@@ -73,6 +75,10 @@ public class MainServices {
 	 
 	@Autowired
 	IActivityService iActivityService;
+	
+	@Autowired
+	IEmailextractorService iEmailextractorService;
+	
 	
 	@Autowired
 	private Environment env;
@@ -614,4 +620,14 @@ public class MainServices {
 	public Iterable<Activity> activitylist() {
 		return iActivityService.findAll();
 	}	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping("/startemailextractor")
+	public String startemailextractor(@RequestBody Emailextractor emailextractor) {
+		iEmailextractorService.save(emailextractor);
+		System.out.println(emailextractor.toString());
+		return "{\"message\":\"email is extracted sucessfully\"}";
+		
+		
+	}
 }

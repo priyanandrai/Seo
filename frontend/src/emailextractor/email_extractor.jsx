@@ -21,8 +21,9 @@ class Email_extractor extends React.Component {
     this.emailextractor = this.emailextractor.bind(this);
     this.selectalloption = this.selectalloption.bind(this);
     this.state = {
-      searchquery: "",
-      searchquery0: "false",
+      query: "",
+      userid:"",
+   type:[],
       check: false,
       check1: false,
       check2: false,
@@ -32,44 +33,81 @@ class Email_extractor extends React.Component {
       check6: false,
       check7: false,
       emailoutput: "",
-      searchquery1: "",
-      searchquery2: "",
-      searchquery3: "",
-      searchquery4: "",
-      searchquery5: "",
-      searchquery6: "",
-      searchquery7: "",
+     
     };
   }
   emailextractor() {
-    if (this.state.searchquery === "") {
+    let selectradio = document.getElementsByName("radio");
+    if (this.state.query === "") {
       this.setState({
         snackbar: true,
         error: "Fill the Query",
       });
       return;
     }
+    let temp1 = "";
+
+    if (selectradio[0].checked === true) {
+        temp1 = "Google.Com"
+    } else if (selectradio[1].checked === true) {
+     temp1 = "Ask Me.Com"
+    }else if (selectradio[2].checked === true) {
+     temp1 = "Yahoo.Com"
+    }  else if (selectradio[3].checked === true) {
+      temp1 = "Bing.Com"
+     } else if (selectradio[4].checked === true) {
+      temp1 = "Baidu"
+     } else if (selectradio[5].checked === true) {
+      temp1 = "Yandex"
+     } else if (selectradio[6].checked === true) {
+      temp1 = "Duck duckgo"
+     } else if (selectradio[7].checked === true) {
+      temp1 = "Yippy Search"
+     }
+    else {
+      this.setState({
+            snackbar: true,
+            error: "Please Select Search Engine Type",
+          });
+          return;
+    }
+    // if (this.state.searchquery0 ==="") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "Please Select Search Engine Type",
+    //   });
+    //   return;
+    // }
+    let temp = {
+      userid: window.localStorage.getItem("id"),
+      query:this.state.query,
+     type:temp1
+    };
+    let url = getBaseUrl() + "/startemailextractor";
+    axios
+      .post(url, temp)
+      .then(
+        (response) => {
+          this.setState({
+         
+            snackbar: true,
+            error: response.data.message,
+          });
+
+       
+        },
+        (error) => {
+        
+        }
+      )
+      .catch((e) => {});
+
     this.setState({
       emailoutput: this.state.searchquery,
     });
-      // this.setState({
-    //   check:!this.state.check,
-    //   check1:!this.state.check1,
-    //   check2:!this.state.check2,
-    //   check3:!this.state.check3,
-    //   check4:!this.state.check4,
-    //   check5:!this.state.check5,
-    //   check6:!this.state.check6,
-    //   check7:!this.state.check7
-    // })
-    console.log(this.state.searchquery0, "seacrh 0");
-    console.log(this.state.searchquery1, "seacrh 1");
-    console.log(this.state.searchquery2, "seacrh 2");
-    console.log(this.state.searchquery3, "seacrh 3");
-    console.log(this.state.searchquery4, "seacrh 4");
-    console.log(this.state.searchquery5, "seacrh 5");
-    console.log(this.state.searchquery6, "seacrh 6");
-    console.log(this.state.searchquery7, "seacrh 7");
+ 
+    
+
   }
   selectalloption() {
     // this.setState({
@@ -82,14 +120,7 @@ class Email_extractor extends React.Component {
     //   check6:!this.state.check6,
     //   check7:!this.state.check7
     // })
-    // console.log(this.state.searchquery0, "seacrh 0");
-    // console.log(this.state.searchquery1, "seacrh 1");
-    // console.log(this.state.searchquery2, "seacrh 2");
-    // console.log(this.state.searchquery3, "seacrh 3");
-    // console.log(this.state.searchquery4, "seacrh 4");
-    // console.log(this.state.searchquery5, "seacrh 5");
-    // console.log(this.state.searchquery6, "seacrh 6");
-    // console.log(this.state.searchquery7, "seacrh 7");
+   
   }
   closeSnackbar = () => {
     this.setState({ snackbar: false });
@@ -97,6 +128,7 @@ class Email_extractor extends React.Component {
   render() {
     return (
       <div>
+        <div className="bulk_email_font">Bulk Email Extractor</div>
         <div>
           <Grid className=" mywebsite_container">
             <Grid item md={6}>
@@ -110,9 +142,9 @@ class Email_extractor extends React.Component {
                     id="Name"
                     className=""
                     autoComplete="off"
-                    value={this.state.searchquery}
+                    value={this.state.query}
                     onChange={(e) =>
-                      this.setState({ searchquery: e.target.value })
+                      this.setState({ query: e.target.value })
                     }
                   />
                 </div> </div>
@@ -138,11 +170,18 @@ class Email_extractor extends React.Component {
                             type="radio"
                             name="radio"
                             className="radio_font"
+                            value=""
+                            onChange={(e)=>{
+                               
+                                if(e.target.checked === true){
+                                    this.state.type.push("Google.Com")
+                                this.setState({
+                                  type:  this.state.type
+                                })
+                               }
+                            }}
                              //  checked={this.state.check}
-                          value={this.state.searchquery0}
-                          onChange={(e) =>
-                            this.setState({ searchquery0: e.target.value })
-                         }
+                      
                           />
                          
                         </span>
@@ -153,12 +192,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio"
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Ask Me.Com")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                            // checked={this.state.check1}
-                           style={{}}
-                           value={this.state.searchquery1}
-                onChange={(e) =>
-                  this.setState({ searchquery1: e.target.value })
-               }
+              
                            />
                          
                         </span>
@@ -171,12 +216,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio" 
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Yahoo.Com")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                             //  checked={this.state.check2}
-                            style={{}}
-                            value={this.state.searchquery2}
-                 onChange={(e) =>
-                   this.setState({ searchquery2: e.target.value })
-                }
+              
                           />
                          
                         </span>
@@ -187,12 +238,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio"
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Bing.Com")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                            //  checked={this.state.check3}
-                           style={{}}
-                           value={this.state.searchquery3}
-                onChange={(e) =>
-                  this.setState({ searchquery3: e.target.value })
-               }
+              
                           />
                          
                         </span>
@@ -205,12 +262,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio"
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Baidu")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                            //  checked={this.state.check4}
-                           style={{}}
-                           value={this.state.searchquery4}
-                onChange={(e) =>
-                  this.setState({ searchquery4: e.target.value })
-               }
+             
                           />
                          
                         </span>
@@ -221,12 +284,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio"
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Yandex")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                              // checked={this.state.check5}
-                             style={{}}
-                             value={this.state.searchquery5}
-                  onChange={(e) =>
-                    this.setState({ searchquery5: e.target.value })
-                 }
+                
                           />
                          
                         </span>
@@ -239,12 +308,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio"
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Duck duckgo")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                            // checked={this.state.check6}
-                           style={{}}
-                           value={this.state.searchquery6}
-                           onChange={(e) =>
-                             this.setState({ searchquery6: e.target.value })
-                          }
+                        
                           />
                           
                         </span>
@@ -255,12 +330,18 @@ class Email_extractor extends React.Component {
                       <div className="left_first_check ml-4">
                         <span>
                           <input type="radio" name="radio" 
+                          value=""
+                          onChange={(e)=>{
+                             
+                              if(e.target.checked === true){
+                                  this.state.type.push("Yippy Search")
+                              this.setState({
+                                type:  this.state.type
+                              })
+                             }
+                          }}
                            // checked={this.state.check7}
-                           style={{}}
-                           value={this.state.searchquery7}
-                           onChange={(e) =>
-                             this.setState({ searchquery7: e.target.value })
-                          }
+                        
                           />
                          
                         </span>
@@ -282,7 +363,7 @@ class Email_extractor extends React.Component {
             <Grid item md={6}>
               <div className="email_output mt-5 mb-5">
                 <p className="extarct_mail">Output :</p>
-                <textarea className="input_textarea">
+                <textarea className="input_textarea" disabled={true}>
                   {this.state.emailoutput}
                 </textarea>
               </div>
