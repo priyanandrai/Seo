@@ -19,6 +19,9 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 
+import  render  from 'react-dom';
+import  VncDisplay  from 'react-vnc-display';
+
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -27,6 +30,7 @@ import { PieChart } from "react-minimal-pie-chart";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 import CircularProgress from "@material-ui/core/CircularProgress";
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -905,7 +909,8 @@ let url = videourl + visualId + ".mp4";
                     url={this.state.url}
                     controls={true}
                   />
-                  {/* <VncDisplay url="ws://localhost:8000/ws/vnc/9804520e010c8320bad59e7285815139" /> */}
+                  {/* <iframe src="http://seo.srcservicesltd.com:8080/#/sessions/1c2c22d87945947d6dde25db20cee6c2" title="description" height = "100%" width = "100%" ></iframe> */}
+                  {/* <VncDisplay url="ws://seo.srcservicesltd.com:8080/ws/vnc/1c2c22d87945947d6dde25db20cee6c2" /> */}
                 </Card>
               </div>
             </Paper>

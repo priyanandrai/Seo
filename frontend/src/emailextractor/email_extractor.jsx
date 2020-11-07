@@ -36,6 +36,7 @@ class Email_extractor extends React.Component {
       check7: false,
       emailoutput: "",
       buttontext: "Start Extracting",
+      buttondisabled: "",
            
     };
   }
@@ -378,9 +379,10 @@ class Email_extractor extends React.Component {
                     </Grid>
                   </Grid>
                   <div className="check_button_start mt-4">
-                  <button
+                  <button 
                     className="start_check_color"
                     onClick={this.emailextractor}
+                    
                   >
                     {this.state.buttontext}
                   </button>

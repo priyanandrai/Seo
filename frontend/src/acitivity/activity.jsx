@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { Card } from "react-bootstrap";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import { parse } from '@fortawesome/fontawesome-svg-core';
 class Activity extends React.Component{
     constructor(props){
         super(props);
@@ -18,10 +19,16 @@ class Activity extends React.Component{
       getBaseUrl() + "/activitylist";
     axios.get(url).then(
       (response) => {
+          let temp = []
+          response.data.map(item=>{
+              item.time= new Date(parseInt(item.time)).toString();
+              temp.push(item);
+          })
         self.setState({
-            activitylist:response.data
-         
+            activitylist:temp
+            
         });
+
       },
       (error) => {}
     );
@@ -56,7 +63,7 @@ class Activity extends React.Component{
                     </Grid>
                     <Grid item md={3}>
                         <div className="div-width">
-                    <p className="heading-activity text-center pt-3">{new Date(value.time)}</p>
+                           <p className="heading-activity text-center pt-3">{value.time}</p>
                     
                     </div>
                     </Grid>
