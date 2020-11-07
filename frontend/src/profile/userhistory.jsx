@@ -272,7 +272,7 @@ class Userhistory extends Component {
                 title={key.visualId}
                 className="reactclick afterplaycolor21"
                 onClick={() => {
-                  let a = "http://192.168.0.108:8080/video/";
+                  let a = "http://seo.srcservicesltd.com:8080/video/";
                   // alert(a);
                   this.playvideoid(key.visualId, a);
                 }}
@@ -977,7 +977,7 @@ class Userhistory extends Component {
                     width="100%"
                     height="100%"
                     // url={this.state.url}
-                     url={"http://192.168.0.108:8080/video/"+key.visualId+".mp4"}
+                     url={"http://seo.srcservicesltd.com:8080/video/"+key.visualId+".mp4"}
                     controls={true}
                   />
               </Typography>

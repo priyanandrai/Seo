@@ -179,13 +179,16 @@ System.out.println(arrayList.size());
 	
 	
 	private String openBrowser() throws Exception {
+		Environment environment = ApplicationContextHolder.getContext().getBean(Environment.class);
+		
+		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("chrome");
-		capabilities.setVersion("84.0");
-		capabilities.setCapability("enableVNC", true);
-		capabilities.setCapability("enableVideo", true);
+		capabilities.setVersion(environment.getProperty("remote.browserVersion"));
+		capabilities.setCapability("enableVNC",Boolean.parseBoolean(environment.getProperty("remote.enablevnc")));
+		capabilities.setCapability("enableVideo", Boolean.parseBoolean(environment.getProperty("remove.enabelvideo")));
 		
-		Environment environment = ApplicationContextHolder.getContext().getBean(Environment.class);
+		
 		String url = environment.getProperty("browser.ip");
 		
 		driver = new RemoteWebDriver(URI.create(url).toURL(),

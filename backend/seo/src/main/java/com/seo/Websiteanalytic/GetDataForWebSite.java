@@ -31,6 +31,7 @@ public class GetDataForWebSite {
 			// this for save data in database and used for data  
 			//UserTrafficData data2 = new UserTrafficData();
 			String url = hashMap.get(parameter);
+			System.out.println("data_from_Api   "+ url+data);
 			if(url == null ) {
 				return "{\"message\",\"Please provide Parameter\"}";
 			}else {
@@ -50,7 +51,6 @@ public class GetDataForWebSite {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
-			return null;
 		}
 		
 	}

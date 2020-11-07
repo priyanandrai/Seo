@@ -56,6 +56,14 @@ justify-content: center;
 .input_label{
     margin-bottom: 0px !important;
 }
+.scopy_all{
+    text-align: right;
+}
+.copy_button{
+    background-color: black !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px){
     .bulk_email_font{
         text-align: center;

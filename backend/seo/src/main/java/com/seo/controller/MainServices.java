@@ -627,11 +627,11 @@ public class MainServices {
 	@PostMapping("/startemailextractor")
 	public String startemailextractor(@RequestBody Emailextractor emailextractor) throws IOException, InterruptedException {
 		iEmailextractorService.save(emailextractor);
-		System.out.println(emailextractor.toString());
-		List<String> eamillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
-		System.out.println(eamillist);
-		return "{\"Emails\":\""+eamillist+"\"}";
-		//return "{\"message\":\"email is extracted sucessfully\"}";
+		//System.out.println(emailextractor.toString());
+		List<String> emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+		//System.out.println(eamillist);
+		return "{\"Emails\":\""+emaillist+"\"}";
+//	return "{\"message\":\"email is extracted sucessfully\"}";
 		
 		
 	}

@@ -20,9 +20,11 @@ class Email_extractor extends React.Component {
     super(props);
     this.emailextractor = this.emailextractor.bind(this);
     this.selectalloption = this.selectalloption.bind(this);
+    this.copyall = this.copyall.bind(this);
     this.state = {
       query: "",
       userid:"",
+    
    type:[],
       check: false,
       check1: false,
@@ -33,7 +35,8 @@ class Email_extractor extends React.Component {
       check6: false,
       check7: false,
       emailoutput: "",
-     
+      buttontext: "Start Extracting",
+           
     };
   }
   emailextractor() {
@@ -83,13 +86,18 @@ class Email_extractor extends React.Component {
       query:this.state.query,
      type:temp1
     };
+    this.setState({
+      buttontext:"Processing..."
+    });
     let url = getBaseUrl() + "/startemailextractor";
     axios
       .post(url, temp)
       .then(
         (response) => {
+         
           this.setState({
-            emailoutput:response.data.Emails,
+            emailoutput:response.data.Emails.toString(),
+            buttontext:"Start Extracting"
             // snackbar: true,
             // error: response.data.message,
           });
@@ -108,6 +116,11 @@ class Email_extractor extends React.Component {
  
     
 
+  }
+  copyall(){
+    const el = this.textArea
+    el.select()
+    document.execCommand("copy");
   }
   selectalloption() {
     // this.setState({
@@ -369,7 +382,7 @@ class Email_extractor extends React.Component {
                     className="start_check_color"
                     onClick={this.emailextractor}
                   >
-                    Start
+                    {this.state.buttontext}
                   </button>
                 </div>
                 </div>
@@ -377,10 +390,14 @@ class Email_extractor extends React.Component {
              
             </Grid>
             <Grid item md={6}>
+              
               <div className="email_output mt-5 mb-5">
+              {/* <div className="scopy_all">
+                <button className="copy_button" onClick={this.copyall}>copy All</button>
+              </div> */}
                 <p className="extarct_mail">Output :</p>
-                <textarea className="input_textarea" disabled={true}>
-                  {this.state.emailoutput}
+                <textarea className="input_textarea" value={this.state.emailoutput} disabled={true}>
+                  {/* {this.state.emailoutput} */}
                 </textarea>
               </div>
             </Grid>
