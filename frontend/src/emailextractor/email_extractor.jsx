@@ -161,10 +161,10 @@ class Email_extractor extends React.Component {
                   </span>
                   <span>Select All</span>
                 </div>
-                <div className="mt-3">
-                  <Grid className=" mywebsite_container ml-4">
+                <div className="mt-3 ml-5">
+                  <Grid className=" mywebsite_container">
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input
                             type="radio"
@@ -189,7 +189,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
                           value=""
@@ -211,9 +211,9 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid className=" mywebsite_container ml-4">
+                  <Grid className=" mywebsite_container">
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio" 
                           value=""
@@ -235,7 +235,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
                           value=""
@@ -257,9 +257,9 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid className=" mywebsite_container ml-4">
+                  <Grid className=" mywebsite_container">
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
                           value=""
@@ -281,7 +281,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
                           value=""
@@ -303,9 +303,9 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid className=" mywebsite_container ml-4">
+                  <Grid className=" mywebsite_container">
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio"
                           value=""
@@ -327,7 +327,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                     <Grid item md={6}>
-                      <div className="left_first_check ml-4">
+                      <div className="left_first_check">
                         <span>
                           <input type="radio" name="radio" 
                           value=""
@@ -349,8 +349,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                </div>
-                <div className="check_button_start mt-4">
+                  <div className="check_button_start mt-4">
                   <button
                     className="start_check_color"
                     onClick={this.emailextractor}
@@ -358,6 +357,8 @@ class Email_extractor extends React.Component {
                     Start
                   </button>
                 </div>
+                </div>
+                
              
             </Grid>
             <Grid item md={6}>
