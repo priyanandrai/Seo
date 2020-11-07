@@ -1,5 +1,6 @@
 package com.seo.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,6 +50,7 @@ import com.seo.services.ISubmitRequestService;
 import com.seo.services.ISubsribeService;
 import com.seo.services.SearchEngineservice;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 import com.seo.MultiThread.MultiThread;
 import com.seo.Process.Process;
@@ -623,10 +625,13 @@ public class MainServices {
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping("/startemailextractor")
-	public String startemailextractor(@RequestBody Emailextractor emailextractor) {
+	public String startemailextractor(@RequestBody Emailextractor emailextractor) throws IOException, InterruptedException {
 		iEmailextractorService.save(emailextractor);
 		System.out.println(emailextractor.toString());
-		return "{\"message\":\"email is extracted sucessfully\"}";
+		List<String> eamillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+		System.out.println(eamillist);
+		return "{\"Emails\":\""+eamillist+"\"}";
+		//return "{\"message\":\"email is extracted sucessfully\"}";
 		
 		
 	}
