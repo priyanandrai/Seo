@@ -52,6 +52,13 @@ class Email_extractor extends React.Component {
       });
       return;
     }
+    // if (this.state.checked === "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "Choose Any One .",
+    //   });
+    //   return;
+    // }
     let temp1 = "";
 
     if (selectradio[0].checked === true) {
@@ -74,7 +81,7 @@ class Email_extractor extends React.Component {
     else {
       this.setState({
             snackbar: true,
-            error: "Please Select Search Engine Type",
+            error: "Please Select Search Engine Type .",
           });
           return;
     }
@@ -124,12 +131,16 @@ class Email_extractor extends React.Component {
 
   }
   copyall(){
-    let copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  console.log(document.execCommand("copy"))
-  alert("Copied the text: " + copyText.value);
+    var text = document.getElementById("myInput").innerHTML;
+    let textarea = document.getElementById("myInput");
+    textarea.innerHTML = text;
+    textarea.focus();
+    alert( textarea.innerHTML = text)
+  //   let copyText = document.getElementById("myInput");
+  // copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  // document.execCommand("copy");
+  // alert("Copied the text: " + copyText.value);
     // const el = this.textArea
     // el.select()
     // document.execCommand("copy");
@@ -289,7 +300,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid className=" mywebsite_container">
+                  {/* <Grid className=" mywebsite_container">
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
@@ -338,7 +349,7 @@ class Email_extractor extends React.Component {
                        
                       </div>
                     </Grid>
-                  </Grid>
+                  </Grid> */}
                   <Grid className=" mywebsite_container">
                     <Grid item md={6}>
                       <div className="left_first_check">
@@ -405,10 +416,13 @@ class Email_extractor extends React.Component {
             <Grid item md={6}>
               
               <div className="email_output mt-5 mb-5">
-              <div className="scopy_all">
+              {/* <div className="scopy_all">
                 <button className="copy_button" onClick={this.copyall}>copy All</button>
-              </div>
+              </div> */}
+              <div className="d-flex">
                         <p className="extarct_mail">Output : </p>
+                       {/* <p className="copy_button">Copy All</p>  */}
+                        </div>
                 <textarea className="input_textarea" id="myInput" value={this.state.emailoutput} disabled={true}>
                   {/* {this.state.emailoutput} */}
                 </textarea>

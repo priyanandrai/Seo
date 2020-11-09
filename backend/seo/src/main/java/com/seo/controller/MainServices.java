@@ -627,8 +627,27 @@ public class MainServices {
 	@PostMapping("/startemailextractor")
 	public String startemailextractor(@RequestBody Emailextractor emailextractor) throws IOException, InterruptedException {
 		iEmailextractorService.save(emailextractor);
+		List<String> emaillist  = new ArrayList<String>();
+		try {
+			String bulkemail1 = "Google.Com";
+			String bulkemail2 = "Ask Me.Com";
+			String bulkemail3 = "Yahoo.Com";
+			String bulkemail4 = "Yippy Search";
+			
+			if (emailextractor.getType().equalsIgnoreCase(bulkemail1)) {
+				 emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail2)) {
+				 emaillist =  com.seo.Emailextractor.Askmeemailextractor.AskmeSearchEmail(emailextractor.getQuery());
+			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail3)) {
+				emaillist =  com.seo.Emailextractor.Yahooemailextractor.YahooSearchEmail(emailextractor.getQuery());
+			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail4)) {
+				 emaillist =  com.seo.Emailextractor.Yippyemailextractor.YippySearchEmail(emailextractor.getQuery());
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		//System.out.println(emailextractor.toString());
-		List<String> emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+	//	List<String> emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
 		//System.out.println(eamillist);
 		return "{\"Emails\":\""+emaillist+"\"}";
 //	return "{\"message\":\"email is extracted sucessfully\"}";
