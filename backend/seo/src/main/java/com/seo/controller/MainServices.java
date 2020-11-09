@@ -93,7 +93,7 @@ public class MainServices {
 			while (iterable.hasNext()) {
 				SignUp signUp2 = iterable.next();
 				if (signUp2.getPhoneNumber().equalsIgnoreCase(signup.getPhoneNumber())) {
-					return "{\"message\":\"User already exist .Please try to login ot forget password\"}";
+					return "{\"message\":\"User already exist .Please try to login or forgot password\"}";
 				}
 			}
 			iSignUpService.save(signup);

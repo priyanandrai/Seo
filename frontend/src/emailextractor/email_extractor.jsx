@@ -10,9 +10,11 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import "./email_extractor.css";
 
 class Email_extractor extends React.Component {
@@ -34,9 +36,10 @@ class Email_extractor extends React.Component {
       check5: false,
       check6: false,
       check7: false,
-      emailoutput: "",
+      emailoutput: "dgfdgdfg",
       buttontext: "Start Extracting",
       buttondisabled: "",
+      emailprogessbar:false
            
     };
   }
@@ -88,7 +91,8 @@ class Email_extractor extends React.Component {
      type:temp1
     };
     this.setState({
-      buttontext:"Processing..."
+      buttontext:"Processing...",
+      emailprogessbar:true
     });
     let url = getBaseUrl() + "/startemailextractor";
     axios
@@ -98,7 +102,8 @@ class Email_extractor extends React.Component {
          
           this.setState({
             emailoutput:response.data.Emails.toString(),
-            buttontext:"Start Extracting"
+            buttontext:"Start Extracting",
+            emailprogessbar:false
             // snackbar: true,
             // error: response.data.message,
           });
@@ -119,9 +124,15 @@ class Email_extractor extends React.Component {
 
   }
   copyall(){
-    const el = this.textArea
-    el.select()
-    document.execCommand("copy");
+    let copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  console.log(document.execCommand("copy"))
+  alert("Copied the text: " + copyText.value);
+    // const el = this.textArea
+    // el.select()
+    // document.execCommand("copy");
   }
   selectalloption() {
     // this.setState({
@@ -394,16 +405,34 @@ class Email_extractor extends React.Component {
             <Grid item md={6}>
               
               <div className="email_output mt-5 mb-5">
-              {/* <div className="scopy_all">
+              <div className="scopy_all">
                 <button className="copy_button" onClick={this.copyall}>copy All</button>
-              </div> */}
-                <p className="extarct_mail">Output :</p>
-                <textarea className="input_textarea" value={this.state.emailoutput} disabled={true}>
+              </div>
+                        <p className="extarct_mail">Output : </p>
+                <textarea className="input_textarea" id="myInput" value={this.state.emailoutput} disabled={true}>
                   {/* {this.state.emailoutput} */}
                 </textarea>
               </div>
             </Grid>
           </Grid>
+        </div>
+        <div>
+        <Dialog
+          onClose={() => {
+            // this.setState({
+            //   emailprogessbar: false,
+            // });
+          }}
+          open={this.state.emailprogessbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+<div className="email_progess">
+  <p className="email_testing_url">Testing Live URL</p>
+  <div className="email_bar_center"> <LinearProgress /></div>
+  <p className="this_might_center">This might take a minute or two</p>
+</div>
+        </Dialog>
         </div>
         <div>
           <Snackbar
