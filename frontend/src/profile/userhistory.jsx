@@ -977,7 +977,7 @@ class Userhistory extends Component {
                     width="100%"
                     height="100%"
                     // url={this.state.url}
-                     url={"http://seo.srcservicesltd.com:8080/video/"+key.visualId+".mp4"}
+                     url={"https://video.srcservicesltd.com/video/"+key.visualId+".mp4"}
                     controls={true}
                   />
               </Typography>
