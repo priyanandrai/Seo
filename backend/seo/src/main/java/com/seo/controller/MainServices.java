@@ -15,6 +15,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.json.JSONArray;
 import org.openqa.selenium.JavascriptExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -627,7 +628,7 @@ public class MainServices {
 	@PostMapping("/startemailextractor")
 	public String startemailextractor(@RequestBody Emailextractor emailextractor) throws IOException, InterruptedException {
 		iEmailextractorService.save(emailextractor);
-		List<String> emaillist  = new ArrayList<String>();
+		JSONArray emaillist  = new JSONArray();
 		try {
 			String bulkemail1 = "Google.Com";
 			String bulkemail2 = "Ask Me.Com";
@@ -637,11 +638,11 @@ public class MainServices {
 			if (emailextractor.getType().equalsIgnoreCase(bulkemail1)) {
 				 emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
 			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail2)) {
-				 emaillist =  com.seo.Emailextractor.Askmeemailextractor.AskmeSearchEmail(emailextractor.getQuery());
+				// emaillist =  com.seo.Emailextractor.Askmeemailextractor.AskmeSearchEmail(emailextractor.getQuery());
 			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail3)) {
-				emaillist =  com.seo.Emailextractor.Yahooemailextractor.YahooSearchEmail(emailextractor.getQuery());
+			//	emaillist =  com.seo.Emailextractor.Yahooemailextractor.YahooSearchEmail(emailextractor.getQuery());
 			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail4)) {
-				 emaillist =  com.seo.Emailextractor.Yippyemailextractor.YippySearchEmail(emailextractor.getQuery());
+			//	 emaillist =  com.seo.Emailextractor.Yippyemailextractor.YippySearchEmail(emailextractor.getQuery());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -649,7 +650,7 @@ public class MainServices {
 		//System.out.println(emailextractor.toString());
 	//	List<String> emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
 		//System.out.println(eamillist);
-		return "{\"Emails\":\""+emaillist+"\"}";
+		return "{\"Emails\":"+emaillist.toString()+"}";
 //	return "{\"message\":\"email is extracted sucessfully\"}";
 		
 		

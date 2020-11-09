@@ -36,7 +36,7 @@ class Email_extractor extends React.Component {
       check5: false,
       check6: false,
       check7: false,
-      emailoutput: "dgfdgdfg",
+      emailoutput: "",
       buttontext: "Start Extracting",
       buttondisabled: "",
       emailprogessbar: false,
@@ -104,15 +104,37 @@ class Email_extractor extends React.Component {
       .post(url, temp)
       .then(
         (response) => {
+         let urlData = "";
+         console.log(response.data)
+          if(response.data.Emails != undefined)
+          {
+            
+            response.data.Emails.map((datas) =>{
+              if(urlData ==""){
+                urlData =datas
+              }else {
+                urlData =urlData +"\n"+datas;
+              }
+            }) 
+          } 
+          console.log("urlData "+ urlData)
           this.setState({
-            emailoutput: response.data.Emails.toString(),
+            emailoutput:urlData,
             buttontext: "Start Extracting",
             emailprogessbar: false,
             // snackbar: true,
             // error: response.data.message,
           });
         },
-        (error) => {}
+        (error) => {
+          this.setState({
+        
+            buttontext: "Start Extracting",
+            emailprogessbar: false,
+            // snackbar: true,
+            // error: response.data.message,
+          });
+        }
       )
       .catch((e) => {});
 
