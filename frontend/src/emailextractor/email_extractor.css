@@ -40,7 +40,7 @@ justify-content: center;
     background-color: black !important;
     outline: none !important;
     text-decoration: none !important;
-    border-radius: 7%;
+    border-radius: 5px;
 }
 .radio_font{
     font-size: 20px !important;
@@ -63,6 +63,7 @@ justify-content: center;
     background-color: black !important;
     text-decoration: none !important;
     outline: none !important;
+    border-radius: 5px !important;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px){
     .bulk_email_font{
@@ -73,4 +74,26 @@ justify-content: center;
         font-family: century;
         color: #33BC9C;
     } 
+}
+.email_progess{
+    width: 60vh;
+    height: 30vh;
+}
+.email_testing_url{
+    text-align: center;
+    font-weight: bold;
+    color: #33BC9C;
+    margin-top: 5%;
+    font-size: 25px;
+    font-family: century;
+}
+.email_bar_center{
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.this_might_center{
+    text-align: center;
+    margin-top: 3%;
+    font-family: century;
 }

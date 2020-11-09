@@ -10,9 +10,11 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
+import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import "./email_extractor.css";
 
 class Email_extractor extends React.Component {
@@ -34,9 +36,10 @@ class Email_extractor extends React.Component {
       check5: false,
       check6: false,
       check7: false,
-      emailoutput: "",
+      emailoutput: "dgfdgdfg",
       buttontext: "Start Extracting",
       buttondisabled: "",
+      emailprogessbar:false
            
     };
   }
@@ -49,6 +52,13 @@ class Email_extractor extends React.Component {
       });
       return;
     }
+    // if (this.state.checked === "") {
+    //   this.setState({
+    //     snackbar: true,
+    //     error: "Choose Any One .",
+    //   });
+    //   return;
+    // }
     let temp1 = "";
 
     if (selectradio[0].checked === true) {
@@ -71,7 +81,7 @@ class Email_extractor extends React.Component {
     else {
       this.setState({
             snackbar: true,
-            error: "Please Select Search Engine Type",
+            error: "Please Select Search Engine Type .",
           });
           return;
     }
@@ -88,7 +98,8 @@ class Email_extractor extends React.Component {
      type:temp1
     };
     this.setState({
-      buttontext:"Processing..."
+      buttontext:"Processing...",
+      emailprogessbar:true
     });
     let url = getBaseUrl() + "/startemailextractor";
     axios
@@ -98,7 +109,8 @@ class Email_extractor extends React.Component {
          
           this.setState({
             emailoutput:response.data.Emails.toString(),
-            buttontext:"Start Extracting"
+            buttontext:"Start Extracting",
+            emailprogessbar:false
             // snackbar: true,
             // error: response.data.message,
           });
@@ -119,9 +131,19 @@ class Email_extractor extends React.Component {
 
   }
   copyall(){
-    const el = this.textArea
-    el.select()
-    document.execCommand("copy");
+    var text = document.getElementById("myInput").innerHTML;
+    let textarea = document.getElementById("myInput");
+    textarea.innerHTML = text;
+    textarea.focus();
+    alert( textarea.innerHTML = text)
+  //   let copyText = document.getElementById("myInput");
+  // copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  // document.execCommand("copy");
+  // alert("Copied the text: " + copyText.value);
+    // const el = this.textArea
+    // el.select()
+    // document.execCommand("copy");
   }
   selectalloption() {
     // this.setState({
@@ -278,7 +300,7 @@ class Email_extractor extends React.Component {
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid className=" mywebsite_container">
+                  {/* <Grid className=" mywebsite_container">
                     <Grid item md={6}>
                       <div className="left_first_check">
                         <span>
@@ -327,7 +349,7 @@ class Email_extractor extends React.Component {
                        
                       </div>
                     </Grid>
-                  </Grid>
+                  </Grid> */}
                   <Grid className=" mywebsite_container">
                     <Grid item md={6}>
                       <div className="left_first_check">
@@ -397,13 +419,34 @@ class Email_extractor extends React.Component {
               {/* <div className="scopy_all">
                 <button className="copy_button" onClick={this.copyall}>copy All</button>
               </div> */}
-                <p className="extarct_mail">Output :</p>
-                <textarea className="input_textarea" value={this.state.emailoutput} disabled={true}>
+              <div className="d-flex">
+                        <p className="extarct_mail">Output : </p>
+                       {/* <p className="copy_button">Copy All</p>  */}
+                        </div>
+                <textarea className="input_textarea" id="myInput" value={this.state.emailoutput} disabled={true}>
                   {/* {this.state.emailoutput} */}
                 </textarea>
               </div>
             </Grid>
           </Grid>
+        </div>
+        <div>
+        <Dialog
+          onClose={() => {
+            // this.setState({
+            //   emailprogessbar: false,
+            // });
+          }}
+          open={this.state.emailprogessbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+<div className="email_progess">
+  <p className="email_testing_url">Testing Live URL</p>
+  <div className="email_bar_center"> <LinearProgress /></div>
+  <p className="this_might_center">This might take a minute or two</p>
+</div>
+        </Dialog>
         </div>
         <div>
           <Snackbar
