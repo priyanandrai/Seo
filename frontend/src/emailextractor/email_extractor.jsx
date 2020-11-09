@@ -402,11 +402,11 @@ class Email_extractor extends React.Component {
                 <button className="copy_button" onClick={this.copyall}>copy All</button>
               </div> */}
                 <div className="content_item">
-                  <p className="extarct_mail">Output : </p>
-                  <u className="copy_all_content" onClick={this.copyall}>Copy All</u>
+                  <p className="extarct_mail">Output</p>
+                  <u className="copy_all_content" onClick={this.copyall}>
+                    Copy All
+                  </u>
                   {/* <button className="copy_button" onClick={this.copyall}>copy All</button> */}
-
-                  {/* <p className="copy_button">Copy All</p>  */}
                 </div>
                 <textarea
                   className="input_textarea"

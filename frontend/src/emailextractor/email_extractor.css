@@ -109,4 +109,5 @@ justify-content: center;
 }
 .copy_all_content{
     cursor: pointer;
+    color: #33BC9C;
 }
