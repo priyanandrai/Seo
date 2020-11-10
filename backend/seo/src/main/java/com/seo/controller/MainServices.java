@@ -15,6 +15,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.hibernate.dialect.FirebirdDialect;
 import org.json.JSONArray;
 import org.openqa.selenium.JavascriptExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -500,11 +501,19 @@ public class MainServices {
 	public List<SearchEngine> getTask(@RequestParam("id") Long id) {
 	
 		try {
+			System.out.println(id);
+			List<SearchEngine> searchengine = new ArrayList<SearchEngine>(); 
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
+			for (int i = 0; i < list.size(); i++) {
+				if(list.get(i).getUserId() == null) {
+					continue;
+				}			
+				if(list.get(i).getUserId().longValue() == id.longValue()){
+					searchengine.add(list.get(i));
+				}
+			}
 
-			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
-					.collect(Collectors.toList());
-			return list1;
+			return searchengine;
 
 		} catch (Exception e) {
 
