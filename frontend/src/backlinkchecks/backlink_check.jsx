@@ -28,7 +28,7 @@ class Backlink_check extends React.Component {
       backlinksrank: false,
       mainForm: true,
       backlinkquery:"",
-      selectdomain:"1",
+      selectdomain:"",
       data: [
         {
         id: 1,
@@ -57,7 +57,15 @@ class Backlink_check extends React.Component {
           center: true,
         },
       ],
-      placedomain:"Please enter your domain"
+      placedomain:"Please enter your domain",
+      google:"Google.com",
+      askme:"Ask Me.com",
+      yahoo:"Yahoo.com",
+      bing:"Bing.com",
+      duck:"Duck duckgo",
+      yippy:"Yippy Search",
+      siteranking:"",
+      websiterank:""
     };
     
   }
@@ -125,12 +133,12 @@ class Backlink_check extends React.Component {
                 });
               }}
             >
-              <MenuItem value={1}>Google.com</MenuItem>
-              <MenuItem value={2}>  Ask Me.com</MenuItem>
-              <MenuItem value={3}> Yahoo.com</MenuItem>
-              <MenuItem value={4}>  Bing.com</MenuItem>
-              <MenuItem value={5}>Duck duckgo</MenuItem>
-              <MenuItem value={6}> Yippy Search</MenuItem>
+              <MenuItem value={this.state.google}>Google.com</MenuItem>
+              <MenuItem value={this.state.askme}> Ask Me.com</MenuItem>
+              <MenuItem value={this.state.yahoo}> Yahoo.com</MenuItem>
+              <MenuItem value={this.state.bing}>  Bing.com</MenuItem>
+              <MenuItem value={this.state.duck}>Duck duckgo</MenuItem>
+              <MenuItem value={this.state.yippy}> Yippy Search</MenuItem>
             </Select>
                     {/* <Form.Control
                       type="name"
@@ -192,12 +200,12 @@ class Backlink_check extends React.Component {
                 });
               }}
             >
-              <MenuItem value={1}>Google.com</MenuItem>
-              <MenuItem value={2}>  Ask Me.com</MenuItem>
-              <MenuItem value={3}> Yahoo.com</MenuItem>
-              <MenuItem value={4}>  Bing.com</MenuItem>
-              <MenuItem value={5}>Duck duckgo</MenuItem>
-              <MenuItem value={6}> Yippy Search</MenuItem>
+              <MenuItem value={this.state.google}>Google.com</MenuItem>
+              <MenuItem value={this.state.askme}> Ask Me.com</MenuItem>
+              <MenuItem value={this.state.yahoo}> Yahoo.com</MenuItem>
+              <MenuItem value={this.state.bing}>  Bing.com</MenuItem>
+              <MenuItem value={this.state.duck}>Duck duckgo</MenuItem>
+              <MenuItem value={this.state.yippy}> Yippy Search</MenuItem>
             </Select>
                       </div>
                     </Grid>
@@ -235,11 +243,11 @@ class Backlink_check extends React.Component {
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Your Site Ranking </span>
-                    <span className="ml-4">:</span>
+            <span className="ml-4">:{this.state.siteranking}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Total Reaches </span>
-                    <span className="ml-5">:</span>
+            <span className="ml-5">:{this.state.websiterank}</span>
                   </div>
                 </div>
               </div>
