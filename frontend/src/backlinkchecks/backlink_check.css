@@ -1,0 +1,77 @@
+.backllink_color{
+ /* background-color: gray; */
+ /* padding-top: 5%; */
+ padding-bottom: 5%;
+ 
+}
+.backlink_center{
+    width: 80%;
+    height: 40vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   /* padding-top: 3%; */
+    /* justify-content: center;
+    align-items: center; */
+    /* display: flex; */
+    background-color: white;
+}
+.backlink_checkdomain{
+    color: #33BC9C;
+    font-weight: bold;
+    font-family: century;
+}
+.backlink_btn{
+    background-color: #2C81BA !important;
+    outline: none !important;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.backlink_padding{
+    margin-left: 3%;
+    margin-right: 5%;
+}
+.backlink_first{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 40vh;
+    max-height: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 1%;
+    background-color: white;
+}
+
+/* .mywebsite_container1{
+  display: f;
+  justify-content: space-between;
+    align-content: center !important;
+ } */
+ .back_first_card{
+     margin-left: 8%;
+ }
+ .backlink_doamin{
+     font-weight: bold;
+     font-family: century;
+     color: #33BC9C;
+ }
+ .backlink_details{
+     text-align: center;
+     color: #33BC9C;
+     font-weight: bold;
+     font-family: century;
+     font-size: 30px;
+
+ }
+ .backlink_first2{
+    min-height: 40vh;
+    max-height: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 1%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+.backlink_seclect{
+    width: 100% !important;
+}
+.doamin_backlinked{
+    
+}
