@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 import javax.mail.Message;
@@ -42,6 +43,7 @@ import com.seo.model.SearchEngine;
 import com.seo.model.SignUp;
 import com.seo.model.SubmitRequest;
 import com.seo.model.Subsribe;
+import com.seo.sendmail.Sendmail;
 import com.seo.services.IActivityService;
 import com.seo.services.IAdminloginService;
 import com.seo.services.IContactusSrevice;
@@ -51,6 +53,7 @@ import com.seo.services.ISignUpService;
 import com.seo.services.ISubmitRequestService;
 import com.seo.services.ISubsribeService;
 import com.seo.services.SearchEngineservice;
+import com.seo.sendmail.*;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 
@@ -599,6 +602,19 @@ public class MainServices {
 	@PostMapping("/contactus")
 	public String contactus(@RequestBody Contactus Contactus) {
 		try {
+			String body = "hello SR consultancy services,"+"\n"
+					+"\t"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"\n"
+							+"\n\t"+"Visitor Details::"+"\n"+
+					"\t\t"+"Visitor Name:"+Contactus.getName()+"\n"+
+					"\t\t"+"Mobile Number:"+Contactus.getNumber()+"\n"+
+					"\t\t"+"Email Address:"+Contactus.getEmail()+"\n"+
+					"\t\t"+"Organisation:"+Contactus.getOrganization()+"\n"+
+					"\t\t"+"Country:"+Contactus.getCountry()+"\n"+
+					"\t\t"+"Message:"+Contactus.getMessage();
+							
+						
+			
+			Sendmail.SendMail("info@srcservicesltd.com","ujjawal.saini@srcservicesltd.com",Contactus.getName() + " is trying to contact you",body);
 			 iContactus.save( Contactus);
 		} catch (Exception e) {
 			e.printStackTrace();

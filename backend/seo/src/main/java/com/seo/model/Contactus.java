@@ -20,8 +20,10 @@ public class Contactus {
 	private String organization;
 	private String requirement;
 	private String attachment;
+	private String message;
+	private String country;
 	public Contactus(long id, String name, String email, String number, String alternativeNumber, String organization,
-			String requirement, String attachment) {
+			String requirement, String attachment, String message, String country) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,12 +33,14 @@ public class Contactus {
 		this.organization = organization;
 		this.requirement = requirement;
 		this.attachment = attachment;
+		this.message = message;
+		this.country = country;
 	}
 	@Override
 	public String toString() {
 		return "Contactus [id=" + id + ", name=" + name + ", email=" + email + ", number=" + number
 				+ ", alternativeNumber=" + alternativeNumber + ", organization=" + organization + ", requirement="
-				+ requirement + ", attachment=" + attachment + "]";
+				+ requirement + ", attachment=" + attachment + ", message=" + message + ", country=" + country + "]";
 	}
 	public long getId() {
 		return id;
@@ -86,6 +90,18 @@ public class Contactus {
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
 	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	
-
+	
 }
