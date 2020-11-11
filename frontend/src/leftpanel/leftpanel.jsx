@@ -1,5 +1,6 @@
 import React from "react";
 import "../maincontentpage/main.css";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -34,7 +35,10 @@ class Leftpanel extends React.Component {
   render() {
     return (
       <div>
-        {this.state.panelshow ? (
+           <input type="checkbox"  id="check"></input>
+        <label for="check">
+        <FontAwesomeIcon className="iconned" icon={faBars} id="sidebar_btn" />
+        </label>
           <div id="mySidenav" class="sidenav">
             <Accordion className="mt-3 mb-3">
               <AccordionSummary
@@ -42,8 +46,8 @@ class Leftpanel extends React.Component {
                 // aria-controls="panel1bh-content"
                 // id="panel1bh-header"
               >
-                <FontAwesomeIcon className="urlcolors" icon={faHome} />
-                <Typography className="urlcolors homemargin urlfontsize">
+                <FontAwesomeIcon className="urlcolors1" icon={faHome} />
+                <Typography className="analyasedd homemargin urlfontsize">
                   Home
                 </Typography>
               </AccordionSummary>
@@ -55,7 +59,7 @@ class Leftpanel extends React.Component {
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-                <span>
+                <span className="productions" >
                   <img className="logowidthhight" src={logo11} alt="" />
                 </span>
                 <Typography className="urlcolors homemargin urlfontsize">
@@ -65,32 +69,32 @@ class Leftpanel extends React.Component {
               <AccordionDetails>
                
                 <div className="d-flex">
-                  <span>
+                  <span className="redpot">
                     <img className="logowidthhight" src={logo2} alt="" />
                   </span>
-                  <span>
-                    <a href="dashboard" className="urlcolors urlfontsize">
+                  <span className="socialized" >
+                    <a className=" urlcolors urlfontsize" href="dashboard">
                       SEO Automator
                     </a>
                   </span>
                 </div>
                 <div className="d-flex">
-                  <span>
+                  <span className="redpot">
                     <img className="logowidthhight" src={logo3} alt="" />
                   </span>
-                  <span>
-                    <a className="urlcolors urlfontsize" href="trafficexchange">
+                  <span className="socialized" >
+                    <a className=" urlcolors urlfontsize" href="trafficexchange">
                       Traffic Exchange
                     </a>
                   </span>
                 </div>
                 <div className="d-flex">
-                  <span>
+                  <span className="redpot">
                     <img className="logowidthhight" src={logo4} alt="" />
                   </span>
 
-                  <span>
-                    <a href="youtube_views" className="urlcolors urlfontsize">
+                  <span className="socialized" >
+                    <a href="youtube_views" className=" urlcolors urlfontsize">
                       YouTube Views 
                     </a>
                   </span>
@@ -107,11 +111,11 @@ class Leftpanel extends React.Component {
                   </span>
                 </div> */}
                 <div className="d-flex">
-                  <span>
+                  <span className="redpot">
                     <img className="logowidthhight" src={logo5} alt="" />
                   </span>
 
-                  <span>
+                  <span className="socialized">
                     <a className="urlcolors urlfontsize" href="welcome">
                       Social Media Manager
                     </a>
@@ -126,50 +130,52 @@ class Leftpanel extends React.Component {
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-                <span>
+                <div className="d-flex">
+                <span className="productions">
                   <img className="logowidthhight" src={logo10} alt="" />
                 </span>
                 <Typography className="urlcolors homemargin urlfontsize">
                  Website Analytics
                 </Typography>
+                </div>
               </AccordionSummary>
               <AccordionDetails>
                
                  <div className="d-flex">
-                  <span>
+                  <span className="locality">
                     <img className="logowidthhight" src={photo} alt="" />
                   </span>
-                  <span>
-                    <a href="my-website" className="urlcolors urlfontsize">
+                  <span className="properised"> 
+                    <a href="my-website" className=" webanalyt urlcolors urlfontsize">
                     My Website
                     </a>
                   </span>
                 </div>
                 
                 <div className="d-flex">
-                  <span>
+                  <span className="locality">
                     <img className="logowidthhight" src={favicon1} alt="" />
                   </span>
-                  <span>
-                    <a className="urlcolors urlfontsize" href="my-website-seo-report">
+                  <span  className="properised">
+                    <a className=" webanalyt urlcolors urlfontsize" href="my-website-seo-report">
                     My Website SEO Report
                     </a>
                   </span>
                 </div>
                 
                 <div className="d-flex">
-                  <span>
+                  <span className="locality">
                     <img className="logowidthhight" src={favicon1} alt="" />
                   </span>
 
-                  <span>
-                    <a href="seo-seven-weeks" className="urlcolors urlfontsize">
+                  <span  className="properised">
+                    <a href="seo-seven-weeks" className= " webanalyt urlcolors urlfontsize">
                     SEO in 7 Weeks
                     </a>
                   </span>
                 </div>
                 {/*
-                <div className="d-flex">
+                <div className="d-flex"
                   <span>
                     <img className="logowidthhight" src={logo10} alt="" />
                   </span>
@@ -205,15 +211,11 @@ class Leftpanel extends React.Component {
               </AccordionDetails>
             </Accordion>
           </div>
-        ) : 
-        null}
-        <div id="leftmain">
-          <span 
-          onClick={this.openNav} className="cursor1">
-            &#9776;
-          </span>
-        </div>
+      <div class="content">
       </div>
+            
+        </div>
+     
     );
   }
 }

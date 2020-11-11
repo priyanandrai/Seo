@@ -1,34 +1,103 @@
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 0px;
   position: fixed;
-  z-index: 1;
-  top: 0;
   left: 0;
   background-color: white;
-  overflow-x: hidden;
+
   transition: 0.5s;
   /* padding-top: 60px; */
-  margin-top: 49px;
+  margin-top: 2px;
   border: 1px solid gray;
   
 }
-.cursor1:hover +.sidenav{
-  display: block;
-  
+#check:checked ~ .sidenav{
+  width: 250px;
 }
+#check{
+  display: none;
+}
+#check:checked ~ .sidenav .MuiTypography-body1{
+  margin-top: 10px;
+  margin-left: 28px !important;
+  display: block !important;
+}
+#check:checked ~ .sidenav .webanalyt{
+  margin-top: -43px !important;
+  margin-left: 36px !important;
+  display:block !important;
+
+}
+.sidenav .productions{
+  display: none;
+}
+#check:checked ~ .sidenav .productions{
+  display: block !important;
+}
+#check:checked ~ .sidenav .socialized{
+  margin-top: -18px !important;
+  margin-left: 28px;
+}
+.sidenav .redpot{
+  display: none;
+  margin-left: 6px !important;
+}
+#check:checked ~ .sidenav .redpot{
+  margin-left: -9px !important;
+  display:block !important
+}
+.sidenav .locality{
+  margin-left: -6px !important;
+  display: none;
+}
+#check:checked ~ .sidenav .locality{
+  margin-left: -9px !important;
+  display: block !important;
+}
+.sidenav .webanalyt{
+  display: none;
+}
+.sidenav .properised{
+  margin-top:  25px !important;
+  margin-left: -8px;
+}
+.sidenav .MuiTypography-body1{
+  display: none;
+}
+/* #check:checked ~ .sidenav .urlfontsize{
+  margin-top: 2px !important;
+} */
 
 .sidenav a {
-  padding:3px 1px 26px 13px;
+  color :cadetblue;
+  width: 100%;
+  line-height: 60px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+  box-sizing: border-box;
+display: none;
 }
+.sidenav .MuiAccordionSummary-content{
+ margin-left: -9px !important;
+ line-height: 43px;
+}
+ .sidenav .MuiSvgIcon-root{
+  margin-left: -19px !important;
+  display: none;
+}
+#check:checked ~ .sidenav .MuiSvgIcon-root{
+ margin-left: 20px !important;
+ display: block !important;
+ /* margin-top: 2px !important; */
+}
+/* #check:checked ~ .sidenav .MuiAccordionSummary-content{
+  display: block !important;
+} */
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+#check :checked ~ .sidenav .urlcolors{
+  margin-left: 20px;
 }
 
 .sidenav .closebtn {
@@ -38,30 +107,60 @@
   font-size: 36px;
   margin-left: 50px;
 }
+.iconned{
+  color: darkblue !important;
+  margin-top: 18px;
+  margin-left: -14px;
+  cursor: pointer !important;
+}
+
 #leftmain {
   transition: margin-left .5s;
   /* padding: 16px; */
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+#check:checked ~ .sidenav a{
+  font-size: 20px;
+ display: block !important;
+  /* width: 80px; */
 }
 
-.cursor1{
+
+/* .cursor1{
   cursor: pointer !important;
  
   color: darkblue !important;
   display:flex;
-  margin-top: 20px;
+  margin-top: 16px;
+} */
+.sidebar iconned {
+  padding-right: 10px !important;
 }
+
 .urlcolors{
   color: cadetblue !important;
   text-decoration: none !important;
 }
+.sidenav .urlcolors1{
+  margin-left: -9px;
+  display: none;
+  color: cadetblue !important;
+  text-decoration: none !important;
+}#check:checked ~ .sidenav .urlcolors1{
+  margin-left: -2px !important;
+  display:block !important;
+}
+#check:checked ~ .sidenav .analyasedd{
+  color: cadetblue !important;
+  text-decoration: none !important;
+  margin-top: -2px !important;
+}
 .urlfontsize{
   font-size: 15px !important;
   font-family:century !important;
+}
+.sidenav .webanalyt{
+  margin-left: 2px !important;
 }
 .logowidthhight{
   width: 15px;

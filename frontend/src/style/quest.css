@@ -1630,7 +1630,7 @@ input:disabled {
   }
   .logoss {
     height: 25px !important;
-    margin-top: -56px;
+    /* margin-top: -64px; */
   }
   .traffic_exchangecolor{
     outline: none !important;
@@ -2144,7 +2144,7 @@ a.disabled {
 }
 .logoss {
   height: 36px;
-  margin-top: -56px;
+  margin-top: -66px;
 }
 
 .paddingbottomcard {
@@ -2252,3 +2252,6 @@ a.disabled {
   height: 30px !important;
 }
 
+#check:checked ~ .content{
+  margin-left:100px !important
+}
