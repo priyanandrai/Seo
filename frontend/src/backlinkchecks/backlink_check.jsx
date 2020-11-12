@@ -166,6 +166,7 @@ class Backlink_check extends React.Component {
               </p>
               <Grid className=" mywebsite_container backlink_padding">
                 <Grid item md={4}>
+                  <div className="siding">
                   <div className="ml-4 mr-4 mt-3">
                     <Form.Control
                       type="name"
@@ -178,6 +179,7 @@ class Backlink_check extends React.Component {
                         this.setState({ backlinkquery: e.target.value })
                       }
                     />
+                    </div>
                   </div>
                 </Grid>
                 <Grid item md={4}>
