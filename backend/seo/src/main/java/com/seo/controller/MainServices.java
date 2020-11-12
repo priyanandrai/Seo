@@ -60,6 +60,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.seo.MultiThread.MultiThread;
 import com.seo.Process.Process;
 import com.seo.Process.ProcessDTO;
+
 @RestController
 public class MainServices {
 
@@ -71,22 +72,21 @@ public class MainServices {
 	SearchEngineservice searchEngineService;
 	@Autowired
 	ISubmitRequestService iSubmitRequestService;
-	
+
 	@Autowired
 	ISubsribeService iSubscribeService;
 	@Autowired
 	IContactusSrevice iContactus;
-	
+
 	@Autowired
 	IMywebsiteService iMywebsiteService;
-	 
+
 	@Autowired
 	IActivityService iActivityService;
-	
+
 	@Autowired
 	IEmailextractorService iEmailextractorService;
-	
-	
+
 	@Autowired
 	private Environment env;
 
@@ -106,11 +106,9 @@ public class MainServices {
 			e.printStackTrace();
 		}
 		String username = env.getProperty("user.email");
-		  String password = env.getProperty("user.password");
-		  
-		
-		Session session = Session.getInstance(com.seo.bean.Bean.getProperty(),
-				new javax.mail.Authenticator() {
+		String password = env.getProperty("user.password");
+
+		Session session = Session.getInstance(com.seo.bean.Bean.getProperty(), new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
@@ -119,15 +117,12 @@ public class MainServices {
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(signup.getEmail()));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(signup.getEmail()));
 			message.setSubject("Welcome to SEO");
-			message.setText("Dear User,"
-					+ "\n\n user Name:"+ signup.getEmail()+"\n\n user Mobile Number:"+signup.getPhoneNumber() + "\n\n user Password :"+ signup.getPassword()
-					+ "\n\n ");
+			message.setText("Dear User," + "\n\n user Name:" + signup.getEmail() + "\n\n user Mobile Number:"
+					+ signup.getPhoneNumber() + "\n\n user Password :" + signup.getPassword() + "\n\n ");
 
 			Transport.send(message);
-
 
 		} catch (MessagingException e) {
 			return "{\"message\":\"registration is done , error is sending email Please check configuration \"}";
@@ -149,9 +144,9 @@ public class MainServices {
 				}
 				if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())) {
 					Activity activity = new Activity();
-					activity.setTime(System.currentTimeMillis()+"");
+					activity.setTime(System.currentTimeMillis() + "");
 					activity.setUsername(signup.get(i).getName());
-					activity.setUser_id(signup.get(i).getId()+"");
+					activity.setUser_id(signup.get(i).getId() + "");
 					activity.setActivity("forgot password");
 					iActivityService.save(activity);
 					return "{\"message\":\"Please check your Phone for OTP\"}";
@@ -187,23 +182,22 @@ public class MainServices {
 			if (signup.get(i).getPhoneNumber().equalsIgnoreCase(login.getMobileNumber())
 					&& signup.get(i).getPassword().equals(login.getPassword())) {
 				Activity activity = new Activity();
-				activity.setTime(System.currentTimeMillis()+"");
+				activity.setTime(System.currentTimeMillis() + "");
 				activity.setUsername(signup.get(i).getName());
-				activity.setUser_id(signup.get(i).getId()+"");
+				activity.setUser_id(signup.get(i).getId() + "");
 				activity.setActivity("USer login");
 				iActivityService.save(activity);
 				return signup.get(i).toString();
 			}
 		}
 		try {
-			
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
-	
+
 //	@CrossOrigin(origins = "*")
 //	@PostMapping("/adminlogin")
 //	String view2(@RequestBody Login login) {
@@ -226,9 +220,7 @@ public class MainServices {
 //		}
 //		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 //	}
-	
-	
-	
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/adminutelogin")
 	String view2(@RequestBody Login login) {
@@ -239,19 +231,18 @@ public class MainServices {
 		System.out.println(adminlogin.toString());
 		for (int i = 0; i < adminlogin.size(); i++) {
 			if (adminlogin.get(i).getAdminname() == null || adminlogin.get(i).getPassword() == null) {
-			System.out.println("no found");
+				System.out.println("no found");
 				continue;
 			}
 			if (adminlogin.get(i).getAdminname().equalsIgnoreCase(login.getAdminname())
 					&& adminlogin.get(i).getPassword().equals(login.getPassword())) {
 				System.out.println("I am in match");
-				System.out.println("getting phone number "+ adminlogin.get(i).getAdminname());
+				System.out.println("getting phone number " + adminlogin.get(i).getAdminname());
 				return adminlogin.get(i).toString();
 			}
 		}
 		return "{\"message\":\"User do not exist, Please create account or contact to administrator\"}";
 	}
-	
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/searchuserprofile")
@@ -259,33 +250,29 @@ public class MainServices {
 		System.out.println("I am in searchuserprofile ");
 		System.out.println(usersearch);
 		try {
-			if((usersearch.getUniqueid()!=null))
-			{
-				Optional<SignUp> signup = this.iSignUpService.findById(usersearch.getUniqueid());			
-				return signup.get().toString();			
-			}else {	
-				SignUp signup=this.iSignUpService.findByPhoneNumber(usersearch.getMobileNumber());	
+			if ((usersearch.getUniqueid() != null)) {
+				Optional<SignUp> signup = this.iSignUpService.findById(usersearch.getUniqueid());
+				return signup.get().toString();
+			} else {
+				SignUp signup = this.iSignUpService.findByPhoneNumber(usersearch.getMobileNumber());
 				return signup.toString();
 			}
-			
-			}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			return "no data ";
 		}
-		
+
 	}
-	
-	
 
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getprofile")
 	public String getprofile(@RequestParam("id") Long id) {
 		try {
 			Optional<SignUp> signup = this.iSignUpService.findById(id);
-			
-			System.out.println(" Signup without tostring "+signup);
-			
-			//System.out.println("Signup without tostring"+signup);
+
+			System.out.println(" Signup without tostring " + signup);
+
+			// System.out.println("Signup without tostring"+signup);
 			return signup.get().toString();
 		} catch (Exception e) {
 
@@ -303,7 +290,7 @@ public class MainServices {
 			String task3 = "Classified Submission";
 			String Submiturl = searchengine.getSubmiturl();
 			String EmailAddress = searchengine.getEmailaddress();
-			
+
 			if (searchengine.getTasktype().equalsIgnoreCase(task1)) {
 				System.out.println("searchengine -- 1--");
 				if (searchengine.getName() == null) {
@@ -318,20 +305,18 @@ public class MainServices {
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
-				
+
 				searchengine.setTaskstatus("Pending");
 				System.out.println("searchengine -- 2--");
 				searchEngineService.savedatail(searchengine);
-				
+
 				MultiThread multiThread = new MultiThread();
 				ProcessDTO processDTO = new ProcessDTO(searchengine);
 				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
 				System.out.println("searchengine -- 3--");
-					
-				 return "{\"message\":\" Task type started successfully\"}";	
 
-				
-				
+				return "{\"message\":\" Task type started successfully\"}";
+
 			} else if (searchengine.getTasktype().equalsIgnoreCase(task2)) {
 				System.out.println("task2 -- 1--");
 				if (searchengine.getTitle() == null) {
@@ -349,20 +334,20 @@ public class MainServices {
 //				if(searchengine.getComments()==null) {
 //					return "{\"message\":\" Please enter the comment\"}";
 //				}
-				//searchengine.setTaskstatus("In Progress");
-				//searchEngineService.savedatail(searchengine);
-				
+				// searchengine.setTaskstatus("In Progress");
+				// searchEngineService.savedatail(searchengine);
+
 				System.out.println("task2 -- 2--");
 				searchengine.setTaskstatus("Pending");
 				searchEngineService.savedatail(searchengine);
-				
+
 				MultiThread multiThread = new MultiThread();
 				ProcessDTO processDTO = new ProcessDTO(searchengine);
 				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
 				System.out.println("task2 -- 3--");
 				return "{\"message\":\" Task type started successfully\"}";
 			} else if (searchengine.getTasktype().equalsIgnoreCase(task3)) {
-				
+
 				System.out.println("task3 -- 1--");
 				if (searchengine.getTitle() == null) {
 					return "{\"message\":\" Please enter the Title\"}";
@@ -382,20 +367,21 @@ public class MainServices {
 				if (searchengine.getPassword() == null) {
 					return "{\"message\":\" Please enter your email address\"}";
 				}
-			//	MultiThread multiThread = new MultiThread();
-			//	ProcessDTO processDTO = new ProcessDTO(searchengine);
-			//	multiThread.submitTasktoThreadPool(new Process(processDTO), false);
-			//	searchengine.setTaskstatus("In Pending will start this secnario in few time)");
-			//	searchEngineService.savedatail(searchengine);
+				// MultiThread multiThread = new MultiThread();
+				// ProcessDTO processDTO = new ProcessDTO(searchengine);
+				// multiThread.submitTasktoThreadPool(new Process(processDTO), false);
+				// searchengine.setTaskstatus("In Pending will start this secnario in few
+				// time)");
+				// searchEngineService.savedatail(searchengine);
 				System.out.println("task3 -- 2--");
 				searchengine.setTaskstatus("Pending");
 				searchEngineService.savedatail(searchengine);
-				
+
 				MultiThread multiThread = new MultiThread();
 				ProcessDTO processDTO = new ProcessDTO(searchengine);
 				multiThread.submitTasktoThreadPool(new Process(processDTO), false);
 				System.out.println("task3 -- 3--");
-				return "{\"message\":\" Task type started successfully\"}";		
+				return "{\"message\":\" Task type started successfully\"}";
 
 			} else {
 				return "{\"message\":\" Please select a valid   Task Type\"}";
@@ -405,7 +391,6 @@ public class MainServices {
 			System.out.println("task3 -- 4--");
 			return "{\"message\":\"Error in creating task , Please try again \"}";
 		}
-	
 
 	}
 
@@ -421,9 +406,9 @@ public class MainServices {
 			if (signup1.getPassword().equals(changepassword.getCurrentPassword())) {
 				signup1.setPassword(changepassword.getNewPassword());
 				Activity activity = new Activity();
-				activity.setTime(System.currentTimeMillis()+"");
+				activity.setTime(System.currentTimeMillis() + "");
 				activity.setUsername(signup.get().getName());
-				activity.setUser_id(signup.get().getId()+"");
+				activity.setUser_id(signup.get().getId() + "");
 				activity.setActivity("password changed");
 				iActivityService.save(activity);
 				iSignUpService.save(signup1);
@@ -439,27 +424,28 @@ public class MainServices {
 		}
 
 	}
+
 	@CrossOrigin(origins = "*")
 	@PutMapping("/editprofile")
 	String editprofile(@RequestBody ProfileDto profile) {
-		
+
 		Optional<SignUp> signup = this.iSignUpService.findById(profile.getId());
 		SignUp signup1 = signup.get();
 		try {
-			
-				signup1.setName(profile.getName());
-				signup1.setEmail(profile.getEmail());
-				signup1.setProfession(profile.getProfession());
-				signup1.setOrganisation(profile.getOrganisation());
-				Activity activity = new Activity();
-				activity.setTime(System.currentTimeMillis()+"");
-				activity.setUsername(signup.get().getName());
-				activity.setUser_id(signup.get().getId()+"");
-				activity.setActivity("profile edited");
-				iActivityService.save(activity);
-				iSignUpService.save(signup1);
-				return "{\"message\":\"Your Profile Successfully Changed\"}";
-			
+
+			signup1.setName(profile.getName());
+			signup1.setEmail(profile.getEmail());
+			signup1.setProfession(profile.getProfession());
+			signup1.setOrganisation(profile.getOrganisation());
+			Activity activity = new Activity();
+			activity.setTime(System.currentTimeMillis() + "");
+			activity.setUsername(signup.get().getName());
+			activity.setUser_id(signup.get().getId() + "");
+			activity.setActivity("profile edited");
+			iActivityService.save(activity);
+			iSignUpService.save(signup1);
+			return "{\"message\":\"Your Profile Successfully Changed\"}";
+
 		} catch (Exception e) {
 
 			return "{\"message\":\"Error in changing password , Please try again \"}";
@@ -469,24 +455,23 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getinprogresstask")
 	public List<SearchEngine> getInProgressTask(@RequestParam("id") Long id) {
-	
+
 		try {
-			
+
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 			String taskstatus = "In Progress";
-			String pending= "Pending";
-			
-			List<SearchEngine> list1 = 
-					
+			String pending = "Pending";
+
+			List<SearchEngine> list1 =
+
 					list.stream()
-					.filter(searchengine -> searchengine.getUserId() == id
-					&& ((searchengine.getTaskstatus().equalsIgnoreCase(taskstatus)) || (searchengine.getTaskstatus().equalsIgnoreCase(pending)) ))
-					.collect(Collectors.toList());
-			
-			
+							.filter(searchengine -> searchengine.getUserId() == id
+									&& ((searchengine.getTaskstatus().equalsIgnoreCase(taskstatus))
+											|| (searchengine.getTaskstatus().equalsIgnoreCase(pending))))
+							.collect(Collectors.toList());
+
 			return list1;
 
-			
 //		List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 //
 //			List<SearchEngine> list1 = list.stream().filter(searchengine -> searchengine.getUserId() == id)
@@ -502,16 +487,16 @@ public class MainServices {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/gettask")
 	public List<SearchEngine> getTask(@RequestParam("id") Long id) {
-	
+
 		try {
 			System.out.println(id);
-			List<SearchEngine> searchengine = new ArrayList<SearchEngine>(); 
+			List<SearchEngine> searchengine = new ArrayList<SearchEngine>();
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 			for (int i = 0; i < list.size(); i++) {
-				if(list.get(i).getUserId() == null) {
+				if (list.get(i).getUserId() == null) {
 					continue;
-				}			
-				if(list.get(i).getUserId().longValue() == id.longValue()){
+				}
+				if (list.get(i).getUserId().longValue() == id.longValue()) {
 					searchengine.add(list.get(i));
 				}
 			}
@@ -524,10 +509,11 @@ public class MainServices {
 		}
 
 	}
+
 	@CrossOrigin(origins = "*")
 	@GetMapping("/getlatesttask")
 	public List<SearchEngine> getlatesttask(@RequestParam("id") Long id) {
-	
+
 		try {
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findlatestdetail();
 
@@ -576,7 +562,6 @@ public class MainServices {
 		searchEngineService.deleteById(id);
 		return "deleted sucessfully";
 	}
-	
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/subscribe")
@@ -595,53 +580,59 @@ public class MainServices {
 		}
 		System.out.println(Subsribe.toString());
 		return "{\"message\":\"Subsribe sucessfully\"}";
-		
-	}	
-	
+
+	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/contactus")
 	public String contactus(@RequestBody Contactus Contactus) {
 		try {
+
 			String body = "<p style=\"font-family:century\">hello SR consultancy services,</p>"
-					+"<p style=\"margin-left:40px;font-family:century\">"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"</p>"
-							+"<br>"+"<b style=\"font-family:century\">Visitor Details:-</b>"+"<br>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Visitor Name:"+Contactus.getName()+"</p>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Mobile Number:"+Contactus.getNumber()+"</p>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Email Address:"+Contactus.getEmail()+"</p>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Organisation:"+Contactus.getOrganization()+"</p>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Country:"+Contactus.getCountry()+"</p>"+
-					"<p style=\"margin-left:40px;font-family:century\">"+"Message:"+
-					Contactus.getMessage()+"</p>"+
-					"<p style=\"font-family:century\">Thank You</p>";
-				
-			
-			String body1 = "<p style=\"font-family:century\">"+"Dear "+Contactus.getName()+","+"</p>"
-					+"<p style=\"font-family:century\">Thank you to Connect us, Our representative will contact you within 24 hours.</p>"+
-					"<p style=\"font-family:century\">Thanks & Regards</p>"+
-					"<p style=\"font-family:century\">SR Consultancy Services<br/>91+ 8587049379<br/><b>info:</b>info@srcservicesltd.com<br/><b>Sales:</b>sales@srcservicesltd.com<br/><b>Jobs:</b>jobs@srcservicesltd.com<br/><b>HR:</b>hr@srcservicesltd.com</p>";
-					
-					
-			Sendmail.SendMail("info@srcservicesltd.com","ujjawal.saini@srcservicesltd.com",Contactus.getName() + " is trying to contact you",body);
-			Sendmail.SendMail("info@srcservicesltd.com",Contactus.getEmail(),"Thank You for contacting us",body1);
-			 iContactus.save( Contactus);
+					+ "<p style=\"margin-left:40px;font-family:century\">" + Contactus.getName()
+					+ " is trying to connect with you on srcservicesltd.com </p><br>"
+					+ "<b style=\"font-family:century\">Visitor Details:-</b>" + "<br>"
+					+ "<p style=\"margin-left:40px;font-family:century\">" + "Visitor Name:" + Contactus.getName()
+					+ "</p>" + "<p style=\"margin-left:40px;font-family:century\">" + "Mobile Number:"
+					+ Contactus.getNumber() + "</p>" + "<p style=\"margin-left:40px;font-family:century\">"
+					+ "Email Address:" + Contactus.getEmail() + "</p>"
+					+ "<p style=\"margin-left:40px;font-family:century\">" + "Organisation:"
+					+ Contactus.getOrganization() + "</p>" + "<p style=\"margin-left:40px;font-family:century\">"
+					+ "Country:" + Contactus.getCountry() + "</p>"
+					+ "<p style=\"margin-left:40px;font-family:century\">" + "Message:" + Contactus.getMessage()
+					+ "</p>" + "<p style=\"font-family:century\">Thank You</p>";
+
+//			String body1 = "<p style=\"font-family:century\">"+"Dear "+Contactus.getName()+","+"</p>"
+//					+"<p style=\"font-family:century\">Thank you to Connect us, Our representative will contact you within 24 hours.</p>"+
+//					"<p style=\"font-family:century\">Thanks & Regards</p>"+
+//					"<p style=\"font-family:century\">SR Consultancy Services<br/>91+ 8587049379<br/><b>info:</b>info@srcservicesltd.com<br/><b>Sales:</b>sales@srcservicesltd.com<br/><b>Jobs:</b>jobs@srcservicesltd.com<br/><b>HR:</b>hr@srcservicesltd.com</p>";
+//					
+
+			// To inform internal team
+
+			Sendmail.SendMail("info@srcservicesltd.com", "Info - SR consultancy ", "navyblue.rai999@gmail.com", "",
+					Contactus.getName() + " is trying to connect you", body,"");
+
+			// To reply back to customer
+
+			Sendmail.SendMail("info@srcservicesltd.com","Info - SR consultancy Services ", Contactus.getEmail(), "Hello " +Contactus.getName(), "Thank You for contacting SeemaRai Consultancy Services", "","./src//main//resources//mailcollection//contactus_replyback.html" );
+			iContactus.save(Contactus);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println(Contactus.toString());
 		return "Thank You !";
-	}	
-	
-	
+	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/mywebsite")
 	public String mywebsite(@RequestBody Mywebsite mywebsite) {
 		iMywebsiteService.save(mywebsite);
 		System.out.println(mywebsite.toString());
 		return "{\"message\":\"Url is added sucessfully\"}";
-		
+
 	}
-	
-	
+
 //	@CrossOrigin(origins = "*")
 //	@PostMapping("/activity")
 //	public String activity(@RequestBody Activity activity) {
@@ -655,37 +646,41 @@ public class MainServices {
 	@GetMapping("/activitylist")
 	public Iterable<Activity> activitylist() {
 		return iActivityService.findAll();
-	}	
-	
+	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("/startemailextractor")
-	public String startemailextractor(@RequestBody Emailextractor emailextractor) throws IOException, InterruptedException {
+	public String startemailextractor(@RequestBody Emailextractor emailextractor)
+			throws IOException, InterruptedException {
 		iEmailextractorService.save(emailextractor);
-		JSONArray emaillist  = new JSONArray();
+		JSONArray emaillist = new JSONArray();
 		try {
 			String bulkemail1 = "Google.Com";
 			String bulkemail2 = "Ask Me.Com";
 			String bulkemail3 = "Yahoo.Com";
 			String bulkemail4 = "Yippy Search";
-			
+
 			if (emailextractor.getType().equalsIgnoreCase(bulkemail1)) {
-				 emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
-			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail2)) {
-				// emaillist =  com.seo.Emailextractor.Askmeemailextractor.AskmeSearchEmail(emailextractor.getQuery());
-			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail3)) {
-			//	emaillist =  com.seo.Emailextractor.Yahooemailextractor.YahooSearchEmail(emailextractor.getQuery());
-			}else if (emailextractor.getType().equalsIgnoreCase(bulkemail4)) {
-			//	 emaillist =  com.seo.Emailextractor.Yippyemailextractor.YippySearchEmail(emailextractor.getQuery());
+				emaillist = com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+			} else if (emailextractor.getType().equalsIgnoreCase(bulkemail2)) {
+				// emaillist =
+				// com.seo.Emailextractor.Askmeemailextractor.AskmeSearchEmail(emailextractor.getQuery());
+			} else if (emailextractor.getType().equalsIgnoreCase(bulkemail3)) {
+				// emaillist =
+				// com.seo.Emailextractor.Yahooemailextractor.YahooSearchEmail(emailextractor.getQuery());
+			} else if (emailextractor.getType().equalsIgnoreCase(bulkemail4)) {
+				// emaillist =
+				// com.seo.Emailextractor.Yippyemailextractor.YippySearchEmail(emailextractor.getQuery());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		//System.out.println(emailextractor.toString());
-	//	List<String> emaillist =  com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
-		//System.out.println(eamillist);
-		return "{\"Emails\":"+emaillist.toString()+"}";
+		// System.out.println(emailextractor.toString());
+		// List<String> emaillist =
+		// com.seo.Emailextractor.Googleemailextractor.GoogleSearchEmail(emailextractor.getQuery());
+		// System.out.println(eamillist);
+		return "{\"Emails\":" + emaillist.toString() + "}";
 //	return "{\"message\":\"email is extracted sucessfully\"}";
-		
-		
+
 	}
 }
