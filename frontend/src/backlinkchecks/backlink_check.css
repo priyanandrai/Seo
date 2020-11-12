@@ -30,7 +30,7 @@
     font-family: century;
 }
 .backlink_btn{
-    background-color: #2C81BA !important;
+    background-color:#33BC9C !important;
     outline: none !important;
     font-size: 13px;
     border-radius: 5px;
@@ -61,6 +61,10 @@
      font-weight: bold;
      font-family: century;
      color: #33BC9C;
+     margin-bottom: 2% !important;
+ }
+ .padding_backlink{
+     margin-bottom: 2% !important;
  }
  .backlink_details{
      text-align: center;

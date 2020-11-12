@@ -24,9 +24,9 @@ class Backlink_check extends React.Component {
   constructor(props) {
     super(props);
     this.checkwebsiterank = this.checkwebsiterank.bind(this);
-  
+
     this.state = {
-      backlinksrank: false,
+      backlinksrank: true,
       mainForm: true,
       backlinkquery: "",
       selectdomain: "Google.com",
@@ -67,11 +67,12 @@ class Backlink_check extends React.Component {
       yippy: "Yippy Search",
       siteranking: "N/A",
       websiterank: "N/A",
-      domainname: "",
-      searchengine: "",
+      domainname: "N/A",
+      searchengine: "N/A",
+      countbalance: "N/A",
     };
   }
- 
+
   checkwebsiterank() {
     if (this.state.backlinkquery === "") {
       this.setState({
@@ -88,19 +89,17 @@ class Backlink_check extends React.Component {
       return;
     }
 
-   
-
     let self = this;
-
    
     let url =
       // getBaseUrl() +
       `http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=${this.state.backlinkquery}`;
 
-    axios.get(url).then(
+    axios.get(url, {headers: {
+     " Access-Control-Allow-Origin" :"*",
+     " Access-Control-Allow-Methods" : 'GET,PUT,POST,DELETE,PATCH,OPTIONS'}}).then(
       (response) => {
         try {
-          console.log("response previos   ", response.data);
           var XMLParser = require("react-xml-parser");
           var xml = new XMLParser().parseFromString(response.data);
           // console.log("xml",xml.children[0].children[2].children[1].attributes.RANK)
@@ -113,7 +112,7 @@ class Backlink_check extends React.Component {
         } catch (error) {
           this.setState({
             snackbar: true,
-        error: "Please Try Again",
+            error: "Please Try Again",
           });
         }
       },
@@ -144,18 +143,18 @@ class Backlink_check extends React.Component {
               <Grid className=" mywebsite_container backlink_padding">
                 <Grid item md={4}>
                   <div className="siding">
-                  <div className="ml-4 mr-4 mt-3">
-                    <Form.Control
-                      type="name"
-                      placeholder={this.state.placedomain}
-                      id="Name"
-                      className="doamin_backlinked"
-                      autoComplete="off"
-                      value={this.state.backlinkquery}
-                      onChange={(e) =>
-                        this.setState({ backlinkquery: e.target.value })
-                      }
-                    />
+                    <div className="ml-4 mr-4 mt-3">
+                      <Form.Control
+                        type="name"
+                        placeholder={this.state.placedomain}
+                        id="Name"
+                        className="doamin_backlinked"
+                        autoComplete="off"
+                        value={this.state.backlinkquery}
+                        onChange={(e) =>
+                          this.setState({ backlinkquery: e.target.value })
+                        }
+                      />
                     </div>
                   </div>
                 </Grid>
@@ -210,90 +209,46 @@ class Backlink_check extends React.Component {
 
         {this.state.backlinksrank ? (
           <form>
-            {/* <div>
-              <div className="backlink_first">
-                <p className="backlink_checkdomain ml-4 pt-3">
-                  Check Your Domain Search Engine Ranking
-                </p>
-                <div className="back_first_card">
-                  <Grid className=" mywebsite_container">
-                    <Grid item md={4}>
-                      <div className="p-3">
-                        <Form.Control
-                          type="name"
-                          placeholder="Please Enter Your Domain"
-                          id="Name"
-                          className=""
-                          autoComplete="off"
-                          value={this.state.backlinkquery}
-                          onChange={(e) =>
-                            this.setState({ backlinkquery: e.target.value })
-                          }
-                        />
-                      </div>
-                    </Grid>
-                    <Grid item md={4}>
-                      <div className="p-3">
-                        <Select
-                          className="backlink_seclect"
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={this.state.selectdomain}
-                          onChange={(e) => {
-                            this.setState({
-                              selectdomain: e.target.value,
-                            });
-                          }}
-                        >
-                          <MenuItem value={this.state.google}>
-                            Google.com
-                          </MenuItem>
-                          <MenuItem value={this.state.askme}>
-                            {" "}
-                            Ask Me.com
-                          </MenuItem>
-                          <MenuItem value={this.state.yahoo}>
-                            {" "}
-                            Yahoo.com
-                          </MenuItem>
-                          <MenuItem value={this.state.bing}> Bing.com</MenuItem>
-                          <MenuItem value={this.state.duck}>
-                            Duck duckgo
-                          </MenuItem>
-                          <MenuItem value={this.state.yippy}>
-                            {" "}
-                            Yippy Search
-                          </MenuItem>
-                        </Select>
-                      </div>
-                    </Grid>
-                    <Grid item md={4}>
-                      <div className="p-3">
-                        <button
-                          className="backlink_btn"
-                          onClick={this.checkwebsiterank}
-                        >
-                          Check Your Website Rank
-                        </button>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </div>
-              </div>
-            </div> */}
             <div>
               <div className=" backlink_center mt-5 ml-auto mr-auto">
                 <p className="backlink_checkdomain ml-4 pt-3">
                   Ranking Checkes
                 </p>
                 <div className="ml-5">
-                  <div className="d-flex">
+                  <Grid className=" mywebsite_container">
+                    <Grid item md={3}>
+                      <p className="backlink_doamin">Domain Name </p>
+                      <p className="backlink_doamin">Search Engine</p>
+                      <p className="backlink_doamin">Total Balance Count </p>
+                      <p className="backlink_doamin">Your Site Ranking </p>
+                      <p className="backlink_doamin">Total Reaches </p>
+                    </Grid>
+                    <Grid item md={3}>
+                      <p className="padding_backlink">
+                        {this.state.domainname}
+                      </p>
+                      <p className="padding_backlink">
+                        {this.state.searchengine}
+                      </p>
+                      <p className="padding_backlink">
+                        {this.state.countbalance}
+                      </p>
+                      <p className="padding_backlink">
+                        {this.state.siteranking}
+                      </p>
+                      <p className="padding_backlink">
+                        {this.state.websiterank}
+                      </p>
+                    </Grid>
+                    <Grid item md={6}></Grid>
+                  </Grid>
+                  {/* <div className="d-flex">
                     <span className="backlink_doamin">Domain Name </span>
-                    <span className="ml-5">:{this.state.domainname}</span>
+                    <span className="ml-5">: {this.state.domainname}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Search Engine</span>
-                    <span className="ml-5">:{this.state.searchengine}</span>
+                    <span className="ml-5">: {this.state.searchengine}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">
@@ -303,12 +258,12 @@ class Backlink_check extends React.Component {
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Your Site Ranking </span>
-                    <span className="ml-4">:{this.state.siteranking}</span>
+                    <span className="ml-4">: {this.state.siteranking}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Total Reaches </span>
-                    <span className="ml-5">:{this.state.websiterank}</span>
-                  </div>
+                    <span className="ml-5">: {this.state.websiterank}</span>
+                  </div> */}
                 </div>
               </div>
             </div>
