@@ -458,19 +458,25 @@ public class MainServices {
 
 		try {
 
+			
+			List<SearchEngine> searchengine = new ArrayList<SearchEngine>();
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 			String taskstatus = "In Progress";
 			String pending = "Pending";
 
-			List<SearchEngine> list1 =
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i).getUserId() == null) {
+					continue;
+				}
+				if (list.get(i).getUserId().longValue() == id.longValue()&& ((list.get(i).getTaskstatus().equalsIgnoreCase(taskstatus))
+						|| (list.get(i).getTaskstatus().equalsIgnoreCase(pending)))) {
+					searchengine.add(list.get(i));
+				}
+			}
 
-					list.stream()
-							.filter(searchengine -> searchengine.getUserId() == id
-									&& ((searchengine.getTaskstatus().equalsIgnoreCase(taskstatus))
-											|| (searchengine.getTaskstatus().equalsIgnoreCase(pending))))
-							.collect(Collectors.toList());
+			return searchengine;
 
-			return list1;
+
 
 //		List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 //
@@ -489,7 +495,7 @@ public class MainServices {
 	public List<SearchEngine> getTask(@RequestParam("id") Long id) {
 
 		try {
-			System.out.println(id);
+	
 			List<SearchEngine> searchengine = new ArrayList<SearchEngine>();
 			List<SearchEngine> list = (List<SearchEngine>) searchEngineService.findAlldetail();
 			for (int i = 0; i < list.size(); i++) {
