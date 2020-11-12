@@ -602,17 +602,17 @@ public class MainServices {
 	@PostMapping("/contactus")
 	public String contactus(@RequestBody Contactus Contactus) {
 		try {
-			String body = "hello SR consultancy services,"+"<br>"
-					+"<p style=\"margin-left:40px;\">"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"</p>"
-							+"<br>"+"<b>Visitor Details::</b>"+"<br>"+
-					"<p style=\"margin-left:40px;\">"+"Visitor Name:"+Contactus.getName()+"</p>"+
-					"<p style=\"margin-left:40px;\">"+"Mobile Number:"+Contactus.getNumber()+"</p>"+
-					"<p style=\"margin-left:40px;\">"+"Email Address:"+Contactus.getEmail()+"</p>"+
-					"<p style=\"margin-left:40px;\">"+"Organisation:"+Contactus.getOrganization()+"</p>"+
-					"<p style=\"margin-left:40px;\">"+"Country:"+Contactus.getCountry()+"</p>"+
-					"<p style=\"margin-left:40px;\">"+"Message:"+
-					Contactus.getMessage()+
-					"<p>Thank You</p>";
+			String body = "<p style=\"font-family:century\">hello SR consultancy services,</p>"
+					+"<p style=\"margin-left:40px;font-family:century\">"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"</p>"
+							+"<br>"+"<b style=\"font-family:century\">Visitor Details:-</b>"+"<br>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Visitor Name:"+Contactus.getName()+"</p>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Mobile Number:"+Contactus.getNumber()+"</p>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Email Address:"+Contactus.getEmail()+"</p>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Organisation:"+Contactus.getOrganization()+"</p>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Country:"+Contactus.getCountry()+"</p>"+
+					"<p style=\"margin-left:40px;font-family:century\">"+"Message:"+
+					Contactus.getMessage()+"</p>"+
+					"<p style=\"font-family:century\">Thank You</p>";
 							
 						
 			
