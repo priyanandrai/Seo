@@ -24,18 +24,19 @@ class Backlink_check extends React.Component {
   constructor(props) {
     super(props);
     this.checkwebsiterank = this.checkwebsiterank.bind(this);
+    // this.getxmlurldata = this.getxmlurldata.bind(this);
     this.state = {
       backlinksrank: false,
       mainForm: true,
-      backlinkquery:"",
-      selectdomain:"",
+      backlinkquery: "",
+      selectdomain: "Google.com",
       data: [
         {
-        id: 1,
-        NumberRow:"1",
-        backlinkurl:"fdgfdgdfg",
-        details:"dsfsd"
-      }
+          id: 1,
+          NumberRow: "1",
+          backlinkurl: "fdgfdgdfg",
+          details: "dsfsd",
+        },
       ],
       columns: [
         {
@@ -57,47 +58,103 @@ class Backlink_check extends React.Component {
           center: true,
         },
       ],
-      placedomain:"Please enter your domain",
-      google:"Google.com",
-      askme:"Ask Me.com",
-      yahoo:"Yahoo.com",
-      bing:"Bing.com",
-      duck:"Duck duckgo",
-      yippy:"Yippy Search",
-      siteranking:"",
-      websiterank:""
+      placedomain: "Please enter your domain",
+      google: "Google.com",
+      askme: "Ask Me.com",
+      yahoo: "Yahoo.com",
+      bing: "Bing.com",
+      duck: "Duck duckgo",
+      yippy: "Yippy Search",
+      siteranking: "N/A",
+      websiterank: "N/A",
+      domainname: "",
+      searchengine: "",
     };
-    
   }
+  // getxmlurldata(){
+  //   let self = this;
+  //   let url =
+  //     getBaseUrl() +
+  //     "http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=" +
+  //     window.localStorage.getItem("url");
+  //   axios.get(url).then(
+  //     (response) => {
+  //       try {
+  //         console.log("response   ", response.data)
+
+  //         // this.setState({
+  //         //   ranking: response.data.ALEXA.SD[1].POPULARITY.TEXT,
+  //         // });
+  //       } catch (error) {
+  //         // this.setState({
+  //         //   ranking: "Need to calculate data ",
+  //         // });
+  //       }
+
+  //     },
+  //     (error) => {}
+  //   );
+
+  // }
   checkwebsiterank() {
     if (this.state.backlinkquery === "") {
       this.setState({
         snackbar: true,
         error: "Please Fill the Your Domain",
-        // backlinksrank: true,
-        // mainForm: false 
       });
       return;
-   
     }
     if (this.state.selectdomain === "") {
       this.setState({
         snackbar: true,
         error: "Please Select the domain",
-        // backlinksrank: true,
-        // mainForm: false 
       });
       return;
-   
     }
-     this.setState({
-       backlinksrank: true,
-        mainForm: false 
-      });
+
+    // console.log("datacheck",this.state.backlinkquery);
+
+    let self = this;
+
+    // console.log(this.state.backlinkquery)
+    let url =
+      // getBaseUrl() +
+      `http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=${this.state.backlinkquery}`;
+
+    axios.get(url).then(
+      (response) => {
+        try {
+          console.log("response previos   ", response.data);
+          var XMLParser = require("react-xml-parser");
+          var xml = new XMLParser().parseFromString(response.data);
+          // console.log("xml",xml.children[0].children[2].children[1].attributes.RANK)
+          this.setState({
+            siteranking:
+              xml.children[0].children[2].children[0].attributes.TEXT,
+            websiterank:
+              xml.children[0].children[2].children[1].attributes.RANK,
+          });
+        } catch (error) {
+          // this.setState({
+          //   ranking: "Need to calculate data ",
+          // });
+        }
+      },
+      (error) => {}
+    );
+
+    this.setState({
+      backlinksrank: true,
+      mainForm: false,
+      domainname: this.state.backlinkquery,
+      searchengine: this.state.selectdomain,
+    });
   }
+
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
+
   render() {
     return (
       <div className="backllink_color pt-5">
@@ -109,39 +166,43 @@ class Backlink_check extends React.Component {
               </p>
               <Grid className=" mywebsite_container backlink_padding">
                 <Grid item md={4}>
-                  <div className="siding">
                   <div className="ml-4 mr-4 mt-3">
                     <Form.Control
                       type="name"
                       placeholder={this.state.placedomain}
                       id="Name"
-                      className="doamin_backlinked domain  "
+                      className="doamin_backlinked"
                       autoComplete="off"
-                        value={this.state.backlinkquery}
-                        onChange={(e) => this.setState({ backlinkquery: e.target.value })}
+                      value={this.state.backlinkquery}
+                      onChange={(e) =>
+                        this.setState({ backlinkquery: e.target.value })
+                      }
                     />
-                    </div>
                   </div>
                 </Grid>
                 <Grid item md={4}>
                   <div className="ml-4 mr-4 mt-3">
-                  <Select className="backlink_seclect"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={this.state.selectdomain}
-              onChange={(e) => {
-                this.setState({
-                  selectdomain: e.target.value,
-                });
-              }}
-            >
-              <MenuItem value={this.state.google}>Google.com</MenuItem>
-              <MenuItem value={this.state.askme}> Ask Me.com</MenuItem>
-              <MenuItem value={this.state.yahoo}> Yahoo.com</MenuItem>
-              <MenuItem value={this.state.bing}>  Bing.com</MenuItem>
-              <MenuItem value={this.state.duck}>Duck duckgo</MenuItem>
-              <MenuItem value={this.state.yippy}> Yippy Search</MenuItem>
-            </Select>
+                    <Select
+                      className="backlink_seclect"
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={this.state.selectdomain}
+                      onChange={(e) => {
+                        this.setState({
+                          selectdomain: e.target.value,
+                        });
+                      }}
+                    >
+                      <MenuItem value={this.state.google}>Google.com</MenuItem>
+                      <MenuItem value={this.state.askme}> Ask Me.com</MenuItem>
+                      <MenuItem value={this.state.yahoo}> Yahoo.com</MenuItem>
+                      <MenuItem value={this.state.bing}> Bing.com</MenuItem>
+                      <MenuItem value={this.state.duck}>Duck duckgo</MenuItem>
+                      <MenuItem value={this.state.yippy}>
+                        {" "}
+                        Yippy Search
+                      </MenuItem>
+                    </Select>
                     {/* <Form.Control
                       type="name"
                       placeholder="Enter Query"
@@ -179,7 +240,6 @@ class Backlink_check extends React.Component {
                   <Grid className=" mywebsite_container">
                     <Grid item md={4}>
                       <div className="p-3">
-                        
                         <Form.Control
                           type="name"
                           placeholder="Please Enter Your Domain"
@@ -187,35 +247,53 @@ class Backlink_check extends React.Component {
                           className=""
                           autoComplete="off"
                           value={this.state.backlinkquery}
-                          onChange={(e) => this.setState({ backlinkquery: e.target.value })}
+                          onChange={(e) =>
+                            this.setState({ backlinkquery: e.target.value })
+                          }
                         />
                       </div>
                     </Grid>
                     <Grid item md={4}>
                       <div className="p-3">
-                      <Select className="backlink_seclect"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={this.state.selectdomain}
-              onChange={(e) => {
-                this.setState({
-                  selectdomain: e.target.value,
-                });
-              }}
-            >
-              <MenuItem value={this.state.google}>Google.com</MenuItem>
-              <MenuItem value={this.state.askme}> Ask Me.com</MenuItem>
-              <MenuItem value={this.state.yahoo}> Yahoo.com</MenuItem>
-              <MenuItem value={this.state.bing}>  Bing.com</MenuItem>
-              <MenuItem value={this.state.duck}>Duck duckgo</MenuItem>
-              <MenuItem value={this.state.yippy}> Yippy Search</MenuItem>
-            </Select>
+                        <Select
+                          className="backlink_seclect"
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={this.state.selectdomain}
+                          onChange={(e) => {
+                            this.setState({
+                              selectdomain: e.target.value,
+                            });
+                          }}
+                        >
+                          <MenuItem value={this.state.google}>
+                            Google.com
+                          </MenuItem>
+                          <MenuItem value={this.state.askme}>
+                            {" "}
+                            Ask Me.com
+                          </MenuItem>
+                          <MenuItem value={this.state.yahoo}>
+                            {" "}
+                            Yahoo.com
+                          </MenuItem>
+                          <MenuItem value={this.state.bing}> Bing.com</MenuItem>
+                          <MenuItem value={this.state.duck}>
+                            Duck duckgo
+                          </MenuItem>
+                          <MenuItem value={this.state.yippy}>
+                            {" "}
+                            Yippy Search
+                          </MenuItem>
+                        </Select>
                       </div>
                     </Grid>
                     <Grid item md={4}>
                       <div className="p-3">
-                        <button className="backlink_btn"
-                        onClick={this.checkwebsiterank}>
+                        <button
+                          className="backlink_btn"
+                          onClick={this.checkwebsiterank}
+                        >
                           Check Your Website Rank
                         </button>
                       </div>
@@ -231,12 +309,12 @@ class Backlink_check extends React.Component {
                 </p>
                 <div className="ml-5">
                   <div className="d-flex">
-               <span className="backlink_doamin">Domain Name </span>
-            <span className="ml-5">:{this.state.backlinkquery}</span>
+                    <span className="backlink_doamin">Domain Name </span>
+                    <span className="ml-5">:{this.state.domainname}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Search Engine</span>
-            <span className="ml-5">:{this.state.selectdomain}</span>
+                    <span className="ml-5">:{this.state.searchengine}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">
@@ -246,11 +324,11 @@ class Backlink_check extends React.Component {
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Your Site Ranking </span>
-            <span className="ml-4">:{this.state.siteranking}</span>
+                    <span className="ml-4">:{this.state.siteranking}</span>
                   </div>
                   <div className="d-flex mt-2">
                     <span className="backlink_doamin">Total Reaches </span>
-            <span className="ml-5">:{this.state.websiterank}</span>
+                    <span className="ml-5">:{this.state.websiterank}</span>
                   </div>
                 </div>
               </div>
@@ -259,14 +337,13 @@ class Backlink_check extends React.Component {
               <div className="backlink_first2 mt-5">
                 <p className="backlink_details">Backlink Details</p>
                 <div>
-                <DataTable
-            
-              // title="Current Session"
-              columns={this.state.columns}
-              data={this.state.data}
-              pagination={true}
-              paginationDefaultPage
-            />
+                  <DataTable
+                    // title="Current Session"
+                    columns={this.state.columns}
+                    data={this.state.data}
+                    pagination={true}
+                    paginationDefaultPage
+                  />
                 </div>
               </div>
             </div>
