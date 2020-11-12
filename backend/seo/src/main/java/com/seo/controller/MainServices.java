@@ -602,15 +602,17 @@ public class MainServices {
 	@PostMapping("/contactus")
 	public String contactus(@RequestBody Contactus Contactus) {
 		try {
-			String body = "hello SR consultancy services,"+"\n"
-					+"\t"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"\n"
-							+"\n\t"+"Visitor Details::"+"\n"+
-					"\t\t"+"Visitor Name:"+Contactus.getName()+"\n"+
-					"\t\t"+"Mobile Number:"+Contactus.getNumber()+"\n"+
-					"\t\t"+"Email Address:"+Contactus.getEmail()+"\n"+
-					"\t\t"+"Organisation:"+Contactus.getOrganization()+"\n"+
-					"\t\t"+"Country:"+Contactus.getCountry()+"\n"+
-					"\t\t"+"Message:"+Contactus.getMessage();
+			String body = "hello SR consultancy services,"+"<br>"
+					+"<p style=\"margin-left:40px;\">"+ Contactus.getName()+" is trying to connect with you on srcservicesltd.com"+"</p>"
+							+"<br>"+"<b>Visitor Details::</b>"+"<br>"+
+					"<p style=\"margin-left:40px;\">"+"Visitor Name:"+Contactus.getName()+"</p>"+
+					"<p style=\"margin-left:40px;\">"+"Mobile Number:"+Contactus.getNumber()+"</p>"+
+					"<p style=\"margin-left:40px;\">"+"Email Address:"+Contactus.getEmail()+"</p>"+
+					"<p style=\"margin-left:40px;\">"+"Organisation:"+Contactus.getOrganization()+"</p>"+
+					"<p style=\"margin-left:40px;\">"+"Country:"+Contactus.getCountry()+"</p>"+
+					"<p style=\"margin-left:40px;\">"+"Message:"+
+					Contactus.getMessage()+
+					"<p>Thank You</p>";
 							
 						
 			
