@@ -616,16 +616,11 @@ public class MainServices {
 				
 			
 			String body1 = "<p style=\"font-family:century\">"+"Dear "+Contactus.getName()+","+"</p>"
-					+"<p style=\"font-family:century\">Thank you to Connect us,</p>"+
-						
-					"<p style=\"margin-left:40px;font-family:century\">Our Representative will contact you within 24 hours.</p>"+
-					"<p style=\"font-family:century\">Thank & Regards</p>"+
+					+"<p style=\"font-family:century\">Thank you to Connect us, Our representative will contact you within 24 hours.</p>"+
+					"<p style=\"font-family:century\">Thanks & Regards</p>"+
 					"<p style=\"font-family:century\">SR Consultancy Services<br/>91+ 8587049379<br/><b>info:</b>info@srcservicesltd.com<br/><b>Sales:</b>sales@srcservicesltd.com<br/><b>Jobs:</b>jobs@srcservicesltd.com<br/><b>HR:</b>hr@srcservicesltd.com</p>";
 					
 					
-					
-						
-			
 			Sendmail.SendMail("info@srcservicesltd.com","ujjawal.saini@srcservicesltd.com",Contactus.getName() + " is trying to contact you",body);
 			Sendmail.SendMail("info@srcservicesltd.com",Contactus.getEmail(),"Thank You for contacting us",body1);
 			 iContactus.save( Contactus);
