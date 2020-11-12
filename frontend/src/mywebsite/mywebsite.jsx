@@ -39,8 +39,7 @@ class Mywebsite extends React.Component {
     axios.get(url).then(
       (response) => {
         try {
-          // console.log("response   ", response.data.ALEXA.SD[1].POPULARITY.TEXT)
-          console.log("response   ", response.data.ALEXA.SD[1]);
+        
           this.setState({
             ranking: response.data.ALEXA.SD[1].POPULARITY.TEXT,
           });
@@ -50,8 +49,7 @@ class Mywebsite extends React.Component {
           });
         }
         try {
-          // console.log("response   ", response.data.ALEXA.SD[1].POPULARITY.TEXT)
-          console.log("response   ", response.data.ALEXA.SD[1]);
+        
           this.setState({
             country: response.data.ALEXA.SD[1].COUNTRY.NAME,
           });
@@ -61,8 +59,7 @@ class Mywebsite extends React.Component {
           });
         }
         try {
-          // console.log("response   ", response.data.ALEXA.SD[1].POPULARITY.TEXT)
-          console.log("response   ", response.data.ALEXA.SD[1]);
+         
           this.setState({
             delta: response.data.ALEXA.SD[1].RANK.DELTA,
           });
