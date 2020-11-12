@@ -24,7 +24,7 @@ class Backlink_check extends React.Component {
   constructor(props) {
     super(props);
     this.checkwebsiterank = this.checkwebsiterank.bind(this);
-    // this.getxmlurldata = this.getxmlurldata.bind(this);
+  
     this.state = {
       backlinksrank: false,
       mainForm: true,
@@ -71,31 +71,7 @@ class Backlink_check extends React.Component {
       searchengine: "",
     };
   }
-  // getxmlurldata(){
-  //   let self = this;
-  //   let url =
-  //     getBaseUrl() +
-  //     "http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=" +
-  //     window.localStorage.getItem("url");
-  //   axios.get(url).then(
-  //     (response) => {
-  //       try {
-  //         console.log("response   ", response.data)
-
-  //         // this.setState({
-  //         //   ranking: response.data.ALEXA.SD[1].POPULARITY.TEXT,
-  //         // });
-  //       } catch (error) {
-  //         // this.setState({
-  //         //   ranking: "Need to calculate data ",
-  //         // });
-  //       }
-
-  //     },
-  //     (error) => {}
-  //   );
-
-  // }
+ 
   checkwebsiterank() {
     if (this.state.backlinkquery === "") {
       this.setState({
@@ -112,11 +88,11 @@ class Backlink_check extends React.Component {
       return;
     }
 
-    // console.log("datacheck",this.state.backlinkquery);
+   
 
     let self = this;
 
-    // console.log(this.state.backlinkquery)
+   
     let url =
       // getBaseUrl() +
       `http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=${this.state.backlinkquery}`;
@@ -135,9 +111,10 @@ class Backlink_check extends React.Component {
               xml.children[0].children[2].children[1].attributes.RANK,
           });
         } catch (error) {
-          // this.setState({
-          //   ranking: "Need to calculate data ",
-          // });
+          this.setState({
+            snackbar: true,
+        error: "Please Try Again",
+          });
         }
       },
       (error) => {}
@@ -145,7 +122,7 @@ class Backlink_check extends React.Component {
 
     this.setState({
       backlinksrank: true,
-      mainForm: false,
+      mainForm: true,
       domainname: this.state.backlinkquery,
       searchengine: this.state.selectdomain,
     });
@@ -159,7 +136,7 @@ class Backlink_check extends React.Component {
     return (
       <div className="backllink_color pt-5">
         {this.state.mainForm ? (
-          <div className="ml-auto mr-auto backlink_center">
+          <div className="ml-auto mr-auto backlink_center ">
             <div className="">
               <p className="backlink_checkdomain ml-4 mt-3">
                 Check Your Domain Search Engine Ranking
@@ -233,7 +210,7 @@ class Backlink_check extends React.Component {
 
         {this.state.backlinksrank ? (
           <form>
-            <div>
+            {/* <div>
               <div className="backlink_first">
                 <p className="backlink_checkdomain ml-4 pt-3">
                   Check Your Domain Search Engine Ranking
@@ -303,9 +280,9 @@ class Backlink_check extends React.Component {
                   </Grid>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div>
-              <div className="backlink_first mt-5">
+              <div className=" backlink_center mt-5 ml-auto mr-auto">
                 <p className="backlink_checkdomain ml-4 pt-3">
                   Ranking Checkes
                 </p>
@@ -336,7 +313,7 @@ class Backlink_check extends React.Component {
               </div>
             </div>
             <div>
-              <div className="backlink_first2 mt-5">
+              <div className=" backlink_center1 mt-5 ml-auto mr-auto ">
                 <p className="backlink_details">Backlink Details</p>
                 <div>
                   <DataTable
