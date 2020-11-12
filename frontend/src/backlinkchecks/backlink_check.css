@@ -72,18 +72,49 @@
 .backlink_seclect{
     width: 100% !important;
 }
-/* .doamin_backlinked {
-    animation: animated-text 4s steps(29,end) 1s 1 normal both,
-    animated-cursor 600ms steps(29,end) infinite;
-} */
+
+.siding{
+  width: 95%;
+  height:80%;
+  background-color:#fff !important;
+  border: 1px solid #ced4da!important ;
+  border-radius: .25rem !important;
+  background-clip: padding-box;
+  /* padding: .375rem .75rem !important; */
+  margin-top: 5px ;
+ 
+}
+ .siding .form-control{
+ border:none !important;
+ margin-top:-16px !important;
+ border-radius:0!important;
+ padding: 0 !important;
+ margin-left: -10px;
+}
+
+ 
+
+
+.siding .form-control:focus {
+  box-shadow:none !important
+}
+.doamin_backlinked {
+  animation: animated-text 4s steps(29,end) 1s 1 normal both,
+  animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* text animation */
+
 @keyframes animated-text{
-    from{width: 0;}
-    /* to{width: 472px;} */
-  }
-  
-  /* cursor animations */
-  
-  @keyframes animated-cursor{
-    /* from{border-right-color: rgba(0,255,0,.75);} */
-    to{border-right-color: transparent;}
-  }
+from{width: 0;}
+to{width: 100%;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+from{border-right-color: rgba(0,255,0,.75);}
+/* to{border-right-color: transparent;} */
+}
+
+
