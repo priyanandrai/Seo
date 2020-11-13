@@ -85,7 +85,7 @@ display: none;
   display: none;
 }
 #check:checked ~ .sidenav .MuiSvgIcon-root{
- margin-left: 20px !important;
+ margin-left: -1px !important;
  display: block !important;
  /* margin-top: 2px !important; */
 }
