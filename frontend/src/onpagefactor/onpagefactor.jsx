@@ -6,21 +6,36 @@ import { Form } from "react-bootstrap";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import axios from "axios";
+import { getBaseUrl } from "../utils";
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 class OnPageFactor extends React.Component{
     constructor(){
         super()
         this.state={
             placedomain: "Please enter your domain",
             attributesummary:false,
-            dominname:"",
-            snackbar:false
+            url:"",
+            snackbar:false,
+            getrobotsdata:{
+              status:"",
+              content:""
+            },
+            getsitemap:{
+              status:"",
+              content:""
+            }
         }
         this.websitecheck=this.websitecheck.bind(this);
     }
 
     websitecheck(){
 
-        if (this.state.dominname === "") {
+        if (this.state.url === "") {
             this.setState({
               snackbar: true,
               error: "Please Fill the Your Domain",
@@ -31,6 +46,32 @@ class OnPageFactor extends React.Component{
         this.setState({
             attributesummary:true
         })
+
+        let self = this;
+         let link = getBaseUrl()+"/getrobotsdata?url="+this.state.url;
+      axios.get(link).then((response) =>{
+            this.setState({
+               getrobotsdata:response.data
+            })
+         
+         },(error) =>{
+            
+         }
+         )
+
+       
+        let link1= getBaseUrl()+"/getsitemap?url="+this.state.url;
+      axios.get(link1).then((response) =>{
+       
+            this.setState({
+               getsitemap:response.data
+            })
+             
+         
+         },(error) =>{
+            
+         }
+         )
     }
 
     closeSnackbar = () => {
@@ -54,10 +95,10 @@ class OnPageFactor extends React.Component{
                         id="Name"
                         className="doamin_nameonpage"
                         autoComplete="off"
-                       value={this.state.dominname}
+                       value={this.state.url}
                        onChange={(e)=>{
                            this.setState({
-                               dominname:e.target.value
+                               url:e.target.value
                            })
                        }}
                       />
@@ -173,17 +214,31 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                    Found/Not Found
+                   {this.state.getrobotsdata.status}
                 </Grid>
 
                 <Grid item md={2}>
                     <div className="d-flex">
-                        <span className="wrong_icon"><i class="fa fa-times-circle"></i></span>
-                        <span className="right_icon ml-2"><i class="fa fa-check-circle"></i></span>
+                    {this.state.getrobotsdata.status == "Found" ? (<span className="right_icon"><i class="fa fa-check-circle"></i></span>):
+                    (<span className="wrong_icon"><i class="fa fa-times-circle"></i></span>)}
                     </div>
                 </Grid>
                 
                 <Grid item md={2}>
+                 <Accordion>
+                <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className="viewheading">View Robots.txt</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {this.state.getrobotsdata.content}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
                   
                 </Grid>
 
@@ -201,7 +256,7 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                    Found/Not Found
+                    {this.state.getsitemap.status}
                 </Grid>
 
                 <Grid item md={2}>
@@ -213,6 +268,21 @@ class OnPageFactor extends React.Component{
                 
                 <Grid item md={2}>
                   
+                   <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className="viewheading">View Sitemap.xml</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {this.state.getsitemap.content}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
                 </Grid>
 
                 <Grid item md={4}>

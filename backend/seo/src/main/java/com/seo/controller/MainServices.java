@@ -54,10 +54,12 @@ import com.seo.services.ISubmitRequestService;
 import com.seo.services.ISubsribeService;
 import com.seo.services.SearchEngineservice;
 import com.seo.sendmail.*;
+import com.seo.Onpagefactor.*;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 import com.seo.MultiThread.MultiThread;
+import com.seo.Onpagefactor.GetMetadata;
 import com.seo.Process.Process;
 import com.seo.Process.ProcessDTO;
 
@@ -688,5 +690,53 @@ public class MainServices {
 		return "{\"Emails\":" + emaillist.toString() + "}";
 //	return "{\"message\":\"email is extracted sucessfully\"}";
 
+	}
+	
+	
+
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getrobotsdata")
+	public String getrobotsdata(@RequestParam("url") String url) {
+
+		try {
+			//System.out.println(GetMetadata.MetaTitle(url));
+		 return	Get_robotstxt.Get_robots(url);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return "no data ";
+		}
+	//	return null;
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getsitemap")
+	public String getsitemap(@RequestParam("url") String url) {
+
+		try {
+			//System.out.println(GetMetadata.MetaTitle(url));
+		 return GetSiteMap.getmap(url);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return "no data ";
+		}
+	//	return null;
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getmatadata")
+	public String getmatadata(@RequestParam("url") String url) {
+
+		try {
+			//System.out.println(GetMetadata.MetaTitle(url));
+		 return	GetMetadata.Meta_data(url);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return "no data ";
+		}
+	//	return null;
 	}
 }
