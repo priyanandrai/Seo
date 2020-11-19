@@ -1,0 +1,93 @@
+.onpageMain{
+    width: 80%;
+    height: 25vh;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+}
+
+.onpageMain1{
+    width: 90%;
+    height: auto;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    
+}
+
+.onpageheadingcolor{
+    color: #33BC9C;
+    font-weight: bold;
+    font-family: century;
+}
+
+.ontitleheadingcolor{
+    font-weight:bold;
+    font-size: 3vh;
+}
+.onpage_btn{
+    background-color:#33BC9C !important;
+    outline: none !important;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.onpage_factor{
+    margin-left: 3%;
+    margin-right: 5%;
+}
+
+
+.wrong_icon{
+    font-size: 3vh;
+    color:#B9160D;
+}
+
+.right_icon{
+    font-size: 3vh;
+    color:#0A901B; 
+}
+.slidedomin{
+    width: 95%;
+    height:80%;
+    background-color:#fff !important;
+    border: 1px solid #ced4da!important ;
+    border-radius: .25rem !important;
+    background-clip: padding-box;
+    /* padding: .375rem .75rem !important; */
+    margin-top: 5px ;
+   
+  }
+   .slidedomin .form-control{
+   border:none !important;
+   margin-top:-16px !important;
+   border-radius:0!important;
+   padding: 0 !important;
+   margin-left: -10px;
+  }
+
+
+.slidedomin .form-control:focus {
+    box-shadow:none !important
+  }
+  .doamin_nameonpage {
+    animation: animated-text 6s steps(29,end) 1s 1 normal both,
+    animated-cursor 600ms steps(29,end) infinite;
+  }
+  
+  /* text animation */
+  
+  @keyframes animated-text{
+  from{width: 0;}
+  to{width: 100%;}
+  }
+  
+  /* cursor animations */
+  
+  @keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  /* to{border-right-color: transparent;} */
+  }
+  
+
+  .onpageparagraph{
+      width:90%;
+  }
+  

@@ -29,6 +29,7 @@ import Seosixweeks from "./seosixweeks/seosixweeks";
 import Activity from "./acitivity/activity";
 import Email_extractor from "./emailextractor/email_extractor";
 import Backlink_check from "./backlinkchecks/backlink_check";
+import OnPageFactor from "./onpagefactor/onpagefactor";
 function App() {
  
     return (
@@ -62,6 +63,7 @@ function App() {
         <Route exact path="/timestamp-converter" component={ Timestamp_converter}/>
         <Route exact path="/bulk-email-extractor" component={ Email_extractor}/>
         <Route exact path="/Backlink-checkes" component={ Backlink_check}/>
+        <Route exact path="/onPage-factor" component={ OnPageFactor}/>
       </Router>
        );
  

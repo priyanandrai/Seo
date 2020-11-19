@@ -26,7 +26,7 @@ class Backlink_check extends React.Component {
     this.checkwebsiterank = this.checkwebsiterank.bind(this);
 
     this.state = {
-      backlinksrank: true,
+      backlinksrank: false,
       mainForm: true,
       backlinkquery: "",
       selectdomain: "Google.com",
@@ -215,7 +215,7 @@ class Backlink_check extends React.Component {
                   Ranking Checkes
                 </p>
                 <div className="ml-5">
-                  <Grid className=" mywebsite_container">
+                  <Grid className="d-flex">
                     <Grid item md={3}>
                       <p className="backlink_doamin">Domain Name </p>
                       <p className="backlink_doamin">Search Engine</p>
