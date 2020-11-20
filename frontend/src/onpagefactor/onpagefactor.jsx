@@ -176,7 +176,7 @@ class OnPageFactor extends React.Component{
                 Attributes
               </p>
 
-               <Grid className=" d-flex onpage_factor ">
+               <Grid className=" mywebsite_container onpage_factor ">
                 <Grid item md={2} className="ontitleheadingcolor">
                      Title
                 </Grid>
@@ -201,7 +201,7 @@ class OnPageFactor extends React.Component{
               </Grid>
 
 
-              <Grid className=" d-flex onpage_factor mt-3">
+              <Grid className=" mywebsite_container onpage_factor mt-3">
                 <Grid item md={2} className="onpageheadingcolor">
                     Meta Title
                 </Grid>
@@ -228,7 +228,7 @@ class OnPageFactor extends React.Component{
                
               </Grid>
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                     Meta Description
                 </Grid>
@@ -256,7 +256,7 @@ class OnPageFactor extends React.Component{
               </Grid>
 
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                     Robots.txt
                 </Grid>
@@ -301,7 +301,7 @@ class OnPageFactor extends React.Component{
               </Grid>
 
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                     Sitemap.xml(For Crawler)
                 </Grid>
@@ -347,7 +347,7 @@ class OnPageFactor extends React.Component{
                
               </Grid>
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                    Availability of Search Facility
                 </Grid>
@@ -374,7 +374,7 @@ class OnPageFactor extends React.Component{
                
               </Grid>
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                     Img Alt-Tag
                 </Grid>
@@ -401,7 +401,7 @@ class OnPageFactor extends React.Component{
                
               </Grid>
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                     HTML Validation
                 </Grid>
@@ -429,7 +429,7 @@ class OnPageFactor extends React.Component{
                
               </Grid>
 
-              <Grid className=" d-flex onpage_factor mt-2">
+              <Grid className=" mywebsite_container onpage_factor mt-2">
                 <Grid item md={2} className="onpageheadingcolor">
                    Heading Tags
                 </Grid>
