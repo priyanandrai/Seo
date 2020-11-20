@@ -68,7 +68,7 @@ public class GetSiteMap {
 					con.addRequestProperty("Accept-Language", "en-US,en;q=0.8");
 					con.addRequestProperty("User-Agent", "Mozilla");
 
-					System.out.println("Redirect to URL : " + newUrl);
+					//System.out.println("Redirect to URL : " + newUrl);
 
 				}
 
@@ -81,13 +81,13 @@ public class GetSiteMap {
 					StringBuffer response = new StringBuffer();
 
 					while ((inputLine = in.readLine()) != null) {
-						response.append(inputLine + "\n");
+						response.append(inputLine);
 					}
 
 					in.close();
 
-					String var = response.toString();
-
+					String var = response.toString().replace("\"", "'");
+						
 					if (var.contains("urlset")) {
 
 						output = "{\r\n" + "  \"status\": \"Found\",\r\n" + "  \"content\":\"" + var + "\"\r\n" + "}";

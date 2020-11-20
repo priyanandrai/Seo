@@ -3,6 +3,7 @@
     height: 25vh;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
+    margin-top: 10%;
 }
 
 .onpageMain1{
@@ -94,3 +95,8 @@
   .viewheading{
       font-size:14px !important;
   }
+  
+  /* .robotsdatacontent{
+      
+      border:1px solid black;
+  } */

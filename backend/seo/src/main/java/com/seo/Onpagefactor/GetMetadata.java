@@ -14,95 +14,35 @@ import java.util.regex.Pattern;
 public class GetMetadata {
 
 	
-//	public static List<String> MetaTitle(String url) throws IOException, InterruptedException 
-//	{
-//			List<String> meta = new ArrayList<String>();
-//
-//
-//		{
-//			URL obj = new URL(url);
-//			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//
-//			con.setRequestMethod("GET");
-//
-//			con.setRequestProperty("User-Agent", "Mozilla/5.0");
-//
-//			int responseCode = con.getResponseCode();
-//			System.out.println(responseCode);
-//			if (responseCode == 200) 
-//			{
-//			
-//				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-//				String inputLine;
-//				StringBuffer response = new StringBuffer();
-//
-//				while ((inputLine = in.readLine()) != null) 
-//				{
-//					response.append(inputLine + "\n");
-//				}
-//				in.close();
-//
-//				String var = response.toString();
-//				meta.add((Metadata(var)));
-//			} 
-//			else 
-//			{
-//				System.out.println(responseCode);
-//			}
-//		}
-//		System.out.println(meta);
-//		return meta;
-//	}
-//	
-//	
-//	public static String Metadata (String largeText)
-//	
-//	{
-//		
-//		final Pattern title_pattern = Pattern.compile("<title>(.*?)</title>");
-//		String titledata = "not found";
-//		if (title_pattern != null)
-//		{		
-//		Matcher mtch = title_pattern.matcher(largeText);
-//		String title  = mtch.group(1);
-//		
-//		titledata = " \"Metatile\":\r\n" + 
-//				"  {\r\n" + 
-//				"    \"status\":\"found\",\r\n" + 
-//				"    \"length\":"+title.length()+",\r\n" + 
-//				"    \"content\":\""+title+"\"\r\n" + 
-//				"  }"; 
-//		
-//		}
-//	return titledata;	
-//	}
-	
 	static Pattern Title = Pattern.compile("<title>(.*?)</title>");
 	 public static String meta_title(String largeText){
-		 String title = null;
+		 String title = "";
 		 Matcher mtch = Title.matcher(largeText);
-		if(mtch.find()){
-		 		title = mtch.group(1);
-			}
-		else {
-			System.out.println("Title is not found this Url");
+		 try {
+			 mtch.find();
+				
+				title = mtch.group(1);
+		} catch (Exception e) {
+			String match = null;
+			return match;
 		}
 		return title;
 	 }
 	 
 	 static Pattern meta_description = Pattern.compile("meta name=\"description\" content=\"(.*?)\"/>");
 	 public static String Description(String largeText){
-		 String des = null;
+		 String des = "";
 		 Matcher mtch = meta_description.matcher(largeText);
-		 if(mtch.find()) {
+		 
+		 try {
+			 mtch.find(); 
 			 des = mtch.group(1);
-		 }
-		 else {
-			 System.out.println("Description is not found this Url");
-		 }
+		} catch (Exception e) {
+			String match = null;
+			return match;
+		}
 		return des;
 	 }
-	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws InterruptedException, IOException 
 	{		
@@ -114,35 +54,30 @@ public class GetMetadata {
 		String data = Meta_data(url);
 		System.out.println(data);
 	}
-	
+	@SuppressWarnings("unused")
 	public static String Meta_data(String url) throws IOException, InterruptedException 
 	{
 		String Description = null;
 		String host_name = null;
 		String Domain = null;
-		String json_data = null;
+		String output = null;
 		
 		Pattern ptn = Pattern.compile("(.*?)//(.*?)(/|$)");
 		Matcher mtch = ptn.matcher(url);
-		if(mtch.find())
-		{
+		mtch.find();
+		
 			host_name = mtch.group(1);
 			 Domain = mtch.group(2);
-		}
-		else 
-		{
-			System.out.println("The Enter Url is not Valid ");
-		}
-		
 		URL obj = new URL(host_name  +"//" + Domain + "/");
-		
+		try
+		{
+			
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
 			con.setRequestMethod("GET");
 			
 			boolean redirect = false;
 
-			// normally, 3xx is redirect
 			int status = con.getResponseCode();
 			if (status != HttpURLConnection.HTTP_OK) {
 			if (status == HttpURLConnection.HTTP_MOVED_TEMP || status == HttpURLConnection.HTTP_MOVED_PERM
@@ -150,31 +85,15 @@ public class GetMetadata {
 			redirect = true;
 			}
 
-//			System.out.println("Response Code ... " + status);
-
 			if (redirect) {
 
-			// get redirect url from "location" header field
 			String newUrl = con.getHeaderField("Location");
-
-			// get the cookie if need, for login
-			// String cookies = con.getHeaderField("Set-Cookie");
-
-			// open the new connnection again
+			
 			con = (HttpURLConnection) new URL(newUrl).openConnection();
-			// con.setRequestProperty("Cookie", cookies);
 			con.addRequestProperty("Accept-Language", "en-US,en;q=0.8");
 			con.addRequestProperty("User-Agent", "Mozilla");
-
-//			System.out.println("Redirect to URL : " + newUrl);
-
 			}
-
-
 			int responseCode = con.getResponseCode();
-			
-//			System.out.println("Response Code " + responseCode);
-			
 			if (responseCode == 200) 
 			{
 			
@@ -189,30 +108,76 @@ public class GetMetadata {
 				in.close();
 
 				String var = response.toString(); 
-				 
-				Description = ((Description(var)));
 				String  title = ((meta_title(var)));
-				int title_len = title.length();
-				int description_len = Description.length();
-				
-		         json_data= "{\r\n" + 
+				Description = ((Description(var)));
+				if(title!=null&&Description!=null)
+				{
+					int title_len = title.length();
+					int description_len = Description.length();
+					output= "{\r\n" + 
 							"\"MetaTile\":{\r\n" + 
-							"  \"status\": \"found\",\r\n" + 
+							"  \"status\": \"Found\",\r\n" + 
 							"  \"content\":\""+title+"\",\r\n" + 
 							"  \"length\":\""+title_len+"\"\r\n" + 
 							"},"+"\n\"MetaDescription\":{\r\n" + 
-						"  \"status\": \"found\",\r\n" + 
-						"  \"content\":\""+Description+"\",\r\n" + 
-						"  \"length\":\""+description_len+"\"\r\n" + 
-						"}\r\n" + 
-						"}";
-			} 
-			else 
-			{
-				System.out.println("GET request not worked");
+							"  \"status\": \"Found\",\r\n" + 
+							"  \"content\":\""+Description+"\",\r\n" + 
+							"  \"length\":\""+description_len+"\"\r\n" + 
+							"}\r\n" + 
+							"}";
+				;
+				}
+				else if(title!=null&&Description==null)
+				{
+					int title_len = title.length();
+					output= "{\r\n" + 
+							"\"MetaTile\":{\r\n" + 
+							"  \"status\": \"Found\",\r\n" + 
+							"  \"content\":\""+title+"\",\r\n" + 
+							"  \"length\":\""+title_len+"\"\r\n" + 
+							"},"+"\n\"MetaDescription\":{\r\n" + 
+							"  \"status\": \"Not Found\",\r\n" + 
+							"  \"content\":\"N/A\",\r\n" + 
+							"  \"length\":\"N/A\"\r\n" + 
+							"}\r\n" + 
+							"}";
+				}
+				else if(title==null&&Description!=null)
+				{
+					int description_len = Description.length();
+					output= "{\r\n" + 
+							"\"MetaTile\":{\r\n" + 
+							"  \"status\": \"Not Found\",\r\n" + 
+							"  \"content\":\"N/A\",\r\n" + 
+							"  \"length\":\"N/A\"\r\n" + 
+							"},"+"\n\"MetaDescription\":{\r\n" + 
+							"  \"status\": \"Found\",\r\n" + 
+							"  \"content\":\""+Description+"\",\r\n" + 
+							"  \"length\":\""+description_len+"\"\r\n" + 
+							"}\r\n" + 
+							"}";
+				}
+				else
+				{
+					output= "{\r\n" + 
+							"\"MetaTile\":{\r\n" + 
+							"  \"status\": \" Not Found\",\r\n" + 
+							"  \"content\":\"N/A\",\r\n" + 
+							"  \"length\":\"N/A\"\r\n" + 
+							"},"+"\n\"MetaDescription\":{\r\n" + 
+							"  \"status\": \"Not Found\",\r\n" + 
+							"  \"content\":\"N/A\",\r\n" + 
+							"  \"length\":\"N/A\"\r\n" + 
+							"}\r\n" + 
+							"}";
+				}
+					
 			}
-		
-		return json_data;
+		}
+		catch (Exception e) {
+			//System.out.println("write something wrong");
+		}
+		return output;
 }
 }	
 	

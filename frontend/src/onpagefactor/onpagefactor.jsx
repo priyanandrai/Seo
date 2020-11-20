@@ -28,20 +28,41 @@ class OnPageFactor extends React.Component{
             getsitemap:{
               status:"",
               content:""
-            }
+            },
+     
+            getmatatitlestatus:"",
+            getmatatitlecontent:"",
+            getmatadescriptionstatus:"",
+            getmatadescriptioncontent:""
         }
         this.websitecheck=this.websitecheck.bind(this);
     }
 
     websitecheck(){
 
-        if (this.state.url === "") {
-            this.setState({
-              snackbar: true,
-              error: "Please Fill the Your Domain",
-            });
-            return;
-          }
+      const regesxm = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      if (this.state.url.trim() === "") {
+        this.setState({
+          snackbar: true,
+          error: "please enter the URL.",
+        });
+        return;
+      }
+      if (!this.state.url.match(regesxm)) {
+        this.setState({
+          snackbar: true,
+          error: "please enter a valid  URL.",
+        });
+        return;
+      }
+
+        // if (this.state.url === "") {
+        //     this.setState({
+        //       snackbar: true,
+        //       error: "Please Fill the Your Domain",
+        //     });
+        //     return;
+        //   }
 
         this.setState({
             attributesummary:true
@@ -72,6 +93,33 @@ class OnPageFactor extends React.Component{
             
          }
          )
+
+         let link2= getBaseUrl()+"/getmatadata?url="+this.state.url;
+      axios.get(link2).then((response) =>{
+      //   console.log("my response");
+      //  console.log("HHHHHHh",response.data.MetaTile)
+         
+              try {
+                this.setState({
+                getmatatitlestatus:response.data.MetaTile.status,
+                getmatatitlecontent:response.data.MetaTile.content,
+                getmatadescriptionstatus:response.data.MetaDescription.status,
+               getmatadescriptioncontent:response.data.MetaDescription.content
+                })
+              } catch (error) {
+                this.setState({
+                getmatatitlestatus:"Not Found",
+                getmatatitlecontent:"N/A",
+                getmatadescriptionstatus:"Not Found",
+                getmatadescriptioncontent:"N/A"
+                })
+              }
+         
+         },(error) =>{
+            
+         }
+         )
+
     }
 
     closeSnackbar = () => {
@@ -159,18 +207,18 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                    Found/Not Found
+                    {this.state.getmatatitlestatus}
                 </Grid>
 
                 <Grid item md={2}>
                     <div className="d-flex">
-                        <span className="wrong_icon"><i class="fa fa-times-circle"></i></span>
-                        <span className="right_icon ml-2"><i class="fa fa-check-circle"></i></span>
+                    {this.state.getmatatitlestatus== "Found" ? (<span className="right_icon"><i class="fa fa-check-circle"></i></span>):
+                    (<span className="wrong_icon"><i class="fa fa-times-circle"></i></span>)}
                     </div>
                 </Grid>
                 
                 <Grid item md={2}>
-                  
+                {this.state.getmatatitlecontent}
                 </Grid>
 
                 <Grid item md={4}>
@@ -186,18 +234,18 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                    Found/Not Found
+                {this.state.getmatadescriptionstatus}
                 </Grid>
 
                 <Grid item md={2}>
                     <div className="d-flex">
-                        <span className="wrong_icon"><i class="fa fa-times-circle"></i></span>
-                        <span className="right_icon ml-2"><i class="fa fa-check-circle"></i></span>
+                    {this.state.getmatadescriptionstatus== "Found" ? (<span className="right_icon"><i class="fa fa-check-circle"></i></span>):
+                    (<span className="wrong_icon"><i class="fa fa-times-circle"></i></span>)}
                     </div>
                 </Grid>
                 
                 <Grid item md={2}>
-                  
+                {this.state.getmatadescriptioncontent}
                 </Grid>
 
                 <Grid item md={4}>
@@ -231,10 +279,13 @@ class OnPageFactor extends React.Component{
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className="viewheading">View Robots.txt</Typography>
+        <Typography className="viewheading">
+                {this.state.getrobotsdata.status=="Found"?("View Robots.txt"):("No Robots.txt")}
+        </Typography>
+
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography className="robotsdatacontent">
             {this.state.getrobotsdata.content}
           </Typography>
         </AccordionDetails>
@@ -261,8 +312,8 @@ class OnPageFactor extends React.Component{
 
                 <Grid item md={2}>
                     <div className="d-flex">
-                        <span className="wrong_icon"><i class="fa fa-times-circle"></i></span>
-                        <span className="right_icon ml-2"><i class="fa fa-check-circle"></i></span>
+                    {this.state.getsitemap.status == "Found" ? (<span className="right_icon"><i class="fa fa-check-circle"></i></span>):
+                    (<span className="wrong_icon"><i class="fa fa-times-circle"></i></span>)}
                     </div>
                 </Grid>
                 
@@ -274,10 +325,14 @@ class OnPageFactor extends React.Component{
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className="viewheading">View Sitemap.xml</Typography>
+
+        <Typography className="viewheading">
+                {this.state.getsitemap.status=="Found"?("View Sitemap.xml"):("No Sitemap.xml")}
+        </Typography>
+          
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography className="robotsdatacontent">
             {this.state.getsitemap.content}
           </Typography>
         </AccordionDetails>
