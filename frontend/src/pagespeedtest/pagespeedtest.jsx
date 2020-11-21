@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import Card from "@material-ui/core/Card";
 class PageSpeedTest extends React.Component{
     constructor(){
         super();
@@ -112,6 +113,81 @@ class PageSpeedTest extends React.Component{
 
               </Grid>          
             </div>
+            </div>
+
+
+
+          
+            <p className=" ml-4 mt-3 pagespeedcolor">
+               Page Metrices:
+              </p>
+          
+            <div className="page-materic mb-3">
+            <div className="ml-3 mr-3 ">
+            
+            <Grid className=" mywebsite_container pagespeed_factor">
+          <Grid item md={4} className=""> 
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">Page Load Time</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+             <div className="cards_boder_radious cards_div mt-3 " >
+                      <Card className="">
+                        <p className="cards_content">Download Time</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">OnLoading Time</p>
+                      </Card>
+                    </div></Grid>
+          </Grid>
+
+          <Grid className=" mywebsite_container pagespeed_factor mt-3">
+          <Grid item md={4} className=""> 
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">Alt Image Load Time</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+             <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">CSS Load Time</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">JS Load Time</p>
+                      </Card>
+                    </div></Grid>
+          </Grid>
+
+          <Grid className=" mywebsite_container pagespeed_factor mt-3 pb-3">
+          <Grid item md={4} className=""> 
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">Image Size</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+             <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">JS Size</p>
+                      </Card>
+                    </div></Grid>
+          <Grid item md={4} className="">
+          <div className="cards_boder_radious cards_div mt-3" >
+                      <Card className="">
+                        <p className="cards_content">CSS Size</p>
+                      </Card>
+                    </div></Grid>
+          </Grid>
+</div>
             </div>
           <Snackbar
             anchorOrigin={{

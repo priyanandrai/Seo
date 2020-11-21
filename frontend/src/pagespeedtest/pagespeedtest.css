@@ -81,13 +81,7 @@
   }
 
   .pagespeedpara{
-      /* justify-content: center;
-      flex: 1 */
-      /* font-size: 2vh; */
-      /* font-weight: bold; */
-      /* display: flex; */
-      /* align-items: center;
-      justify-content: center; */
+     margin:40% auto;
       align-self: center;
   }
   .heading1{
@@ -113,3 +107,25 @@
   .content1{
     font-size:2vh;
   }
+
+.cards_boder_radious{
+  box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cards_div{
+  width:40vh;
+  height: 40vh !important;
+}
+.cards_content{
+  text-align: center;
+  color:black;
+  font-weight: bold;
+  font-family: century;
+  
+}
+.page-materic{
+ 
+  height:auto;
+  box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 5%;
+  margin-right: 5%;
+}
