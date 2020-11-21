@@ -739,4 +739,20 @@ public class MainServices {
 		}
 	//	return null;
 	}
+	
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/getonpagefactordata")
+	public String getonpagefactordata(@RequestParam("url") String url) {
+
+		try {
+			//System.out.println(GetMetadata.MetaTitle(url));
+		 return	OnpageFactor.Meta_data(url);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return "no data ";
+		}
+	//	return null;
+	}
 }

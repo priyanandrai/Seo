@@ -33,7 +33,11 @@ class OnPageFactor extends React.Component{
             getmatatitlestatus:"",
             getmatatitlecontent:"",
             getmatadescriptionstatus:"",
-            getmatadescriptioncontent:""
+            getmatadescriptioncontent:"",
+            getimagecountstatus:"",
+            getimagecount_total:"",
+            getaltstatus:"",
+            getaltcount:""
         }
         this.websitecheck=this.websitecheck.bind(this);
     }
@@ -56,13 +60,7 @@ class OnPageFactor extends React.Component{
         return;
       }
 
-        // if (this.state.url === "") {
-        //     this.setState({
-        //       snackbar: true,
-        //       error: "Please Fill the Your Domain",
-        //     });
-        //     return;
-        //   }
+      
 
         this.setState({
             attributesummary:true
@@ -94,7 +92,7 @@ class OnPageFactor extends React.Component{
          }
          )
 
-         let link2= getBaseUrl()+"/getmatadata?url="+this.state.url;
+         let link2= getBaseUrl()+"/getonpagefactordata?url="+this.state.url;
       axios.get(link2).then((response) =>{
       //   console.log("my response");
       //  console.log("HHHHHHh",response.data.MetaTile)
@@ -104,14 +102,23 @@ class OnPageFactor extends React.Component{
                 getmatatitlestatus:response.data.MetaTile.status,
                 getmatatitlecontent:response.data.MetaTile.content,
                 getmatadescriptionstatus:response.data.MetaDescription.status,
-               getmatadescriptioncontent:response.data.MetaDescription.content
+                getmatadescriptioncontent:response.data.MetaDescription.content,
+                getimagecountstatus:response.data.Image_Count.status,
+                getimagecount_total:response.data.Image_Count.Count,
+                getaltstatus:response.data.Alt_Count.status,
+                getaltcount:response.data.Alt_Count.Count,
+                
                 })
               } catch (error) {
                 this.setState({
                 getmatatitlestatus:"Not Found",
                 getmatatitlecontent:"N/A",
                 getmatadescriptionstatus:"Not Found",
-                getmatadescriptioncontent:"N/A"
+                getmatadescriptioncontent:"N/A",
+                getimagecountstatus:"Not Found",
+                getimagecount_total:"N/A",
+                getaltstatus:"Not Found",
+                getaltcount:"N/A"
                 })
               }
          
@@ -380,18 +387,18 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                    Found/Not Found
+                   {this.state.getaltstatus}
                 </Grid>
 
                 <Grid item md={2}>
-                    <div className="d-flex">
-                        <span className="wrong_icon"><i class="fa fa-times-circle"></i></span>
-                        <span className="right_icon ml-2"><i class="fa fa-check-circle"></i></span>
+                <div className="d-flex">
+                    {this.state.getaltstatus == "Found" ? (<span className="right_icon"><i class="fa fa-check-circle"></i></span>):
+                    (<span className="wrong_icon"><i class="fa fa-times-circle"></i></span>)}
                     </div>
                 </Grid>
                 
                 <Grid item md={2}>
-                  
+                  {this.state.getaltcount}
                 </Grid>
 
                 <Grid item md={4}>

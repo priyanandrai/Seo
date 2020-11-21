@@ -95,7 +95,7 @@ class PageSpeedTest extends React.Component{
             </Grid>
 
               <Grid item md={6}>
-                <div className=" pagespeedpara">
+                <div className=" pagespeedpara pt-5">
                     <div className="d-flex">
                     <p className="heading1">Report Generated:</p><p className="content1">{this.state.currentDateTime}</p>
                     </div>

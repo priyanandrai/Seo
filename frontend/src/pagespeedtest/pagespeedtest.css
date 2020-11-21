@@ -73,7 +73,7 @@
   }
   .iframe_width_adjust{
     width: 100%;
-    height: calc(80vh);
+    height: calc(40vh);
     /* margin-left: 15%; */
     margin-top: 8%;
     /* margin-right: 3%; */
@@ -81,7 +81,7 @@
   }
 
   .pagespeedpara{
-     margin:40% auto;
+     margin:10% auto;
       align-self: center;
   }
   .heading1{
@@ -112,7 +112,7 @@
   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .cards_div{
-  width:40vh;
+  width:56vh !important;
   height: 40vh !important;
 }
 .cards_content{
@@ -128,4 +128,11 @@
   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-left: 5%;
   margin-right: 5%;
+}
+
+@media only screen and (min-width:300px) and (max-width:650px){
+  .cards_div {
+    width: 44vh !important;
+    height: 40vh !important;
+}
 }
