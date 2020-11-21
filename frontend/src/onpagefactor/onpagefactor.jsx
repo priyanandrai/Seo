@@ -133,7 +133,7 @@ class OnPageFactor extends React.Component{
               <p className=" ml-4 mt-3 onpageheadingcolor">
                 On Page Factor
               </p>
-              <Grid className=" mywebsite_container onpage_factor">
+              <Grid className=" mywebsite_container onpage_factor pb-5">
                 <Grid item md={8}>
                   <div className="slidedomin">
                     <div className="ml-4 mr-4 mt-3">

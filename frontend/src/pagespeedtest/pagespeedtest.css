@@ -1,6 +1,6 @@
 .pagespeedMain{
     width: 80%;
-    height: 25vh;
+    height: auto;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     margin-top: 10%;
@@ -81,8 +81,35 @@
   }
 
   .pagespeedpara{
-      margin-top: 40%;
-      font-size: 2vh;
+      /* justify-content: center;
+      flex: 1 */
+      /* font-size: 2vh; */
       /* font-weight: bold; */
-      font-family: century;
+      /* display: flex; */
+      /* align-items: center;
+      justify-content: center; */
+      align-self: center;
+  }
+  .heading1{
+    font-size:3vh;
+    font-weight: 700;
+    color:green;
+    font-family: century !important;
+  }
+
+  .heading2{
+    font-size:3vh;
+    font-weight: 700;
+    color:salmon;
+    font-family: century !important;
+  }
+  .heading3{
+    font-size:3vh;
+    font-weight: 700;
+    color:blue;
+    font-family: century !important;
+  }
+
+  .content1{
+    font-size:2vh;
   }

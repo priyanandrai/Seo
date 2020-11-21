@@ -36,15 +36,15 @@ class PageSpeedTest extends React.Component{
         this.setState({ snackbar: false });
       };
     render(){
-      
-        return(
+     
+              return(
             <div>
                          <div className="ml-auto mr-auto pagespeedMain mb-5">
             <div >
               <p className=" ml-4 mt-3 pagespeedcolor">
                 Page Speed Tester
               </p>
-              <Grid className=" mywebsite_container pagespeed_factor">
+              <Grid className=" mywebsite_container pagespeed_factor pb-5">
                 <Grid item md={8}>
                   <div className="contentslide">
                     <div className="ml-4 mr-4 mt-3">
@@ -96,13 +96,13 @@ class PageSpeedTest extends React.Component{
               <Grid item md={6}>
                 <div className=" pagespeedpara">
                     <div className="d-flex">
-                    <span>Report Generated:</span><span>{this.state.currentDateTime}</span>
+                    <p className="heading1">Report Generated:</p><p className="content1">{this.state.currentDateTime}</p>
                     </div>
                     <div className="d-flex">
-                    <span>Test Server Location:</span><span>{this.state.server}</span>
+                    <p className="heading2">Test Server Location:</p><p className="content2">{this.state.server}</p>
                     </div>
                     <div className="d-flex">
-                    <span>Browser Using:</span><span>{this.state.browser}</span>
+                    <p className="heading3">Browser Using:</p><p className="content3"> {this.state.browser}</p>
                     </div>
                   
                     
