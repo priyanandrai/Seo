@@ -13,6 +13,14 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Dialog } from '@material-ui/core';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleDoubleDown,
+  faTimes,
+  faEye,
+
+} from "@fortawesome/free-solid-svg-icons";
 class OnPageFactor extends React.Component{
     constructor(){
         super()
@@ -37,9 +45,13 @@ class OnPageFactor extends React.Component{
             getimagecountstatus:"",
             getimagecount_total:"",
             getaltstatus:"",
-            getaltcount:""
+            getaltcount:"",
+            viewrobotstxt:false,
+            viewsitmapxml:false
         }
         this.websitecheck=this.websitecheck.bind(this);
+        this.robots=this.robots.bind(this);
+        this.sitemap=this.sitemap.bind(this);
     }
 
     websitecheck(){
@@ -121,7 +133,7 @@ class OnPageFactor extends React.Component{
                 getaltcount:"N/A"
                 })
               }
-         
+              console.log("ujjawal",this.state.getmatatitlecontent);
          },(error) =>{
             
          }
@@ -132,6 +144,18 @@ class OnPageFactor extends React.Component{
     closeSnackbar = () => {
         this.setState({ snackbar: false });
       };
+
+      robots(){
+        this.setState({
+          viewrobotstxt:true
+        })
+      }
+
+      sitemap(){
+        this.setState({
+          viewsitmapxml:true
+        })
+      }
     render(){
         return(
             <div >
@@ -282,20 +306,22 @@ class OnPageFactor extends React.Component{
                 <Grid item md={2}>
                  <Accordion>
                 <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          // expandIcon={<ExpandMoreIcon />}
+          // aria-controls="panel1a-content"
+          // id="panel1a-header"
         >
-        <Typography className="viewheading">
+        <Typography 
+        onClick={this.robots} 
+        className="viewheading">
                 {this.state.getrobotsdata.status=="Found"?("View Robots.txt"):("No Robots.txt")}
         </Typography>
 
         </AccordionSummary>
-        <AccordionDetails>
+        {/* <AccordionDetails>
           <Typography className="robotsdatacontent">
             {this.state.getrobotsdata.content}
           </Typography>
-        </AccordionDetails>
+        </AccordionDetails> */}
       </Accordion>
                   
                 </Grid>
@@ -328,21 +354,23 @@ class OnPageFactor extends React.Component{
                   
                    <Accordion>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          // expandIcon={<ExpandMoreIcon />}
+          // aria-controls="panel1a-content"
+          // id="panel1a-header"
         >
 
-        <Typography className="viewheading">
+        <Typography   
+        onClick={this.sitemap}
+        className="viewheading">
                 {this.state.getsitemap.status=="Found"?("View Sitemap.xml"):("No Sitemap.xml")}
         </Typography>
           
         </AccordionSummary>
-        <AccordionDetails>
+        {/* <AccordionDetails>
           <Typography className="robotsdatacontent">
             {this.state.getsitemap.content}
           </Typography>
-        </AccordionDetails>
+        </AccordionDetails> */}
       </Accordion>
 
                 </Grid>
@@ -398,7 +426,7 @@ class OnPageFactor extends React.Component{
                 </Grid>
                 
                 <Grid item md={2}>
-                  {this.state.getaltcount}
+                  {this.state.getaltcount}{this.state.getaltstatus == "Found" ?("/"):("")}{this.state.getimagecount_total}
                 </Grid>
 
                 <Grid item md={4}>
@@ -496,7 +524,66 @@ class OnPageFactor extends React.Component{
               </React.Fragment>
             }
           />
-            </div>
+
+                <Dialog
+                        open={this.state.viewrobotstxt}
+                        onClose={() =>{
+                        }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                        className=""
+                    > 
+                    <div className="onpagrdialog">
+                   
+           
+                    <span
+                          className="floatright crossbtncolor mt-2"
+                          onClick={() => {
+                            this.setState({
+                              viewrobotstxt: false,
+                            });
+                          }}
+                        >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+                    <div>
+                     <h5 className="title" >View Robots.txt</h5>
+                     </div>
+                     {this.state.getrobotsdata.content}
+                  
+                  </div>
+          </Dialog> 
+
+          <Dialog
+                        open={this.state.viewsitmapxml}
+                        onClose={() =>{
+                        }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                        className=""
+                    > 
+                    <div className="onpagrdialog">
+                   
+           
+                    <span
+                          className="floatright crossbtncolor mt-2"
+                          onClick={() => {
+                            this.setState({
+                              viewsitmapxml: false,
+                            });
+                          }}
+                        >
+              <FontAwesomeIcon icon={faTimes} />{" "}
+            </span>
+                    <div>
+                     <h5 className="title" >View Sitemap.xml</h5>
+                     </div>
+                     {this.state.getsitemap.content}
+                  
+                  </div>
+          </Dialog> 
+
+          </div>
         )
     }
 }

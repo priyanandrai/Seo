@@ -100,3 +100,14 @@
       
       border:1px solid black;
   } */
+  .onpagrdialog{
+      width: 100%;
+      height:70vh;
+      
+  }
+  .title{
+      color:green !important;
+      background-color: lightskyblue;
+      padding-top: 5%;
+      font-weight: bold;
+  }
