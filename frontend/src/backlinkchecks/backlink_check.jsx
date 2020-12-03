@@ -27,8 +27,10 @@ class Backlink_check extends React.Component {
 
     this.state = {
       backlinksrank: false,
+      linearprogressbar:false,
       mainForm: true,
       backlinkquery: "",
+      message:"",
       selectdomain: "Google.com",
       data: [
         {
@@ -90,14 +92,22 @@ class Backlink_check extends React.Component {
     }
 
     let self = this;
+    try {
+      
+   
    
     let url =
       // getBaseUrl() +
       `http://data.alexa.com/data?cli=10&dat=qwertyuioplkjhgfdsazxcvbnm&url=${this.state.backlinkquery}`;
-
-    axios.get(url, {headers: {
-     " Access-Control-Allow-Origin" :"*",
-     " Access-Control-Allow-Methods" : 'GET,PUT,POST,DELETE,PATCH,OPTIONS'}}).then(
+      this.setState({
+        linearprogressbar: true,
+        message:"Please Wait Your working in Pending"
+      })
+    axios.get(url, 
+       {headers: {
+     "Access-Control-Allow-Origin" :"*",
+    "Content-Type":"application/json"}}
+     ).then(
       (response) => {
         try {
           var XMLParser = require("react-xml-parser");
@@ -108,16 +118,29 @@ class Backlink_check extends React.Component {
               xml.children[0].children[2].children[0].attributes.TEXT,
             websiterank:
               xml.children[0].children[2].children[1].attributes.RANK,
+              linearprogressbar: false,
           });
         } catch (error) {
+          console.log("error",error)
           this.setState({
+            linearprogressbar: false,
             snackbar: true,
             error: "Please Try Again",
           });
         }
       },
-      (error) => {}
+      (error) => {
+        this.setState({
+          linearprogressbar:false,
+          snackbar:true,
+          error:"Please try again after sometme ",
+        })
+      }
     );
+
+  } catch (error1) {
+      console.log("errrrr1",error1)
+  }
 
     this.setState({
       backlinksrank: true,
@@ -309,6 +332,23 @@ class Backlink_check extends React.Component {
             }
           />
         </div>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress mb-4">
+            <p className="ml-5 mr-5 change-profile">{this.state.message} </p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
+            )}
+          </div>
+        </Dialog>
       </div>
     );
   }

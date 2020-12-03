@@ -8,6 +8,8 @@ import "react-phone-input-2/lib/semantic-ui.css";
 import logo from "../images/logo.png";
 import login from "../images/login.png";
 import "../style/quest.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import "../App.css";
 // import { NavLink } from "react-router-dom";
 // import { animateScroll as scroll } from "react-scroll";
@@ -51,6 +53,7 @@ class Nav extends Component {
       balance: "N/A",
       checked: false,
       dialogBox: false,
+      linearprogressbar:false,
       dialogBox1: false,
       dialogBox2: false,
       UniqueId: false,
@@ -66,6 +69,7 @@ class Nav extends Component {
       full_name: "",
       current_pass: "",
       currentPassword: "",
+      progressbar: false,
       newPassword: "",
       new_pass: "",
       conf_pass: "",
@@ -117,6 +121,10 @@ class Nav extends Component {
     }
 
     let url = getBaseUrl() + "/submitrequest";
+    this.setState({
+      linearprogressbar: true,
+      message:"Please Wait your Request Submitted"
+    });
     let temp = {
       userId: window.localStorage.getItem("id"),
       email: this.state.email,
@@ -127,6 +135,7 @@ class Nav extends Component {
       (response) => {
         // alert(response.data.message);
         this.setState({
+          linearprogressbar:false,
           snackbar: true,
           error: "Request Successfully Submit",
         });
@@ -210,6 +219,10 @@ class Nav extends Component {
       return;
     }
     let url = getBaseUrl() + "/changepassword";
+    this.setState({
+      linearprogressbar: true,
+      message:"Please Wait your password changed"
+    });
     let temp = {
       userId: window.localStorage.getItem("id"),
       currentPassword: this.state.currentPassword,
@@ -220,6 +233,7 @@ class Nav extends Component {
       (response) => {
         // alert(response.data.message);
         this.setState({
+          linearprogressbar:false,
           snackbar: true,
           error: "Password Successfully Changed",
         });
@@ -403,6 +417,10 @@ class Nav extends Component {
         password: this.state.password,
       };
       let url = getBaseUrl() + "/signup";
+      this.setState({
+        linearprogressbar: true,
+        message:"Displaying message after successful registration."
+      });
       axios
         .post(url, temp)
         .then(
@@ -416,6 +434,7 @@ class Nav extends Component {
             if (response.data.message === undefined) {
             } else {
               this.setState({
+                linearprogressbar:false,
                 snackbar: true,
                 error: response.data.message,
               });
@@ -473,6 +492,10 @@ class Nav extends Component {
         password: this.state.password,
       };
       let url = getBaseUrl() + "/login";
+      this.setState({
+        linearprogressbar: true,
+        message:"Please Wait "
+      });
       axios
         .post(url, temp)
         .then(
@@ -481,10 +504,15 @@ class Nav extends Component {
               alert(response.data.message);
               return;
             }
+           
             // let tmp = response.data;
             window.localStorage.setItem("isLoggedIn", true);
             window.localStorage.setItem("user", response.data.name);
             window.localStorage.setItem("id", response.data.id);
+            this.setState({
+              linearprogressbar:false,
+              
+            });
             window.location = "/dashboard";
           },
           (error) => {
@@ -497,10 +525,18 @@ class Nav extends Component {
     if (modal_type === "forgotpassword") {
       let temp = { mobileNumber: this.state.phone };
       let url = getBaseUrl() + "/forgetPassword";
+      this.setState({
+        linearprogressbar: true,
+        message:"Please Wait Your Password Forgotted "
+      });
       axios
         .post(url, temp)
         .then(
           (response) => {
+            this.setState({
+              linearprogressbar:false,
+              
+            });
             console.log(response);
             alert(response.data.message);
           },
@@ -1440,6 +1476,39 @@ class Nav extends Component {
           <a href="#">Clients</a>
           <a href="#">Contact</a>
         </div> */}
+           <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.progressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="loader-main">
+            {this.state.progressbar && (
+              <CircularProgress size={68} className="loaderbar" />
+            )}
+          </div>
+        </Dialog>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress">
+            <p className="ml-5 mr-5 change-profile">{this.state.message}</p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
+            )}
+          </div>
+        </Dialog>
       </AppBar>
     );
   }

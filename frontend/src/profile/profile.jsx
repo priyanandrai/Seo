@@ -18,6 +18,7 @@ import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { Form } from "react-bootstrap";
 import axios from "axios";
@@ -37,6 +38,7 @@ class Profile extends Component {
       organization: "",
       deleteoption: false,
       progressbar: false,
+      linearprogressbar:false,
       data: [],
       organizationEnable: true,
       profession: "N/A",
@@ -44,6 +46,7 @@ class Profile extends Component {
       emailEnable: true,
       username: "",
       email: "",
+      message:"",
       name: "",
       mid: "",
       mname: "",
@@ -108,6 +111,10 @@ error:"",
   }
   saveprofile() {
     let url = getBaseUrl() + "/editprofile";
+    this.setState({
+      linearprogressbar: true,
+      message:"Change the Profile"
+    })
     let temp = {
       id: window.localStorage.getItem("id"),
       name: this.state.name,
@@ -119,6 +126,7 @@ error:"",
     axios.put(url, temp).then(
       (response) => {
         this.setState({
+          linearprogressbar: false,
           snackbar: true,
           error:response.data.message,
         });
@@ -240,13 +248,14 @@ error:"",
     document.getElementById("close").click();
     let url = getBaseUrl() + "/deletedtasks?id=" + this.state.selectedtasktype;
     this.setState({
-      progressbar: true,
-    });
+      linearprogressbar: true,
+      message:"Please Wait Your Task is Deleting ."
+    })
     console.log(this.state.selectedtasktype);
     axios.get(url).then(
       (response) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
 
         this.belowlist();
@@ -255,7 +264,7 @@ error:"",
 
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
         console.log(error);
       }
@@ -339,8 +348,10 @@ error:"",
   handlesubmit = (e) => {
     let url = getBaseUrl() + "/starttask";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Search Engine Submission is Submitted "
     });
+   
     let month = new Date().getMonth() + 1;
     if (month < 10) {
       month = "0" + month;
@@ -370,7 +381,7 @@ error:"",
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -379,7 +390,7 @@ error:"",
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -387,7 +398,8 @@ error:"",
   handlesubmission = (e) => {
     let url = getBaseUrl() + "/starttask";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Social Book Marketing is Submitted "
     });
     let month = new Date().getMonth() + 1;
     if (month < 10) {
@@ -418,7 +430,7 @@ error:"",
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -427,7 +439,7 @@ error:"",
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -435,7 +447,8 @@ error:"",
   handleclick = (e) => {
     let url = getBaseUrl() + "/starttask";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Classified Submission is Submitted "
     });
     let month = new Date().getMonth() + 1;
     if (month < 10) {
@@ -469,7 +482,7 @@ error:"",
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -478,7 +491,7 @@ error:"",
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -557,7 +570,10 @@ error:"",
             </div>
 
             <div className="pt-2 upgrademargin ">
-              <a  onClick={this.dialogBox} className="upgradetext">
+              {/* <a  onClick={this.dialogBox} className="upgradetext">
+                Upgrade to Premium
+              </a> */}
+              <a  href="welcome" className="upgradetext">
                 Upgrade to Premium
               </a>
             </div>
@@ -1110,7 +1126,24 @@ error:"",
         >
           <div className="loader-main">
             {this.state.progressbar && (
-              <CircularProgress size={68} className="loaderbar" />
+              <CircularProgress  size={68} className="loaderbar" />
+            )}
+          </div>
+        </Dialog>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress mb-4">
+            <p className="ml-5 mr-5 change-profile">{this.state.message} </p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
             )}
           </div>
         </Dialog>

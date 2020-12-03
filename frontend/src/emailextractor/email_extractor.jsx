@@ -14,6 +14,7 @@ import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
+
 import LinearProgress from "@material-ui/core/LinearProgress";
 import "./email_extractor.css";
 

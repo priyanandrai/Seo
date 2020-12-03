@@ -2255,3 +2255,16 @@ a.disabled {
 #check:checked ~ .content{
   margin-left:100px !important
 }
+.linear-progress{
+  width: 100%;
+  height: auto;
+  padding-top: 8%;
+}
+.progress-hight{
+  height: 2vh !important;
+}
+.change-profile{
+  font-family: century;
+  color: cadetblue;
+
+}

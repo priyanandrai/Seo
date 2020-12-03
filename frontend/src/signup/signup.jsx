@@ -15,6 +15,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { getBaseUrl } from "../utils";
@@ -31,6 +32,8 @@ class Signup extends React.Component {
       full_name: "",
       signin: true,
       checked: false,
+      linearprogressbar:false,
+      message:"",
       phone: "",
       email: "",
       password: "",
@@ -127,6 +130,10 @@ class Signup extends React.Component {
       password: this.state.password,
     };
     let url = getBaseUrl() + "/signup";
+    this.setState({
+      linearprogressbar: true,
+      message:"Please wait Loading Data"
+    })
     axios
       .post(url, temp)
       .then(
@@ -134,6 +141,7 @@ class Signup extends React.Component {
           if (response.data.message === undefined) {
           } else {
             this.setState({
+              
               snackbar: true,
               error: response.data.message,
             });
@@ -148,6 +156,7 @@ class Signup extends React.Component {
           window.localStorage.setItem("isLoggedIn", true);
           window.location = "/dashboard";
           this.setState({
+            linearprogressbar: false,
             snackbar: true,
             error: "Thank you for Regisrtion",
           });
@@ -156,6 +165,7 @@ class Signup extends React.Component {
         },
         (error) => {
           this.setState({
+            linearprogressbar: false,
             snackbar: true,
             error: error.response.data.message,
           });
@@ -328,6 +338,23 @@ class Signup extends React.Component {
             }
           />
         </div>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress mb-4">
+            <p className="ml-5 mr-5 change-profile">{this.state.message} </p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
+            )}
+          </div>
+        </Dialog>
         {/* <Dialog
           onClose={() => {
             this.setState({

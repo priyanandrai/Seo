@@ -21,7 +21,7 @@ import {
 
 import  render  from 'react-dom';
 import  VncDisplay  from 'react-vnc-display';
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -49,6 +49,7 @@ class Dashboard extends Component {
       id: "",
       snackbar: false,
       progressbar: false,
+      linearprogressbar:false,
       tasktype: "xyz",
       // visualId: null,
       todaydate: new Date().toISOString(),
@@ -238,7 +239,8 @@ class Dashboard extends Component {
 
     let url = getBaseUrl() + "/starttask";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Search Engine Submission is Submitted "
     });
     let month = new Date().getMonth() + 1;
     if (month < 10) {
@@ -273,7 +275,7 @@ class Dashboard extends Component {
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -282,7 +284,7 @@ class Dashboard extends Component {
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -340,7 +342,8 @@ class Dashboard extends Component {
     // }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Social Book Marketing is Submitted "
     });
     let month = new Date().getMonth() + 1;
     if (month < 10) {
@@ -375,7 +378,7 @@ class Dashboard extends Component {
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -384,7 +387,7 @@ class Dashboard extends Component {
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -459,7 +462,8 @@ class Dashboard extends Component {
     // }
     let url = getBaseUrl() + "/starttask?id";
     this.setState({
-      progressbar: true,
+      linearprogressbar: true,
+      message:"Please wait Classified Submission is Submitted "
     });
     let month = new Date().getMonth() + 1;
     if (month < 10) {
@@ -494,7 +498,7 @@ class Dashboard extends Component {
       (response) => {
         // alert(response.data.message);
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
           snackbar: true,
           error: "Data is successfully uploaded",
         });
@@ -503,7 +507,7 @@ class Dashboard extends Component {
       },
       (error) => {
         this.setState({
-          progressbar: false,
+          linearprogressbar: false,
         });
       }
     );
@@ -1047,6 +1051,23 @@ let url = videourl + visualId + ".mp4";
           <div className="loader-main">
             {this.state.progressbar && (
               <CircularProgress size={68} className="loaderbar" />
+            )}
+          </div>
+        </Dialog>
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress">
+            <p className="ml-5 mr-5 change-profile">{this.state.message}</p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
             )}
           </div>
         </Dialog>

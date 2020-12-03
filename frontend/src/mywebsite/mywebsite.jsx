@@ -7,9 +7,11 @@ import Grid from "@material-ui/core/Grid";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import axios from "axios";
 import { getBaseUrl } from "../utils";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import "./mywebsite.css";
@@ -25,6 +27,7 @@ class Mywebsite extends React.Component {
       fetchdata: [],
       ranking: "",
       urls: "",
+      linearprogressbar:false,
       country: "",
       delta: "",
     };
@@ -36,16 +39,22 @@ class Mywebsite extends React.Component {
       getBaseUrl() +
       "/fetchdataforstatic?type=ranking&url=" +
       window.localStorage.getItem("url");
+      this.setState({
+        linearprogressbar: true,
+        message:"Your Ranking is Fetching"
+      })
     axios.get(url).then(
       (response) => {
         try {
         
           this.setState({
             ranking: response.data.ALEXA.SD[1].POPULARITY.TEXT,
+            linearprogressbar:false,
           });
         } catch (error) {
           this.setState({
             ranking: "Need to calculate data ",
+            linearprogressbar:false,
           });
         }
         try {
@@ -100,11 +109,16 @@ class Mywebsite extends React.Component {
       url: this.state.url,
       user_id: window.localStorage.getItem("id"),
     };
+    this.setState({
+      linearprogressbar: true,
+      message:"Please Waiting"
+    })
     axios
       .post(url1, temp)
       .then(
         (response) => {
           this.setState({
+            linearprogressbar: false,
             snackbar: true,
             error: response.data.message,
           });
@@ -260,7 +274,23 @@ class Mywebsite extends React.Component {
             </div>
           </Grid>
         </Grid>
-
+        <Dialog
+          // onClose={() => {
+          //   this.setState({
+          //     drilldown: false,
+          //   });
+          // }}
+          open={this.state.linearprogressbar}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="linear-progress mb-4">
+            <p className="ml-5 mr-5 change-profile">{this.state.message} </p>
+            {this.state.linearprogressbar && (
+              <LinearProgress  size={68} className="ml-5 mr-5 progress-hight" />
+            )}
+          </div>
+        </Dialog>
         <div>
           <Snackbar
             anchorOrigin={{
