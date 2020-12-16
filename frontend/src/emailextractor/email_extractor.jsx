@@ -100,13 +100,14 @@ class Email_extractor extends React.Component {
       buttontext: "Processing...",
       emailprogessbar: true,
     });
+    window.open("/https://www.Google.com/search?q=")
     let url = getBaseUrl() + "/startemailextractor";
     axios
       .post(url, temp)
       .then(
         (response) => {
          let urlData = "";
-         console.log(response.data)
+        //  console.log(response.data)
           if(response.data.Emails != undefined)
           {
             
@@ -118,7 +119,7 @@ class Email_extractor extends React.Component {
               }
             }) 
           } 
-          console.log("urlData "+ urlData)
+          // console.log("urlData "+ urlData)
           this.setState({
             emailoutput:urlData,
             buttontext: "Start Extracting",
