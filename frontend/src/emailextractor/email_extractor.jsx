@@ -100,7 +100,7 @@ class Email_extractor extends React.Component {
       buttontext: "Processing...",
       emailprogessbar: true,
     });
-    window.open("/https://www.Google.com/search?q=")
+    window.open( "https://www.Google.com/search?q=" + this.state.query + "&start=" +0)
     let url = getBaseUrl() + "/startemailextractor";
     axios
       .post(url, temp)
