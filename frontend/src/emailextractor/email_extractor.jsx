@@ -37,10 +37,13 @@ class Email_extractor extends React.Component {
       check5: false,
       check6: false,
       check7: false,
+      emailarr:[],
       emailoutput: "",
       buttontext: "Start Extracting",
       buttondisabled: "",
       emailprogessbar: false,
+      // duration:10000,
+    
     };
   }
   emailextractor() {
@@ -84,6 +87,13 @@ class Email_extractor extends React.Component {
       });
       return;
     }
+  // let urlwindow= window.open( "https://www.Google.com/search?q=" + this.state.query + "&start=" +0)
+
+  //   setTimeout(() => {
+      
+  //   }, 10000);
+
+
     // if (this.state.searchquery0 ==="") {
     //   this.setState({
     //     snackbar: true,
@@ -100,7 +110,7 @@ class Email_extractor extends React.Component {
       buttontext: "Processing...",
       emailprogessbar: true,
     });
-    window.open( "https://www.Google.com/search?q=" + this.state.query + "&start=" +0)
+   
     let url = getBaseUrl() + "/startemailextractor";
     axios
       .post(url, temp)
@@ -119,7 +129,9 @@ class Email_extractor extends React.Component {
               }
             }) 
           } 
-          // console.log("urlData "+ urlData)
+          this.state.emailarr=urlData.split(",");
+          //  console.log("urlData ", this.state.emailarr);
+          //  console.log(this.state.emailarr.length);
           this.setState({
             emailoutput:urlData,
             buttontext: "Start Extracting",
@@ -170,6 +182,13 @@ class Email_extractor extends React.Component {
     //   check7:!this.state.check7
     // })
   }
+//     divide() {
+//     var txt;
+//     txt = this.state.emailoutput().value;
+//     var text = txt.split(",");
+//     var str = text.join(',</br>');
+//     document.write(str);
+// } 
   closeSnackbar = () => {
     this.setState({ snackbar: false });
   };
@@ -427,6 +446,7 @@ class Email_extractor extends React.Component {
               </div> */}
                 <div className="content_item">
                   <p className="extarct_mail">Output</p>
+                  <p  className="extarct_mail">Total Count:{this.state.emailarr.length}</p>
                   <u className="copy_all_content" onClick={this.copyall}>
                     Copy All
                   </u>
@@ -435,7 +455,8 @@ class Email_extractor extends React.Component {
                 <textarea
                   className="input_textarea"
                   id="myInput"
-                  value={this.state.emailoutput}
+                  name="txt"
+                  value={this.state.emailarr.join("\n")}
                   disabled={true}
                 >
                   {/* {this.state.emailoutput} */}
