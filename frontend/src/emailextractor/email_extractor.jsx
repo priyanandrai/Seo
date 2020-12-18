@@ -446,7 +446,10 @@ class Email_extractor extends React.Component {
               </div> */}
                 <div className="content_item">
                   <p className="extarct_mail">Output</p>
-                  <p  className="extarct_mail">Total Count:{this.state.emailarr.length}</p>
+                  <div className="d-flex">
+                  <p  className="extarct_mail">Total Count:</p>
+                  <p className="length-color">{this.state.emailarr.length}</p>
+                  </div>
                   <u className="copy_all_content" onClick={this.copyall}>
                     Copy All
                   </u>
