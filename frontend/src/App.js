@@ -31,6 +31,7 @@ import Email_extractor from "./emailextractor/email_extractor";
 import Backlink_check from "./backlinkchecks/backlink_check";
 import OnPageFactor from "./onpagefactor/onpagefactor";
 import PageSpeedTest from "./pagespeedtest/pagespeedtest";
+import Chatbot from "./Chatbot";
 function App() {
  
     return (
@@ -66,6 +67,7 @@ function App() {
         <Route exact path="/Backlink-checkes" component={ Backlink_check}/>
         <Route exact path="/onPage-factor" component={ OnPageFactor}/>
         <Route exact path="/pagespeed-tester" component={ PageSpeedTest}/>
+        <Route exact path="/chatbot" component={ Chatbot}/>
       </Router>
        );
  
