@@ -39,10 +39,10 @@ class Mywebsite extends React.Component {
       getBaseUrl() +
       "/fetchdataforstatic?type=ranking&url=" +
       window.localStorage.getItem("url");
-      this.setState({
-        linearprogressbar: true,
-        message:"Your Ranking is Fetching"
-      })
+      // this.setState({
+      //   linearprogressbar: true,
+      //   message:"Your Ranking is Fetching"
+      // })
     axios.get(url).then(
       (response) => {
         try {

@@ -13,6 +13,7 @@ import logo3 from "../images/logo3.png";
 import logo4 from "../images/logo4.jpg";
 import logo5 from "../images/logo5.png";
 import logo10 from "../images/logo10.png";
+import logo22 from "../images/logo22.png";
 
 class Home extends Component {
   constructor(props) {
@@ -123,7 +124,20 @@ class Home extends Component {
                   </div>
                 </div></a>
               </Grid>
-              <Grid item md={4}></Grid>
+              <Grid item md={4}>
+              <a className="a_tag_color" href="chatbot">
+                <div className="home_grid mt-5" >
+                  <p className="home_seo">ChatBot</p>
+                  <p className="home_content ml-3 mr-3">
+                    Let us help you create a fully customized niche social
+                    network website with AI-based activity feed, multiple post
+                    types, and powerful apps.
+                  </p>
+                  <div className="home_icon1">
+                    <img className="home_img" src={logo22} alt="" />
+                  </div>
+                </div></a>
+              </Grid>
             </Grid>
           </div>
         </div>

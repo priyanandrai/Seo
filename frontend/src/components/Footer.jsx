@@ -89,8 +89,8 @@ class Footer extends React.Component {
     return (
       // <footer>
       <div>
-        <div id="chatbotmagic" clientid="12654415645452" titleforchatbox = "uiououioui " src="https://srcservicesltd.com/static/media/SR_logo.283440b0.PNG"
-         welcomemessage="Welcome To help desk , How can i help you" popupbackgroundcolor ="black" headercolor = "" serverlabelcolor ="" clientlabelcolor =""></div>
+        {/* <div id="chatbotmagic" clientid="12654415645452" titleforchatbox = "uiououioui " src="https://srcservicesltd.com/static/media/SR_logo.283440b0.PNG"
+         welcomemessage="Welcome To help desk , How can i help you" popupbackgroundcolor ="black" headercolor = "" serverlabelcolor ="" clientlabelcolor =""></div> */}
         <div className="footer_color">
           <Grid container>
             <Grid item md={3}>
