@@ -17,98 +17,106 @@ export class Chatbot extends Component {
     return (
       <div>
         <div className="mt-4 mb-3">
-          <Grid className=" mywebsite_container">
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-              <div id="draggable">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">Your Header color</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable1">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable2">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable3">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
+        <Grid container className="three_card">
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable9">
+                      <Card className="chot-web bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable1">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable2">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable3">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
           </Grid>
           <div className="mt-4">
           <Grid className=" mywebsite_container">
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-              <div id="draggable4">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable5">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable6">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
-            <Grid item md={3} className="pl-2 pr-2 pt-2">
-            <div id="draggable7">
-                <Card>
-                  <CardActionArea>
-                    <CardContent>
-                      <div className="chatbot-card">hello</div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
-            </Grid>
+          <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable4">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable5">
+                      <Card className="chot-web bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable6">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
+                <Grid item md={3} className="pl-2 pr-2">
+                  <a className="a_tag_color">
+                    <div className="boder_radious" id="draggable7">
+                      <Card className="chot-web  bg_color1">
+                        <p className="gridfirst">Your Header color</p>
+                        {/* <p className="global_rank">
+                          bnmnbmbnmb   </p> */}
+                        
+                      </Card>{" "}
+                    </div>
+                  </a>
+                </Grid>
           </Grid>
           </div>
         </div>
