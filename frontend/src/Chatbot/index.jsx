@@ -72,7 +72,7 @@ export class Chatbot extends Component {
                           className="title-input"
                           value={this.state.headercolor}
                           onChange={(e) =>{
-                            document.getElementById("popupheader").style="headercolor"
+                            document.getElementById("popupheader").style.background=e.target.value
                             this.setState({
                               headercolor:e.target.value
                             })
@@ -98,11 +98,11 @@ export class Chatbot extends Component {
                           placeholder="Enter Your Header"
                           id="Name"
                           className="title-input"
-                          value={this.state.popupbackgroundcolor2}
+                          value={this.state.popupbackgroundcolor}
                           onChange={(e) =>{
-                            // document.getElementByB("popupheader").innerHTML = e.target.value
+                            document.getElementById("magicchatbotmessagebox").style.background = e.target.value
                             this.setState({
-                              popupbackgroundcolor2:e.target.value
+                              popupbackgroundcolor:e.target.value
                             })
                           }
                           }
